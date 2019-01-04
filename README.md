@@ -19,6 +19,22 @@ Note: <SD_CARD> is the whole card, not a partition e.g. `/dev/sda` and NOT `/dev
 
 This option is helpful if you want to create bespoke images.
 
+#### Initialising the repository
+
+If the image is going to be built from source, the Linux kernel and Grub bootloader source is required.  Fortunatetly, this project includes them as sub-modules.  To pull down the source issue the following commands:
+
+```
+$ git submodule init
+$ git submodule update
+```
+
+If there have been updates since the submodules were initialised, issues these commands to pull down the changes:
+
+```
+git submodule update --remote src/linux
+git submodule update --remote src/grub
+```
+
 #### Using Docker
 
 Note: Something to bear in mind/read-up on; Running LibVirt in Docker requires the `--privileged` flag for networking purposes.
