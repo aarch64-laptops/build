@@ -7,6 +7,7 @@ FROM ubuntu:bionic
 # 2. Install this project's basic prerequisites
 # 3. Install LibVirt/QEMU to run AArch64 VMs
 # 4. Install required packages to build the Linux kernel
+# 5. Install required packages to build Grub
 RUN set -ex;                                   \
     apt update;                                \
     apt upgrade -y;                            \
@@ -28,7 +29,10 @@ RUN set -ex;                                   \
         bc                                     \
         libssl-dev                             \
         cpio                                   \
-        gcc-aarch64-linux-gnu
+        gcc-aarch64-linux-gnu;                 \
+    apt install -y                             \
+        autoconf                               \
+        pkg-config
 
 # Create mount points
 VOLUME /isos /output /scripts /src
