@@ -1,0 +1,1 @@
+scripts/quick-start.sh
