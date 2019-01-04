@@ -36,4 +36,9 @@ docker rm aarch64-laptops-ubuntu-vm
 print_blue "Building the Linux kernel"
 docker run -ti --rm --name aarch64-laptops-kernel                                          \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
-       aarch64-laptops-ubuntu-vm /scripts/make-image.sh build-kernel
+       aarch64-laptops-build-env:0.1 /scripts/make-image.sh build-kernel
+
+print_blue "Building Grub"
+docker run -ti --rm --name aarch64-laptops-grub                                            \
+       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
+       aarch64-laptops-build-env:0.1 /scripts/make-image.sh build-grub

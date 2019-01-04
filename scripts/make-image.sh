@@ -137,17 +137,33 @@ build_kernel()
 	rm $OUTDIR/linux-*.deb
     fi
 
-    ccache make                                        \
-	   ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	   KBUILD_OUTPUT=/src/linux/build-arm64        \
-	   laptops_defconfig
+    ccache make                                     \
+	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+	KBUILD_OUTPUT=/src/linux/build-arm64        \
+	laptops_defconfig
 
-    ccache make -j $(nproc)                            \
-	   ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	   KBUILD_OUTPUT=/src/linux/build-arm64        \
-	   bindeb-pkg
+    ccache make -j $(nproc)                         \
+	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+	KBUILD_OUTPUT=/src/linux/build-arm64        \
+	bindeb-pkg
 
     cp linux-*.deb $OUTDIR
+}
+
+build_grub()
+{
+    cd $SRCDIR/grub
+
+    print_red "Configuring Grub"
+    ./autogen.sh
+    ./configure --target=aarch64-linux-gnu
+
+    print_red "Compiling Grub"
+    make -j $(nproc)
+
+    print_red "Creating Grub image ($OUTDIR/BOOTAA64.EFI)"
+    ./grub-mkimage --directory grub-core --prefix /boot/grub \
+	--output $OUTDIR/BOOTAA64.EFI --format arm64-efi
 }
 
 while getopts ":f" opt; do
@@ -197,6 +213,13 @@ fi
 if [[ $@ =~ build-kernel ]]; then
     print_red "Building the Linux Kernel"
     build_kernel
+
+    exit 0
+fi
+
+if [[ $@ =~ build-grub ]]; then
+    print_red "Building the Grub bootloader"
+    build_grub
 
     exit 0
 fi
