@@ -17,11 +17,7 @@ This project provides the user/owner some options to install Linux on these devi
 
 Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently available.
 
-Download [THIS IMAGE - TODO: UPDATE](www.link.com) and `dd` it to an SD card using the following command:
-
-`$ xzcat <IMG>.xz | sudo dd of=/dev/<SD_CARD> oflag=direct bs=1M status=progress`
-
-Note: <SD_CARD> is the whole card, not a partition e.g. `/dev/sda` and NOT `/dev/sda1`.
+Download [THIS IMAGE - TODO: UPDATE](www.link.com) and head to the [Flashing the image](#Flashing-the-image) section below.
 
 ## Building your own image(s)
 
@@ -56,6 +52,10 @@ Issue the following command:
 ```
 $ ./quick-start.sh
 ```
+
+If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
+
+If it's present, head to the [Flashing the image](#Flashing-the-image) section below.
 
 ### Option 2: Manually execute the steps to build an image inside a Docker container
 
@@ -92,6 +92,10 @@ $ docker run -ti --privileged --name ubuntu-bionic-image-built-`date +%m-%d_%H%M
 	ubuntu:bionic /scripts/make-image.sh install-ubuntu
 ```
 
+If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
+
+If it's present, head to the [Flashing the image](#Flashing-the-image) section below.
+
 ### Option 3. Manually execute the stops to build an image on your host machine
 
 **Note:** Only works on `apt` based distros (and only tested on Ubuntu)
@@ -103,6 +107,10 @@ If there is a compelling reason preventing the use of Docker, the `scripts/make-
 ```
 $ scripts/make-image.sh
 ```
+
+If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
+
+If it's present, head to the [Flashing the image](#Flashing-the-image) section below.
 
 ## Further Reading
 
@@ -121,3 +129,15 @@ If there have been updates since the submodules were initialised, issues these c
 git submodule update --remote src/linux
 git submodule update --remote src/grub
 ```
+
+### Flashing the image
+
+**Note:** xz utilities are required to extract the image before flashing can commence.
+
+The image is firstly extracted using `xzcat` and flashed to the SD card using `dd`:
+
+```
+$ xzcat <IMG>.xz | sudo dd of=/dev/<SD_CARD> oflag=direct bs=1M status=progress
+```
+
+Note: <SD_CARD> is the whole card, not a partition e.g. `/dev/sda` and NOT `/dev/sda1`.
