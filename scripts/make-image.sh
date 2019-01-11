@@ -19,6 +19,12 @@ print_red()
     echo -e "\e[01;31m$@ \e[0m"
 }
 
+usage()
+{
+    print_red "$0 [-f] [--install-ubuntu|--build-kernel|--build-grub|--setup-vm]"
+    return 1
+}
+
 startup_checks()
 {
     # Ensure distro is supported (users are free to edit this to fit their needs)
@@ -194,6 +200,10 @@ build_grub()
 }
 
 
+if [ $# -lt 1 ]; then
+    usage
+fi
+
 GETOPT=`getopt -o f --long install-ubuntu,build-kernel,build-grub,setup-vm -- "$@"`
 eval set -- "$GETOPT"
 
@@ -225,7 +235,7 @@ while true; do
 	    ;;
 	*)
 	    print_red "Invalid option: '$1'"
-	    exit 1
+	    usage
 	    ;;
     esac
 done
