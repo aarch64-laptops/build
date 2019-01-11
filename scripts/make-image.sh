@@ -109,7 +109,7 @@ download_lts_iso()
     wget -P $ISODIR http://cdimage.ubuntu.com/releases/18.04/release/$ISO
 }
 
-install_ubuntu()
+start_ubuntu_installer()
 {
     vm=aarch64-laptops-bionic
 
@@ -122,6 +122,30 @@ install_ubuntu()
 
     virt-install --accelerate --cdrom $ISODIR/$ISO --disk size=4,format=raw \
 	--name $vm --os-type linux --ram 2048 --arch aarch64 --noreboot
+}
+
+install_ubuntu()
+{
+    print_red "Installing prerequisites"
+    install_prerequisites
+
+    print_red "Upgrading system (requires privilege escalation)"
+    upgrade_system
+
+    print_red "Checking for QEMU updates"
+    check_for_qemu_updates
+
+    print_red "Installing VM packages (requires privilege escalation)"
+    install_vm_packages
+
+    print_red "Enabling LibVirt (requires privilege escalation)"
+    start_libvirt
+
+    print_red "Downloading latest Ubuntu LTS ISO (Ubuntu Bionic)"
+    download_lts_iso
+
+    print_red "Installing Ubuntu into a VM"
+    start_ubuntu_installer
 }
 
 build_kernel()
@@ -186,24 +210,6 @@ print_red "Conducting start-up checks"
 startup_checks
 
 if [[ $@ =~ install-ubuntu ]]; then
-    print_red "Installing prerequisites"
-    install_prerequisites
-    
-    print_red "Upgrading system (requires privilege escalation)"
-    upgrade_system
-
-    print_red "Checking for QEMU updates"
-    check_for_qemu_updates
-
-    print_red "Installing VM packages (requires privilege escalation)"
-    install_vm_packages
-
-    print_red "Enabling LibVirt (requires privilege escalation)"
-    start_libvirt
-
-    print_red "Downloading latest Ubuntu LTS ISO (Ubuntu Bionic)"
-    download_lts_iso
-
     print_red "Installing Ubuntu into a VM"
     install_ubuntu
 
