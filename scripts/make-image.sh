@@ -3,6 +3,9 @@
 # Exit on error (saves checking the return value of every command)
 set -e
 
+# DEBUG: Uncomment to enable
+# set -x
+
 ISO=ubuntu-18.04.1-server-arm64.iso
 ISODIR=./isos
 SRCDIR=./src
