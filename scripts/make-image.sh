@@ -104,7 +104,10 @@ install_vm_packages()
 
 start_libvirt()
 {
+    print_red "Starting service LibVirtD"
     $SUDO service libvirtd start
+
+    print_red "Starting service VirtLogD"
     $SUDO service virtlogd start
 }
 
