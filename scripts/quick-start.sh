@@ -43,3 +43,9 @@ print_blue "Building Grub (~5 mins)"
 docker run -ti --rm --name aarch64-laptops-grub                                            \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
+
+print_blue "Setting up VM (~35 mins)"
+docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
+       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
+       -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
+       aarch64-laptops-ubuntu-vm:0.1 /scripts/make-image.sh --setup-vm
