@@ -10,7 +10,9 @@ ISO=ubuntu-18.04.1-server-arm64.iso
 ISODIR=./isos
 SRCDIR=./src
 OUTDIR=./output
+SCRIPTSDIR=./scripts
 INCONTAINER=""
+USERNAME=""
 FORCE=""
 SUDO=""
 
@@ -40,6 +42,7 @@ startup_checks()
 	ISODIR=/isos
 	OUTDIR=/output
 	SRCDIR=/src
+	SCRIPTSDIR=/scripts
     else
 	if [ ! -d isos ] || [ ! -d output ] || [ ! -d scripts ]; then
 	    print_red "$0 should be executed from this project's root directory"
@@ -219,6 +222,71 @@ build_grub()
     cp grub-core/*.{mod,lst} $OUTMODDIR
 }
 
+setup_vm()
+{
+    local BOOTTIME=0
+    local TIMEER=0
+    local VMIP=""
+
+    start_libvirt
+
+    print_red "Starting VM"
+    virsh start aarch64-laptops-bionic
+
+    print_red "Waiting for VM to boot"
+    while [ "$VMIP" == "" ]; do
+	sleep 1
+	BOOTTIME=$((BOOTTIME + 1))
+	VMIP=$(arp -n | awk '/virbr0/{print $1}')
+
+	if [ $BOOTTIME -gt 300 ]; then
+	    print_red "Failed to boot the VM in time"
+	    return 1
+	fi
+    done
+
+    while true; do
+	STATE=$(nmap -p22 $VMIP | awk '/22\/tcp/{print $2}')
+	if [ "$STATE" == "open" ]; then
+	    break
+	else
+	    sleep 1
+	    TIMER=$((TIMER + 1))
+	    if [ $TIMER -gt 60 ]; then
+		nmap -p22 $VMIP
+		print_red "VM's SSH service didn't come up in time - is it installed/enabled?"
+		return 1
+	    fi
+	fi
+    done
+
+    sleep 5 # Wait for LibVirt to update its DHCP leases list
+
+    VMHOSTNAME=$(virsh net-dhcp-leases default | awk -v v=$VMIP '/v/{print $6}')
+
+    print_red "VM up (Hostname [$VMHOSTNAME] IP [$VMIP] Boot-time [$BOOTTIME seconds])"
+
+    print_red "Packaging up Kernel and Grub for delivery into the VM"
+    pushd $OUTDIR > /dev/null
+    tar -czf /output.tgz --exclude=linux-*dbg*.deb grub linux-*.deb msm8998-mtp.dtb
+    popd > /dev/null
+
+    while [ ! $USERNAME ]; do
+	print_red "[INPUT REQUIRED] Please enter the username you used during the install"
+	read USERNAME
+    done
+
+    print_red "Copying artefacts to the VM via SCP (requires authentication)"
+    scp -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+	output.tgz $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
+
+    print_red "Running the setup script via SSH (requires authentication [twice])"
+    ssh -t -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+	$USERNAME@$VMIP 'sudo /tmp/setup-vm.sh'
+
+    print_red "Pulling the plug from the VM"
+    virsh destroy aarch64-laptops-bionic
+}
 
 if [ $# -lt 1 ]; then
     usage
@@ -266,20 +334,23 @@ startup_checks
 if [ $INSTALL_UBUNTU ]; then
     print_red "Installing Ubuntu into a VM"
     install_ubuntu
-
     exit 0
 fi
 
 if [ $BUILD_KERNEL ]; then
     print_red "Building the Linux Kernel"
     build_kernel
-
     exit 0
 fi
 
 if [ $BUILD_GRUB ]; then
     print_red "Building the Grub bootloader"
     build_grub
+    exit 0
+fi
 
+if [ $SETUP_VM ]; then
+    print_red "Setting up the Ubuntu VM"
+    setup_vm
     exit 0
 fi
