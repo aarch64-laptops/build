@@ -193,7 +193,11 @@ build_kernel()
 
 build_grub()
 {
+    OUTFILE=$OUTDIR/grub/BOOTAA64.EFI
+    OUTMODDIR=$OUTDIR/grub/modules
+
     cd $SRCDIR/grub
+    mkdir -p $OUTMODDIR
 
     print_red "Configuring Grub"
     ./autogen.sh
@@ -202,9 +206,17 @@ build_grub()
     print_red "Compiling Grub"
     make -j $(nproc)
 
-    print_red "Creating Grub image ($OUTDIR/BOOTAA64.EFI)"
-    ./grub-mkimage --directory grub-core --prefix /boot/grub \
-	--output $OUTDIR/BOOTAA64.EFI --format arm64-efi
+    print_red "Creating Grub image and copying to $OUTFILE"
+    ./grub-mkimage --directory grub-core --prefix '(hd1,gpt2)/boot/grub'   \
+	--output $OUTFILE --format arm64-efi                               \
+	part_gpt part_msdos ntfs ntfscomp hfsplus fat ext2                 \
+	normal chain boot configfile linux minicmd gfxterm                 \
+	all_video efi_gop video_fb font video                              \
+	loadenv disk test gzio bufio gettext terminal                      \
+	crypto extcmd boot fshelp
+
+    print_red "Copying Grub modules into $OUTMODDIR"
+    cp grub-core/*.{mod,lst} $OUTMODDIR
 }
 
 
