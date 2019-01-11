@@ -163,10 +163,14 @@ build_kernel()
 
     if ls $OUTDIR/linux-*.deb > /dev/null 2>&1; then
 	if [ ! $FORCE ]; then
-	    print_red "$OUTDIR already contains kernel debs - use -f to overwrite them"
+	    print_red "The output directory already contains kernel debs - use -f to overwrite them"
 	    return 1
 	fi
-	rm linux-*.deb
+	rm $OUTDIR/linux-*.deb
+    fi
+
+    # Remove old packages
+    if ls linux-*.deb > /dev/null 2>&1; then
 	rm $OUTDIR/linux-*.deb
     fi
 
@@ -180,7 +184,8 @@ build_kernel()
 	KBUILD_OUTPUT=/src/linux/build-arm64        \
 	bindeb-pkg
 
-    cp linux-*.deb $OUTDIR
+    print_red "Copying *.debs and DTB to $OUTDIR"
+    cp linux-*.deb build-arm64/arch/arm64/boot/dts/qcom/msm8998-mtp.dtb $OUTDIR
 }
 
 build_grub()
