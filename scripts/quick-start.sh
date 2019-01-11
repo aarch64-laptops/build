@@ -24,7 +24,8 @@ docker build -t aarch64-laptops-build-env:0.1 .
 print_blue "Build the basic SD card image"
 print_blue " Ubuntu Bionic: installed in a VM (using LibVirt)"
 docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                               \
-       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
+       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
+       -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu
 
 print_blue "Saving the aarch64-laptops-ubuntu-vm container as an image"
