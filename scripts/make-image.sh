@@ -190,17 +190,38 @@ build_grub()
 	--output $OUTDIR/BOOTAA64.EFI --format arm64-efi
 }
 
-while getopts ":f" opt; do
-    case $opt in
-	f)
+
+GETOPT=`getopt -o f --long install-ubuntu,build-kernel,build-grub,setup-vm -- "$@"`
+eval set -- "$GETOPT"
+
+while true; do
+    case $1 in
+	--install-ubuntu)
+	    INSTALL_UBUNTU=true
+	    shift
+	    ;;
+	--build-kernel)
+	    BUILD_KERNEL=true
+	    shift
+	    ;;
+	--build-grub)
+	    BUILD_GRUB=true
+	    shift
+	    ;;
+	--setup-vm)
+	    SETUP_VM=true
+	    shift
+	    ;;
+	-f)
 	    FORCE=true
+	    shift
 	    ;;
-	\?)
-	    print_red "Invalid option: -$OPTARG"
-	    exit 1
+	--)
+	    shift
+	    break
 	    ;;
-	:)
-	    print_red "Option -$OPTARG requires an argument."
+	*)
+	    print_red "Invalid option: '$1'"
 	    exit 1
 	    ;;
     esac
@@ -209,21 +230,21 @@ done
 print_red "Conducting start-up checks"
 startup_checks
 
-if [[ $@ =~ install-ubuntu ]]; then
+if [ $INSTALL_UBUNTU ]; then
     print_red "Installing Ubuntu into a VM"
     install_ubuntu
 
     exit 0
 fi
 
-if [[ $@ =~ build-kernel ]]; then
+if [ $BUILD_KERNEL ]; then
     print_red "Building the Linux Kernel"
     build_kernel
 
     exit 0
 fi
 
-if [[ $@ =~ build-grub ]]; then
+if [ $BUILD_GRUB ]; then
     print_red "Building the Grub bootloader"
     build_grub
 

@@ -25,7 +25,7 @@ print_blue "Build the basic SD card image"
 print_blue " Ubuntu Bionic: installed in a VM (using LibVirt)"
 docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                               \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh install-ubuntu
+       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu
 
 print_blue "Saving the aarch64-laptops-ubuntu-vm container as an image"
 docker commit aarch64-laptops-ubuntu-vm aarch64-laptops-ubuntu-vm:0.1
@@ -36,9 +36,9 @@ docker rm aarch64-laptops-ubuntu-vm
 print_blue "Building the Linux kernel"
 docker run -ti --rm --name aarch64-laptops-kernel                                          \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh build-kernel
+       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-kernel
 
 print_blue "Building Grub"
 docker run -ti --rm --name aarch64-laptops-grub                                            \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh build-grub
+       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
