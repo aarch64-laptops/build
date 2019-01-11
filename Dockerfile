@@ -13,6 +13,10 @@ RUN set -ex;                                   \
     apt upgrade -y;                            \
     apt install -y                             \
         software-properties-common             \
+        net-tools                              \
+        nmap                                   \
+        ssh                                    \
+        tar                                    \
         wget;                                  \
     add-apt-repository -y cloud-archive:rocky; \
     apt install -y                             \
