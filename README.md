@@ -45,6 +45,8 @@ Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently ava
 
 Download [THIS IMAGE](https://github.com/aarch64-laptops/prebuilt/raw/master/aarch64-laptops-bionic-prebuilt.img.xz) and head to the [Flashing the image](#Flashing-the-image) section below.
 
+*Note:* The default credentials for this image are; username: `ubuntu` and password `ubuntu`.
+
 ## Building your own image(s)
 
 This option is helpful if you want to create bespoke images, or if you want to see how the build process works.
@@ -80,6 +82,8 @@ Now issue the following command:
 ```
 $ ./quick-start.sh
 ```
+
+*Note:*: Image creation using the `quick-start.sh` script is not a completely automated process.  The user will still be required to manually go through the Ubuntu Installer and to enter their chosen username & password (twice - once for upload and the other to run the `setup-vm.sh` script with escalated privileges) during the package upload (to the VM) process.
 
 If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
 
