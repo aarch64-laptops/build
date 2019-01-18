@@ -20,14 +20,10 @@
 
 - [x] Boots into Grub `Normal Mode`
 - [x] Boots Linux kernel from rootfs (using Device Tree)
-- [ ] Boots to Ubuntu login prompt/shell
+- [x] Boots to Ubuntu login prompt/shell
 - [ ] USB working
 - [ ] On-board storage accessible
 - [ ] WiFi functional
-
-* Currently only boots into initramfs
-  * Unable to find the (MicroSD card based) rootfs
-  * Believed to be a Clock and/or Regulator issue
 
 ## Overview
 
