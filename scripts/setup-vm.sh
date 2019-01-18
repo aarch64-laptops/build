@@ -9,12 +9,14 @@ print_green()
     echo -e "\e[01;32m$@ \e[0m"
 }
 
-print_green "We're inside the VM"
+print_green "Inside the VM"
 
 if [ ! -f $PACKAGES ]; then
     print_green "Packages archive missing"
     exit 1
 fi
+
+print_green "  We'll take it from here - go grab a coffee, this'll take a while!"
 
 ## The pain of doing this in a VM is not worth the gain
 # print_green "Upgrading the VM (takes a long time .. go get a coffee!)"
