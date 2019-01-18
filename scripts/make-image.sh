@@ -271,6 +271,8 @@ setup_vm()
     tar -czf /output.tgz --exclude=linux-*dbg*.deb grub linux-*.deb msm8998-mtp.dtb
     popd > /dev/null
 
+    print_red "[TIMEOUT WARNING] Keep an eye on this section until you've entered your password (twice)\n"
+
     while [ ! $USERNAME ]; do
 	print_red "[INPUT REQUIRED] Please enter the username you used during the install"
 	read USERNAME
