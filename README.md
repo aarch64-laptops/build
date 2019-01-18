@@ -8,9 +8,14 @@
 - [x] Boots Linux kernel from rootfs (using Device Tree)
 - [x] Boots to Ubuntu login prompt/shell
 - [x] USB working
+- [x] GUI Desktop
+- [x] Keyboard input
+- [ ] Touchpad input
 - [ ] On-board Storage accessible (UFS based)
 - [ ] WiFi functional (UFS based)
 
+* Touchpad input is not yet functional
+  * To work around this, plug in a USB mouse
 * UFS support is being actively worked on upstream by Marc Gonzalez
   * Both Storage and WiFi depend on UFS support
 
@@ -20,8 +25,14 @@
 - [x] Boots Linux kernel from rootfs (using Device Tree)
 - [x] Boots to Ubuntu login prompt/shell
 - [x] USB working
-- [ ] On-board storage accessible
-- [ ] WiFi functional
+- [x] GUI Desktop
+- [x] Keyboard input
+- [x] Touchpad input
+- [ ] On-board Storage accessible (UFS based)
+- [ ] WiFi functional (UFS based)
+
+* UFS support is being actively worked on upstream by Marc Gonzalez
+  * Both Storage and WiFi depend on UFS support
 
 ## Overview
 
@@ -30,14 +41,14 @@ In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have rele
 This project provides the user/owner some options to install Linux on these devices.  The choices are as follows:
 
 1. Download a pre-built MicroSD card image and flash it onto an MicroSD card
-2. Use the `quick-start.sh` script to install your own bespoke image
+2. Use the `quick-start.sh` script to build your own bespoke image
 3. Execute each of the steps manually (still using the other helper scripts)
 
 ## Use an existing pre-built MicroSD card image
 
 Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently available.
 
-Download [THIS IMAGE](https://github.com/aarch64-laptops/prebuilt/raw/master/aarch64-laptops-bionic-prebuilt.img.xz) and head to the [Flashing the image](#Flashing-the-image) section below.
+Download [THIS IMAGE](https://github.com/aarch64-laptops/prebuilt/raw/master/aarch64-laptops-bionic-prebuilt.img.xz) and head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
 *Note:* The default credentials for this image are; username: `ubuntu` and password `ubuntu`.
 
@@ -45,20 +56,20 @@ Download [THIS IMAGE](https://github.com/aarch64-laptops/prebuilt/raw/master/aar
 
 This option is helpful if you want to create bespoke images, or if you want to see how the build process works.
 
-**Note:** Whichever method of building your own images you choice, please be aware that a lot of disk space will be required.  The VM image, which will become the final MicroSD card image will be around 4GB and the Linux kernel source is around 1.5GB.  On top of this, if one of the docker methods are selected, space will be required for the Docker images.  Docker images are usually located in `/var/lib/docker`.  It would be worth checking firstly where this is located/mounted from and secondly how much free space is left on that partition.
+**Note:** Whichever method of building your own images you choose, please be aware that a lot of disk space will be required.  The VM image, which will become the final MicroSD card image will be around 8GB and the Linux kernel source is around 1.5GB.  On top of this, if one of the docker methods are selected, space will be required for the Docker images.  Docker images are usually located in `/var/lib/docker`.  It would be worth checking firstly where this is located/mounted and secondly how much free space is left on that partition.
 
-There are more choice to make:
+There are more choices to make:
 
 **Note:** Even the automatic method requires user input at the Ubuntu Installer stage.
 
 1. Automatically build an image using the `quick-start.sh` script (uses Docker containers)
   * Quickest and easiest
   * Doesn't allow for easy editing of the steps to create bespoke images
-  * Keep the host machine clean - doesn't install packages onto it
+  * Keeps the host machine clean - doesn't install packages onto it
   * Only requirement is to have Docker installed
 2. Manually execute the steps to build an image inside a Docker container
   * Most control over how each component is installed - allows incremental edits
-  * Keep the host machine clean - doesn't install packages onto it
+  * Keeps the host machine clean - doesn't install packages onto it
   * Only requirement is to have Docker installed
 3. Manually execute the stops to build an image on your host machine
   * Most control over how each component is installed - allows incremental edits
@@ -77,11 +88,13 @@ Now issue the following command:
 $ ./quick-start.sh
 ```
 
-*Note:*: Image creation using the `quick-start.sh` script is not a completely automated process.  The user will still be required to manually go through the Ubuntu Installer and to enter their chosen username & password (twice - once for upload and the other to run the `setup-vm.sh` script with escalated privileges) during the package upload (to the VM) process.
+**Note:** Image creation using the `quick-start.sh` script is not a completely automated process.  The user will still be required to manually go through the Ubuntu Installer and to enter their chosen username & password (twice - once for upload and the other to run the `setup-vm.sh` script with escalated privileges) during the package upload (to the VM) process.
+
+**IMPORTANT:** It is of the utmost importance that SSH is installed as part of this process, or you will have to find a way to install it retroactively (it is possible, but is a pain).  SSH is used to transport the package archive and configure scripts into the VM for installation/execution.
 
 If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
 
-If it's present, head to the [Flashing the image](#Flashing-the-image) section below.
+If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sectios below.
 
 ### Option 2: Manually execute the steps to build an image inside a Docker container
 
@@ -95,11 +108,11 @@ Building these images within containers is the least intrusive method to build y
 
 This stage requires the most amount of user interaction.  Once the installer starts you will be required to go through each stage to install your bespoke version of Ubuntu Bionic.
 
-**IMPORTANT:** It is of the utmost importance that SSH is installed as part of this process, or you will have to find a way to install it retroactively (it is possible, but is a pain).  SSH is used to transport the package archive and configure scripts into the VM for install/execution.
+**IMPORTANT:** It is of the utmost importance that SSH is installed as part of this process, or you will have to find a way to install it retroactively (it is possible, but is a pain).  SSH is used to transport the package archive and configure scripts into the VM for installation/execution.
 
 ##### Using the containerised build environment to build Ubuntu
 
-If you're likely to be building more than one image, the same image multiple times or you think there is a chance of build failure, it is recommended that a base image is installed using the provided Dockerfile.  This will ensure the following, time consuming actions only take place once:
+If it is likely that you will be building more than one image, the same image multiple times or you think there is a chance of build failure, it is recommended that a base image is installed using the provided Dockerfile.  This will ensure the following, time consuming actions only take place once:
 
   1. Upgrade Bionic
   2. Install this project's basic prerequisites
@@ -128,7 +141,7 @@ $ docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                  
        ubuntu:bionic /scripts/make-image.sh --install-ubuntu
 ```
 
-To save this container, along with the Ubuntu Bionic based VM as an image (required for further steps) do:
+To save this container (required for further steps) do:
 
 ```
 $ docker commit aarch64-laptops-ubuntu-vm aarch64-laptops-ubuntu-vm:0.1
@@ -168,9 +181,9 @@ $ docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup       
 
 If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
 
-If it's present, head to the [Flashing the image](#Flashing-the-image) section below.
+If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
-### Option 3. Manually execute the stops to build an image on your host machine
+### Option 3. Manually execute the steps to build an image on your host machine
 
 **Note:** Only works on `apt` based distros (and only tested on Ubuntu).
 
@@ -187,7 +200,7 @@ $ scripts/make-image.sh --setup-vm
 
 If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `/var/lib/libvirt/images` directory.
 
-If it's present, head to the [Flashing the image](#Flashing-the-image) section below.
+If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
 ## Further Reading
 
@@ -209,7 +222,7 @@ git submodule update --remote src/grub
 
 ### Flashing the image
 
-**Note**: A 4G MicroSD card (or larger if you plan on installing packages) will be required.
+**Note**: A 8G MicroSD card (or larger if you plan on installing packages) will be required.
 
 The final image may be in one of two states; `raw` or `xz compressed`.  If the image is compressed you will require `xz` utilities to extract the image before flashing can commence.  Please check your Distro's documentation to find out which package they reside in.
 
@@ -276,4 +289,6 @@ Now power up the machine.  It should boot to a Ubuntu login prompt.  The credent
 
 ### Using larger MicroSD cards
 
-Since this project uses pre-built MicroSD card images, the root partition is limited to around 4GB.  If you have used a larger card and wish to expand the partition please search the internet for something along the lines of "reclaim SD card space".  There are literally 100s of articles on how to do this, mostly pertaining to the Raspberry Pi.
+Since this project uses pre-built MicroSD card images, the root partition is limited to around 8GB.  If you have used a larger card and wish to expand the partition please search the internet for something along the lines of "reclaim SD card space".  There are literally 100s of articles on how to do this, mostly pertaining to the Raspberry Pi.
+
+**Note:** We found that simply opening it up in `gparted` was the simplest option.
