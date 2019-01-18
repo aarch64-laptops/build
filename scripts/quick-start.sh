@@ -60,7 +60,7 @@ docker run -ti --rm --name aarch64-laptops-grub                                 
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
 
-print_blue "Setting up VM (~35 mins)"
+print_blue "Setting up VM (~2.5 hours)"
 docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
        -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
