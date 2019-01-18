@@ -177,7 +177,7 @@ build_kernel()
 
     # Remove old packages
     if ls linux-*.deb > /dev/null 2>&1; then
-	rm $OUTDIR/linux-*.deb
+	rm linux-*.deb
     fi
 
     ccache make                                     \
