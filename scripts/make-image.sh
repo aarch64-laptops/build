@@ -182,12 +182,12 @@ build_kernel()
 
     ccache make                                     \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	KBUILD_OUTPUT=/src/linux/build-arm64        \
+	KBUILD_OUTPUT=$SRCDIR/linux/build-arm64     \
 	laptops_defconfig
 
     ccache make -j $(nproc)                         \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	KBUILD_OUTPUT=/src/linux/build-arm64        \
+	KBUILD_OUTPUT=$SRCDIR/linux/build-arm64     \
 	bindeb-pkg
 
     print_red "Copying *.debs and DTB to $OUTDIR"
