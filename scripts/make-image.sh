@@ -136,7 +136,7 @@ start_ubuntu_installer()
     read
 
     virt-install --accelerate --cdrom $ISODIR/$ISO --disk size=7,format=raw \
-	--name $vm --os-type linux --ram 2048 --arch aarch64 --noreboot
+	--name $vm --os-type linux --ram 2048 --arch aarch64 --noreboot --vcpus=$(nproc)
 }
 
 install_ubuntu()
