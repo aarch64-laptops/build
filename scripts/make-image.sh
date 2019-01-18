@@ -276,7 +276,7 @@ setup_vm()
 	read USERNAME
     done
 
-    print_red "Copying artefacts to the VM via SCP (requires authentication)"
+    print_red "Copying artifacts to the VM via SCP (requires authentication)"
     scp -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
 	output.tgz $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
 
