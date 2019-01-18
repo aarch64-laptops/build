@@ -7,12 +7,10 @@
 - [x] Boots into Grub `Normal Mode`
 - [x] Boots Linux kernel from rootfs (using Device Tree)
 - [x] Boots to Ubuntu login prompt/shell
-- [ ] USB working
+- [x] USB working
 - [ ] On-board Storage accessible (UFS based)
 - [ ] WiFi functional (UFS based)
 
-* USB patches by Jeffrey Hugo have been seen on the [LIST](https://lkml.org/lkml/2019/1/4/366)
-  * Will pull these in once they've been reviewed
 * UFS support is being actively worked on upstream by Marc Gonzalez
   * Both Storage and WiFi depend on UFS support
 
@@ -21,7 +19,7 @@
 - [x] Boots into Grub `Normal Mode`
 - [x] Boots Linux kernel from rootfs (using Device Tree)
 - [x] Boots to Ubuntu login prompt/shell
-- [ ] USB working
+- [x] USB working
 - [ ] On-board storage accessible
 - [ ] WiFi functional
 
