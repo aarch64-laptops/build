@@ -1,5 +1,7 @@
 #!/bin/bash
 
+OUTDIR=output
+
 # Exit on any error (saves checking the return value of everything)
 set -e
 
@@ -10,8 +12,22 @@ print_blue()
 
 startup_checks()
 {
+    vm=aarch64-laptops-bionic
+
     if [ ! -d isos ] || [ ! -d output ] || [ ! -d scripts ]; then
 	print_blue "$0 should be executed from this project's root directory"
+    fi
+
+    if ls $OUTDIR/linux-*.deb > /dev/null 2>&1; then
+	print_blue "The output directory already contains kernel debs - either relocate or delete them to continue"
+
+	return 1
+    fi
+
+    if ls $OUTDIR/$vm.img > /dev/null 2>&1; then
+	print_blue "The output directory already contains a VM image - either relocate or delete it to continue"
+
+	return 1
     fi
 }
 
