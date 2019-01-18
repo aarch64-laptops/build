@@ -73,5 +73,8 @@ mkdir $GRUBMODULESDIR
 cp grub/BOOTAA64.EFI $EFIBOOTDIR/
 cp grub/modules/* $GRUBMODULESDIR
 
+print_green "Installing the Ubuntu Desktop"
+apt install -y ubuntu-desktop
+
 print_green "Shutting down the VM"
 poweroff
