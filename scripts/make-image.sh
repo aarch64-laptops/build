@@ -70,7 +70,7 @@ install_prerequisites()
 
 upgrade_system()
 {
-    $SUDO apt-get upgrade
+    $SUDO apt-get -y upgrade
 }
 
 check_for_qemu_updates()
