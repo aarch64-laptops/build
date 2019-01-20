@@ -229,7 +229,7 @@ The final image may be in one of two states; `raw` or `xz compressed`.  If the i
 If the image has an `*.xz` file extension it is `xz compressed`.  These images are firstly extracted using `xzcat` and flashed to the MicroSD card using `dd`:
 
 ```
-$ xzcat <IMG>.xz | sudo dd of=/dev/<SD_CARD> oflag=direct bs=1M status=progress
+$ xzcat <IMG>.xz | sudo dd of=/dev/<SD_CARD> oflag=direct bs=1M status=progress iflag=fullblock
 ```
 
 If the image has an `*.img` file extension it is a `raw` image.  This images are flashed using `dd` only:
