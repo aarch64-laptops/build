@@ -5,14 +5,16 @@
 ### ASUS SonicMaster TP370QL
 
 - [x] Boots into Grub `Normal Mode`
-- [x] Boots Linux kernel from rootfs (using Device Tree)
-- [x] Boots to Ubuntu login prompt/shell
-- [x] USB working
-- [x] GUI Desktop
-- [x] Keyboard input
-- [ ] Touchpad input
-- [ ] On-board Storage accessible (UFS based)
-- [ ] WiFi functional (UFS based)
+- [x] Boots Linux kernel from rootfs' /boot partition (using Device Tree)
+- [x] Boots to text Ubuntu login prompt/shell
+- [x] SD Card Storage
+- [x] USB
+- [x] GUI Desktop (using Framebuffer)
+- [x] Keyboard
+- [ ] Touchpad
+- [ ] On-board Storage (UFS based)
+- [ ] WiFi (UFS based)
+- [ ] Accelerated Graphics
 
 * Touchpad input is not yet functional
   * To work around this, plug in a USB mouse
@@ -22,14 +24,16 @@
 ### HP Envy x2
 
 - [x] Boots into Grub `Normal Mode`
-- [x] Boots Linux kernel from rootfs (using Device Tree)
-- [x] Boots to Ubuntu login prompt/shell
-- [x] USB working
-- [x] GUI Desktop
-- [x] Keyboard input
-- [x] Touchpad input
-- [ ] On-board Storage accessible (UFS based)
-- [ ] WiFi functional (UFS based)
+- [x] Boots Linux kernel from rootfs' /boot partition (using Device Tree)
+- [x] Boots to text Ubuntu login prompt/shell
+- [x] SD Card Storage
+- [x] USB
+- [x] GUI Desktop (using Framebuffer)
+- [x] Keyboard
+- [x] Touchpad
+- [ ] On-board Storage (UFS based)
+- [ ] WiFi (UFS based)
+- [ ] Accelerated Graphics
 
 * UFS support is being actively worked on upstream by Marc Gonzalez
   * Both Storage and WiFi depend on UFS support
