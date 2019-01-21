@@ -1,0 +1,9 @@
+sudo: required
+dist: xenial
+language: minimal
+
+services:
+- docker
+
+install:
+- docker build .
