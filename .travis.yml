@@ -7,3 +7,11 @@ services:
 
 install:
 - docker build .
+
+script:
+- bash ls
+
+branches:
+  only:
+  - master
+  - wip
