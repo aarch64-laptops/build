@@ -34,10 +34,10 @@ startup_checks()
 startup_checks
 
 print_blue "Create the containerised build environment (~5 mins)"
-print_blue " Ubuntu Bionic: fully updated with all prerequisite packages installed"
+print_blue " Ubuntu Bionic: to be fully updated with all prerequisite packages installed"
 docker build -t aarch64-laptops-build-env:0.1 .
 
-print_blue "Build the basic SD card image - requires user input (~2 hours)"
+print_blue "Build the basic SD card image - requires user input (~2 hours manual : ~5 mins prebuilt)"
 print_blue " Ubuntu Bionic: installed in a VM (using LibVirt)"
 docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                               \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
@@ -60,7 +60,7 @@ docker run -ti --rm --name aarch64-laptops-grub                                 
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
 
-print_blue "Setting up VM (~2.5 hours)"
+print_blue "Setting up VM (~2.5 hours - manual : 30 mins - prebuilt)"
 docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
        -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
