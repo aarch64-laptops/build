@@ -327,20 +327,34 @@ setup_vm()
     tar -czf $IMAGES_FOR_VM --exclude=linux-*dbg*.deb grub linux-*.deb msm8998-mtp.dtb
     popd > /dev/null
 
-    print_red "\n[TIMEOUT WARNING] Keep an eye on this section until you've entered your password (twice)\n"
-
     while [ ! $USERNAME ]; do
 	print_red "[INPUT REQUIRED] Please enter the username you used during the install"
 	read USERNAME
     done
 
-    print_red "Copying artifacts to the VM via SCP (requires authentication)"
-    scp -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-	$IMAGES_FOR_VM $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
+    if [ $SSHPASS ]; then
+	print_red "Copying artifacts to the VM via SCP"
+	sshpass -e scp -o LogLevel=ERROR                                    \
+	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null     \
+	    $OUTDIR/$IMAGES_FOR_VM $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
 
-    print_red "Running the setup script via SSH (requires authentication [twice])"
-    ssh -t -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-	$USERNAME@$VMIP 'sudo /tmp/setup-vm.sh'
+	print_red "Running the setup script via SSH"
+	sshpass -e ssh -t -o LogLevel=ERROR                                 \
+		-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		$USERNAME@$VMIP 'echo -e ' $SSHPASS '| sudo -S /tmp/setup-vm.sh'
+    else
+	print_red "\n[TIMEOUT WARNING] Keep an eye on this section until you've entered your password (twice)\n"
+
+	print_red "Copying artifacts to the VM via SCP (requires authentication)"
+	scp -o LogLevel=ERROR                                               \
+	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null     \
+	    $OUTDIR/$IMAGES_FOR_VM $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
+
+	print_red "Running the setup script via SSH (requires authentication [twice])"
+	ssh -t -o LogLevel=ERROR                                        \
+	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+	    $USERNAME@$VMIP 'sudo /tmp/setup-vm.sh'
+    fi
 
     print_red "Pulling the plug from the VM"
     virsh destroy $VMNAME
@@ -350,7 +364,7 @@ if [ $# -lt 1 ]; then
     usage
 fi
 
-GETOPT=`getopt -o f --long install-ubuntu,install-ubuntu-from-prebuilt,build-kernel,build-grub,setup-vm,make-clean-prebuilt-ubuntu -- "$@"`
+GETOPT=`getopt -o f --long install-ubuntu,install-ubuntu-from-prebuilt,build-kernel,build-grub,setup-vm,setup-vm-from-prebuilt,make-clean-prebuilt-ubuntu -- "$@"`
 eval set -- "$GETOPT"
 
 while true; do
@@ -375,6 +389,14 @@ while true; do
 	    ;;
 	--setup-vm)
 	    SETUP_VM=true
+	    shift
+	    ;;
+	--setup-vm-from-prebuilt)
+	    SETUP_VM=true
+	    USERNAME=ubuntu
+	    export SSHPASS=ubuntu # Needs to be exported for `sshpass`
+	    shift
+	    ;;
 # Options
 	--make-clean-prebuilt-ubuntu)
 	    MAKE_CLEAN_UBUNTU=true
