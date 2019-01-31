@@ -27,7 +27,7 @@ print_red()
 
 usage()
 {
-    print_red "$0 [-f] [--install-ubuntu|--build-kernel|--build-grub|--setup-vm]"
+    print_red "$0 [-f] [--install-ubuntu[-from-prebuilt]|--build-kernel|--build-grub|--setup-vm[-from-prebiult]] [--make-clean-prebuilt-ubuntu]"
     return 1
 }
 
