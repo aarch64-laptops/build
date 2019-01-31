@@ -367,34 +367,42 @@ fi
 GETOPT=`getopt -o f --long install-ubuntu,install-ubuntu-from-prebuilt,build-kernel,build-grub,setup-vm,setup-vm-from-prebuilt,make-clean-prebuilt-ubuntu -- "$@"`
 eval set -- "$GETOPT"
 
+COUNTARG=0
+
 while true; do
     case $1 in
 # Stages
 	--install-ubuntu)
 	    INSTALL_UBUNTU=true
+	    COUNTARG=$((COUNTARG+1))
 	    shift
 	    ;;
 	--install-ubuntu-from-prebuilt)
 	    INSTALL_UBUNTU=true
 	    PREBUILT_UBUNTU=true
+	    COUNTARG=$((COUNTARG+1))
 	    shift
 	    ;;
 	--build-kernel)
 	    BUILD_KERNEL=true
+	    COUNTARG=$((COUNTARG+1))
 	    shift
 	    ;;
 	--build-grub)
 	    BUILD_GRUB=true
+	    COUNTARG=$((COUNTARG+1))
 	    shift
 	    ;;
 	--setup-vm)
 	    SETUP_VM=true
+	    COUNTARG=$((COUNTARG+1))
 	    shift
 	    ;;
 	--setup-vm-from-prebuilt)
 	    SETUP_VM=true
 	    USERNAME=ubuntu
 	    export SSHPASS=ubuntu # Needs to be exported for `sshpass`
+	    COUNTARG=$((COUNTARG+1))
 	    shift
 	    ;;
 # Options
@@ -420,6 +428,12 @@ done
 
 print_red "Conducting start-up checks"
 startup_checks
+
+if [ $COUNTARG -gt 2 ]; then
+    print_red "Only one stage can be selected at a time"
+    usage
+    exit 1
+fi
 
 if [ $MAKE_CLEAN_UBUNTU ] && [ ! $INSTALL_UBUNTU ]; then
     print_red "--make-clean-prebuilt-ubuntu doesn't make sense without --install-ubuntu"
