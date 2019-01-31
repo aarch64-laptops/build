@@ -9,7 +9,7 @@ print_green()
     echo -e "\e[01;32m$@ \e[0m"
 }
 
-print_green "Inside the VM"
+print_green "\nInside the VM"
 
 if [ ! -f $PACKAGES ]; then
     print_green "Packages archive missing"
