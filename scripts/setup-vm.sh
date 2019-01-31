@@ -2,7 +2,7 @@
 
 WORKDIR=/tmp/aarch64-laptops
 PACKAGES=/tmp/grub-linux-dtb.tgz
-KERNEL_CMDLINE="nokaslr nomodeset ignore_loglevel clk_ignore_unused pd_ignore_unused console=tty0"
+KERNEL_CMDLINE="efi=novamap ignore_loglevel clk_ignore_unused pd_ignore_unused console=tty0"
 
 print_green()
 {
