@@ -42,7 +42,7 @@ print_blue " Ubuntu Bionic: installed in a VM (using LibVirt)"
 docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                               \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
        -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu
+       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu-from-prebuilt
 
 print_blue "Saving the aarch64-laptops-ubuntu-vm container as an image"
 docker commit aarch64-laptops-ubuntu-vm aarch64-laptops-ubuntu-vm:0.1
@@ -64,4 +64,4 @@ print_blue "Setting up VM (~2.5 hours - manual : 30 mins - prebuilt)"
 docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
        -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
-       aarch64-laptops-ubuntu-vm:0.1 /scripts/make-image.sh --setup-vm
+       aarch64-laptops-ubuntu-vm:0.1 /scripts/make-image.sh --setup-vm-from-prebuilt
