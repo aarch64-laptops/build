@@ -6,15 +6,19 @@ set -e
 # DEBUG: Uncomment to enable
 # set -x
 
+VMNAME=aarch64-laptops-bionic
+ISOURL=http://cdimage.ubuntu.com/releases/18.04/release
 ISO=ubuntu-18.04.1-server-arm64.iso
+PREBUILT_REPO=https://github.com/aarch64-laptops/prebuilt/raw/master
+CLEAN_PREBUILT_UBUNTU=$VMNAME-clean-img-xml.tgz
+VMDIR=/var/lib/libvirt/images
+IMAGES_FOR_VM=grub-linux-dtb.tgz
+
+# Default directory locations (overridden if operating in a container)
 ISODIR=./isos
 SRCDIR=./src
 OUTDIR=./output
 SCRIPTSDIR=./scripts
-INCONTAINER=""
-USERNAME=""
-FORCE=""
-SUDO=""
 
 print_red()
 {
@@ -121,13 +125,11 @@ download_lts_iso()
 	return
     fi
 
-    wget -P $ISODIR http://cdimage.ubuntu.com/releases/18.04/release/$ISO
+    wget -P $ISODIR $ISOURL/$ISO
 }
 
 start_ubuntu_installer()
 {
-    vm=aarch64-laptops-bionic
-
     print_red "                                               "
     print_red " *** DON'T FORGET TO INSTALL THE SSH SERVER ***"
     print_red "         Required for additional steps         "
@@ -136,7 +138,7 @@ start_ubuntu_installer()
     read
 
     virt-install --accelerate --cdrom $ISODIR/$ISO --disk size=7,format=raw  \
-		 --name $vm --os-type linux --os-variant ubuntu18.04         \
+		 --name $VMNAME --os-type linux --os-variant ubuntu18.04         \
 		 --ram 2048 --arch aarch64 --noreboot --vcpus=$(nproc)
 }
 
@@ -232,7 +234,7 @@ setup_vm()
     start_libvirt
 
     print_red "Starting VM"
-    virsh start aarch64-laptops-bionic
+    virsh start $VMNAME
 
     print_red "Waiting for VM to boot"
     while [ "$VMIP" == "" ]; do
@@ -269,7 +271,7 @@ setup_vm()
 
     print_red "Packaging up Kernel and Grub for delivery into the VM"
     pushd $OUTDIR > /dev/null
-    tar -czf /output.tgz --exclude=linux-*dbg*.deb grub linux-*.deb msm8998-mtp.dtb
+    tar -czf $IMAGES_FOR_VM --exclude=linux-*dbg*.deb grub linux-*.deb msm8998-mtp.dtb
     popd > /dev/null
 
     print_red "\n[TIMEOUT WARNING] Keep an eye on this section until you've entered your password (twice)\n"
@@ -281,14 +283,14 @@ setup_vm()
 
     print_red "Copying artifacts to the VM via SCP (requires authentication)"
     scp -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-	output.tgz $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
+	$IMAGES_FOR_VM $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
 
     print_red "Running the setup script via SSH (requires authentication [twice])"
     ssh -t -o LogLevel=ERROR -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
 	$USERNAME@$VMIP 'sudo /tmp/setup-vm.sh'
 
     print_red "Pulling the plug from the VM"
-    virsh destroy aarch64-laptops-bionic
+    virsh destroy $VMNAME
 }
 
 if [ $# -lt 1 ]; then
