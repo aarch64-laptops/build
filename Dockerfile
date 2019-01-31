@@ -12,12 +12,14 @@ RUN set -ex;                                   \
     apt update;                                \
     apt upgrade -y;                            \
     apt install -y                             \
-        software-properties-common             \
         net-tools                              \
         nmap                                   \
+        software-properties-common             \
         ssh                                    \
+        sshpass                                \
         tar                                    \
-        wget;                                  \
+        wget                                   \
+        xz-utils;                              \
     add-apt-repository -y cloud-archive:rocky; \
     apt install -y                             \
         qemu-efi                               \

@@ -68,8 +68,14 @@ install_prerequisites()
 
     print_red "Install prerequisites"
     $SUDO apt-get install -y         \
-	software-properties-common \
-	wget
+	  net-tools                  \
+	  nmap                       \
+	  software-properties-common \
+	  ssh                        \
+	  sshpass                    \
+	  tar                        \
+	  wget                       \
+	  xz-utils
 }
 
 upgrade_system()
