@@ -1,0 +1,12 @@
+insmod part_gpt
+insmod ext2
+set root='hd0,gpt2'
+linux  /boot/vmlinuz-4.15.0-29-generic root=UUID=1c856e70-7c5b-48ba-a00e-54e934b6c077 ro
+initrd /boot/initrd.img-4.15.0-29-generic
+boot
+
+
+service libvirtd start
+service virtlogd start
+virsh start aarch64-laptops-bionic 
+virsh console aarch64-laptops-bionic

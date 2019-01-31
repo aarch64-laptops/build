@@ -1,0 +1,529 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x51af8014]
+[    0.000000] Linux version 5.0.0-rc2 (root@e2be6ad4d1c0) (gcc version 7.3.0 (Ubuntu/Linaro 7.3.0-27ubuntu1~18.04)) #7 SMP Wed Jan 30 18:54:20 UTC 2019
+[    0.000000] Machine model: Qualcomm Technologies, Inc. MSM8998 v1 MTP
+[    0.000000] printk: debug: ignoring loglevel setting.
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi: EFI v2.60 by Qualcomm Technologies Inc., American Megatrends Inc.
+[    0.000000] efi:  ACPI 2.0=0x9d7d7000  ESRT=0x99e19f18  SMBIOS=0x9d723000  MEMATTR=0x99c59018  RNG=0x9d6c6a98  MEMRESERVE=0x9d083e98 
+[    0.000000] efi: seeding entropy pool
+[    0.000000] efi: memattr: Unexpected EFI Memory Attributes table version -1347440721
+[    0.000000] esrt: Reserving ESRT space from 0x0000000099e19f18 to 0x0000000099e19f50.
+[    0.000000] OF: reserved mem: failed to allocate memory for node 'rmtfs'
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x0000000080000000-0x000000017e4bffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x17dd771c0-0x17dd79fff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA32    [mem 0x0000000080000000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000017e4bffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080000000-0x00000000803fffff]
+[    0.000000]   node   0: [mem 0x0000000080400000-0x0000000080d5ffff]
+[    0.000000]   node   0: [mem 0x0000000080eb0000-0x00000000857fffff]
+[    0.000000]   node   0: [mem 0x0000000088800000-0x000000008aafffff]
+[    0.000000]   node   0: [mem 0x000000008ab00000-0x00000000956fffff]
+[    0.000000]   node   0: [mem 0x0000000095700000-0x000000009b6e7fff]
+[    0.000000]   node   0: [mem 0x000000009b6e8000-0x000000009b7aafff]
+[    0.000000]   node   0: [mem 0x000000009b7ab000-0x000000009d561fff]
+[    0.000000]   node   0: [mem 0x000000009d562000-0x000000009d77dfff]
+[    0.000000]   node   0: [mem 0x000000009d77e000-0x000000009ffcffff]
+[    0.000000]   node   0: [mem 0x000000009ffd0000-0x000000009ffd9fff]
+[    0.000000]   node   0: [mem 0x000000009ffdd000-0x00000000abdfffff]
+[    0.000000]   node   0: [mem 0x00000000abe00000-0x000000017e4bffff]
+[    0.000000] Zeroed struct page in unavailable ranges: 657 pages
+[    0.000000] Initmem setup node 0 [mem 0x0000000080000000-0x000000017e4bffff]
+[    0.000000] On node 0 totalpages: 1028973
+[    0.000000]   DMA32 zone: 8192 pages used for memmap
+[    0.000000]   DMA32 zone: 0 pages reserved
+[    0.000000]   DMA32 zone: 511661 pages, LIFO batch:63
+[    0.000000]   Normal zone: 8083 pages used for memmap
+[    0.000000]   Normal zone: 517312 pages, LIFO batch:63
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.0 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.0
+[    0.000000] random: get_random_bytes called from start_kernel+0xa8/0x4cc with crng_init=0
+[    0.000000] percpu: Embedded 28 pages/cpu @(____ptrval____) s76888 r8192 d29608 u114688
+[    0.000000] pcpu-alloc: s76888 r8192 d29608 u114688 alloc=28*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 [0] 4 [0] 5 [0] 6 [0] 7 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Kernel page table isolation (KPTI)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1012698
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.0.0-rc2 root=UUID=ce3da815-9f17-4fd4-93fe-3ff03766bcb4 ro efi=novamap ignore_loglevel clk_ignore_unused pd_ignore_unused console=tty0
+[    0.000000] printk: log_buf_len individual max cpu contribution: 4096 bytes
+[    0.000000] printk: log_buf_len total cpu_extra contributions: 28672 bytes
+[    0.000000] printk: log_buf_len min size: 16384 bytes
+[    0.000000] printk: log_buf_len: 65536 bytes
+[    0.000000] printk: early log buf free: 12284(74%)
+[    0.000000] software IO TLB: mapped [mem 0xfbfff000-0xfffff000] (64MB)
+[    0.000000] Memory: 3512492K/4115892K available (11708K kernel code, 1744K rwdata, 4828K rodata, 5312K init, 900K bss, 603400K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
+[    0.000000] ftrace: allocating 40481 entries in 159 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=8.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=8
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] GICv3: no VLPI support, no direct LPI support
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000017b00000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] arch_timer: cp15 and mmio timer(s) running at 19.20MHz (virt/virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x46d987e47, max_idle_ns: 440795202767 ns
+[    0.000002] sched_clock: 56 bits at 19MHz, resolution 52ns, wraps every 4398046511078ns
+[    0.000111] Console: colour dummy device 80x25
+[    0.000487] printk: console [tty0] enabled
+[    0.000557] Calibrating delay loop (skipped), value calculated using timer frequency.. 38.40 BogoMIPS (lpj=76800)
+[    0.000571] pid_max: default: 32768 minimum: 301
+[    0.000653] LSM: Security Framework initializing
+[    0.000663] Yama: becoming mindful.
+[    0.000680] SELinux:  Disabled at boot.
+[    0.000688] AppArmor: AppArmor disabled by boot time parameter
+[    0.001751] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    0.002258] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes)
+[    0.002301] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.002334] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.003434] ASID allocator initialised with 32768 entries
+[    0.003492] rcu: Hierarchical SRCU implementation.
+[    0.005209] Remapping and enabling EFI services.
+[    0.005518] smp: Bringing up secondary CPUs ...
+[    0.007054] Detected VIPT I-cache on CPU1
+[    0.007084] GICv3: CPU1: found redistributor 1 region 0:0x0000000017b20000
+[    0.007135] CPU1: Booted secondary processor 0x0000000001 [0x51af8014]
+[    0.008543] Detected VIPT I-cache on CPU2
+[    0.008563] GICv3: CPU2: found redistributor 2 region 0:0x0000000017b40000
+[    0.008600] CPU2: Booted secondary processor 0x0000000002 [0x51af8014]
+[    0.009994] Detected VIPT I-cache on CPU3
+[    0.010019] GICv3: CPU3: found redistributor 3 region 0:0x0000000017b60000
+[    0.010058] CPU3: Booted secondary processor 0x0000000003 [0x51af8014]
+[    0.011782] Detected VIPT I-cache on CPU4
+[    0.011807] CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR0_EL1. Boot CPU: 0x00000000001122, CPU4: 0x00000000101122
+[    0.011830] CPU features: Unsupported CPU feature variation detected.
+[    0.011862] GICv3: CPU4: found redistributor 100 region 0:0x0000000017b80000
+[    0.011935] CPU4: Booted secondary processor 0x0000000100 [0x51af8001]
+[    0.013599] Detected VIPT I-cache on CPU5
+[    0.013623] CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR0_EL1. Boot CPU: 0x00000000001122, CPU5: 0x00000000101122
+[    0.013673] GICv3: CPU5: found redistributor 101 region 0:0x0000000017ba0000
+[    0.013740] CPU5: Booted secondary processor 0x0000000101 [0x51af8001]
+[    0.015385] Detected VIPT I-cache on CPU6
+[    0.015408] CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR0_EL1. Boot CPU: 0x00000000001122, CPU6: 0x00000000101122
+[    0.015461] GICv3: CPU6: found redistributor 102 region 0:0x0000000017bc0000
+[    0.015530] CPU6: Booted secondary processor 0x0000000102 [0x51af8001]
+[    0.017193] Detected VIPT I-cache on CPU7
+[    0.017218] CPU features: SANITY CHECK: Unexpected variation in SYS_ID_AA64MMFR0_EL1. Boot CPU: 0x00000000001122, CPU7: 0x00000000101122
+[    0.017272] GICv3: CPU7: found redistributor 103 region 0:0x0000000017be0000
+[    0.017341] CPU7: Booted secondary processor 0x0000000103 [0x51af8001]
+[    0.017516] smp: Brought up 1 node, 8 CPUs
+[    0.017661] SMP: Total of 8 processors activated.
+[    0.017668] CPU features: detected: GIC system register CPU interface
+[    0.017675] CPU features: detected: 32-bit EL0 Support
+[    0.017683] CPU features: detected: CRC32 instructions
+[    0.020941] CPU features: emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching
+[    0.020952] CPU: All CPU(s) started at EL1
+[    0.021004] alternatives: patching kernel code
+[    0.025200] devtmpfs: initialized
+[    0.028569] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.028603] futex hash table entries: 2048 (order: 5, 131072 bytes)
+[    0.028849] pinctrl core: initialized pinctrl subsystem
+[    0.029410] SMBIOS 3.0 present.
+[    0.029425] DMI: HP HP ENVY x2 Detachable 12-e0xx/84E1, BIOS F.03 01/17/2018
+[    0.029659] NET: Registered protocol family 16
+[    0.030060] audit: initializing netlink subsys (disabled)
+[    0.030139] audit: type=2000 audit(0.028:1): state=initialized audit_enabled=0 res=1
+[    0.030556] cpuidle: using governor ladder
+[    0.030572] cpuidle: using governor menu
+[    0.030725] vdso: 2 pages (1 code @ (____ptrval____), 1 data @ (____ptrval____))
+[    0.030736] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.030956] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.031489] Serial: AMBA PL011 UART driver
+[    0.039252] gpiochip_find_base: found new base at 362
+[    0.039494] gpio gpiochip0: (3400000.pinctrl): added GPIO chardev (254:0)
+[    0.039544] gpiochip_setup_dev: registered GPIOs 362 to 511 on device: gpiochip0 (3400000.pinctrl)
+[    0.039559] gpio gpiochip0: (3400000.pinctrl): created GPIO range 0->149 ==> 3400000.pinctrl PIN 0->149
+[    0.045598] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.045609] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.045617] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.045625] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.046637] ACPI: Interpreter disabled.
+[    0.047012] vgaarb: loaded
+[    0.047598] SCSI subsystem initialized
+[    0.047713] libata version 3.00 loaded.
+[    0.047825] usbcore: registered new interface driver usbfs
+[    0.047853] usbcore: registered new interface driver hub
+[    0.047926] usbcore: registered new device driver usb
+[    0.048011] pps_core: LinuxPPS API ver. 1 registered
+[    0.048019] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.048037] PTP clock support registered
+[    0.048158] EDAC MC: Ver: 3.0.0
+[    0.048529] Registered efivars operations
+[    0.048614] efivars: get_next_variable: status=8000000000000003
+[    0.049286] NetLabel: Initializing
+[    0.049293] NetLabel:  domain hash size = 128
+[    0.049299] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    0.049342] NetLabel:  unlabeled traffic allowed by default
+[    0.049719] clocksource: Switched to clocksource arch_sys_counter
+[    0.096426] VFS: Disk quotas dquot_6.6.0
+[    0.096483] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.096812] pnp: PnP ACPI: disabled
+[    0.104203] NET: Registered protocol family 2
+[    0.104562] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes)
+[    0.104632] TCP established hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.104872] TCP bind hash table entries: 32768 (order: 7, 524288 bytes)
+[    0.105177] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.105262] UDP hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.105329] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes)
+[    0.105496] NET: Registered protocol family 1
+[    0.105519] PCI: CLS 0 bytes, default 64
+[    0.105663] Unpacking initramfs...
+[    1.852495] Freeing initrd memory: 54208K
+[    1.853476] kvm [1]: HYP mode not available
+[    1.854595] Initialise system trusted keyrings
+[    1.854630] Key type blacklist registered
+[    1.854773] workingset: timestamp_bits=40 max_order=20 bucket_order=0
+[    1.858479] zbud: loaded
+[    1.859555] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.860153] fuse init (API version 7.28)
+[    1.985379] Key type asymmetric registered
+[    1.985400] Asymmetric key parser 'x509' registered
+[    1.985462] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+[    1.987716] efifb: probing for efifb
+[    1.987753] efifb: framebuffer at 0x80400000, using 9600k, total 9600k
+[    1.987762] efifb: mode is 1920x1280x32, linelength=7680, pages=1
+[    1.987768] efifb: scrolling: redraw
+[    1.987775] efifb: Truecolor: size=8:8:8:8, shift=24:16:8:0
+[    2.010438] Console: switching to colour frame buffer device 240x80
+[    2.032776] fb0: EFI VGA frame buffer device
+[    2.034412] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+[    2.038470] msm_serial c1b0000.serial: msm_serial: detected port #0
+[    2.038584] msm_serial c1b0000.serial: uartclk = 1843200
+[    2.038697] c1b0000.serial: ttyMSM0 at MMIO 0xc1b0000 (irq = 17, base_baud = 115200) is a MSM
+[    2.038997] msm_serial: driver initialized
+[    2.046973] loop: module loaded
+[    2.047829] mdio_bus fixed-0: GPIO lookup for consumer reset
+[    2.047917] mdio_bus fixed-0: using lookup tables for GPIO lookup
+[    2.048009] mdio_bus fixed-0: No GPIO consumer reset found
+[    2.048101] libphy: Fixed MDIO Bus: probed
+[    2.048163] tun: Universal TUN/TAP device driver, 1.6
+[    2.048631] PPP generic driver version 2.4.2
+[    2.048896] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.048998] ehci-pci: EHCI PCI platform driver
+[    2.049084] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.049178] ohci-pci: OHCI PCI platform driver
+[    2.049262] uhci_hcd: USB Universal Host Controller Interface driver
+[    2.049638] mousedev: PS/2 mouse device common for all mice
+[    2.050165] i2c /dev entries driver
+[    2.050853] device-mapper: uevent: version 1.0.3
+[    2.051109] device-mapper: ioctl: 4.39.0-ioctl (2018-04-03) initialised: dm-devel@redhat.com
+[    2.051347] sdhci: Secure Digital Host Controller Interface driver
+[    2.051438] sdhci: Copyright(c) Pierre Ossman
+[    2.051747] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.051880] EFI Variables Facility v0.08 2004-May-17
+[    2.051976] efivars: get_next_variable: status=8000000000000003
+[    2.053014] NET: Registered protocol family 10
+[    2.070976] Segment Routing with IPv6
+[    2.071110] NET: Registered protocol family 17
+[    2.071286] Key type dns_resolver registered
+[    2.071957] registered taskstats version 1
+[    2.072054] Loading compiled-in X.509 certificates
+[    2.080467] Loaded X.509 cert 'Build time autogenerated kernel key: 57a5fb7069af5a0d774de50e8ede4fa7b6683381'
+[    2.080685] zswap: loaded using pool lzo/zbud
+[    2.130496] cryptd: max_cpu_qlen set to 1000
+[    2.322090] Key type big_key registered
+[    2.322195] Key type trusted registered
+[    2.359507] Key type encrypted registered
+[    2.359605] ima: No TPM chip found, activating TPM-bypass!
+[    2.359702] ima: Allocated hash algorithm: sha1
+[    2.359790] No architecture policies found
+[    2.359876] evm: Initialising EVM extended attributes:
+[    2.359957] evm: security.selinux
+[    2.360008] evm: security.SMACK64
+[    2.360059] evm: security.SMACK64EXEC
+[    2.360115] evm: security.SMACK64TRANSMUTE
+[    2.360177] evm: security.SMACK64MMAP
+[    2.360232] evm: security.apparmor
+[    2.360284] evm: security.ima
+[    2.360329] evm: security.capability
+[    2.360384] evm: HMAC attrs: 0x1
+[    2.365809] genpd: Not disabling unused power domains
+[    2.365997] hctosys: unable to open rtc device (rtc0)
+[    2.366443] clk: Not disabling unused clocks
+[    2.374504] Freeing unused kernel memory: 5312K
+[    2.440870] Checked W+X mappings: passed, no W+X pages found
+[    2.445490] Run /init as init process
+[    2.938287] sdhci-pltfm: SDHCI platform and OF driver helper
+[    2.943343] i2c_qup c17a000.i2c: 
+                tx channel not available
+[    2.943375] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-pll': -517
+[    2.953367] reg-fixed-voltage vph-pwr-regulator: GPIO lookup for consumer (null)
+[    2.960987] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-pll': -517
+[    2.970458] reg-fixed-voltage vph-pwr-regulator: using device tree for GPIO lookup
+[    2.976674] sdhci_msm c0a4900.sdhci: GPIO lookup for consumer cd
+[    2.976984] spmi spmi-0: PMIC arbiter version v3 (0x30000000)
+[    2.979772] qcom-qmp-phy c010000.phy: Failed to get supply 'vdda-phy': -517
+[    2.980284] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-pll': -517
+[    2.980625] qcom-qmp-phy c010000.phy: Failed to get supply 'vdda-phy': -517
+[    2.983178] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-pll': -517
+[    2.983552] qcom-qmp-phy c010000.phy: Failed to get supply 'vdda-phy': -517
+[    2.988563] of_get_named_gpiod_flags: can't parse 'gpios' property of node '/vph-pwr-regulator[0]'
+[    3.001373] sdhci_msm c0a4900.sdhci: using device tree for GPIO lookup
+[    3.001416] of_get_named_gpiod_flags: can't parse 'cd-gpios' property of node '/soc/sdhci@c0a4900[0]'
+[    3.014254] of_get_named_gpiod_flags: can't parse 'gpio' property of node '/vph-pwr-regulator[0]'
+[    3.014272] reg-fixed-voltage vph-pwr-regulator: using lookup tables for GPIO lookup
+[    3.014290] reg-fixed-voltage vph-pwr-regulator: No GPIO consumer (null) found
+[    3.015452] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-pll': -517
+[    3.015667] qcom-qmp-phy c010000.phy: Failed to get supply 'vdda-phy': -517
+[    3.027684] of_get_named_gpiod_flags: can't parse 'cd-gpio' property of node '/soc/sdhci@c0a4900[0]'
+[    3.041313] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-pll': -517
+[    3.041324] hidraw: raw HID events driver (C) Jiri Kosina
+[    3.053507] sdhci_msm c0a4900.sdhci: using lookup tables for GPIO lookup
+[    3.053533] sdhci_msm c0a4900.sdhci: No GPIO consumer cd found
+[    3.053564] sdhci_msm c0a4900.sdhci: GPIO lookup for consumer wp
+[    3.053578] sdhci_msm c0a4900.sdhci: using device tree for GPIO lookup
+[    3.054552] i2c_hid 0-003a: 0-003a supply vdd not found, using dummy regulator
+[    3.054597] i2c_hid 0-003a: Linked as a consumer to regulator.0
+[    3.054601] i2c_hid 0-003a: 0-003a supply vddl not found, using dummy regulator
+[    3.056000] s1: supplied by vph_pwr
+[    3.056567] s2: supplied by vph_pwr
+[    3.056932] s3: supplied by vph_pwr
+[    3.056986] s3: Bringing 0uV into 1352000-1352000uV
+[    3.057349] s4: supplied by vph_pwr
+[    3.057402] s4: Bringing 0uV into 1800000-1800000uV
+[    3.057837] s5: supplied by vph_pwr
+[    3.057927] s5: Bringing 0uV into 1904000-1904000uV
+[    3.058263] s6: supplied by vph_pwr
+[    3.058573] s7: supplied by vph_pwr
+[    3.058627] s7: Bringing 0uV into 900000-900000uV
+[    3.058948] s8: supplied by vph_pwr
+[    3.059306] s9: supplied by vph_pwr
+[    3.059621] s10: supplied by vph_pwr
+[    3.059934] s11: supplied by vph_pwr
+[    3.060308] s12: supplied by vph_pwr
+[    3.060674] s13: supplied by vph_pwr
+[    3.060853] spmi spmi-0: pmic_arb_wait_for_done: transaction failed (0x3)
+[    3.061090] l1: supplied by s7
+[    3.061182] l1: Bringing 0uV into 880000-880000uV
+[    3.061534] l2: supplied by s3
+[    3.061595] l2: Bringing 0uV into 1200000-1200000uV
+[    3.061985] l3: supplied by s7
+[    3.062036] l3: Bringing 0uV into 1000000-1000000uV
+[    3.062385] l4: supplied by s7
+[    3.062739] l5: supplied by s7
+[    3.062789] l5: Bringing 0uV into 800000-800000uV
+[    3.063081] l6: supplied by s5
+[    3.063131] l6: Bringing 0uV into 1808000-1808000uV
+[    3.063442] l7: supplied by s5
+[    3.063523] l7: Bringing 0uV into 1800000-1800000uV
+[    3.063842] l8: supplied by s3
+[    3.063891] l8: Bringing 0uV into 1200000-1200000uV
+[    3.064188] l9: supplied by vph_pwr
+[    3.064254] l9: Bringing 0uV into 1808000-1808000uV
+[    3.064565] l10: supplied by vph_pwr
+[    3.064645] l10: Bringing 0uV into 1808000-1808000uV
+[    3.064989] l11: supplied by s7
+[    3.065048] l11: Bringing 0uV into 1000000-1000000uV
+[    3.065357] l12: supplied by s5
+[    3.065405] l12: Bringing 0uV into 1800000-1800000uV
+[    3.065738] l13: supplied by vph_pwr
+[    3.065824] l13: Bringing 0uV into 1808000-1808000uV
+[    3.066169] l14: supplied by s5
+[    3.066218] l14: Bringing 0uV into 1880000-1880000uV
+[    3.066527] l15: supplied by s5
+[    3.066576] l15: Bringing 0uV into 1800000-1800000uV
+[    3.066926] l16: supplied by vph_pwr
+[    3.067760] qcom-qmp-phy c010000.phy: Linked as a consumer to regulator.15
+[    3.067844] qcom-qmp-phy c010000.phy: Linked as a consumer to regulator.16
+[    3.068010] qcom-qmp-phy c010000.phy: Underspecified device tree, falling back to legacy register regions
+[    3.068456] qcom-qmp-phy c010000.phy: Registered Qcom-QMP phy
+[    3.069182] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    3.069216] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-phy-dpdm': -517
+[    3.069283] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    3.079865] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/soc/sdhci@c0a4900[0]'
+[    3.093240] l16: Bringing 0uV into 2704000-2704000uV
+[    3.106289] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/soc/sdhci@c0a4900[0]'
+[    3.107816] rtc-pm8xxx 800f000.spmi:pmic@0:rtc@6000: registered as rtc0
+[    3.108327] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    3.108425] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    3.108439] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-phy-dpdm': -517
+[    3.108472] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    3.111530] gpiochip_find_base: found new base at 336
+[    3.111835] gpio gpiochip1: (800f000.spmi:pmic@0:gpios@c000): added GPIO chardev (254:1)
+[    3.111974] gpiochip_setup_dev: registered GPIOs 336 to 361 on device: gpiochip1 (800f000.spmi:pmic@0:gpios@c000)
+[    3.111999] gpio gpiochip1: (800f000.spmi:pmic@0:gpios@c000): created GPIO range 0->25 ==> 800f000.spmi:pmic@0:gpios@c000 PIN 0->25
+[    3.112780] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    3.113607] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    3.113642] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-phy-dpdm': -517
+[    3.113758] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    3.114642] spmi spmi-0: pmic_arb_wait_for_done: transaction failed (0x3)
+[    3.114655] qcom-spmi-gpio 800f000.spmi:pmic@2:gpios@c000: read 0x4 failed
+[    3.114682] qcom-spmi-gpio: probe of 800f000.spmi:pmic@2:gpios@c000 failed with error -5
+[    3.115396] gpiochip_find_base: found new base at 332
+[    3.115678] gpio gpiochip2: (800f000.spmi:pmic@4:gpios@c000): added GPIO chardev (254:2)
+[    3.115818] gpiochip_setup_dev: registered GPIOs 332 to 335 on device: gpiochip2 (800f000.spmi:pmic@4:gpios@c000)
+[    3.115842] gpio gpiochip2: (800f000.spmi:pmic@4:gpios@c000): created GPIO range 0->3 ==> 800f000.spmi:pmic@4:gpios@c000 PIN 0->3
+[    3.116532] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    3.117352] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    3.117392] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-phy-dpdm': -517
+[    3.117458] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    3.120943] l17: supplied by s3
+[    3.133632] sdhci_msm c0a4900.sdhci: using lookup tables for GPIO lookup
+[    3.135178] input: hid-over-i2c 04F3:0400 Keyboard as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input0
+[    3.135400] input: hid-over-i2c 04F3:0400 Consumer Control as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input1
+[    3.135564] input: hid-over-i2c 04F3:0400 Wireless Radio Control as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input2
+[    3.135709] input: hid-over-i2c 04F3:0400 Mouse as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input3
+[    3.135924] input: hid-over-i2c 04F3:0400 Touchpad as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input5
+[    3.136130] hid-generic 0018:04F3:0400.0001: input,hidraw0: I2C HID v1.00 Keyboard [hid-over-i2c 04F3:0400] on 0-003a
+[    3.136663] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    3.137053] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    3.137065] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-phy-dpdm': -517
+[    3.137097] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    3.147192] l17: Bringing 0uV into 1304000-1304000uV
+[    3.160517] sdhci_msm c0a4900.sdhci: No GPIO consumer wp found
+[    3.174306] l18: supplied by vph_pwr
+[    3.187939] sdhci_msm c0a4900.sdhci: Linked as a consumer to regulator.27
+[    3.201120] l18: Bringing 0uV into 2704000-2704000uV
+[    3.214771] sdhci_msm c0a4900.sdhci: Dropping the link to regulator.27
+[    4.612301] l19: supplied by vph_pwr
+[    4.612887] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    4.618334] l19: Bringing 0uV into 3008000-3008000uV
+[    4.618515] l20: supplied by vph_pwr
+[    4.635205] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    4.640357] l20: Bringing 0uV into 2960000-2960000uV
+[    4.656340] qcom-qusb2-phy c012000.phy: Failed to get supply 'vdda-phy-dpdm': -517
+[    4.662527] l21: supplied by vph_pwr
+[    4.678700] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    4.684786] l21: Bringing 0uV into 2960000-2960000uV
+[    4.702457] sdhci_msm c0a4900.sdhci: GPIO lookup for consumer cd
+[    4.707499] l22: supplied by vph_pwr
+[    4.724047] sdhci_msm c0a4900.sdhci: using device tree for GPIO lookup
+[    4.730272] l22: Bringing 0uV into 2864000-2864000uV
+[    4.747024] of_get_named_gpiod_flags: can't parse 'cd-gpios' property of node '/soc/sdhci@c0a4900[0]'
+[    4.753351] l23: supplied by vph_pwr
+[    4.770197] of_get_named_gpiod_flags: can't parse 'cd-gpio' property of node '/soc/sdhci@c0a4900[0]'
+[    4.770212] sdhci_msm c0a4900.sdhci: using lookup tables for GPIO lookup
+[    4.770224] sdhci_msm c0a4900.sdhci: No GPIO consumer cd found
+[    4.776717] l23: Bringing 0uV into 3312000-3312000uV
+[    4.793849] sdhci_msm c0a4900.sdhci: GPIO lookup for consumer wp
+[    4.800545] l24: supplied by vph_pwr
+[    4.818086] sdhci_msm c0a4900.sdhci: using device tree for GPIO lookup
+[    4.824699] l24: Bringing 0uV into 3088000-3088000uV
+[    4.842350] of_get_named_gpiod_flags: can't parse 'wp-gpios' property of node '/soc/sdhci@c0a4900[0]'
+[    4.849466] l25: supplied by vph_pwr
+[    4.866873] of_get_named_gpiod_flags: can't parse 'wp-gpio' property of node '/soc/sdhci@c0a4900[0]'
+[    4.873546] l25: Bringing 0uV into 3104000-3104000uV
+[    4.891314] sdhci_msm c0a4900.sdhci: using lookup tables for GPIO lookup
+[    4.898284] l26: supplied by s3
+[    4.916128] sdhci_msm c0a4900.sdhci: No GPIO consumer wp found
+[    4.922993] l26: Bringing 0uV into 1200000-1200000uV
+[    4.942029] sdhci_msm c0a4900.sdhci: Linked as a consumer to regulator.35
+[    5.022601] l27: supplied by s7
+[    5.022623] sdhci_msm c0a4900.sdhci: Linked as a consumer to regulator.27
+[    5.048189] l28: supplied by vph_pwr
+[    5.055085] l28: Bringing 0uV into 3008000-3008000uV
+[    5.062100] lvs1: supplied by s4
+[    5.068979] lvs2: supplied by s4
+[    5.097749] mmc0: SDHCI controller on c0a4900.sdhci [c0a4900.sdhci] using ADMA 64-bit
+[    5.117059] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    5.136449] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    5.154929] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.38
+[    5.173126] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    5.191165] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.38
+[    5.279392] mmc0: new ultra high speed DDR50 SDHC card at address e624
+[    5.297807] mmcblk0: mmc0:e624 SU08G 7.40 GiB 
+[    5.324412]  mmcblk0: p1 p2
+[    5.344367] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[    5.362825] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[    5.380337] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.38
+[    5.397683] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.26
+[    5.415200] qcom-qusb2-phy c012000.phy: Dropping the link to regulator.38
+[    5.420157] random: fast init done
+[    6.709771] raid6: neonx8   gen()   827 MB/s
+[    6.793704] raid6: neonx8   xor()   687 MB/s
+[    6.877765] raid6: neonx4   gen()   874 MB/s
+[    6.961719] raid6: neonx4   xor()   739 MB/s
+[    7.045800] raid6: neonx2   gen()   657 MB/s
+[    7.129740] raid6: neonx2   xor()   629 MB/s
+[    7.213712] raid6: neonx1   gen()   478 MB/s
+[    7.293732] raid6: neonx1   xor()   458 MB/s
+[    7.373840] raid6: int64x8  gen()   341 MB/s
+[    7.453719] raid6: int64x8  xor()   215 MB/s
+[    7.533795] raid6: int64x4  gen()   409 MB/s
+[    7.613828] raid6: int64x4  xor()   225 MB/s
+[    7.693877] raid6: int64x2  gen()   362 MB/s
+[    7.773764] raid6: int64x2  xor()   192 MB/s
+[    7.853746] raid6: int64x1  gen()   288 MB/s
+[    7.933710] raid6: int64x1  xor()   153 MB/s
+[    7.947287] raid6: using algorithm neonx4 gen() 874 MB/s
+[    7.960845] raid6: .... xor() 739 MB/s, rmw enabled
+[    7.974393] raid6: using neon recovery algorithm
+[    8.011049] xor: measuring software checksum speed
+[    8.061708]    8regs     :  1012.000 MB/sec
+[    8.113721]    32regs    :  1147.000 MB/sec
+[    8.165704]    arm64_neon:   962.000 MB/sec
+[    8.178857] xor: using function: 32regs (1147.000 MB/sec)
+[    8.203964] async_tx: api initialized (async)
+[    8.594790] Btrfs loaded, crc32c=crc32c-generic
+[    8.953992] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[   10.094210] systemd[1]: System time before build time, advancing clock.
+[   10.435267] efivars: get_next_variable: status=8000000000000003
+[   10.501269] systemd[1]: systemd 237 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=hybrid)
+[   10.530305] systemd[1]: Detected architecture arm64.
+[   10.666623] systemd[1]: Set hostname to <ubuntu>.
+[   11.811991] random: systemd: uninitialized urandom read (16 bytes read)
+[   11.828368] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[   11.857899] random: systemd: uninitialized urandom read (16 bytes read)
+[   11.875427] systemd[1]: Created slice User and Session Slice.
+[   11.904196] random: systemd: uninitialized urandom read (16 bytes read)
+[   11.918343] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   11.950245] systemd[1]: Created slice System Slice.
+[   11.979940] systemd[1]: Listening on fsck to fsckd communication Socket.
+[   12.009587] systemd[1]: Listening on Syslog Socket.
+[   12.039272] systemd[1]: Listening on Device-mapper event daemon FIFOs.
+[   12.338786] lp: driver loaded but no devices found
+[   12.356458] ppdev: user-space parallel port driver
+[   12.382174] Loading iSCSI transport class v2.0-870.
+[   12.416690] iscsi: registered transport (tcp)
+[   12.494478] EXT4-fs (mmcblk0p2): re-mounted. Opts: errors=remount-ro
+[   12.533788] iscsi: registered transport (iser)
+[   12.974551] Adding 312700k swap on /swapfile.  Priority:-2 extents:2 across:320892k SSFS
+[   13.219020] systemd-journald[597]: Received request to flush runtime journal from PID 1
+[   13.256534] systemd-journald[597]: File /var/log/journal/bc2d32bb173c46eb9162b27385f4a068/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[   14.697983] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[   14.704171] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.26
+[   14.709602] qcom-qusb2-phy c012000.phy: Linked as a consumer to regulator.38
+[   14.715135] qcom-qusb2-phy c012000.phy: Registered Qcom-QUSB2 phy
+[   14.720992] dwc3 a800000.dwc3: Failed to get clk 'ref': -2
+[   14.957411] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[   14.957432] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[   14.957616] xhci-hcd xhci-hcd.0.auto: hcc params 0x0230fe65 hci version 0x110 quirks 0x0000000002010010
+[   14.957667] xhci-hcd xhci-hcd.0.auto: irq 19, io mem 0x0a800000
+[   14.957949] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.00
+[   14.957953] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   14.957956] usb usb1: Product: xHCI Host Controller
+[   14.957959] usb usb1: Manufacturer: Linux 5.0.0-rc2 xhci-hcd
+[   14.957962] usb usb1: SerialNumber: xhci-hcd.0.auto
+[   14.958359] hub 1-0:1.0: USB hub found
+[   14.958381] hub 1-0:1.0: 1 port detected
+[   14.958634] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[   14.958642] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[   14.958651] xhci-hcd xhci-hcd.0.auto: Host supports USB 3.0  SuperSpeed
+[   14.958692] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[   14.958760] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.00
+[   14.958763] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   14.958766] usb usb2: Product: xHCI Host Controller
+[   14.958769] usb usb2: Manufacturer: Linux 5.0.0-rc2 xhci-hcd
+[   14.958772] usb usb2: SerialNumber: xhci-hcd.0.auto
+[   14.959045] hub 2-0:1.0: USB hub found
+[   14.959065] hub 2-0:1.0: 1 port detected
+[   15.502397] input: hid-over-i2c 04F3:0400 Keyboard as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input6
+[   15.508214] input: hid-over-i2c 04F3:0400 Consumer Control as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input7
+[   15.514175] input: hid-over-i2c 04F3:0400 Wireless Radio Control as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input8
+[   15.520133] input: hid-over-i2c 04F3:0400 Touchpad as /devices/platform/soc/c17a000.i2c/i2c-0/0-003a/0018:04F3:0400.0001/input/input11
+[   15.526252] hid-multitouch 0018:04F3:0400.0001: input,hidraw0: I2C HID v1.00 Keyboard [hid-over-i2c 04F3:0400] on 0-003a
+[   17.482805] new mount options do not match the existing superblock, will be ignored
+[   18.646664] random: crng init done
+[   18.650980] random: 7 urandom warning(s) missed due to ratelimiting
+[   46.837556] systemd-journald[597]: File /var/log/journal/bc2d32bb173c46eb9162b27385f4a068/user-1000.journal corrupted or uncleanly shut down, renaming and replacing.
+[   59.430507] rfkill: input handler disabled
