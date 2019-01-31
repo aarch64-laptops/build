@@ -188,11 +188,26 @@ install_ubuntu()
     print_red "Enabling LibVirt (requires privilege escalation)"
     start_libvirt
 
-    print_red "Downloading latest Ubuntu LTS ISO (Ubuntu Bionic)"
-    download_lts_iso
+    if [ $PREBUILT_UBUNTU ]; then
+	# Only download the compressed Ubuntu image if a newer one is available
+	print_red "Downloading prebuilt clean Ubuntu image"
+	wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU
 
-    print_red "Installing Ubuntu into a VM"
-    start_ubuntu_installer
+	# Unzip the compressed clean Ubuntu image, but do not delete the input file
+	print_red "Uncompressing clean Ubuntu image"
+	tar -xf $ISODIR/$CLEAN_PREBUILT_UBUNTU
+	unxz $VMNAME.img.xz
+
+	print_red "Installing VM from existing (clean) image"
+	mv $VMNAME.img $VMDIR
+	virsh define $VMNAME.xml
+    else
+	print_red "Downloading latest Ubuntu LTS ISO (Ubuntu Bionic)"
+	download_lts_iso
+
+	print_red "Installing Ubuntu into a VM"
+	start_ubuntu_installer
+    fi
 }
 
 build_kernel()
@@ -331,7 +346,7 @@ if [ $# -lt 1 ]; then
     usage
 fi
 
-GETOPT=`getopt -o f --long install-ubuntu,build-kernel,build-grub,setup-vm,make-clean-prebuilt-ubuntu -- "$@"`
+GETOPT=`getopt -o f --long install-ubuntu,install-ubuntu-from-prebuilt,build-kernel,build-grub,setup-vm,make-clean-prebuilt-ubuntu -- "$@"`
 eval set -- "$GETOPT"
 
 while true; do
@@ -339,6 +354,11 @@ while true; do
 # Stages
 	--install-ubuntu)
 	    INSTALL_UBUNTU=true
+	    shift
+	    ;;
+	--install-ubuntu-from-prebuilt)
+	    INSTALL_UBUNTU=true
+	    PREBUILT_UBUNTU=true
 	    shift
 	    ;;
 	--build-kernel)
