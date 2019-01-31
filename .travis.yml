@@ -1,0 +1,17 @@
+sudo: required
+dist: xenial
+language: minimal
+
+services:
+- docker
+
+install:
+- docker build .
+
+script:
+- bash quick-start.sh
+
+branches:
+  only:
+  - master
+  - wip
