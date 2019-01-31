@@ -140,6 +140,29 @@ start_ubuntu_installer()
     virt-install --accelerate --cdrom $ISODIR/$ISO --disk size=7,format=raw   \
 		 --name $VMNAME --os-type linux --os-variant ubuntu18.04      \
 		 --ram 2048 --arch aarch64 --noreboot # --vcpus=$(nproc)
+
+    if [ $MAKE_CLEAN_UBUNTU ]; then
+	print_red "Installing the desktop into the clean image [this will take a while]"
+	start_vm
+
+	while [ ! $USERNAME ]; do
+	    print_red "[INPUT REQUIRED] Please enter the username you used during the install"
+	    read USERNAME
+	done
+
+	ssh -t -o LogLevel=ERROR                                        \
+	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+	    $USERNAME@$VMIP 'sudo apt install -y ubuntu-desktop'
+
+	print_red "Saving the compressed clean image and LibVirt XML to tar archive"
+	cd $VMDIR
+	virsh dumpxml $VMNAME > $VMNAME.xml
+	xz -9 $VMNAME.img
+	tar -czf $VMNAME-clean-img-xml-$(date +%F-%H%p).tgz $VMNAME.xml $VMNAME.img.xz
+	rm $VMNAME.xml $VMNAME.img.xz
+    fi
+
+    print_red "Ubuntu install was successful"
 }
 
 install_ubuntu()
@@ -302,11 +325,12 @@ if [ $# -lt 1 ]; then
     usage
 fi
 
-GETOPT=`getopt -o f --long install-ubuntu,build-kernel,build-grub,setup-vm -- "$@"`
+GETOPT=`getopt -o f --long install-ubuntu,build-kernel,build-grub,setup-vm,make-clean-prebuilt-ubuntu -- "$@"`
 eval set -- "$GETOPT"
 
 while true; do
     case $1 in
+# Stages
 	--install-ubuntu)
 	    INSTALL_UBUNTU=true
 	    shift
@@ -321,12 +345,16 @@ while true; do
 	    ;;
 	--setup-vm)
 	    SETUP_VM=true
+# Options
+	--make-clean-prebuilt-ubuntu)
+	    MAKE_CLEAN_UBUNTU=true
 	    shift
 	    ;;
 	-f)
 	    FORCE=true
 	    shift
 	    ;;
+# Internal
 	--)
 	    shift
 	    break
@@ -340,6 +368,12 @@ done
 
 print_red "Conducting start-up checks"
 startup_checks
+
+if [ $MAKE_CLEAN_UBUNTU ] && [ ! $INSTALL_UBUNTU ]; then
+    print_red "--make-clean-prebuilt-ubuntu doesn't make sense without --install-ubuntu"
+    usage
+    exit 1
+fi
 
 if [ $INSTALL_UBUNTU ]; then
     print_red "Installing Ubuntu into a VM"
