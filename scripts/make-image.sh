@@ -225,12 +225,8 @@ build_grub()
     cp grub-core/*.{mod,lst} $OUTMODDIR
 }
 
-setup_vm()
+start_vm()
 {
-    local BOOTTIME=0
-    local TIMEER=0
-    local VMIP=""
-
     start_libvirt
 
     print_red "Starting VM"
@@ -268,6 +264,15 @@ setup_vm()
     VMHOSTNAME=$(virsh net-dhcp-leases default | awk -v v=$VMIP '/v/{print $6}')
 
     print_red "VM up (Hostname [$VMHOSTNAME] IP [$VMIP] Boot-time [$BOOTTIME seconds])"
+}
+
+setup_vm()
+{
+    local BOOTTIME=0
+    local TIMEER=0
+    local VMIP=""
+
+    start_vm
 
     print_red "Packaging up Kernel and Grub for delivery into the VM"
     pushd $OUTDIR > /dev/null
