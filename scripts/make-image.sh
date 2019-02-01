@@ -10,7 +10,7 @@ VMNAME=aarch64-laptops-bionic
 ISOURL=http://cdimage.ubuntu.com/releases/18.04/release
 ISO=ubuntu-18.04.1-server-arm64.iso
 PREBUILT_REPO=https://github.com/aarch64-laptops/prebuilt/raw/master
-CLEAN_PREBUILT_UBUNTU=$VMNAME-clean-img-xml.tgz
+CLEAN_PREBUILT_UBUNTU=$VMNAME-clean-desktop-img-xml
 VMDIR=/var/lib/libvirt/images
 IMAGES_FOR_VM=grub-linux-dtb.tgz
 
@@ -164,7 +164,7 @@ start_ubuntu_installer()
 	cd $VMDIR
 	virsh dumpxml $VMNAME > $VMNAME.xml
 	xz -9 $VMNAME.img
-	tar -czf $VMNAME-clean-img-xml-$(date +%F-%H%p).tgz $VMNAME.xml $VMNAME.img.xz
+	tar -czf $CLEAN_PREBUILT_UBUNTU-$(date +%F-%H%p).tgz $VMNAME.xml $VMNAME.img.xz
 	rm $VMNAME.xml $VMNAME.img.xz
     fi
 
@@ -191,11 +191,11 @@ install_ubuntu()
     if [ $PREBUILT_UBUNTU ]; then
 	# Only download the compressed Ubuntu image if a newer one is available
 	print_red "Downloading prebuilt clean Ubuntu image"
-	wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU
+	wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU.tgz
 
 	# Unzip the compressed clean Ubuntu image, but do not delete the input file
 	print_red "Uncompressing clean Ubuntu image"
-	tar -xf $ISODIR/$CLEAN_PREBUILT_UBUNTU
+	tar -xf $ISODIR/$CLEAN_PREBUILT_UBUNTU.tgz
 	unxz $VMNAME.img.xz
 
 	print_red "Installing VM from existing (clean) image"
