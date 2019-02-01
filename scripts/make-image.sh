@@ -286,7 +286,7 @@ start_vm()
 	BOOTTIME=$((BOOTTIME + 1))
 	VMIP=$(arp -n | awk '/virbr0/{print $1}')
 
-	if [ $BOOTTIME -gt 300 ]; then
+	if [ $BOOTTIME -gt 360 ]; then
 	    print_red "Failed to boot the VM in time"
 	    return 1
 	fi
@@ -299,7 +299,7 @@ start_vm()
 	else
 	    sleep 1
 	    TIMER=$((TIMER + 1))
-	    if [ $TIMER -gt 60 ]; then
+	    if [ $TIMER -gt 300 ]; then
 		nmap -p22 $VMIP
 		print_red "VM's SSH service didn't come up in time - is it installed/enabled?"
 		return 1
