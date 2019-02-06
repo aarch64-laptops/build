@@ -341,7 +341,7 @@ setup_vm()
 	print_red "Running the setup script via SSH"
 	sshpass -e ssh -t -o LogLevel=ERROR                                 \
 		-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-		$USERNAME@$VMIP 'echo -e ' $SSHPASS '| sudo -S /tmp/setup-vm.sh'
+		$USERNAME@$VMIP 'echo -e ' $SSHPASS '| sudo -S /tmp/setup-vm.sh' ${@}
     else
 	print_red "\n[TIMEOUT WARNING] Keep an eye on this section until you've entered your password (twice)\n"
 
@@ -353,7 +353,7 @@ setup_vm()
 	print_red "Running the setup script via SSH (requires authentication [twice])"
 	ssh -t -o LogLevel=ERROR                                        \
 	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-	    $USERNAME@$VMIP 'sudo /tmp/setup-vm.sh'
+	    $USERNAME@$VMIP 'sudo /tmp/setup-vm.sh' ${@}
     fi
 
     print_red "Pulling the plug from the VM"
@@ -461,6 +461,6 @@ fi
 
 if [ $SETUP_VM ]; then
     print_red "Setting up the Ubuntu VM"
-    setup_vm
+    setup_vm ${@}
     exit 0
 fi

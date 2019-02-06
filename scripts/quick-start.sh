@@ -10,6 +10,33 @@ print_blue()
     echo -e "\e[01;34m$@ \e[0m"
 }
 
+function usage()
+{
+    print_blue "USAGE: $0 [asus-tp370ql|hp-envy-x2]lenovo-mixx-630|generic]"
+    return 1
+}
+
+if [ $# -ne 1 ]; then
+    print_blue "$0 takes exactly 1 argument"
+    usage
+fi
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        asus-tp370ql|hp-envy-x2|lenovo-mixx-630|generic)
+            DEVICE=$1
+            ;;
+        help|--help|-h|?)
+            usage
+            ;;
+        *)
+            print_blue "Unrecognised parameter $1"
+            usage
+            ;;
+    esac
+    shift
+done
+
 startup_checks()
 {
     vm=aarch64-laptops-bionic
@@ -64,4 +91,4 @@ print_blue "Setting up VM (~2.5 hours - manual : 30 mins - prebuilt)"
 docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
        -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
        -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
-       aarch64-laptops-ubuntu-vm:0.1 /scripts/make-image.sh --setup-vm-from-prebuilt
+       aarch64-laptops-ubuntu-vm:0.1 /scripts/make-image.sh --setup-vm-from-prebuilt ${DEVICE}

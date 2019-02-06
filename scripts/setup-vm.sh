@@ -9,6 +9,45 @@ print_green()
     echo -e "\e[01;32m$@ \e[0m"
 }
 
+function usage()
+{
+    print_green "USAGE: $0 [asus-tp370ql|hp-envy-x2]lenovo-mixx-630|generic]"
+    return 1
+}
+
+if [ $# -ne 1 ]; then
+    print_green "$0 takes exactly 1 argument"
+    usage
+fi
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        asus-tp370ql)
+            NAME="ASUS TP370QL"
+            DTB=laptop-asus-tp370ql.dtb
+            ;;
+        hp-envy-x2)
+            NAME="HP Envy X2"
+            DTB=laptop-hp-envy-x2.dtb
+            ;;
+        lenovo-mixx-630)
+            NAME="Lenovo Mixx 630"
+            DTB=laptop-hp-envy-x2.dtb
+            ;;
+        generic)
+            NAME="Generic"
+            ;;
+        help|--help|-h|?)
+            usage
+            ;;
+        *)
+            print_green "Unrecognised parameter $1"
+            usage
+            ;;
+    esac
+    shift
+done
+
 print_green "\nInside the VM"
 
 if [ ! -f $PACKAGES ]; then
@@ -34,6 +73,16 @@ print_green "Installing the Linux Kernel and DTB"
 dpkg -i linux-*.deb
 cp laptop*.dtb /boot
 
+if [ $DTB ]; then
+    if [ ! -e /boot/$DTB ]; then
+	print_green "/boot/$DTB does not appear to exist - skipping"
+    else
+	print_green "Installing $NAME specific DTB"
+	ln -s /boot/$DTB /boot/laptop.dtb
+    fi
+fi
+
+print_green "Update list of modules to inclue in intramfs"
 cat <<EOF >> /etc/initramfs-tools/modules
 qcom_smd_regulator
 smd_rpm

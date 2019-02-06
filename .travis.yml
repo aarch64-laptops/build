@@ -16,7 +16,7 @@ install:
 
 script:
 - while sleep 8m; do echo "=====[ $SECONDS seconds, heartbeat to prevent Travis timing out ]====="; done &
-- bash quick-start.sh
+- bash quick-start.sh generic
 - kill %1
 
 branches:
