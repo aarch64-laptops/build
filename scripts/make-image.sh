@@ -242,7 +242,7 @@ build_kernel()
 	bindeb-pkg
 
     print_red "Copying *.debs and DTB to $OUTDIR"
-    cp linux-*.deb build-arm64/arch/arm64/boot/dts/qcom/msm8998-mtp.dtb $OUTDIR
+    cp linux-*.deb build-arm64/arch/arm64/boot/dts/qcom/laptop*.dtb $OUTDIR
 }
 
 build_grub()
@@ -324,7 +324,7 @@ setup_vm()
 
     print_red "Packaging up Kernel and Grub for delivery into the VM"
     pushd $OUTDIR > /dev/null
-    tar -czf $IMAGES_FOR_VM --exclude=linux-*dbg*.deb grub linux-*.deb msm8998-mtp.dtb
+    tar -czf $IMAGES_FOR_VM --exclude=linux-*dbg*.deb grub linux-*.deb laptop*.dtb
     popd > /dev/null
 
     while [ ! $USERNAME ]; do

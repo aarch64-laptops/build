@@ -32,7 +32,7 @@ tar -xf $PACKAGES
 
 print_green "Installing the Linux Kernel and DTB"
 dpkg -i linux-*.deb
-cp msm8998-mtp.dtb /boot
+cp laptop*.dtb /boot
 
 cat <<EOF >> /etc/initramfs-tools/modules
 qcom_smd_regulator
@@ -56,7 +56,7 @@ NEW_GRUB_CMDLINE="GRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT $KER
 sed -i "s/linux_entry ()/$NEW_GRUB_CMDLINE\n\nlinux_entry ()/" \
     /etc/grub.d/10_linux
 
-sed -i $'/initrd\t\${rel_dirname}\/\${initrd}/ a \ \tdevicetree \/boot\/msm8998-mtp.dtb' \
+sed -i $'/initrd\t\${rel_dirname}\/\${initrd}/ a \ \tdevicetree \/boot\/laptop.dtb' \
     /etc/grub.d/10_linux
 
 update-grub
