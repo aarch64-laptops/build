@@ -15,7 +15,9 @@ install:
 - docker build .
 
 script:
+- while sleep 8m; do echo "=====[ $SECONDS seconds, heartbeat to prevent Travis timing out ]====="; done &
 - bash quick-start.sh
+- kill %1
 
 branches:
   only:
