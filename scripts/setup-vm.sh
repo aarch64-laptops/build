@@ -69,10 +69,6 @@ cd $WORKDIR
 print_green "Unpacking the packages archive"
 tar -xf $PACKAGES
 
-print_green "Installing the Linux Kernel and DTB"
-dpkg -i linux-*.deb
-cp laptop*.dtb /boot
-
 if [ $DTB ]; then
     if [ ! -e /boot/$DTB ]; then
 	print_green "/boot/$DTB does not appear to exist - skipping"
@@ -97,8 +93,13 @@ qcom_spmi_pmic
 pinctrl_spmi_gpio
 EOF
 
-print_green "Updating initramfs"
-update-initramfs -u
+# Not doing this seperately, since it'll happen when the kernel is installed
+#print_green "Updating initramfs"
+#update-initramfs -u
+
+print_green "Installing the Linux Kernel and DTB"
+dpkg -i linux-*.deb
+cp laptop*.dtb /boot
 
 print_green "Updating Grub config file"
 NEW_GRUB_CMDLINE="GRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT $KERNEL_CMDLINE\""
