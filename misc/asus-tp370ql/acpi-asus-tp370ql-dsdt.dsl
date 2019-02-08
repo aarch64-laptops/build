@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of acpi-asus.bin, Sat Feb  2 20:06:50 2019
+ * Disassembly of dsdt.dat, Fri Feb  8 13:10:03 2019
  *
  * Original Table Header:
  *     Signature        "DSDT"
  *     Length           0x000634EF (406767)
  *     Revision         0x02
- *     Checksum         0x9F
+ *     Checksum         0xFF
  *     OEM ID           "QCOMM "
  *     OEM Table ID     "MSM8998 "
  *     OEM Revision     0x00000003 (3)
@@ -46,7 +46,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8998 ", 0x00000003)
         Name (SDFE, 0x0043)
         Name (SFES, "899800000000000")
         Name (SIDM, 0x0000000FFFFF00FF)
-        Name (SOSN, 0x000003F2E2707288)
+        Name (SOSN, 0x000003F2741EA3B7)
         Name (RMTB, 0x85E00000)
         Name (RMTX, 0x00200000)
         Name (RFMB, 0x00000000)
