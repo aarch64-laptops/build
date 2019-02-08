@@ -226,6 +226,10 @@ build_kernel()
     if ls linux-*.deb > /dev/null 2>&1; then
 	rm linux-*.deb
     fi
+    # Remove {buildinfo,changes} files
+    if ls linux-5* > /dev/null 2>&1; then
+	rm linux-5*
+    fi
 
     ccache make                                     \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
