@@ -11,15 +11,10 @@
 - [x] USB
 - [x] GUI Desktop (using Framebuffer)
 - [x] Keyboard
-- [ ] Touchpad
-- [ ] On-board Storage (UFS based)
+- [x] Touchpad
+- [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
-
-* Touchpad input is not yet functional
-  * To work around this, plug in a USB mouse
-* UFS support is being actively worked on upstream by Marc Gonzalez
-  * Both Storage and WiFi depend on UFS support
 
 ### HP Envy x2
 
@@ -31,12 +26,9 @@
 - [x] GUI Desktop (using Framebuffer)
 - [x] Keyboard
 - [x] Touchpad
-- [ ] On-board Storage (UFS based)
+- [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
-
-* UFS support is being actively worked on upstream by Marc Gonzalez
-  * Both Storage and WiFi depend on UFS support
 
 ## Overview
 
