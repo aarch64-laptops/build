@@ -23,3 +23,6 @@ branches:
   only:
   - master
   - wip
+  except:
+  - master
+  - wip
