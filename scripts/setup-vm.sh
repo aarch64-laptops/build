@@ -32,7 +32,7 @@ while [ $# -gt 0 ]; do
             ;;
         lenovo-mixx-630)
             NAME="Lenovo Mixx 630"
-            DTB=laptop-hp-envy-x2.dtb
+            DTB=laptop-lenovo-mixx-630.dtb
             ;;
         generic)
             NAME="Generic"
