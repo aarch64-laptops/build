@@ -30,6 +30,20 @@
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
 
+### Lenovo Mixx 630
+
+- [x] Boots into Grub `Normal Mode`
+- [x] Boots Linux kernel from rootfs' /boot partition (using Device Tree)
+- [x] Boots to text Ubuntu login prompt/shell
+- [x] SD Card Storage
+- [x] USB
+- [x] GUI Desktop (using Framebuffer)
+- [x] Keyboard
+- [x] Touchpad
+- [x] On-board Storage (UFS based)
+- [ ] WiFi (UFS based)
+- [ ] Accelerated Graphics
+
 ## Overview
 
 In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have released devices based on Qualcomm's Snapdragon 835.  The devices are delivered with Windows 10 pre-installed, but are able to run Linux.  Unfortunately, due to some pretty serious obstacles, simply running the AArch64 version of the Ubuntu (or any distro for that matter) installer is not enough (even with Secure Boot disabled).
