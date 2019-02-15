@@ -69,15 +69,6 @@ cd $WORKDIR
 print_green "Unpacking the packages archive"
 tar -xf $PACKAGES
 
-if [ $DTB ]; then
-    if [ ! -e /boot/$DTB ]; then
-	print_green "/boot/$DTB does not appear to exist - skipping"
-    else
-	print_green "Installing $NAME specific DTB"
-	ln -s /boot/$DTB /boot/laptop.dtb
-    fi
-fi
-
 print_green "Update list of modules to inclue in intramfs"
 cat <<EOF >> /etc/initramfs-tools/modules
 qcom_smd_regulator
@@ -100,6 +91,15 @@ EOF
 print_green "Installing the Linux Kernel and DTB"
 dpkg -i linux-*.deb
 cp laptop*.dtb /boot
+
+if [ $DTB ]; then
+    if [ ! -e /boot/$DTB ]; then
+	print_green "/boot/$DTB does not appear to exist - skipping"
+    else
+	print_green "Installing $NAME specific DTB"
+	ln -s /boot/$DTB /boot/laptop.dtb
+    fi
+fi
 
 print_green "Updating Grub config file"
 NEW_GRUB_CMDLINE="GRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT $KERNEL_CMDLINE\""
