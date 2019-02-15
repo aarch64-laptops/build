@@ -261,16 +261,19 @@ build_grub()
     make -j $(nproc)
 
     print_red "Creating Grub image and copying to $OUTFILE"
-    ./grub-mkimage --directory grub-core --prefix '(hd1,gpt2)/boot/grub'   \
+    ./grub-mkimage --directory grub-core --prefix '/EFI/BOOT'              \
 	--output $OUTFILE --format arm64-efi                               \
 	part_gpt part_msdos ntfs ntfscomp hfsplus fat ext2                 \
 	normal chain boot configfile linux minicmd gfxterm                 \
 	all_video efi_gop video_fb font video                              \
 	loadenv disk test gzio bufio gettext terminal                      \
-	crypto extcmd boot fshelp
+	crypto extcmd boot fshelp search
 
     print_red "Copying Grub modules into $OUTMODDIR"
     cp grub-core/*.{mod,lst} $OUTMODDIR
+
+    print_red "Copying grub.cfg shim to $OUTDIR/grub"
+    cp $SCRIPTSDIR/grub-shim.cfg $OUTDIR/grub
 }
 
 start_vm()

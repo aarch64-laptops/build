@@ -118,10 +118,19 @@ print_green "Installing new Grub binary and modules"
 # Back-up existing Grub binary and modules
 mv $EFIBOOTDIR/BOOTAA64.EFI $EFIBOOTDIR/BOOTAA64.EFI-orig
 mv $GRUBMODULESDIR $GRUBMODULESDIR-orig
+
 # Insert new ones in their place
 mkdir $GRUBMODULESDIR
 cp grub/BOOTAA64.EFI $EFIBOOTDIR/
 cp grub/modules/* $GRUBMODULESDIR
+
+# Copy grub.cfg shim to the EFI BOOT directory
+#  Searches local media for the grub.cfg
+cp grub/grub-shim.cfg $EFIBOOTDIR/grub.cfg
+
+# Replace string "[REPLACE_UUID]" with the filesystem UUID
+UUID=$(lsblk -o UUID /dev/sda2 | sed '/UUID/d')
+sed -i "s/\[REPLACE_UUID\]/$UUID/" $EFIBOOTDIR/grub.cfg
 
 print_green "Installing the Ubuntu Desktop"
 apt install -y ubuntu-desktop
