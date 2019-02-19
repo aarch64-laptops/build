@@ -82,6 +82,7 @@ spmi_pmic_arb
 regmap_spmi
 qcom_spmi_pmic
 pinctrl_spmi_gpio
+nvmem_qfprom
 EOF
 
 # Not doing this seperately, since it'll happen when the kernel is installed
