@@ -12,6 +12,7 @@
 - [x] GUI Desktop (using Framebuffer)
 - [x] Keyboard
 - [x] Touchpad
+- [x] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
@@ -26,6 +27,7 @@
 - [x] GUI Desktop (using Framebuffer)
 - [x] Keyboard
 - [x] Touchpad
+- [ ] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
@@ -40,6 +42,21 @@
 - [x] GUI Desktop (using Framebuffer)
 - [x] Keyboard
 - [x] Touchpad
+- [ ] Touchscreen
+- [x] On-board Storage (UFS based)
+- [ ] WiFi (UFS based)
+- [ ] Accelerated Graphics
+
+### Lenovo Yoga C630
+
+- [x] Boots into Grub `Normal Mode`
+- [x] Boots Linux kernel from rootfs' /boot partition (using Device Tree)
+- [x] Boots to text Ubuntu login prompt/shell
+- [x] USB
+- [x] GUI Desktop (using Framebuffer)
+- [x] Keyboard
+- [x] Touchpad
+- [x] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
@@ -50,11 +67,11 @@ In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have rele
 
 This project provides the user/owner some options to install Linux on these devices.  The choices are as follows:
 
-1. Download a pre-built MicroSD card image and flash it onto an MicroSD card
+1. Download a pre-built image and flash it onto an MicroSD card or USB flash drive
 2. Use the `quick-start.sh` script to build your own bespoke image
 3. Execute each of the steps manually (still using the other helper scripts)
 
-## Use an existing pre-built MicroSD card image
+## Use an existing pre-built image
 
 Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently available.
 
@@ -66,7 +83,7 @@ Download [THIS IMAGE](https://github.com/aarch64-laptops/prebuilt/raw/master/aar
 
 This option is helpful if you want to create bespoke images, or if you want to see how the build process works.
 
-**Note:** Whichever method of building your own images you choose, please be aware that a lot of disk space will be required.  The VM image, which will become the final MicroSD card image will be around 8GB and the Linux kernel source is around 1.5GB.  On top of this, if one of the docker methods are selected, space will be required for the Docker images.  Docker images are usually located in `/var/lib/docker`.  It would be worth checking firstly where this is located/mounted and secondly how much free space is left on that partition.
+**Note:** Whichever method of building your own images you choose, please be aware that a lot of disk space will be required.  The VM image, which will become the final image will be around 8GB and the Linux kernel source is around 1.5GB.  On top of this, if one of the docker methods are selected, space will be required for the Docker images.  Docker images are usually located in `/var/lib/docker`.  It would be worth checking firstly where this is located/mounted and secondly how much free space is left on that partition.
 
 There are more choices to make:
 
@@ -232,23 +249,23 @@ git submodule update --remote src/grub
 
 ### Flashing the image
 
-**Note**: A 8G MicroSD card (or larger if you plan on installing packages) will be required.
+**Note**: An 8G MicroSD card or USB flash drive (or larger if you plan on installing packages) will be required.
 
 The final image may be in one of two states; `raw` or `xz compressed`.  If the image is compressed you will require `xz` utilities to extract the image before flashing can commence.  Please check your Distro's documentation to find out which package they reside in.
 
-If the image has an `*.xz` file extension it is `xz compressed`.  These images are firstly extracted using `xzcat` and flashed to the MicroSD card using `dd`:
+If the image has an `*.xz` file extension it is `xz compressed`.  These images are firstly extracted using `xzcat` and flashed to the MicroSD card or USB flash drive using `dd`:
 
 ```
-$ xzcat <IMG>.xz | sudo dd of=/dev/<SD_CARD> oflag=direct bs=1M status=progress iflag=fullblock
+$ xzcat <IMG>.xz | sudo dd of=/dev/<DEVICE> oflag=direct bs=1M status=progress iflag=fullblock
 ```
 
 If the image has an `*.img` file extension it is a `raw` image.  This images are flashed using `dd` only:
 
 ```
-$ sudo dd if=<IMG>.img of=/dev/<SD_CARD> oflag=direct bs=1M status=progress
+$ sudo dd if=<IMG>.img of=/dev/<DEVICE> oflag=direct bs=1M status=progress
 ```
 
-**Note**: <SD_CARD> is the whole card, not a partition e.g. `/dev/sda` and NOT `/dev/sda1`.
+**Note**: <DEVICE> is the whole device, not a partition e.g. `/dev/sda` and NOT `/dev/sda1`.
 
 ### Booting into Ubuntu
 
@@ -273,17 +290,36 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
   * During testing we used the `Clear All Secure Boot Keys` to boot Linux
     * Obviously this might have serious side-effects - thus we do not condone this action
 
-#### Inserting the MicroSD card
+#### Disabling Secure Boot on the Lenovo C630
+
+##### Option 1 - Using Microsoft Windows
+
+1.  Boot into Microsoft Windows
+2.  Go into Settings
+3.  Select the Update & Security tile
+4.  Select Recovery from the left side panel
+5.  Under Advanced setup select Restart now
+6.  Highlight Troubleshoot and press Enter
+7.  Highlight Advanced options and press Enter
+8.  Hightlight UEFI Firmware Settings and press Enter
+9.  Select Restart
+10. Go into the Security tab
+11. Change Secure Boot to Disabled
+
+##### Option 2 - Using the Grub bootloader
+
+1. Boot to the Grub menu
+2. Select System Setup
+3. Go into the Security tab
+4. Change Secure Boot to Disabled
+
+#### Booting from MicroSD card on the ASUS SonicMaster TP370QL
 
 The MicroSD card is inserted into a small plastic (fragile) receiver/slide which is pushed into the side of the laptop chassis.  To eject it you will require a paperclip or similar thin, stiff implement.  Push your tool of choice into the tiny hole and the receiver/slide should protrude out.  Simply, but very carefully insert the MicroSD card into the receiver/slide and gently push it back into the machine - it should lay flush.
 
 Now power up the machine.  It should boot to a Ubuntu login prompt.  The credentials of which you set-up during the install stage.
 
-#### Booting the ASUS SonicMaster TP370QL
-
-1. Simply press the power button - should boot automatically
-
-#### Booting the HP Envy x2
+#### Booting the HP Envy x2 from MicroSD card (booting from USB should be automatic)
 
 **Note:** The HP Envy x2 does not appear to boot from the MicroSD Card automatically.
 
@@ -297,8 +333,16 @@ Now power up the machine.  It should boot to a Ubuntu login prompt.  The credent
   * The MicroSD card was always the 3rd one from the bottom during our testing
 6. Navigate though `<EFI> -> <BOOT> -> BOOTAA64.EFI`
 
-### Using larger MicroSD cards
+Now power up the machine.  It should boot to a Ubuntu login prompt.  The credentials of which you set-up during the install stage.
 
-Since this project uses pre-built MicroSD card images, the root partition is limited to around 8GB.  If you have used a larger card and wish to expand the partition please search the internet for something along the lines of "reclaim SD card space".  There are literally 100s of articles on how to do this, mostly pertaining to the Raspberry Pi.
+#### Booting from USB
+
+1. Place the USB flash drive into the USB port
+
+Now power up the machine.  It should boot to a Ubuntu login prompt.  The credentials of which you set-up during the install stage.
+
+### Using larger SD cards or USB flash drives
+
+Since this project uses pre-built images, the root partition is limited to around 7GB.  If you have used a larger device and wish to expand the partition please search the internet for something along the lines of "reclaim SD card space".  There are literally 100s of articles on how to do this, mostly pertaining to the Raspberry Pi.
 
 **Note:** We found that simply opening it up in `gparted` was the simplest option.
