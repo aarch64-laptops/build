@@ -11,7 +11,7 @@ print_green()
 
 function usage()
 {
-    print_green "USAGE: $0 [asus-tp370ql|hp-envy-x2]lenovo-mixx-630|generic]"
+    print_green "USAGE: $0 [asus-tp370ql|hp-envy-x2]lenovo-mixx-630|lenovo-yoga-c630|generic]"
     return 1
 }
 
@@ -33,6 +33,10 @@ while [ $# -gt 0 ]; do
         lenovo-mixx-630)
             NAME="Lenovo Mixx 630"
             DTB=laptop-lenovo-mixx-630.dtb
+            ;;
+        lenovo-yoga-c630)
+            NAME="Lenovo Yoga C630"
+            DTB=laptop-lenovo-yoga-c630.dtb
             ;;
         generic)
             NAME="Generic"
