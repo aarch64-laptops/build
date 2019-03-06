@@ -6,3 +6,6 @@
 	path = src/linux
 	url = https://github.com/aarch64-laptops/linux.git
 	branch = laptops
+[submodule "src/linux-meta"]
+	path = src/linux-meta
+	url = https://github.com/aarch64-laptops/linux-meta.git
