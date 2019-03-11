@@ -8,9 +8,6 @@ services:
 git:
   submodules: false
 
-before_install:
-- travis_wait git submodule update --init --recursive
-
 install:
 - docker build .
 
@@ -21,8 +18,5 @@ script:
 
 branches:
   only:
-  - master
-  - wip
-  except:
   - master
   - wip
