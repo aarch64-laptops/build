@@ -2,6 +2,7 @@
 
 WORKDIR=/tmp/aarch64-laptops
 PACKAGES=/tmp/grub-linux-dtb.tgz
+EFIBOOTDIR=/boot/efi/EFI/BOOT
 KERNEL_CMDLINE="efi=novamap ignore_loglevel clk_ignore_unused pd_ignore_unused console=tty0"
 
 print_green()
@@ -54,11 +55,6 @@ done
 
 print_green "\nInside the VM"
 
-if [ ! -f $PACKAGES ]; then
-    print_green "Packages archive missing"
-    exit 1
-fi
-
 print_green "  We'll take it from here - go grab a coffee, this'll take a while!"
 
 ## The pain of doing this in a VM is not worth the gain
@@ -66,12 +62,14 @@ print_green "  We'll take it from here - go grab a coffee, this'll take a while!
 # apt update
 # apt upgrade -y
 
-print_green "Creating workspace ($WORKDIR)"
-mkdir -p $WORKDIR
-cd $WORKDIR
+if [ -f $PACKAGES ]; then
+    print_green "Creating workspace ($WORKDIR)"
+    mkdir -p $WORKDIR
+    cd $WORKDIR
 
-print_green "Unpacking the packages archive"
-tar -xf $PACKAGES
+    print_green "Unpacking the packages archive"
+    tar -xf $PACKAGES
+fi
 
 print_green "Update list of modules to inclue in intramfs"
 cat <<EOF >> /etc/initramfs-tools/modules
@@ -89,13 +87,37 @@ pinctrl_spmi_gpio
 nvmem_qfprom
 EOF
 
-# Not doing this seperately, since it'll happen when the kernel is installed
-#print_green "Updating initramfs"
-#update-initramfs -u
+ps aux | grep apt
 
-print_green "Installing the Linux Kernel and DTB"
-dpkg -i linux-*.deb
-cp laptop*.dtb /boot
+# The while [] loops avoid GPG issues
+rm nonexistant-file &> /dev/null # Set $? to 1
+while [ $? -ne 0 ]; do
+    sudo add-apt-repository -y ppa:aarch64-laptops/grub
+done
+
+rm nonexistant-file &> /dev/null # Set $? to 1
+while [ $? -ne 0 ]; do
+    sudo add-apt-repository -y ppa:aarch64-laptops/linux-kernel
+done
+
+rm nonexistant-file &> /dev/null # Set $? to 1
+while [ $? -ne 0 ]; do
+    sudo add-apt-repository -y ppa:aarch64-laptops/linux-kernel-meta
+done
+
+sudo apt update
+
+rm nonexistant-file &> /dev/null # Set $? to 1
+while [ $? -ne 0 ]; do
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y                         \
+	 -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" \
+	 grub2-common
+done
+
+rm nonexistant-file &> /dev/null # Set $? to 1
+while [ $? -ne 0 ]; do
+    sudo apt install -y linux-image-generic grub2-common
+done
 
 if [ $DTB ]; then
     if [ ! -e /boot/$DTB ]; then
@@ -106,32 +128,9 @@ if [ $DTB ]; then
     fi
 fi
 
-print_green "Updating Grub config file"
-NEW_GRUB_CMDLINE="GRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT $KERNEL_CMDLINE\""
-sed -i "s/linux_entry ()/$NEW_GRUB_CMDLINE\n\nlinux_entry ()/" \
-    /etc/grub.d/10_linux
-
-sed -i $'/initrd\t\${rel_dirname}\/\${initrd}/ a \ \tdevicetree \/boot\/laptop.dtb' \
-    /etc/grub.d/10_linux
-
-update-grub
-
-EFIBOOTDIR=/boot/efi/EFI/BOOT
-GRUBMODULESDIR=/boot/grub/arm64-efi
-
-print_green "Installing new Grub binary and modules"
-# Back-up existing Grub binary and modules
-mv $EFIBOOTDIR/BOOTAA64.EFI $EFIBOOTDIR/BOOTAA64.EFI-orig
-mv $GRUBMODULESDIR $GRUBMODULESDIR-orig
-
-# Insert new ones in their place
-mkdir $GRUBMODULESDIR
-cp grub/BOOTAA64.EFI $EFIBOOTDIR/
-cp grub/modules/* $GRUBMODULESDIR
-
 # Copy grub.cfg shim to the EFI BOOT directory
 #  Searches local media for the grub.cfg
-cp grub/grub-shim.cfg $EFIBOOTDIR/grub.cfg
+cp scripts/grub-shim.cfg $EFIBOOTDIR/grub.cfg
 
 # Replace string "[REPLACE_UUID]" with the filesystem UUID
 UUID=$(lsblk -o UUID /dev/sda2 | sed '/UUID/d')

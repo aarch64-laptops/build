@@ -326,10 +326,12 @@ setup_vm()
 
     start_vm
 
-    print_red "Packaging up Kernel and Grub for delivery into the VM"
-    pushd $OUTDIR > /dev/null
-    tar -czf $IMAGES_FOR_VM --exclude=linux-*dbg*.deb grub linux-*.deb laptop*.dtb
-    popd > /dev/null
+    if [ -d grub ] && [ -f linux-*.deb ] && [ laptop*.dtb ]; then
+	print_red "Packaging up Kernel and Grub for delivery into the VM"
+	pushd $OUTDIR > /dev/null
+	tar -czf $IMAGES_FOR_VM --exclude=linux-*dbg*.deb grub linux-*.deb laptop*.dtb
+	popd > /dev/null
+    fi
 
     while [ ! $USERNAME ]; do
 	print_red "[INPUT REQUIRED] Please enter the username you used during the install"
@@ -338,9 +340,16 @@ setup_vm()
 
     if [ $SSHPASS ]; then
 	print_red "Copying artifacts to the VM via SCP"
+
 	sshpass -e scp -o LogLevel=ERROR                                    \
-	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null     \
-	    $OUTDIR/$IMAGES_FOR_VM $SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
+		-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		$SCRIPTSDIR/setup-vm.sh $USERNAME@$VMIP:/tmp
+
+	if [ -f $OUTDIR/$IMAGES_FOR_VM ]; then
+	    sshpass -e scp -o LogLevel=ERROR                                    \
+		    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		    $OUTDIR/$IMAGES_FOR_VM $USERNAME@$VMIP:/tmp
+	fi
 
 	print_red "Running the setup script via SSH"
 	sshpass -e ssh -t -o LogLevel=ERROR                                 \

@@ -26,6 +26,12 @@ while [ $# -gt 0 ]; do
         asus-tp370ql|hp-envy-x2|lenovo-mixx-630|lenovo-yoga-c630|generic)
             DEVICE=$1
             ;;
+        kernel)
+            BUILD_KERNEL=true
+            ;;
+        grub)
+            BUILD_KERNEL=grub
+            ;;
         help|--help|-h|?)
             usage
             ;;
@@ -45,10 +51,12 @@ startup_checks()
 	print_blue "$0 should be executed from this project's root directory"
     fi
 
-    if ls $OUTDIR/linux-*.deb > /dev/null 2>&1; then
-	print_blue "The output directory already contains kernel debs - either relocate or delete them to continue"
+    if [ $BUILD_KERNEL ]; then
+	if ls $OUTDIR/linux-*.deb > /dev/null 2>&1; then
+	    print_blue "The output directory already contains kernel debs - either relocate or delete them to continue"
 
-	return 1
+	    return 1
+	fi
     fi
 
     if ls $OUTDIR/$vm.img > /dev/null 2>&1; then
@@ -77,15 +85,19 @@ docker commit aarch64-laptops-ubuntu-vm aarch64-laptops-ubuntu-vm:0.1
 print_blue "Cleaning up the no longer required aarch64-laptops-ubuntu-vm container"
 docker rm aarch64-laptops-ubuntu-vm
 
-print_blue "Building the Linux kernel (~35 mins)"
-docker run -ti --rm --name aarch64-laptops-kernel                                          \
-       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-kernel
+if [ $BUILD_KERNEL ]; then
+    print_blue "Building the Linux kernel (~35 mins)"
+    docker run -ti --rm --name aarch64-laptops-kernel                                          \
+	   -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
+	   aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-kernel
+fi
 
-print_blue "Building Grub (~5 mins)"
-docker run -ti --rm --name aarch64-laptops-grub                                            \
-       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
+if [ $BUILD_GRUB ]; then
+    print_blue "Building Grub (~5 mins)"
+    docker run -ti --rm --name aarch64-laptops-grub                                            \
+	   -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
+	   aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
+fi
 
 print_blue "Setting up VM (~2.5 hours - manual : 30 mins - prebuilt)"
 docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
