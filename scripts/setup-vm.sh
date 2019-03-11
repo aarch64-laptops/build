@@ -140,4 +140,5 @@ print_green "Installing the Ubuntu Desktop"
 apt install -y ubuntu-desktop
 
 print_green "Shutting down the VM"
-poweroff
+poweroff &
+exit 0
