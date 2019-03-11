@@ -278,6 +278,9 @@ build_grub()
 
 start_vm()
 {
+    local BOOTTIME=0
+    local TIMER=0
+
     start_libvirt
 
     print_red "Starting VM"
@@ -289,7 +292,7 @@ start_vm()
 	BOOTTIME=$((BOOTTIME + 1))
 	VMIP=$(arp -n | awk '/virbr0/{print $1}')
 
-	if [ $BOOTTIME -gt 360 ]; then
+	if [ $BOOTTIME -gt 600 ]; then
 	    print_red "Failed to boot the VM in time"
 	    return 1
 	fi
@@ -302,7 +305,7 @@ start_vm()
 	else
 	    sleep 1
 	    TIMER=$((TIMER + 1))
-	    if [ $TIMER -gt 300 ]; then
+	    if [ $TIMER -gt 600 ]; then
 		nmap -p22 $VMIP
 		print_red "VM's SSH service didn't come up in time - is it installed/enabled?"
 		return 1
@@ -319,8 +322,6 @@ start_vm()
 
 setup_vm()
 {
-    local BOOTTIME=0
-    local TIMEER=0
     local VMIP=""
 
     start_vm
