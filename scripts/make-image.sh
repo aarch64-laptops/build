@@ -6,9 +6,11 @@ set -e
 # DEBUG: Uncomment to enable
 # set -x
 
-VMNAME=aarch64-laptops-bionic
-ISOURL=http://cdimage.ubuntu.com/releases/18.04/release
-ISO=ubuntu-18.04.1-server-arm64.iso
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source $SCRIPTDIR/laptops-common.inc
+
+VMNAME=aarch64-laptops-$DISTRO_VERSION
+
 PREBUILT_REPO=https://github.com/aarch64-laptops/prebuilt/raw/master
 CLEAN_PREBUILT_UBUNTU=$VMNAME-clean-desktop-img-xml
 VMDIR=/var/lib/libvirt/images
@@ -39,7 +41,18 @@ startup_checks()
 	return 1
     fi
 
-    # Are we running in a supported container?
+    if [ $DISTRO_VERSION == "bionic" ]; then
+	ISOURL=http://cdimage.ubuntu.com/releases/18.04/release
+	ISO=ubuntu-18.04.1-server-arm64.iso
+    elif [ $DISTRO_VERSION == "cosmic" ]; then
+	ISOURL=http://cdimage.ubuntu.com/releases/18.10/release
+	ISO=ubuntu-18.10-server-arm64.iso
+    else
+	print_red "Distro '$DISTRO_VERSION' not supported"
+	return 1
+    fi
+
+# Are we running in a supported container?
     if [ -d /isos ] && [ -d /output ] && [ -d /scripts ]; then
 	print_red " Running inside a supported container"
 	INCONTAINER=true
@@ -202,7 +215,7 @@ install_ubuntu()
 	mv $VMNAME.img $VMDIR
 	virsh define $VMNAME.xml
     else
-	print_red "Downloading latest Ubuntu LTS ISO (Ubuntu Bionic)"
+	print_red "Downloading latest Ubuntu LTS ISO ($ISO)"
 	download_lts_iso
 
 	print_red "Installing Ubuntu into a VM"
