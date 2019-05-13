@@ -71,7 +71,7 @@ if [ -f $PACKAGES ]; then
     tar -xf $PACKAGES
 fi
 
-print_green "Update list of modules to inclue in intramfs"
+print_green "Update list of modules to include in initramfs"
 cat <<EOF >> /etc/initramfs-tools/modules
 qcom_smd_regulator
 smd_rpm
@@ -86,8 +86,6 @@ qcom_spmi_pmic
 pinctrl_spmi_gpio
 nvmem_qfprom
 EOF
-
-ps aux | grep apt
 
 # The while [] loops avoid GPG issues
 rm nonexistant-file &> /dev/null # Set $? to 1
