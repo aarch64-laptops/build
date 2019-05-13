@@ -3,7 +3,7 @@ FROM ubuntu:bionic
 # Creates a Ubuntu based containerised build environment to use as a base for building SD card images
 # Building a base image will save time in case of a re-build and/or premature failure
 
-# 1. Upgrade Bionic
+# 1. Upgrade Ubuntu
 # 2. Install this project's basic prerequisites
 # 3. Install LibVirt/QEMU to run AArch64 VMs
 # 4. Install required packages to build the Linux kernel
