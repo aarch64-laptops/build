@@ -105,14 +105,14 @@ check_for_qemu_updates()
 	return
     fi
     
-    if grep -q xenial /etc/lsb-release; then
-	print_red "Xenial detected - using Pike QEMU updates"
-	$SUDO add-apt-repository -y cloud-archive:pike
-    fi
-
     if grep -q bionic /etc/lsb-release; then
 	print_red "Bionic detected - using Rocky QEMU updates"
 	$SUDO add-apt-repository -y cloud-archive:rocky
+    fi
+
+    if grep -q xenial /etc/lsb-release; then
+	print_red "Xenial detected - using Pike QEMU updates"
+	$SUDO add-apt-repository -y cloud-archive:pike
     fi
 
     $SUDO apt-get update
@@ -169,6 +169,7 @@ start_ubuntu_installer()
 	    read USERNAME
 	done
 
+	print_red "Installing Ubuntu Desktop"
 	ssh -t -o LogLevel=ERROR                                        \
 	    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
 	    $USERNAME@$VMIP 'sudo apt install -y ubuntu-desktop'
