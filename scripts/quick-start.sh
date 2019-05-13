@@ -1,5 +1,8 @@
 #!/bin/bash
 
+SCRIPTDIR=scripts
+source $SCRIPTDIR/laptops-common.inc
+
 OUTDIR=output
 
 # Exit on any error (saves checking the return value of everything)
@@ -45,7 +48,7 @@ done
 
 startup_checks()
 {
-    vm=aarch64-laptops-bionic
+    VMNAME=aarch64-laptops-$DISTRO_VERSION
 
     if [ ! -d isos ] || [ ! -d output ] || [ ! -d scripts ]; then
 	print_blue "$0 should be executed from this project's root directory"
@@ -69,7 +72,7 @@ startup_checks()
 startup_checks
 
 print_blue "Create the containerised build environment (~5 mins)"
-print_blue " Ubuntu Bionic: to be fully updated with all prerequisite packages installed"
+print_blue " Containerised Ubuntu to be fully updated with all prerequisite packages installed"
 docker build -t aarch64-laptops-build-env:0.1 .
 
 print_blue "Build the basic SD card image - requires user input (~2 hours manual : ~5 mins prebuilt)"
