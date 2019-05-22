@@ -313,6 +313,18 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
 3. Go into the Security tab
 4. Change Secure Boot to Disabled
 
+##### Option 3 - Using the BIOS
+
+1. Press Fn-F2 repeatedly during power up, to enter the BIOS
+2. Cursor-right to the "Security" menu
+3. Cursor-down to the "Secure Boot" option
+4. Press ENTER to select the option
+5. Change the setting to "Disabled"
+6. Go to the "Exit" menu
+7. Choose "Exit Saving Changes"
+
+Note: while you are in the BIOS, another option you might wish to toggle is under Configuration / Hotkey Mode. This lets you change the row of function keys, so that they behave as F1-F12 by default, rather than having to press "Fn" first.
+
 #### Booting from MicroSD card on the ASUS SonicMaster TP370QL
 
 The MicroSD card is inserted into a small plastic (fragile) receiver/slide which is pushed into the side of the laptop chassis.  To eject it you will require a paperclip or similar thin, stiff implement.  Push your tool of choice into the tiny hole and the receiver/slide should protrude out.  Simply, but very carefully insert the MicroSD card into the receiver/slide and gently push it back into the machine - it should lay flush.
