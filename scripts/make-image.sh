@@ -199,13 +199,18 @@ install_ubuntu()
     print_red "Installing VM packages (requires privilege escalation)"
     install_vm_packages
 
+    # The QEMU/Libvirt install now changes ownership/mode of its image
+    # dirctory - which is symlinked to our /scripts directory.
+    sudo chown $(whoami) $SCRIPTSDIR
+    sudo chgrp $(whoami) $SCRIPTSDIR
+
     print_red "Enabling LibVirt (requires privilege escalation)"
     start_libvirt
 
     if [ $PREBUILT_UBUNTU ]; then
 	# Only download the compressed Ubuntu image if a newer one is available
 	print_red "Downloading prebuilt clean Ubuntu image"
-	wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU.tgz
+#	wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU.tgz
 
 	# Unzip the compressed clean Ubuntu image, but do not delete the input file
 	print_red "Uncompressing clean Ubuntu image"
@@ -237,26 +242,30 @@ build_kernel()
     fi
 
     # Remove old packages
-    if ls linux-*.deb > /dev/null 2>&1; then
-	rm linux-*.deb
+    if ls $SRCDIR/linux-*.deb > /dev/null 2>&1; then
+	rm $SRCDIR/linux-*.deb
     fi
     # Remove {buildinfo,changes} files
-    if ls linux-5* > /dev/null 2>&1; then
-	rm linux-5*
+    if ls $SRCDIR/linux-5* > /dev/null 2>&1; then
+	rm $SRCDIR/linux-5*
     fi
 
     ccache make                                     \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	KBUILD_OUTPUT=$SRCDIR/linux/build-arm64     \
+	KBUILD_OUTPUT=$SRCDIR/build-arm64           \
 	laptops_defconfig
 
     ccache make -j $(nproc)                         \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	KBUILD_OUTPUT=$SRCDIR/linux/build-arm64     \
-	bindeb-pkg
+	KBUILD_OUTPUT=$SRCDIR/build-arm64
 
-    print_red "Copying *.debs and DTB to $OUTDIR"
-    cp linux-*.deb build-arm64/arch/arm64/boot/dts/qcom/laptop*.dtb $OUTDIR
+#    ccache make -j $(nproc)                         \
+#	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+#	KBUILD_OUTPUT=$SRCDIR/build-arm64           \
+#	bindeb-pkg
+
+#    print_red "Copying *.debs and DTB to $OUTDIR"
+#    cp $SRCDIR/linux-*.deb $SRCDIR/build-arm64/arch/arm64/boot/dts/qcom/laptop*.dtb $OUTDIR
 }
 
 build_grub()
@@ -281,13 +290,10 @@ build_grub()
 	normal chain boot configfile linux minicmd gfxterm                 \
 	all_video efi_gop video_fb font video                              \
 	loadenv disk test gzio bufio gettext terminal                      \
-	crypto extcmd boot fshelp search
+	crypto extcmd boot fshelp search iso9660
 
     print_red "Copying Grub modules into $OUTMODDIR"
     cp grub-core/*.{mod,lst} $OUTMODDIR
-
-    print_red "Copying grub.cfg shim to $OUTDIR/grub"
-    cp $SCRIPTSDIR/grub-shim.cfg $OUTDIR/grub
 }
 
 start_vm()
@@ -363,6 +369,10 @@ setup_vm()
 	    sshpass -e scp -o LogLevel=ERROR                                    \
 		    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
 		    $OUTDIR/$IMAGES_FOR_VM $USERNAME@$VMIP:/tmp
+	else
+	    sshpass -e scp -o LogLevel=ERROR                                    \
+		    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		    $SCRIPTSDIR/grub-shim.cfg $USERNAME@$VMIP:/tmp
 	fi
 
 	print_red "Running the setup script via SSH"
