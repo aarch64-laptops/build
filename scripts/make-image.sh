@@ -199,6 +199,11 @@ install_ubuntu()
     print_red "Installing VM packages (requires privilege escalation)"
     install_vm_packages
 
+    # The QEMU/Libvirt install now changes ownership/mode of its image
+    # dirctory - which is symlinked to our /scripts directory.
+    $SUDO chown $(whoami) $SCRIPTSDIR
+    $SUDO chgrp $(whoami) $SCRIPTSDIR
+
     print_red "Enabling LibVirt (requires privilege escalation)"
     start_libvirt
 
