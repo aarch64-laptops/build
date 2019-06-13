@@ -294,9 +294,6 @@ build_grub()
 
     print_red "Copying Grub modules into $OUTMODDIR"
     cp grub-core/*.{mod,lst} $OUTMODDIR
-
-    print_red "Copying grub.cfg shim to $OUTDIR/grub"
-    cp $SCRIPTSDIR/grub-shim.cfg $OUTDIR/grub
 }
 
 start_vm()
@@ -372,6 +369,10 @@ setup_vm()
 	    sshpass -e scp -o LogLevel=ERROR                                    \
 		    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
 		    $OUTDIR/$IMAGES_FOR_VM $USERNAME@$VMIP:/tmp
+	else
+	    sshpass -e scp -o LogLevel=ERROR                                    \
+		    -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+		    $SCRIPTSDIR/grub-shim.cfg $USERNAME@$VMIP:/tmp
 	fi
 
 	print_red "Running the setup script via SSH"
