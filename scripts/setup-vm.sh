@@ -111,7 +111,7 @@ rm nonexistant-file &> /dev/null # Set $? to 1
 while [ $? -ne 0 ]; do
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y                         \
 	 -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" \
-	 grub2-common
+	 grub-efi-arm64
 done
 
 rm nonexistant-file &> /dev/null # Set $? to 1
