@@ -69,6 +69,8 @@ if [ -f $PACKAGES ]; then
 
     print_green "Unpacking the packages archive"
     tar -xf $PACKAGES
+else
+    cd /tmp
 fi
 
 print_green "Update list of modules to include in initramfs"
