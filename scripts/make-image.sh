@@ -17,10 +17,10 @@ VMDIR=/var/lib/libvirt/images
 IMAGES_FOR_VM=grub-linux-dtb.tgz
 
 # Default directory locations (overridden if operating in a container)
-ISODIR=./isos
-SRCDIR=./src
-OUTDIR=./output
-SCRIPTSDIR=./scripts
+ISODIR=$PWD/isos
+SRCDIR=$PWD/src
+OUTDIR=$PWD/output
+SCRIPTSDIR=$PWD/scripts
 
 print_red()
 {
@@ -237,26 +237,26 @@ build_kernel()
     fi
 
     # Remove old packages
-    if ls linux-*.deb > /dev/null 2>&1; then
-	rm linux-*.deb
+    if ls $SRCDIR/linux-*.deb > /dev/null 2>&1; then
+	rm $SRCDIR/linux-*.deb
     fi
     # Remove {buildinfo,changes} files
-    if ls linux-5* > /dev/null 2>&1; then
-	rm linux-5*
+    if ls $SRCDIR/linux-5* > /dev/null 2>&1; then
+	rm $SRCDIR/linux-5*
     fi
 
     ccache make                                     \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	KBUILD_OUTPUT=$SRCDIR/linux/build-arm64     \
+	KBUILD_OUTPUT=$SRCDIR/build-arm64           \
 	laptops_defconfig
 
     ccache make -j $(nproc)                         \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
-	KBUILD_OUTPUT=$SRCDIR/linux/build-arm64     \
+	KBUILD_OUTPUT=$SRCDIR/build-arm64           \
 	bindeb-pkg
 
     print_red "Copying *.debs and DTB to $OUTDIR"
-    cp linux-*.deb build-arm64/arch/arm64/boot/dts/qcom/laptop*.dtb $OUTDIR
+    cp $SRCDIR/linux-*.deb $SRCDIR/build-arm64/arch/arm64/boot/dts/qcom/laptop*.dtb $OUTDIR
 }
 
 build_grub()

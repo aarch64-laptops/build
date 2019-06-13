@@ -128,7 +128,7 @@ fi
 
 # Copy grub.cfg shim to the EFI BOOT directory
 #  Searches local media for the grub.cfg
-cp scripts/grub-shim.cfg $EFIBOOTDIR/grub.cfg
+cp grub-shim.cfg $EFIBOOTDIR/grub.cfg
 
 # Replace string "[REPLACE_UUID]" with the filesystem UUID
 UUID=$(lsblk -o UUID /dev/sda2 | sed '/UUID/d')
