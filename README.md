@@ -292,7 +292,15 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
 
 #### Disabling Secure Boot on the Lenovo C630
 
-##### Option 1 - Using Microsoft Windows
+**Note:** While you are in the BIOS, another option you might wish to toggle is under Configuration / Hotkey Mode.  This lets you change the row of function keys, so that they behave as F1-F12 by default, rather than having to press 'Fn' first.
+
+##### Option 1 - Using a key combination
+
+1. Press Fn-F2 (or F2 if Hotkey Mode has already been toggled) during power up, to enter the BIOS
+2. Go into the Security tab
+3. Change Secure Boot to Disabled
+
+##### Option 2 - Using Microsoft Windows
 
 1.  Boot into Microsoft Windows
 2.  Go into Settings
@@ -306,7 +314,7 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
 10. Go into the Security tab
 11. Change Secure Boot to Disabled
 
-##### Option 2 - Using the Grub bootloader
+##### Option 3 - Using the Grub bootloader
 
 1. Boot to the Grub menu
 2. Select System Setup
