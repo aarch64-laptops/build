@@ -257,6 +257,10 @@ build_kernel()
 
     ccache make -j $(nproc)                         \
 	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
+	KBUILD_OUTPUT=$SRCDIR/build-arm64
+
+    ccache make -j $(nproc)                         \
+	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- \
 	KBUILD_OUTPUT=$SRCDIR/build-arm64           \
 	bindeb-pkg
 
