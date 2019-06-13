@@ -290,7 +290,7 @@ build_grub()
 	normal chain boot configfile linux minicmd gfxterm                 \
 	all_video efi_gop video_fb font video                              \
 	loadenv disk test gzio bufio gettext terminal                      \
-	crypto extcmd boot fshelp search
+	crypto extcmd boot fshelp search iso9660
 
     print_red "Copying Grub modules into $OUTMODDIR"
     cp grub-core/*.{mod,lst} $OUTMODDIR
