@@ -1,3 +1,3 @@
 #!/bin/bash
 
-DISTRO_VERSION=cosmic
+DISTRO_VERSION=bionic
