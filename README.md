@@ -1,5 +1,15 @@
 # AArch64 Laptop Images
 
+## Contact us
+
+### IRC
+
+Have a question?  Fancy a chat?  You can find us on IRC at `#aarch64-laptops` on Freenode
+
+### Mailing List
+
+Updates and announements are sent to the Mailing List.  Sign-up [HERE](https://lists.linaro.org/mailman/listinfo/aarch64-laptops)
+
 ## Device Status
 
 ### ASUS NovaGo TP370QL
