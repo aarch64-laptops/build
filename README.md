@@ -76,7 +76,7 @@ This project provides the user/owner some options to install Linux on these devi
 
 Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently available.
 
-Download [THIS IMAGE](https://github.com/aarch64-laptops/prebuilt/raw/master/aarch64-laptops-bionic-prebuilt.img.xz) and head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
+Download [THIS IMAGE](http://people.linaro.org/~lee.jones/aarch64laptops/aarch64-laptops-bionic-prebuilt.img.xz) and head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
 *Note:* The default credentials for this image are; username: `ubuntu` and password `ubuntu`.
 
