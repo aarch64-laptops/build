@@ -14,7 +14,7 @@
 - [x] Touchpad
 - [x] Touchscreen
 - [x] On-board Storage (UFS based)
-- [ ] WiFi (UFS based)
+- [ ] WiFi
 - [ ] Accelerated Graphics
 
 ### HP Envy x2
@@ -29,7 +29,7 @@
 - [x] Touchpad
 - [ ] Touchscreen
 - [x] On-board Storage (UFS based)
-- [ ] WiFi (UFS based)
+- [ ] WiFi
 - [ ] Accelerated Graphics
 
 ### Lenovo Mixx 630
@@ -42,9 +42,9 @@
 - [x] GUI Desktop (using Framebuffer)
 - [x] Keyboard
 - [x] Touchpad
-- [ ] Touchscreen
+- [x] Touchscreen
 - [x] On-board Storage (UFS based)
-- [ ] WiFi (UFS based)
+- [ ] WiFi
 - [ ] Accelerated Graphics
 
 ### Lenovo Yoga C630
@@ -60,6 +60,7 @@
 - [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
 - [ ] Accelerated Graphics
+- [x] Camera
 
 ## Overview
 
