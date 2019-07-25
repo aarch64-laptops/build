@@ -178,10 +178,12 @@ start_ubuntu_installer()
 	    $USERNAME@$VMIP 'sudo apt install -y ubuntu-desktop'
 
 	print_red "Saving the compressed clean image and LibVirt XML to tar archive"
+	IMAGEFILE=$CLEAN_PREBUILT_UBUNTU-$(date +%F-%H%p).tgz
 	cd $VMDIR
 	virsh dumpxml $VMNAME > $VMNAME.xml
 	xz -9 $VMNAME.img
-	tar -czf $CLEAN_PREBUILT_UBUNTU-$(date +%F-%H%p).tgz $VMNAME.xml $VMNAME.img.xz
+	tar -czf $IMAGEFILE $VMNAME.xml $VMNAME.img.xz
+	cp $IMAGEFILE $OUTDIR
 	rm $VMNAME.xml $VMNAME.img.xz
     fi
 
@@ -398,6 +400,9 @@ setup_vm()
 
     print_red "Pulling the plug from the VM"
     virsh destroy $VMNAME
+
+    print_red "Saving completed image to $OUTDIR/$VMNAME.img"
+    cp $VMDIR/$VMNAME.img $OUTDIR
 }
 
 if [ $# -lt 1 ]; then
