@@ -47,6 +47,9 @@ startup_checks()
     elif [ $DISTRO_VERSION == "cosmic" ]; then
 	ISOURL=http://cdimage.ubuntu.com/releases/18.10/release
 	ISO=ubuntu-18.10-server-arm64.iso
+    elif [ $DISTRO_VERSION == "disco" ]; then
+	ISOURL=http://cdimage.ubuntu.com/releases/19.04/release
+	ISO=ubuntu-19.04-server-arm64.iso
     else
 	print_red "Distro '$DISTRO_VERSION' not supported"
 	return 1
