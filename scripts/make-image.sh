@@ -209,9 +209,20 @@ install_ubuntu()
     start_libvirt
 
     if [ $PREBUILT_UBUNTU ]; then
-	# Only download the compressed Ubuntu image if a newer one is available
-	print_red "Downloading prebuilt clean Ubuntu image"
-	wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU.tgz
+
+	print_red "Checking for clean pre-built image"
+	URL=$PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU.tgz
+	EXISTSONLINE=$(wget -S --spider $URL 2>&1 | grep 'HTTP/1.1 200 OK' || true)
+	if [ "$EXISTSONLINE" != "" ]; then
+	    # Only download the clean Ubuntu image if a newer one is available
+	    print_red "Downloading prebuilt clean Ubuntu image"
+	    wget -N -c -P $ISODIR $PREBUILT_REPO/$CLEAN_PREBUILT_UBUNTU.tgz
+	fi
+
+	if [ ! -f $ISODIR/$CLEAN_PREBUILT_UBUNTU.tgz ]; then
+	    print_red "Failed to locate $CLEAN_PREBUILT_UBUNTU.tgz"
+	    return 1
+	fi
 
 	# Unzip the compressed clean Ubuntu image, but do not delete the input file
 	print_red "Uncompressing clean Ubuntu image"
