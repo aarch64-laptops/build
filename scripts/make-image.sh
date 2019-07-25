@@ -96,6 +96,7 @@ install_prerequisites()
 
 upgrade_system()
 {
+    export DEBIAN_FRONTEND=noninteractive
     $SUDO apt-get -y upgrade
 }
 
