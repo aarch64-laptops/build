@@ -90,9 +90,8 @@ fi
 print_blue "Build the basic SD card image - requires user input (~2 hours manual : ~5 mins prebuilt)"
 print_blue " Ubuntu installed in a VM (using LibVirt)"
 docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                               \
-       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
-       -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
-       aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu-from-prebuilt ${EXTRAARGS}
+	-v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
+	aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu-from-prebuilt ${EXTRAARGS}
 
 print_blue "Saving the aarch64-laptops-ubuntu-vm container as an image"
 docker commit aarch64-laptops-ubuntu-vm aarch64-laptops-ubuntu-vm:0.1
@@ -102,6 +101,5 @@ docker rm aarch64-laptops-ubuntu-vm
 
 print_blue "Setting up VM (~2.5 hours - manual : 30 mins - prebuilt)"
 docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                    \
-       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts                  \
-       -v $PWD/src:/src   -v $PWD/output:/var/lib/libvirt/images                           \
+       -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
        aarch64-laptops-ubuntu-vm:0.1 /scripts/make-image.sh --setup-vm-from-prebuilt ${DEVICE} ${EXTRAARGS}
