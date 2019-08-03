@@ -25,6 +25,8 @@ Updates and announements are sent to the Mailing List.  Sign-up [HERE](https://l
 - [x] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi
+- [ ] Bluetooth
+- [ ] LTE
 - [ ] Accelerated Graphics
 
 ### HP Envy x2
@@ -40,6 +42,8 @@ Updates and announements are sent to the Mailing List.  Sign-up [HERE](https://l
 - [ ] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi
+- [ ] Bluetooth
+- [ ] LTE
 - [ ] Accelerated Graphics
 
 ### Lenovo Mixx 630
@@ -55,6 +59,8 @@ Updates and announements are sent to the Mailing List.  Sign-up [HERE](https://l
 - [x] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi
+- [ ] Bluetooth
+- [ ] LTE
 - [ ] Accelerated Graphics
 
 ### Lenovo Yoga C630
@@ -69,6 +75,8 @@ Updates and announements are sent to the Mailing List.  Sign-up [HERE](https://l
 - [x] Touchscreen
 - [x] On-board Storage (UFS based)
 - [ ] WiFi (UFS based)
+- [ ] Bluetooth
+- [ ] LTE
 - [ ] Accelerated Graphics
 - [x] Camera
 
