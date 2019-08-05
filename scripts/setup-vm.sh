@@ -1,7 +1,6 @@
 #!/bin/bash
 
 WORKDIR=/tmp/aarch64-laptops
-PACKAGES=/tmp/grub-linux-dtb.tgz
 EFIBOOTDIR=/boot/efi/EFI/BOOT
 KERNEL_CMDLINE="efi=novamap ignore_loglevel clk_ignore_unused pd_ignore_unused console=tty0"
 
@@ -62,16 +61,7 @@ print_green "  We'll take it from here - go grab a coffee, this'll take a while!
 # apt update
 # apt upgrade -y
 
-if [ -f $PACKAGES ]; then
-    print_green "Creating workspace ($WORKDIR)"
-    mkdir -p $WORKDIR
-    cd $WORKDIR
-
-    print_green "Unpacking the packages archive"
-    tar -xf $PACKAGES
-else
-    cd /tmp
-fi
+cd /tmp
 
 print_green "Update list of modules to include in initramfs"
 cat <<EOF >> /etc/initramfs-tools/modules
