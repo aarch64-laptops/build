@@ -266,17 +266,49 @@ The final image may be in one of two states; `raw` or `xz compressed`.  If the i
 
 If the image has an `*.xz` file extension it is `xz compressed`.  These images are firstly extracted using `xzcat` and flashed to the MicroSD card or USB flash drive using `dd`:
 
+#### Option 1
+
+Use the provided `scripts/flash-prebuilt.sh` script.
+
+For example, if you want to boot the image on the Lenovo Yoga C630:
+
+```
+$ ./scripts/flash-prebuilt.sh lenovo-yoga-c630 /dev/<DEVICE> <IMAGE>
+```
+
+**Note**: <DEVICE> is the whole device, not a partition e.g. `/dev/sda` and NOT `/dev/sda1`.
+
+**Note**: See the help for more options/devices.
+
+#### Option 2
+
+Manually copy the image to the boot media.
+
+If the image has an `*.xz` file extension it is an `XZ compressed` image.  This images are flashed using a combination of `xcat` and `dd`:
+
 ```
 $ xzcat <IMG>.xz | sudo dd of=/dev/<DEVICE> oflag=direct bs=1M status=progress iflag=fullblock
 ```
 
-If the image has an `*.img` file extension it is a `raw` image.  This images are flashed using `dd` only:
+If the image has an `*.img` file extension it is a `raw` image.  These images are flashed using `dd` only:
 
 ```
 $ sudo dd if=<IMG>.img of=/dev/<DEVICE> oflag=direct bs=1M status=progress
 ```
 
 **Note**: <DEVICE> is the whole device, not a partition e.g. `/dev/sda` and NOT `/dev/sda1`.
+
+If you created a generic image (i.e. not using `./quick-start.sh <MODEL>`), then you will need to mount the boot device and link `laptops.dtb` with the specific DTB for your hardware.
+
+For example, if you have the Lenovo Yoga C630:
+
+``
+$ sudo mount /dev/<DEVICE>2/ /mnt
+$ cd /mnt/boot
+$ ln -s laptop-lenovo-yoga-c630.dtb laptop.dtb
+$ cd -
+$ umount /mnt
+```
 
 ### Booting into Ubuntu
 
