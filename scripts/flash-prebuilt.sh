@@ -2,9 +2,6 @@
 
 set -e # Exit on any kind of error
 
-PREBUILTNAME=aarch64-laptops-disco-prebuilt.img.xz
-PREBUILTURL=https://github.com/aarch64-laptops/prebuilt/raw/master/$PREBUILTNAME
-
 print_blue()
 {
     echo -e "\e[01;34m$@ \e[0m"
@@ -13,11 +10,7 @@ print_blue()
 function usage()
 {
     print_blue ""
-    print_blue "Download the prebuilt from the following URL and run this script again like so:"
-    print_blue ""
-    print_blue "  $PREBUILTURL"
-    print_blue ""
-    print_blue "USAGE: $0 [asus-tp370ql|hp-envy-x2|lenovo-mixx-630|lenovo-yoga-c630] [/dev/<SDCARD>]"
+    print_blue "USAGE: $0 [asus-tp370ql|hp-envy-x2|lenovo-mixx-630|lenovo-yoga-c630] [/dev/<SDCARD>] [IMAGE]"
     print_blue ""
     print_blue "Where <SDCARD> is the whole device i.e. /dev/sda, and not /dev/sda1"
     return 1
@@ -30,18 +23,9 @@ function cleanup()
     rmdir $TMPDIR
 }
 
-if [ $# -ne 2 ]; then
-    print_blue "$0 takes exactly 2 arguments"
+if [ $# -ne 3 ]; then
+    print_blue "$0 takes exactly 3 arguments"
     usage
-fi
-
-if ! ls $PREBUILTNAME > /dev/null 2>&1; then
-    print_blue "$0 should be run in the same directory as the prebuilt image $PREBUILTNAME"
-    usage
-fi
-
-if ! xzcat --help > /dev/null 2>&1; then
-    print_blue "Please install \`xzcat\` (xz-utils in Ubuntu)"
 fi
 
 if ! dd --help > /dev/null 2>&1; then
@@ -69,6 +53,9 @@ while [ $# -gt 0 ]; do
 	help|--help|-h|?)
 	    usage
 	    ;;
+	*.img*)
+	    PREBUILTNAME=$1
+	    ;;
 	/dev/*)
 	    SDCARD=$1
 	    ;;
@@ -79,6 +66,23 @@ while [ $# -gt 0 ]; do
     esac
     shift
 done
+
+if ! ls $PREBUILTNAME > /dev/null 2>&1; then
+    print_blue "$0 should be run in the same directory as the prebuilt image $PREBUILTNAME"
+    usage
+fi
+
+if echo ${PREBUILTNAME} | grep xz$ > /dev/null 2>&1; then
+    print_blue "XZ format image detected"
+
+    FORMATXZ=true
+
+    if ! xzcat --help > /dev/null 2>&1; then
+	print_blue "Please install \`xzcat\` (xz-utils in Ubuntu)"
+    fi
+else
+    print_blue "RAW format image detected"
+fi
 
 if [ ! -b $SDCARD ]; then
     print_blue "$SDCARD does not appear to exist"
@@ -99,7 +103,11 @@ if [ "$confirm" != "yes" ] && [ "$confirm" != "y" ]; then
 fi
      
 print_blue "Flashing the image to SD card (this requires escalated privileges)"
-xzcat $PREBUILTNAME | sudo dd of=$SDCARD oflag=direct bs=1M status=progress iflag=fullblock
+if [ "$FORMATXZ" == "true" ]; then
+    xzcat $PREBUILTNAME | sudo dd of=$SDCARD oflag=direct bs=1M status=progress iflag=fullblock
+else
+    sudo dd if=$PREBUILTNAME of=$SDCARD oflag=direct bs=1M status=progress iflag=fullblock
+fi
 
 sudo hdparm -qz ${SDCARD}
 
