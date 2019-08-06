@@ -8,7 +8,7 @@ Have a question?  Fancy a chat?  You can find us on IRC at `#aarch64-laptops` on
 
 ### Mailing List
 
-Updates and announements are sent to the Mailing List.  Sign-up [HERE](https://lists.linaro.org/mailman/listinfo/aarch64-laptops)
+Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://lists.linaro.org/mailman/listinfo/aarch64-laptops)
 
 ## Device Status
 
@@ -132,7 +132,7 @@ $ ./quick-start.sh
 
 If successful an image named `aarch64-laptops-ubuntu.img` should be located in the `output` directory.
 
-If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sectios below.
+If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
 ### Option 2: Manually execute the steps to build an image inside a Docker container
 
@@ -262,7 +262,7 @@ git submodule update --remote src/grub
 
 **Note**: An 8G MicroSD card or USB flash drive (or larger if you plan on installing packages) will be required.
 
-The final image may be in one of two states; `raw` or `xz compressed`.  If the image is compressed you will require `xz` utilities to extract the image before flashing can commence.  Please check your Distro's documentation to find out which package they reside in.
+The final image may be in one of two states; `raw` or `xz compressed`.  If the image is compressed you will require `xz` utilities to extract the image before flashing can commence.  Please check your Distro's documentation to find out which package they reside.
 
 If the image has an `*.xz` file extension it is `xz compressed`.  These images are firstly extracted using `xzcat` and flashed to the MicroSD card or USB flash drive using `dd`:
 
@@ -320,7 +320,7 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
 5.  Under Advanced setup select Restart now
 6.  Highlight Troubleshoot and press Enter
 7.  Highlight Advanced options and press Enter
-8.  Hightlight UEFI Firmware Settings and press Enter
+8.  Highlight UEFI Firmware Settings and press Enter
 9.  Select Restart
 10. Go into the Security tab
 11. Change Secure Boot to Disabled
