@@ -1,5 +1,13 @@
 # AArch64 Laptop Images
 
+## Warning - read this section first!
+
+### It is not currently possible to recover these devices if something horrible happens
+
+This project was solely designed with a view to help users and developers bootstrap Linux on their supported devices.  It is our aim, that in time, users will be able to take generic Linux distribution installers and use them directly to install Linux on these devices.  In the meantime, we provide the parts required to trial specific distributions to users can get a feel.
+
+We take no responsibility for any damage caused as a result of its use/abuse of any of the information or artefacts provided by this project.  The software here is not locked down, hardened or tested to any commercially viable level.  Any issues that arise (deletion of critical partitions, damage of sensitive or critial data as a result of exposed UFS partitions, Windows no longer bootable, etc) are solely the responsibility of the user and the user alone.
+
 ## Contact us
 
 ### IRC
