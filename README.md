@@ -95,8 +95,9 @@ In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have rele
 This project provides the user/owner some options to install Linux on these devices.  The choices are as follows:
 
 1. Download a pre-built image and flash it onto an MicroSD card or USB flash drive
-2. Use the `quick-start.sh` script to build your own bespoke image
-3. Execute each of the steps manually (still using the other helper scripts)
+2. Download an enabled version of a distrobution installer and install to UFS
+3. Use the `quick-start.sh` script to build your own image
+4. Execute each of the steps manually (still using the other helper scripts) to create your own bespoke image
 
 ## Use an existing pre-built image
 
@@ -104,7 +105,49 @@ Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently ava
 
 Download [THIS IMAGE](http://releases.linaro.org/aarch64-laptops/images/ubuntu/18.04/aarch64-laptops-bionic-prebuilt.img.xz) and head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
-*Note:* The default credentials for this image are; username: `ubuntu` and password `ubuntu`.
+**Note:** The default credentials for this image are; username: `ubuntu` and password `ubuntu`.
+
+## Use an enabled installer
+
+1. Update Windows
+  * **Note:** Required because shipped firmware does not have support to boot ISO images
+  * Boot into Windows and shut down, allow the updates to install (takes a while)
+  * Once updated, it should be possible to boot ISOs
+2. Boot back into Windows and shrink the Windows partition
+  * Resizing the Windows partition requires BitLocker to be disabled, as does booting without Secure Boot
+    * Start Button > Settings > Update and Security > Device encryption > Turn off
+  * Use the Disk Management tool to shrink the Windows partition
+    * Right-click Start Button > Disk Management > Right-click C: > Shrink Volume
+  * A shrink of anything upwards of (10000 MB) ~10GB should be okay
+3. Switch out of S mode
+  * **Note:** In order to run 'cmd.exe' et. al, Windows {Home,Pro} is required
+  * Click Start Button > Settings (cog icon) > Update & Security > Activation > Go to the Store > Get
+4. Disable Secure Boot in the BIOS
+  * **Note:** Secure Boot will prevent unknown/unsigned images/ISOs to boot
+  * Press 'Fn+F2' (or just 'F2' on some laptops) on boot to enter the BIOS
+  * Select 'Security' tab > 'Secure Boot' > 'Disabled'
+  * Select 'Exit' tab > 'Exit Saving Changes'
+5. Download Dimitri's Bionic installer from [HERE](https://pskov.surgut.co.uk/bionic/daily-live/current/)
+6. Flash installer onto a USB stick using `gnome-disks` 'Restore Disk Image' option
+7. Boot the USB stick and select Install Ubuntu
+8. Follow the prompts
+  * Partitioner nuances
+    * **WARNING:** When you come to the partitioner, make sure Windows is detected
+      * The top option should be "Install Ubuntu alongside Windows Boot Manager"
+        * If it is not, **STOP** - there isn't a known way to recover Windows if it's trashed
+    * ISSUE: Occational error during the partitioning phase of the install
+      * During install the partitioner can offer to create 2 new partitions [[IMAGE](https://photos.app.goo.gl/wv1E1K6cxnsfedrS9)]
+        * This is not correct - only a single partition should be set-up
+      * Partitioning of EFI (#5 in this case) will fail with an error message [[IMAGE](https://photos.app.goo.gl/ZTSidLNYjX1ybtLZA)]
+      * If this happens, select "Install Ubuntu alongside Windows Boot Manager" again
+        * This should culminate in a successful install
+      * If the install appears to stall (no progress bar) after some time, you may need to reboot and start again.  The partitioner should only offer to create a single partition (#5) this time and everything should go smoothly
+9. Once installed, boot back into Windows and open the Admin CMD console
+  * Right-click Start Button > Command Prompt (Admin)
+  * Carefully type `bcdedit /set {bootmgr} path \EFI\ubuntu\grubaa64.efi`
+10. Reboot
+11. Grub should now be the default bootloader
+  * From here you can select to boot into 'Ubuntu' or 'Windows Boot Manager' [[IMAGE](https://photos.app.goo.gl/bHiEVer5mDic8LVg6)]
 
 ## Building your own image(s)
 
