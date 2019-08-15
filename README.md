@@ -4,9 +4,9 @@
 
 ### It is not currently possible to recover these devices if something horrible happens
 
-This project was solely designed with a view to help users and developers bootstrap Linux on their supported devices.  It is our aim, that in time, users will be able to take generic Linux distribution installers and use them directly to install Linux on these devices.  In the meantime, we provide the parts required to trial specific distributions to users can get a feel.
+This project was solely designed with a view to help users and developers bootstrap Linux on their supported devices.  It is our aim, that in time, users will be able to take generic Linux distribution installers and use them directly to install Linux on these devices.  In the meantime, we provide the parts required to trial specific distributions so users can get a feel.
 
-We take no responsibility for any damage caused as a result of its use/abuse of any of the information or artefacts provided by this project.  The software here is not locked down, hardened or tested to any commercially viable level.  Any issues that arise (deletion of critical partitions, damage of sensitive or critial data as a result of exposed UFS partitions, Windows no longer bootable, etc) are solely the responsibility of the user and the user alone.
+We take **no responsibility** for any damage caused as a result of its use/abuse of any of the information or artifacts provided by this project.  The software here is not locked down, hardened or tested to any commercially viable level.  Any issues that arise (deletion of critical partitions, Windows no longer bootable, damage of sensitive or critial data as a result of exposed UFS partitions, etc) are solely the **responsibility of the user** and the user alone.
 
 ## Contact us
 
@@ -90,7 +90,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 
 ## Overview
 
-In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have released devices based on Qualcomm's Snapdragon 835.  The devices are delivered with Windows 10 pre-installed, but are able to run Linux.  Unfortunately, due to some pretty serious obstacles, simply running the AArch64 version of the Ubuntu (or any distro for that matter) installer is not enough (even with Secure Boot disabled).
+In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have released devices based on Qualcomm's Snapdragon 835 and 845.  The devices are delivered with Windows 10 pre-installed, but are able to run Linux.  Unfortunately, due to some pretty serious obstacles, simply running the AArch64 version of the Ubuntu (or any distro for that matter) installer is not enough (even with Secure Boot disabled).
 
 This project provides the user/owner some options to install Linux on these devices.  The choices are as follows:
 
@@ -318,7 +318,7 @@ If you created a generic image (i.e. not using `./quick-start.sh <MODEL>`), then
 
 For example, if you have the Lenovo Yoga C630:
 
-``
+```
 $ sudo mount /dev/<DEVICE>2/ /mnt
 $ cd /mnt/boot
 $ ln -s laptop-lenovo-yoga-c630.dtb laptop.dtb
