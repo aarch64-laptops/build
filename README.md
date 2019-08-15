@@ -456,3 +456,68 @@ Now power up the machine.  It should boot to a Ubuntu login prompt.  The credent
 Since this project uses pre-built images, the root partition is limited to around 7GB.  If you have used a larger device and wish to expand the partition please search the internet for something along the lines of "reclaim SD card space".  There are literally 100s of articles on how to do this, mostly pertaining to the Raspberry Pi.
 
 **Note:** We found that simply opening it up in `gparted` was the simplest option.
+
+## Trouble Shooting
+
+### Updating from an older image/installer
+
+**Note:** An older image will contain a v5.0.1 kernel
+
+```
+$ uname -r
+5.0.1-laptops0.1-generic
+```
+
+#### Option 1: BEST
+
+If at all possible, please reinstall using the latest installer using these [instructions](#Use-an-enabled-installer)
+
+**Note:** Doing so will save lots of messing around with kernel versions
+
+#### Option 2: SUBOPTIMAL
+
+**Note:** Only choose this option if you can't reinstall or used the new image/installer
+
+**WARNING:** This option will require a little messing around
+
+1. Ensure no other instance of apt is running
+```
+$ sudo fuser -vki /var/lib/dpkg/lock
+```
+2. Remove snapd (or the update process will freeze during the upgrade)
+```
+$ sudo apt remove snapd
+```
+3. Update Bionic's installed packages
+```
+$ sudo apt update && sudo apt dist-upgrade
+```
+4. Remove the currently running kernel (or it will clash the the new versioning semantics)
+```
+$ sudo apt remove *5.0.1-laptops* *5.2.0-99* linux-generic \
+    linux-headers-generic linux-image-generic
+$ sudo apt install linux-generic
+```
+  * Select 'No' when presented with "abort installation" ncurses screeen
+5. Ensure the EFI workaround will persist over the upgrade
+```
+$ sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="efi=novamap /' \
+    /etc/default/grub
+```
+6. Tell the Update Manager to conduct 'normal' (instead of LTS) upgrades
+```
+$ sudo sed -i s/Prompt=lts/Prompt=normal/ /etc/update-manager/release-upgrades
+```
+7. Do the upgrade
+```
+$ sudo do-release-upgrade
+```
+* Follow the prompts
+8. Reboot
+```
+$ sudo reboot
+```
+9. Re-install snapd
+```
+$ sudo apt install snapd
+```
