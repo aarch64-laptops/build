@@ -36,6 +36,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [ ] Bluetooth
 - [ ] LTE
 - [ ] Accelerated Graphics
+- [ ] Audio
 
 ### HP Envy x2
 
@@ -53,6 +54,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [ ] Bluetooth
 - [ ] LTE
 - [ ] Accelerated Graphics
+- [ ] Audio
 
 ### Lenovo Mixx 630
 
@@ -70,6 +72,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [ ] Bluetooth
 - [ ] LTE
 - [ ] Accelerated Graphics
+- [ ] Audio
 
 ### Lenovo Yoga C630
 
@@ -87,6 +90,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [ ] LTE
 - [ ] Accelerated Graphics
 - [x] Camera
+- [ ] Audio
 
 ## Overview
 
