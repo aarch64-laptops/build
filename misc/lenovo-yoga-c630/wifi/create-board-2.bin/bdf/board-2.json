@@ -1,0 +1,26 @@
+[
+  {
+          "data": "bdf/bdwlan.b36",
+          "names": ["bus=snoc,qmi-board-id=36"]
+  },
+  {
+          "data": "bdf/bdwlan.b37",
+          "names": ["bus=snoc,qmi-board-id=37"]
+  },
+  {
+          "data": "bdf/bdwlan.b38",
+          "names": ["bus=snoc,qmi-board-id=38"]
+  },
+  {
+          "data": "bdf/bdwlan.b3c",
+          "names": ["bus=snoc,qmi-board-id=3c"]
+  },
+  {
+          "data": "bdf/bdwlan.b3f",
+          "names": ["bus=snoc,qmi-board-id=3f"]
+  },
+  {
+          "data": "bdf/bdwlan.bin",
+          "names": ["bus=snoc,qmi-board-id=0"]
+  }
+]
