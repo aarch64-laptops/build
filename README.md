@@ -96,6 +96,8 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 
 In recent months, various laptop manufacturers (Asus, HP, Lenovo, etc) have released devices based on Qualcomm's Snapdragon 835 and 845.  The devices are delivered with Windows 10 pre-installed, but are able to run Linux.  Unfortunately, due to some pretty serious obstacles, simply running the AArch64 version of the Ubuntu (or any distro for that matter) installer is not enough (even with Secure Boot disabled).
 
+## Installing
+
 This project provides the user/owner some options to install Linux on these devices.  The choices are as follows:
 
 1. Download a pre-built image and flash it onto an MicroSD card or USB flash drive
@@ -103,7 +105,7 @@ This project provides the user/owner some options to install Linux on these devi
 3. Use the `quick-start.sh` script to build your own image
 4. Execute each of the steps manually (still using the other helper scripts) to create your own bespoke image
 
-## Use an existing pre-built image
+### Use an existing pre-built image
 
 Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently available.
 
@@ -111,7 +113,7 @@ Download [THIS IMAGE](http://releases.linaro.org/aarch64-laptops/images/ubuntu/1
 
 **Note:** The default credentials for this image are; username: `ubuntu` and password `ubuntu`.
 
-## Use an enabled installer
+### Use an enabled installer
 
 1. Update Windows
   * **Note:** Required because shipped firmware does not have support to boot ISO images
@@ -153,7 +155,7 @@ Download [THIS IMAGE](http://releases.linaro.org/aarch64-laptops/images/ubuntu/1
 11. Grub should now be the default bootloader
   * From here you can select to boot into 'Ubuntu' or 'Windows Boot Manager' [[IMAGE](https://photos.app.goo.gl/bHiEVer5mDic8LVg6)]
 
-## Building your own image(s)
+### Building your own image(s)
 
 This option is helpful if you want to create bespoke images, or if you want to see how the build process works.
 
@@ -177,7 +179,7 @@ There are more choices to make:
   * Host will be upgraded and packages will be installed directly onto the host
   * Only works on `apt` based distros (and only tested on Ubuntu)
 
-### Option 1: Automatically build an image using the `quick-start.sh` script
+#### Option 1: Automatically build an image using the `quick-start.sh` script
 
 **Note:** This option uses Docker containers.
 
@@ -197,7 +199,7 @@ If successful an image named `aarch64-laptops-ubuntu.img` should be located in t
 
 If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
-### Option 2: Manually execute the steps to build an image inside a Docker container
+#### Option 2: Manually execute the steps to build an image inside a Docker container
 
 Firstly you will need to initialise the repository's sub-modules.  See the [Initialising the repository](#Initialising-the-repository) below.
 
@@ -205,13 +207,13 @@ Building these images within containers is the least intrusive method to build y
 
 **Note:** Something to bear in mind/read-up on; Running LibVirt in Docker requires the `--privileged` flag for networking purposes.
 
-#### Installing Ubuntu into the VM
+##### Installing Ubuntu into the VM
 
 This stage requires the most amount of user interaction.  Once the installer starts you will be required to go through each stage to install your bespoke version of Ubuntu Bionic.
 
 **IMPORTANT:** It is of the utmost importance that SSH is installed as part of this process, or you will have to find a way to install it retroactively (it is possible, but is a pain).  SSH is used to transport the package archive and configure scripts into the VM for installation/execution.
 
-##### Using the containerised build environment to build Ubuntu
+###### Using the containerised build environment to build Ubuntu
 
 If it is likely that you will be building more than one image, the same image multiple times or you think there is a chance of build failure, it is recommended that a base image is installed using the provided Dockerfile.  This will ensure the following, time consuming actions only take place once:
 
@@ -229,7 +231,7 @@ $ docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                  
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --install-ubuntu
 ```
 
-##### Skipping the containerised build environment stage
+###### Skipping the containerised build environment stage
 
 If however, you just want to go for it, hope for the best and not install the pre-configured build environment, use the raw `ubuntu:bionic` image instead.
 
@@ -251,7 +253,7 @@ $ docker commit aarch64-laptops-ubuntu-vm aarch64-laptops-ubuntu-vm:0.1
 $ docker rm aarch64-laptops-ubuntu-vm
 ```
 
-#### Building the Linux kernel
+##### Building the Linux kernel
 
 The Linux kernel is built from source.  It should have been checked out during the initialisation stage (if you did not see the [Initialising the repository](#Initialising-the-repository) section below and carry out the actions, please do so before executing this step).  The Linux kernel source is located in `src/linux`.
 
@@ -261,7 +263,7 @@ $ docker run -ti --rm --name aarch64-laptops-kernel                             
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-kernel
 ```
 
-#### Building the Grub bootloader
+##### Building the Grub bootloader
 
 The Grub bootloader is built from source.  It should have been checked out during the initialisation stage (if you did not see the [Initialising the repository](#Initialising-the-repository) section below and carry out the actions, please do so before executing this step).  The Grub bootloader source is located in `src/grub`.
 
@@ -271,7 +273,7 @@ $ docker run -ti --rm --name aarch64-laptops-grub                               
        aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub
 ```
 
-#### Installing built packages into the VM and executing the configure stage
+##### Installing built packages into the VM and executing the configure stage
 
 ```
 $ docker run -ti --rm --privileged --name aarch64-laptops-ubuntu-vm-setup                  \
@@ -284,7 +286,7 @@ If successful an image named `aarch64-laptops-ubuntu.img` should be located in t
 
 If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
-### Option 3. Manually execute the steps to build an image on your host machine
+#### Option 3. Manually execute the steps to build an image on your host machine
 
 **Note:** Only works on `apt` based distros (and only tested on Ubuntu).
 
@@ -303,25 +305,7 @@ If successful an image named `aarch64-laptops-ubuntu.img` should be located in t
 
 If it's present, head to the [Flashing the image](#Flashing-the-image) then [Booting into Ubuntu](#Booting-into-Ubuntu) sections below.
 
-## Further Reading
-
-### Initialising the repository
-
-Seeing as this option requires the image to be built from source, the Linux kernel and Grub bootloader source is required.  Fortunately, this project includes them as sub-modules.  To pull down the source issue the following commands:
-
-```
-$ git submodule init
-$ git submodule update # 1.5GB takes around 20 minutes on a 10Mb connection to checkout the Linux kernel
-```
-
-If there have been updates since the submodules were initialised, issues these commands to pull down the changes:
-
-```
-git submodule update --remote src/linux
-git submodule update --remote src/grub
-```
-
-### Flashing the image
+## Flashing the image
 
 **Note**: An 8G MicroSD card or USB flash drive (or larger if you plan on installing packages) will be required.
 
@@ -329,7 +313,7 @@ The final image may be in one of two states; `raw` or `xz compressed`.  If the i
 
 If the image has an `*.xz` file extension it is `xz compressed`.  These images are firstly extracted using `xzcat` and flashed to the MicroSD card or USB flash drive using `dd`:
 
-#### Option 1
+### Option 1
 
 Use the provided `scripts/flash-prebuilt.sh` script.
 
@@ -343,7 +327,7 @@ $ ./scripts/flash-prebuilt.sh lenovo-yoga-c630 /dev/<DEVICE> <IMAGE>
 
 **Note**: See the help for more options/devices.
 
-#### Option 2
+### Option 2
 
 Manually copy the image to the boot media.
 
@@ -373,11 +357,11 @@ $ cd -
 $ umount /mnt
 ```
 
-### Booting into Ubuntu
+## Booting into Ubuntu
 
 This project doesn't yet support Secure Boot.  Thus it needs to be disabled before we can boot into this project's resultant Linux image.
 
-#### Disabling Secure Boot on the ASUS NovaGo TP370QL
+### Disabling Secure Boot on the ASUS NovaGo TP370QL
 
 1. Power off the machine
 2. Hold down the Power and Volume Up buttons until the BDS Menu appears
@@ -386,7 +370,7 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
 5. Press any other key to continue
 6. Select `6 Shutdown` option (same method as above)
 
-#### Disabling Secure Boot on the HP Envy x2
+### Disabling Secure Boot on the HP Envy x2
 
 **Note:** The HP Envy x2 does not appear to boot from the MicroSD Card automatically.
 
@@ -396,17 +380,17 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
   * During testing we used the `Clear All Secure Boot Keys` to boot Linux
     * Obviously this might have serious side-effects - thus we do not condone this action
 
-#### Disabling Secure Boot on the Lenovo C630
+### Disabling Secure Boot on the Lenovo C630
 
 **Note:** While you are in the BIOS, another option you might wish to toggle is under Configuration / Hotkey Mode.  This lets you change the row of function keys, so that they behave as F1-F12 by default, rather than having to press 'Fn' first.
 
-##### Option 1 - Using a key combination
+#### Option 1 - Using a key combination
 
 1. Press Fn-F2 (or F2 if Hotkey Mode has already been toggled) during power up, to enter the BIOS
 2. Go into the Security tab
 3. Change Secure Boot to Disabled
 
-##### Option 2 - Using Microsoft Windows
+#### Option 2 - Using Microsoft Windows
 
 1.  Boot into Microsoft Windows
 2.  Go into Settings
@@ -420,20 +404,20 @@ This project doesn't yet support Secure Boot.  Thus it needs to be disabled befo
 10. Go into the Security tab
 11. Change Secure Boot to Disabled
 
-##### Option 3 - Using the Grub bootloader
+#### Option 3 - Using the Grub bootloader
 
 1. Boot to the Grub menu
 2. Select System Setup
 3. Go into the Security tab
 4. Change Secure Boot to Disabled
 
-#### Booting from MicroSD card on the ASUS NovaGo TP370QL
+### Booting from MicroSD card on the ASUS NovaGo TP370QL
 
 The MicroSD card is inserted into a small plastic (fragile) receiver/slide which is pushed into the side of the laptop chassis.  To eject it you will require a paperclip or similar thin, stiff implement.  Push your tool of choice into the tiny hole and the receiver/slide should protrude out.  Simply, but very carefully insert the MicroSD card into the receiver/slide and gently push it back into the machine - it should lay flush.
 
 Now power up the machine.  It should boot to a Ubuntu login prompt.  The credentials of which you set-up during the install stage.
 
-#### Booting the HP Envy x2 from MicroSD card (booting from USB should be automatic)
+### Booting the HP Envy x2 from MicroSD card (booting from USB should be automatic)
 
 **Note:** The HP Envy x2 does not appear to boot from the MicroSD Card automatically.
 
@@ -449,7 +433,7 @@ Now power up the machine.  It should boot to a Ubuntu login prompt.  The credent
 
 Now power up the machine.  It should boot to a Ubuntu login prompt.  The credentials of which you set-up during the install stage.
 
-#### Booting from USB
+### Booting from USB
 
 1. Place the USB flash drive into the USB port
 
@@ -460,6 +444,24 @@ Now power up the machine.  It should boot to a Ubuntu login prompt.  The credent
 Since this project uses pre-built images, the root partition is limited to around 7GB.  If you have used a larger device and wish to expand the partition please search the internet for something along the lines of "reclaim SD card space".  There are literally 100s of articles on how to do this, mostly pertaining to the Raspberry Pi.
 
 **Note:** We found that simply opening it up in `gparted` was the simplest option.
+
+## Further Reading
+
+### Initialising the repository
+
+Seeing as this option requires the image to be built from source, the Linux kernel and Grub bootloader source is required.  Fortunately, this project includes them as sub-modules.  To pull down the source issue the following commands:
+
+```
+$ git submodule init
+$ git submodule update # 1.5GB takes around 20 minutes on a 10Mb connection to checkout the Linux kernel
+```
+
+If there have been updates since the submodules were initialised, issues these commands to pull down the changes:
+
+```
+git submodule update --remote src/linux
+git submodule update --remote src/grub
+```
 
 ## Trouble Shooting
 
