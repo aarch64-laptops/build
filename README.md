@@ -463,6 +463,10 @@ git submodule update --remote src/linux
 git submodule update --remote src/grub
 ```
 
+### Testing WiFi support
+
+Please see the WiFi [README](misc/lenovo-yoga-c630/wifi/README.md).
+
 ## Trouble Shooting
 
 ### Updating from an older image/installer
