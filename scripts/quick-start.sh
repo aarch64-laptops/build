@@ -32,7 +32,10 @@ while [ $# -gt 0 ]; do
             BUILD_KERNEL=true
             ;;
         grub)
-            BUILD_GRUB=grub
+            BUILD_GRUB=true
+            ;;
+        createclean)
+            BUILD_CLEAN_IMAGE=true
             ;;
 	-f|--force)
 	    EXTRAARGS="$EXTRAARGS -f"
@@ -85,6 +88,14 @@ if [ $BUILD_GRUB ]; then
 	   -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
 	   aarch64-laptops-build-env:0.1 /scripts/make-image.sh --build-grub ${EXTRAARGS}
     exit 0
+fi
+
+if [ $BUILD_CLEAN_IMAGE ]
+   print_blue "Building a clean pre-built image for faster future runs"
+   print_blue " Ubuntu installed in a VM (using LibVirt)"
+   docker run -ti --privileged --name aarch64-laptops-ubuntu-vm                               \
+	  -v $PWD/isos:/isos -v $PWD/output:/output -v $PWD/scripts:/scripts -v $PWD/src:/src \
+	  aarch64-laptops-build-env:0.1 /scripts/make-image.sh --make-clean-prebuilt-ubuntu --install-ubuntu ${EXTRAARGS}
 fi
 
 print_blue "Build the basic SD card image - requires user input (~2 hours manual : ~5 mins prebuilt)"
