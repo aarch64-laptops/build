@@ -463,6 +463,10 @@ git submodule update --remote src/linux
 git submodule update --remote src/grub
 ```
 
+### Testing GPU support
+
+Please see the GPU [README](misc/lenovo-yoga-c630/gpu/README.md)
+
 ### Testing WiFi support
 
 Please see the WiFi [README](misc/lenovo-yoga-c630/wifi/README.md).
