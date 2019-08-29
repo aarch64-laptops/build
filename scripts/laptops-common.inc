@@ -1,3 +1,3 @@
 #!/bin/bash
 
-DISTRO_VERSION=bionic
+DISTRO_VERSION=eoan
