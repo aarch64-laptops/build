@@ -109,6 +109,13 @@ while [ $? -ne 0 ]; do
     sudo apt install -y linux-image-generic grub2-common
 done
 
+print_green "Applying EFI workaround to grub"
+sudo sed -i \
+'s/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="efi=novamap /' \
+/etc/default/grub
+
+sudo update-grub
+
 if [ $DTB ]; then
     if [ ! -e /boot/$DTB ]; then
 	print_green "/boot/$DTB does not appear to exist - skipping"
