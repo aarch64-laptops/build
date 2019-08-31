@@ -75,6 +75,7 @@ $  wget https://github.com/kvalo/ath10k-firmware/blob/master/WCN3990/hw1.0/HL2.0
 ## Place wlanmdsp.mbn in the TFTP directory
 
 ```
+$  sudo mkdir /readwrite
 $  sudo mkdir -p /readonly/firmware/image
 $  sudo cp wlanmdsp.mbn /readonly/firmware/image
 ```
