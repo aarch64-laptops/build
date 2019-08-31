@@ -42,11 +42,13 @@ This will result in a `linux-image-*.deb` file in the parent directory that you 
 $ sudo apt install git build-essential libudev-dev
 
 $ git clone https://github.com/andersson/qrtr.git
+$ git clone https://github.com/andersson/qmic.git
 $ git clone https://github.com/andersson/rmtfs.git
 $ git clone https://github.com/andersson/pd-mapper.git
 $ git clone https://github.com/andersson/tqftpserv.git
 
 $ pushd qrtr && make && sudo make install && popd
+$ pushd qmic && make && sudo make install && popd
 $ pushd rmtfs && make && sudo make install && popd
 $ pushd pd-mapper && make && sudo make install && popd
 $ pushd tqftpserv && make && sudo make install && popd
