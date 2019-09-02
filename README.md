@@ -105,6 +105,8 @@ This project provides the user/owner some options to install Linux on these devi
 3. Use the `quick-start.sh` script to build your own image
 4. Execute each of the steps manually (still using the other helper scripts) to create your own bespoke image
 
+Warning: This is experimental, do not remove Windows from the machine!
+
 ### Use an existing pre-built image
 
 Only the latest Ubuntu LTS (currently Bionic) pre-built images are currently available.
