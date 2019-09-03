@@ -2,7 +2,7 @@
 
 ## Pre-built image
 
-A GPU evalutation image has been created for your convienience [HERE](http://people.linaro.org/~lee.jones/aarch64laptops/aarch64-laptops-eoan-gpu-prebuilt.img.xz).
+A GPU evalutation image has been created for your convienience [HERE](http://releases.linaro.org/aarch64-laptops/images/ubuntu/19.10/aarch64-laptops-eoan-gpu-prebuilt.img.xz).
 
 To install it, see the [Flashing the image](https://github.com/aarch64-laptops/build#Flashing-the-image) section in the top level README.md.
 
