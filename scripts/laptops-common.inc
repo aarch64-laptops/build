@@ -1,3 +1,4 @@
 #!/bin/bash
 
 DISTRO_VERSION=eoan
+DISTRO_RELEASE=19.10

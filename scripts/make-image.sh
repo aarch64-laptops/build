@@ -11,7 +11,7 @@ source $SCRIPTDIR/laptops-common.inc
 
 VMNAME=aarch64-laptops-$DISTRO_VERSION
 
-PREBUILT_REPO=https://github.com/aarch64-laptops/prebuilt/raw/master
+PREBUILT_REPO=http://releases.linaro.org/aarch64-laptops/images/ubuntu/$DISTRO_RELEASE
 CLEAN_PREBUILT_UBUNTU=$VMNAME-clean-desktop-img-xml
 VMDIR=/var/lib/libvirt/images
 IMAGES_FOR_VM=grub-linux-dtb.tgz
@@ -51,7 +51,7 @@ startup_checks()
 	ISOURL=http://cdimage.ubuntu.com/releases/19.04/release
 	ISO=ubuntu-19.04-server-arm64.iso
     elif [ $DISTRO_VERSION == "eoan" ]; then
-	ISOURL=http://cdimage.ubuntu.com/ubuntu-server/daily-live/pending/
+	ISOURL=http://cdimage.ubuntu.com/ubuntu-server/daily/current
 	ISO=eoan-server-arm64.iso
     else
 	print_red "Distro '$DISTRO_VERSION' not supported"
