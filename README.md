@@ -85,7 +85,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [x] Touchpad
 - [x] Touchscreen
 - [x] On-board Storage (UFS based)
-- [ ] WiFi (UFS based)
+- [ ] WiFi
 - [ ] Bluetooth
 - [ ] LTE
 - [ ] Accelerated Graphics
