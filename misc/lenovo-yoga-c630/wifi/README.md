@@ -55,7 +55,7 @@ $ pushd tqftpserv && make && sudo make install && popd
 ## Fetch firmware-5.bin from kvalo/ath10k-firmware GitHub repo
 
 ```
-$  wget https://github.com/kvalo/ath10k-firmware/blob/master/WCN3990/hw1.0/HL2.0/WLAN.HL.2.0-01387-QCAHLSWMTPLZ-1/firmware-5.bin
+$  wget https://github.com/kvalo/ath10k-firmware/blob/master/WCN3990/hw1.0/HL2.0/WLAN.HL.2.0-01387-QCAHLSWMTPLZ-1/firmware-5.bin?raw=true -O firmware-5.bin
 ```
 
 ## Fetch required files from Windows (use search)
