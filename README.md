@@ -85,12 +85,14 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [x] Touchpad
 - [x] Touchscreen
 - [x] On-board Storage (UFS based)
-- [ ] WiFi (UFS based)
-- [ ] Bluetooth
+- [*] WiFi (UFS based)
+- [*] Bluetooth
 - [ ] LTE
 - [ ] Accelerated Graphics
 - [x] Camera
-- [ ] Audio
+- [*] Audio
+
+* this works with recent kernels and instructions.
 
 ## Overview
 
