@@ -15,7 +15,7 @@ print_blue()
 
 function usage()
 {
-    print_blue "USAGE: $0 [[asus-tp370ql|hp-envy-x2]lenovo-mixx-630|lenovo-yoga-c630|generic]|kernel|grub|help][-f]"
+    print_blue "USAGE: $0 [[asus-tp370ql|hp-envy-x2]lenovo-miix-630|lenovo-yoga-c630|generic]|kernel|grub|help][-f]"
     return 1
 }
 
@@ -25,7 +25,7 @@ fi
 
 while [ $# -gt 0 ]; do
     case $1 in
-        asus-tp370ql|hp-envy-x2|lenovo-mixx-630|lenovo-yoga-c630|generic)
+        asus-tp370ql|hp-envy-x2|lenovo-miix-630|lenovo-yoga-c630|generic)
             DEVICE=$1
             ;;
         kernel)
