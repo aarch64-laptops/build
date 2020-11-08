@@ -56,7 +56,7 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 - [ ] Accelerated Graphics
 - [ ] Audio
 
-### Lenovo Mixx 630
+### Lenovo Miix 630
 
 - [x] Boots into Grub `Normal Mode`
 - [x] Boots Linux kernel from rootfs' /boot partition (using Device Tree)
