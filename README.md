@@ -12,7 +12,11 @@ We take **no responsibility** for any damage caused as a result of its use/abuse
 
 ### IRC
 
-Have a question?  Fancy a chat?  You can find us on IRC at `#aarch64-laptops` on Freenode
+Have a question?  Fancy a chat?  You can find us on the OFTC IRC network at `#aarch64-laptops`
+
+### Matrix
+
+OFTC is linked with Matrix.  Find us here: https://matrix.to/#/#_oftc_#aarch64-laptops:matrix.org
 
 ### Mailing List
 
