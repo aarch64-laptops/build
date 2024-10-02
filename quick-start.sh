@@ -1,1 +1,1 @@
-scripts/quick-start.sh
+scripts/quick-start.sh "$@"
