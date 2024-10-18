@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20240322 (64-bit version)
+ * AML/ASL+ Disassembler version 20240927 (64-bit version)
  * Copyright (c) 2000 - 2023 Intel Corporation
  * 
- * Disassembly of /mnt/c/Users/alexv/Desktop/iasl-win-20240321/ACPI/FACP.aml
+ * Disassembly of facp.dat
  *
  * ACPI Data Table [FACP]
  *
@@ -13,15 +13,15 @@
 [000h 0000 004h]                   Signature : "FACP"    [Fixed ACPI Description Table (FADT)]
 [004h 0004 004h]                Table Length : 00000114
 [008h 0008 001h]                    Revision : 05
-[009h 0009 001h]                    Checksum : 41
+[009h 0009 001h]                    Checksum : 11
 [00Ah 0010 006h]                      Oem ID : "QCOM  "
 [010h 0016 008h]                Oem Table ID : "QCOMEDK2"
 [018h 0024 004h]                Oem Revision : 00008380
 [01Ch 0028 004h]             Asl Compiler ID : "QCOM"
 [020h 0032 004h]       Asl Compiler Revision : 00000001
 
-[024h 0036 004h]                FACS Address : D5EEF000
-[028h 0040 004h]                DSDT Address : D5F8B018
+[024h 0036 004h]                FACS Address : D5EEE000
+[028h 0040 004h]                DSDT Address : D5F85018
 [02Ch 0044 001h]                       Model : 00
 [02Dh 0045 001h]                  PM Profile : 08 [Tablet]
 [02Eh 0046 002h]               SCI Interrupt : 0000
@@ -101,7 +101,7 @@
 
 [083h 0131 001h]         FADT Minor Revision : 00
 [084h 0132 008h]                FACS Address : 0000000000000000
-[08Ch 0140 008h]                DSDT Address : 00000000D5F8B018
+[08Ch 0140 008h]                DSDT Address : 00000000D5F85018
 [094h 0148 00Ch]            PM1A Event Block : [Generic Address Structure]
 [094h 0148 001h]                    Space ID : 00 [SystemMemory]
 [095h 0149 001h]                   Bit Width : 00
@@ -179,15 +179,15 @@
 
 Raw Table Data: Length 276 (0x114)
 
-    0000: 46 41 43 50 14 01 00 00 05 41 51 43 4F 4D 20 20  // FACP.....AQCOM  
+    0000: 46 41 43 50 14 01 00 00 05 11 51 43 4F 4D 20 20  // FACP......QCOM  
     0010: 51 43 4F 4D 45 44 4B 32 80 83 00 00 51 43 4F 4D  // QCOMEDK2....QCOM
-    0020: 01 00 00 00 00 F0 EE D5 18 B0 F8 D5 00 08 00 00  // ................
+    0020: 01 00 00 00 00 E0 EE D5 18 50 F8 D5 00 08 00 00  // .........P......
     0030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0040: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0060: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0070: 00 00 30 00 03 00 00 03 B4 20 90 00 00 00 00 00  // ..0...... ......
-    0080: 01 01 00 00 00 00 00 00 00 00 00 00 18 B0 F8 D5  // ................
+    0080: 01 01 00 00 00 00 00 00 00 00 00 00 18 50 F8 D5  // .............P..
     0090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     00A0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     00B0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................

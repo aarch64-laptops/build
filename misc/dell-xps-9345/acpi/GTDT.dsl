@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20240322 (64-bit version)
+ * AML/ASL+ Disassembler version 20240927 (64-bit version)
  * Copyright (c) 2000 - 2023 Intel Corporation
  * 
- * Disassembly of /mnt/c/Users/alexv/Desktop/iasl-win-20240321/ACPI/GTDT.aml
+ * Disassembly of gtdt.dat
  *
  * ACPI Data Table [GTDT]
  *
