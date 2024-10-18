@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20240322 (64-bit version)
+ * AML/ASL+ Disassembler version 20240927 (64-bit version)
  * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of /mnt/c/Users/alexv/Desktop/iasl-win-20240321/ACPI/DSDT.aml
+ * Disassembly of dsdt.dat
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x0003E413 (254995)
+ *     Length           0x00043ED5 (278229)
  *     Revision         0x02
- *     Checksum         0x8B
+ *     Checksum         0xC0
  *     OEM ID           "QCOMM "
  *     OEM Table ID     "SDM8380 "
  *     OEM Revision     0x00000003 (3)
@@ -20,6 +20,33 @@
  */
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 {
+    /*
+     * iASL Warning: There were 4 external control methods found during
+     * disassembly, but only 0 were resolved (4 unresolved). Additional
+     * ACPI tables may be required to properly disassemble the code. This
+     * resulting disassembler output file may not compile because the
+     * disassembler did not know how many arguments to assign to the
+     * unresolved methods. Note: SSDTs can be dynamically loaded at
+     * runtime and may or may not be available via the host OS.
+     *
+     * To specify the tables needed to resolve external control method
+     * references, the -e option can be used to specify the filenames.
+     * Example iASL invocations:
+     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
+     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
+     *     iasl -e ssdt*.aml -d dsdt.aml
+     *
+     * In addition, the -fe option can be used to specify a file containing
+     * control method external declarations with the associated method
+     * argument counts. Each line of the file must be of the form:
+     *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
+     */
     External (_SB_.DMMY, UnknownObj)
     External (_SB_.DPP0, IntObj)
     External (_SB_.DPP1, IntObj)
@@ -27,8 +54,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
     External (_SB_.MPP0, IntObj)
     External (_SB_.MPP1, IntObj)
     External (_SB_.MSKN, UnknownObj)
-    External (_SB_.PRS0, IntObj)
-    External (_SB_.PRS2, IntObj)
     External (_SB_.TZ11._CRT, IntObj)
     External (_SB_.TZ11._MTL, IntObj)
     External (_SB_.TZ11.TCRT, UnknownObj)
@@ -48,6 +73,12 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
     External (_SB_.TZ13.TTSP, UnknownObj)
     External (_SB_.TZ1_._CRT, IntObj)
     External (_SB_.TZ1_.TCRT, UnknownObj)
+    External (_SB_.TZ35._MTL, IntObj)
+    External (_SB_.TZ35.TMTL, UnknownObj)
+    External (_SB_.TZ36._MTL, IntObj)
+    External (_SB_.TZ36.TMTL, UnknownObj)
+    External (_SB_.TZ37._MTL, IntObj)
+    External (_SB_.TZ37.TMTL, UnknownObj)
     External (_SB_.TZ38, UnknownObj)
     External (_SB_.TZ38._CRT, IntObj)
     External (_SB_.TZ38._MTL, IntObj)
@@ -63,6 +94,82 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
     External (_SB_.TZ38.TTSP, UnknownObj)
     External (_SB_.TZ3_._CRT, IntObj)
     External (_SB_.TZ3_.TCRT, UnknownObj)
+    External (_SB_.TZ42, UnknownObj)
+    External (_SB_.TZ42._CR3, IntObj)
+    External (_SB_.TZ42._CRT, IntObj)
+    External (_SB_.TZ42._DSM, MethodObj)    // Warning: Unknown method, guessing 3 arguments
+    External (_SB_.TZ42._HOT, IntObj)
+    External (_SB_.TZ42._MTL, IntObj)
+    External (_SB_.TZ42._PSV, IntObj)
+    External (_SB_.TZ42._TC1, IntObj)
+    External (_SB_.TZ42._TC2, IntObj)
+    External (_SB_.TZ42._TSP, IntObj)
+    External (_SB_.TZ42.DSME, UnknownObj)
+    External (_SB_.TZ42.TCR3, UnknownObj)
+    External (_SB_.TZ42.TCRT, UnknownObj)
+    External (_SB_.TZ42.THOT, UnknownObj)
+    External (_SB_.TZ42.TMTL, UnknownObj)
+    External (_SB_.TZ42.TPSV, UnknownObj)
+    External (_SB_.TZ42.TTC1, UnknownObj)
+    External (_SB_.TZ42.TTC2, UnknownObj)
+    External (_SB_.TZ42.TTSP, UnknownObj)
+    External (_SB_.TZ43, UnknownObj)
+    External (_SB_.TZ43._CR3, IntObj)
+    External (_SB_.TZ43._CRT, IntObj)
+    External (_SB_.TZ43._DSM, MethodObj)    // Warning: Unknown method, guessing 3 arguments
+    External (_SB_.TZ43._HOT, IntObj)
+    External (_SB_.TZ43._MTL, IntObj)
+    External (_SB_.TZ43._PSV, IntObj)
+    External (_SB_.TZ43._TC1, IntObj)
+    External (_SB_.TZ43._TC2, IntObj)
+    External (_SB_.TZ43._TSP, IntObj)
+    External (_SB_.TZ43.DSME, UnknownObj)
+    External (_SB_.TZ43.TCR3, UnknownObj)
+    External (_SB_.TZ43.TCRT, UnknownObj)
+    External (_SB_.TZ43.THOT, UnknownObj)
+    External (_SB_.TZ43.TMTL, UnknownObj)
+    External (_SB_.TZ43.TPSV, UnknownObj)
+    External (_SB_.TZ43.TTC1, UnknownObj)
+    External (_SB_.TZ43.TTC2, UnknownObj)
+    External (_SB_.TZ43.TTSP, UnknownObj)
+    External (_SB_.TZ44, UnknownObj)
+    External (_SB_.TZ44._CR3, IntObj)
+    External (_SB_.TZ44._CRT, IntObj)
+    External (_SB_.TZ44._DSM, MethodObj)    // Warning: Unknown method, guessing 3 arguments
+    External (_SB_.TZ44._HOT, IntObj)
+    External (_SB_.TZ44._MTL, IntObj)
+    External (_SB_.TZ44._PSV, IntObj)
+    External (_SB_.TZ44._TC1, IntObj)
+    External (_SB_.TZ44._TC2, IntObj)
+    External (_SB_.TZ44._TSP, IntObj)
+    External (_SB_.TZ44.DSME, UnknownObj)
+    External (_SB_.TZ44.TCR3, UnknownObj)
+    External (_SB_.TZ44.TCRT, UnknownObj)
+    External (_SB_.TZ44.THOT, UnknownObj)
+    External (_SB_.TZ44.TMTL, UnknownObj)
+    External (_SB_.TZ44.TPSV, UnknownObj)
+    External (_SB_.TZ44.TTC1, UnknownObj)
+    External (_SB_.TZ44.TTC2, UnknownObj)
+    External (_SB_.TZ44.TTSP, UnknownObj)
+    External (_SB_.TZ45, UnknownObj)
+    External (_SB_.TZ45._CR3, IntObj)
+    External (_SB_.TZ45._CRT, IntObj)
+    External (_SB_.TZ45._DSM, MethodObj)    // Warning: Unknown method, guessing 3 arguments
+    External (_SB_.TZ45._HOT, IntObj)
+    External (_SB_.TZ45._MTL, IntObj)
+    External (_SB_.TZ45._PSV, IntObj)
+    External (_SB_.TZ45._TC1, IntObj)
+    External (_SB_.TZ45._TC2, IntObj)
+    External (_SB_.TZ45._TSP, IntObj)
+    External (_SB_.TZ45.DSME, UnknownObj)
+    External (_SB_.TZ45.TCR3, UnknownObj)
+    External (_SB_.TZ45.TCRT, UnknownObj)
+    External (_SB_.TZ45.THOT, UnknownObj)
+    External (_SB_.TZ45.TMTL, UnknownObj)
+    External (_SB_.TZ45.TPSV, UnknownObj)
+    External (_SB_.TZ45.TTC1, UnknownObj)
+    External (_SB_.TZ45.TTC2, UnknownObj)
+    External (_SB_.TZ45.TTSP, UnknownObj)
     External (_SB_.TZ51, UnknownObj)
     External (_SB_.TZ51._MTL, IntObj)
     External (_SB_.TZ51._PSV, IntObj)
@@ -215,7 +322,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
     External (ECG5, IntObj)
     External (OBUF, IntObj)
     External (OSTA, IntObj)
-    External (SBUF, BuffObj)
 
     Scope (\_SB)
     {
@@ -251,7 +357,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         Name (RFAS, 0x77777777)
         Name (TCMA, 0x81F1E000)
         Name (TCML, 0x00002000)
-        Name (SOSI, 0x00000000FFE09BA0)
+        Name (SOSI, 0x00000000FFE09C90)
         Name (PRP0, 0xFFFFFFFF)
         Name (PRP1, 0xFFFFFFFF)
         Name (PRP2, 0xFFFFFFFF)
@@ -260,7 +366,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         Name (PRP5, 0xFFFFFFFF)
         Name (PRP6, 0x00000001)
         Name (PRP7, 0xFFFFFFFF)
-        Name (FNTR, 0x7F05)
+        Name (FNTR, 0x0705)
         Name (FNHB, Zero)
         Method (DISP, 1, NotSerialized)
         {
@@ -370,6 +476,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (RBUF) /* \_SB_.SDC2._CRS.RBUF */
             }
 
+            Method (CHPF, 0, NotSerialized)
+            {
+                Return (\_SB.SDFE)
+            }
+
             Method (_DIS, 0, NotSerialized)  // _DIS: Disable Device
             {
             }
@@ -382,10 +493,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
         Device (ABD)
         {
-            Name (_DEP, Package (One)  // _DEP: Dependencies
-            {
-                \_SB.PEP0
-            })
             Name (_HID, "QCOM0427")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
             Name (_UID, Zero)  // _UID: Unique ID
@@ -1056,6 +1163,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
             }
 
+            Method (NSWA, 0, NotSerialized)
+            {
+                Name (QBUF, Buffer (0x0E){})
+                CreateField (QBUF, 0x10, 0x60, QMGO)
+                Debug = "Printing NSWA.QBUF"
+                QBUF = QCMB /* \_SB_.PMGK.QCMB */
+                Debug = "Printing QMGO"
+                Debug = QMGO /* \_SB_.PMGK.NSWA.QMGO */
+                Debug = "Printed QMGO"
+                Return (QMGO) /* \_SB_.PMGK.NSWA.QMGO */
+            }
+
             Method (USBN, 1, NotSerialized)
             {
                 \_SB.UCSI.OPMR ()
@@ -1246,6 +1365,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 AccessAs (BufferAcc, AttribRawBytes (0x46)), 
                 GI2C,   560
             }
+
+            Field (\_SB.ABD.ROP1, BufferAcc, NoLock, Preserve)
+            {
+                Connection (
+                    I2cSerialBusV2 (0x0007, ControllerInitiated, 0x00000000,
+                        AddressingMode7Bit, "\\_SB.ABD",
+                        0x00, ResourceConsumer, , Exclusive,
+                        )
+                ), 
+                AccessAs (BufferAcc, AttribRawBytes (0x0C)), 
+                QCMB,   96
+            }
         }
 
         Name (PEPI, Zero)
@@ -1255,6 +1386,12 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (_CID, "PNP0D80" /* Windows-compatible System Power Management Controller */)  // _CID: Compatible ID
             Method (THTZ, 4, NotSerialized)
             {
+                Name (TGSP, Package (0x03)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero
+                })
                 While (One)
                 {
                     Name (_T_0, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
@@ -1787,7 +1924,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
+                                    Acquire (\_SB.TZMX, 0xFFFF)
                                     \_SB.TZ32.TPSV = Arg1
+                                    Release (\_SB.TZMX)
                                     Notify (\_SB.TZ32, 0x81) // Thermal Trip Point Change
                                 }
 
@@ -1861,7 +2000,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
+                                    Acquire (\_SB.TZMX, 0xFFFF)
                                     \_SB.TZ33.TPSV = Arg1
+                                    Release (\_SB.TZMX)
                                     Notify (\_SB.TZ33, 0x81) // Thermal Trip Point Change
                                 }
 
@@ -2063,7 +2204,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                     Notify (\_SB.TZ35, 0x81) // Thermal Trip Point Change
                                 }
 
-                                Return (\_SB.TZ35._MTL ())
+                                Return (\_SB.TZ35._MTL) /* External reference */
                             }
                             Else
                             {
@@ -2137,7 +2278,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                     Notify (\_SB.TZ36, 0x81) // Thermal Trip Point Change
                                 }
 
-                                Return (\_SB.TZ36._MTL ())
+                                Return (\_SB.TZ36._MTL) /* External reference */
                             }
                             Else
                             {
@@ -2211,7 +2352,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                     Notify (\_SB.TZ37, 0x81) // Thermal Trip Point Change
                                 }
 
-                                Return (\_SB.TZ37._MTL ())
+                                Return (\_SB.TZ37._MTL) /* External reference */
                             }
                             Else
                             {
@@ -2305,23 +2446,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ39.TPSV = Arg1
-                                    \_SB.TZ39.THSF = One
-                                    Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ39._PSV ())
                                 }
-
-                                Return (\_SB.TZ39._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_F == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ39.TCRT = Arg1
-                                    \_SB.TZ39.THSF = One
-                                    Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ39._CRT ())
                                 }
-
-                                Return (\_SB.TZ39._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_F == 0x02))
                             {
@@ -2367,23 +2524,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ39.TCR3 = Arg1
-                                    \_SB.TZ39.THSF = One
-                                    Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ39._CR3 ())
                                 }
-
-                                Return (\_SB.TZ39._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_F == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ39.THOT = Arg1
-                                    \_SB.TZ39.THSF = One
-                                    Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ39._HOT ())
                                 }
-
-                                Return (\_SB.TZ39._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -2403,23 +2576,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ40.TPSV = Arg1
-                                    \_SB.TZ40.THSF = One
-                                    Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ40._PSV ())
                                 }
-
-                                Return (\_SB.TZ40._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_G == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ40.TCRT = Arg1
-                                    \_SB.TZ40.THSF = One
-                                    Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ40._CRT ())
                                 }
-
-                                Return (\_SB.TZ40._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_G == 0x02))
                             {
@@ -2465,23 +2654,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ40.TCR3 = Arg1
-                                    \_SB.TZ40.THSF = One
-                                    Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ40._CR3 ())
                                 }
-
-                                Return (\_SB.TZ40._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_G == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ40.THOT = Arg1
-                                    \_SB.TZ40.THSF = One
-                                    Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ40._HOT ())
                                 }
-
-                                Return (\_SB.TZ40._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -2501,23 +2706,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ41.TPSV = Arg1
-                                    \_SB.TZ41.THSF = One
-                                    Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ41._PSV ())
                                 }
-
-                                Return (\_SB.TZ41._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_H == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ41.TCRT = Arg1
-                                    \_SB.TZ41.THSF = One
-                                    Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ41._CRT ())
                                 }
-
-                                Return (\_SB.TZ41._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_H == 0x02))
                             {
@@ -2563,23 +2784,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ41.TCR3 = Arg1
-                                    \_SB.TZ41.THSF = One
-                                    Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ41._CR3 ())
                                 }
-
-                                Return (\_SB.TZ41._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_H == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ41.THOT = Arg1
-                                    \_SB.TZ41.THSF = One
-                                    Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (\_SB.TZ41._HOT ())
                                 }
-
-                                Return (\_SB.TZ41._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, TGSP)
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -2599,85 +2836,125 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ42.TPSV = Arg1
-                                    \_SB.TZ42.THSF = One
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ42._PSV) /* External reference */
                                 }
-
-                                Return (\_SB.TZ42._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_I == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ42.TCRT = Arg1
-                                    \_SB.TZ42.THSF = One
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ42._CRT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ42._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_I == 0x02))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ42.TTSP = Arg1
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ42, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ42._TSP ())
+                                Return (\_SB.TZ42._TSP) /* External reference */
                             }
                             ElseIf ((_T_I == 0x03))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ42.TTC1 = Arg1
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ42, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ42._TC1 ())
+                                Return (\_SB.TZ42._TC1) /* External reference */
                             }
                             ElseIf ((_T_I == 0x04))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ42.TTC2 = Arg1
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ42, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ42._TC2 ())
+                                Return (\_SB.TZ42._TC2) /* External reference */
                             }
                             ElseIf ((_T_I == 0x05))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ42.TMTL = Arg1
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ42, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ42._MTL ())
+                                Return (\_SB.TZ42._MTL) /* External reference */
                             }
                             ElseIf ((_T_I == 0x07))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ42.TCR3 = Arg1
-                                    \_SB.TZ42.THSF = One
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ42._CR3) /* External reference */
                                 }
-
-                                Return (\_SB.TZ42._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_I == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ42.THOT = Arg1
-                                    \_SB.TZ42.THSF = One
-                                    Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ42._HOT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ42._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ42._DSM (\_SB.TZ42.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -2697,85 +2974,125 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ43.TPSV = Arg1
-                                    \_SB.TZ43.THSF = One
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ43._PSV) /* External reference */
                                 }
-
-                                Return (\_SB.TZ43._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_J == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ43.TCRT = Arg1
-                                    \_SB.TZ43.THSF = One
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ43._CRT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ43._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_J == 0x02))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ43.TTSP = Arg1
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ43, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ43._TSP ())
+                                Return (\_SB.TZ43._TSP) /* External reference */
                             }
                             ElseIf ((_T_J == 0x03))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ43.TTC1 = Arg1
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ43, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ43._TC1 ())
+                                Return (\_SB.TZ43._TC1) /* External reference */
                             }
                             ElseIf ((_T_J == 0x04))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ43.TTC2 = Arg1
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ43, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ43._TC2 ())
+                                Return (\_SB.TZ43._TC2) /* External reference */
                             }
                             ElseIf ((_T_J == 0x05))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ43.TMTL = Arg1
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ43, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ43._MTL ())
+                                Return (\_SB.TZ43._MTL) /* External reference */
                             }
                             ElseIf ((_T_J == 0x07))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ43.TCR3 = Arg1
-                                    \_SB.TZ43.THSF = One
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ43._CR3) /* External reference */
                                 }
-
-                                Return (\_SB.TZ43._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_J == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ43.THOT = Arg1
-                                    \_SB.TZ43.THSF = One
-                                    Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ43._HOT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ43._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ43._DSM (\_SB.TZ43.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -2795,85 +3112,125 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ44.TPSV = Arg1
-                                    \_SB.TZ44.THSF = One
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ44._PSV) /* External reference */
                                 }
-
-                                Return (\_SB.TZ44._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_K == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ44.TCRT = Arg1
-                                    \_SB.TZ44.THSF = One
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ44._CRT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ44._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_K == 0x02))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ44.TTSP = Arg1
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ44, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ44._TSP ())
+                                Return (\_SB.TZ44._TSP) /* External reference */
                             }
                             ElseIf ((_T_K == 0x03))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ44.TTC1 = Arg1
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ44, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ44._TC1 ())
+                                Return (\_SB.TZ44._TC1) /* External reference */
                             }
                             ElseIf ((_T_K == 0x04))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ44.TTC2 = Arg1
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ44, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ44._TC2 ())
+                                Return (\_SB.TZ44._TC2) /* External reference */
                             }
                             ElseIf ((_T_K == 0x05))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ44.TMTL = Arg1
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ44, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ44._MTL ())
+                                Return (\_SB.TZ44._MTL) /* External reference */
                             }
                             ElseIf ((_T_K == 0x07))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ44.TCR3 = Arg1
-                                    \_SB.TZ44.THSF = One
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ44._CR3) /* External reference */
                                 }
-
-                                Return (\_SB.TZ44._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_K == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ44.THOT = Arg1
-                                    \_SB.TZ44.THSF = One
-                                    Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ44._HOT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ44._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ44._DSM (\_SB.TZ44.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -2893,85 +3250,125 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ45.TPSV = Arg1
-                                    \_SB.TZ45.THSF = One
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ45._PSV) /* External reference */
                                 }
-
-                                Return (\_SB.TZ45._PSV ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = Zero
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_L == One))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ45.TCRT = Arg1
-                                    \_SB.TZ45.THSF = One
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ45._CRT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ45._CRT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x03
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_L == 0x02))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ45.TTSP = Arg1
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ45, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ45._TSP ())
+                                Return (\_SB.TZ45._TSP) /* External reference */
                             }
                             ElseIf ((_T_L == 0x03))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ45.TTC1 = Arg1
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ45, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ45._TC1 ())
+                                Return (\_SB.TZ45._TC1) /* External reference */
                             }
                             ElseIf ((_T_L == 0x04))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ45.TTC2 = Arg1
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ45, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ45._TC2 ())
+                                Return (\_SB.TZ45._TC2) /* External reference */
                             }
                             ElseIf ((_T_L == 0x05))
                             {
                                 If (Arg2)
                                 {
                                     \_SB.TZ45.TMTL = Arg1
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    Notify (\_SB.TZ45, 0x81) // Information Change
                                 }
 
-                                Return (\_SB.TZ45._MTL ())
+                                Return (\_SB.TZ45._MTL) /* External reference */
                             }
                             ElseIf ((_T_L == 0x07))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ45.TCR3 = Arg1
-                                    \_SB.TZ45.THSF = One
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ45._CR3) /* External reference */
                                 }
-
-                                Return (\_SB.TZ45._CR3 ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = One
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             ElseIf ((_T_L == 0x08))
                             {
                                 If (Arg2)
                                 {
-                                    \_SB.TZ45.THOT = Arg1
-                                    \_SB.TZ45.THSF = One
-                                    Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                    TGSP [Zero] = One
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (\_SB.TZ45._HOT) /* External reference */
                                 }
-
-                                Return (\_SB.TZ45._HOT ())
+                                Else
+                                {
+                                    TGSP [Zero] = 0x02
+                                    TGSP [One] = 0x02
+                                    TGSP [0x02] = Arg1
+                                    TGSP = \_SB.TZ45._DSM (\_SB.TZ45.DSME, Zero, 0x02)
+                                    Local0
+                                    Return (Local0)
+                                }
                             }
                             Else
                             {
@@ -3809,7 +4206,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {
                                 If (Arg2)
                                 {
+                                    Acquire (\_SB.TZMX, 0xFFFF)
                                     \_SB.TZ98.TAC0 = Arg1
+                                    Release (\_SB.TZMX)
                                     Notify (\_SB.TZ98, 0x81) // Thermal Trip Point Change
                                 }
 
@@ -3926,7 +4325,23 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 }
             }
 
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (RETV, Zero)
+                If ((\_SB.SDFE == 0x88))
+                {
+                    RETV = \_SB.PHRV ()
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    RETV = (\_SB.PHRV () | 0x0100)
+                }
+
+                Debug = "PHRV-"
+                Debug = RETV /* \_SB_.PEP0._HRV.RETV */
+                Return (RETV) /* \_SB_.PEP0._HRV.RETV */
+            }
+
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 While (One)
@@ -4202,6 +4617,24 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             Break
                         }
                     }
+                    ElseIf ((_T_0 == ToUUID ("6333b281-2fa1-4354-9994-ab4d88a6ba6c") /* Unknown UUID */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_4, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                            _T_4 = ToInteger (Arg2)
+                            If ((_T_4 == Zero))
+                            {
+                                Return (One)
+                            }
+                            Else
+                            {
+                                Return (Zero)
+                            }
+
+                            Break
+                        }
+                    }
                     Else
                     {
                         Return (Zero)
@@ -4213,65 +4646,123 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Return (ResourceTemplate ()
+                If ((\_SB.SDFE == 0x88))
                 {
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                    Return (ResourceTemplate ()
                     {
-                        0x0000021A,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021A,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x000002A1,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021B,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x000002A2,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021C,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x000002A3,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021D,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x00000322,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000025,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x0000014A,
+                        }
+                        Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000265,
+                        }
+                        Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000071,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000042,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x0000003C,
+                        }
+                    })
+                }
+
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    Return (ResourceTemplate ()
                     {
-                        0x000002A1,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
-                    {
-                        0x0000021B,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
-                    {
-                        0x000002A2,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
-                    {
-                        0x0000021C,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
-                    {
-                        0x000002A3,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
-                    {
-                        0x0000021D,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
-                    {
-                        0x00000322,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x00000025,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000014A,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x00000265,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x00000071,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x00000042,
-                    }
-                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000003C,
-                    }
-                })
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021A,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x000002A1,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021B,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x000002A2,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x0000021C,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, ExclusiveAndWake, ,, )
+                        {
+                            0x000002A3,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000025,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x0000014A,
+                        }
+                        Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000265,
+                        }
+                        Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000071,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x00000042,
+                        }
+                        Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                        {
+                            0x0000003C,
+                        }
+                    })
+                }
             }
 
             Field (\_SB.ABD.ROP1, BufferAcc, NoLock, Preserve)
@@ -22355,7 +22846,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                 One, 
                                 Zero, 
                                 Zero, 
-                                0x07, 
+                                0x04, 
                                 Zero
                             }
                         }, 
@@ -22369,7 +22860,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                 One, 
                                 Zero, 
                                 Zero, 
-                                0x07, 
+                                0x04, 
                                 Zero
                             }
                         }, 
@@ -22383,7 +22874,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                 One, 
                                 Zero, 
                                 Zero, 
-                                0x07, 
+                                0x04, 
                                 Zero
                             }
                         }, 
@@ -22397,7 +22888,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                 One, 
                                 Zero, 
                                 Zero, 
-                                0x07, 
+                                0x04, 
                                 Zero
                             }
                         }, 
@@ -22411,7 +22902,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                 One, 
                                 Zero, 
                                 Zero, 
-                                0x07, 
+                                0x04, 
                                 Zero
                             }
                         }
@@ -27525,7 +28016,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Name (SDCC, Package (0x01)
             {
-                Package (0x07)
+                Package (0x08)
                 {
                     "DEVICE", 
                     "\\_SB.SDC2", 
@@ -28401,6 +28892,12 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
                     Package (0x02)
                     {
+                        "ABANDON_DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
                         "CRASHDUMP_EXCEPTION", 
                         Package (0x02)
                         {
@@ -28442,7 +28939,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                          = CX6 /* \_SB_.PEP0.PEMD.CX6_ */
                 }
 
-                Return (PEMC) /* \_SB_.PEP0.PEMC */
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (PEMC) /* \_SB_.PEP0.PEMC */
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (PEMX) /* \_SB_.PEP0.PEMX */
+                }
             }
 
             Name (PEMC, Package (0x15)
@@ -33006,12 +33510,4897 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
         Scope (\_SB.PEP0)
         {
+            Name (PEMX, Package (0x15)
+            {
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI0", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_tunnel_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_tunnel_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_0", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x77359400, 
+                                0x77359400
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_0_CFG", 
+                                0x047868C0, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_0_CFG", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_0", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_tunnel_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_0_tunnel_gdsc", 
+                                0x02
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI0.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_tunnel_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_tunnel_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_1", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x77359400, 
+                                0x77359400
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_1_CFG", 
+                                0x047868C0, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_1_CFG", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_1", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_tunnel_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_1_tunnel_gdsc", 
+                                0x02
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI1.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI2", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_tunnel_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_tunnel_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_2", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x77359400, 
+                                0x77359400
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_2_CFG", 
+                                0x047868C0, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_2_CFG", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_2", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_tunnel_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_2_tunnel_gdsc", 
+                                0x02
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI2.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI3", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x1C)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "PMICGPIO", 
+                            Package (0x08)
+                            {
+                                "IOCTL_PM_GPIO_CONFIG_DIGITAL_OUTPUT", 
+                                0x03, 
+                                0x07, 
+                                Zero, 
+                                Zero, 
+                                0x0A, 
+                                0x03, 
+                                0x04
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICGPIO", 
+                            Package (0x08)
+                            {
+                                "IOCTL_PM_GPIO_CONFIG_DIGITAL_OUTPUT", 
+                                0x03, 
+                                0x05, 
+                                Zero, 
+                                Zero, 
+                                0x0A, 
+                                0x03, 
+                                0x04
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_E", 
+                                One, 
+                                0x00124F80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_C", 
+                                One, 
+                                0x000DEA80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x03)
+                            {
+                                "PPP_RESOURCE_ID_CLK7_A", 
+                                0x06, 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_mxa", 
+                                0x0100
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_phy_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_3_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_north_sf_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_8l_clkref_en", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_pipediv2_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_phy_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_phy_rchng_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_3_aux_clk", 
+                                0x08, 
+                                0x0124F800, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_3_phy_rchng_clk", 
+                                0x08, 
+                                0x05F5E100, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_3", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x3B9ACA00, 
+                                0x3B9ACA00
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_3_CFG", 
+                                0x042C1D80, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x07)
+                            {
+                                0x90, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                0x03, 
+                                Zero, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x19)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_3", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_3_CFG", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_north_sf_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_8l_clkref_en", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_pipediv2_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_phy_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_phy_rchng_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_3_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                0x02, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_3_phy_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_mxa", 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x03)
+                            {
+                                "PPP_RESOURCE_ID_CLK7_A", 
+                                0x06, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_C", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_E", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICGPIO", 
+                            Package (0x08)
+                            {
+                                "IOCTL_PM_GPIO_CONFIG_DIGITAL_OUTPUT", 
+                                0x03, 
+                                0x05, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                0x03, 
+                                0x04
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICGPIO", 
+                            Package (0x08)
+                            {
+                                "IOCTL_PM_GPIO_CONFIG_DIGITAL_OUTPUT", 
+                                0x03, 
+                                0x07, 
+                                Zero, 
+                                Zero, 
+                                0x0A, 
+                                0x03, 
+                                0x04
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI3.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI4", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x17)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_E", 
+                                One, 
+                                0x00124F80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_I", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x03)
+                            {
+                                "PPP_RESOURCE_ID_CLK7_A", 
+                                0x06, 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_phy_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_4_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_south_sf_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_2l_4_clkref_en", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_pipediv2_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_4_aux_clk", 
+                                0x08, 
+                                0x0124F800, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_4_phy_rchng_clk", 
+                                0x08, 
+                                0x05F5E100, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_4", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x3B9ACA00, 
+                                0x3B9ACA00
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_4_CFG", 
+                                0x042C1D80, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x07)
+                            {
+                                0x93, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                0x03, 
+                                Zero, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x15)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_4", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_4_CFG", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_phy_rchng_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_south_sf_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_pipediv2_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_2l_4_clkref_en", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_4_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                0x02, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_4_phy_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x03)
+                            {
+                                "PPP_RESOURCE_ID_CLK7_A", 
+                                0x06, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_I", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_E", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI4.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x17)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_E", 
+                                One, 
+                                0x00124F80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_I", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x03)
+                            {
+                                "PPP_RESOURCE_ID_CLK7_A", 
+                                0x06, 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_phy_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_5_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_south_sf_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_2l_5_clkref_en", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_pipediv2_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_5_aux_clk", 
+                                0x08, 
+                                0x0124F800, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_5_phy_rchng_clk", 
+                                0x08, 
+                                0x05F5E100, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_5", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x3B9ACA00, 
+                                0x3B9ACA00
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_5_CFG", 
+                                0x042C1D80, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x07)
+                            {
+                                0x96, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                0x03, 
+                                Zero, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x15)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_5", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_5_CFG", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_phy_rchng_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_south_sf_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_pipediv2_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_2l_5_clkref_en", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_5_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                0x02, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_5_phy_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x03)
+                            {
+                                "PPP_RESOURCE_ID_CLK7_A", 
+                                0x06, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_I", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_E", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1.MHI.UDE", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                One
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x02, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1.MHI.QMUX", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                One
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x02, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1.MHI.QMUX.GNSS", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                One
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x02, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1.MHI.QMUX.NTAD", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                One
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x02, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1.MHI.QMUX.PSAU", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                One
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x02, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI5.RP1.MHI.QMUX.COEX", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                One
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x02, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x03)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x03)
+                            {
+                                One, 
+                                "/arc/client/rail_cx", 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x0B)
+                {
+                    "DEVICE", 
+                    0x83, 
+                    "\\_SB.PCI6", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x1A)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x04)
+                            {
+                                One, 
+                                "/arc/client/rail_mxa", 
+                                0x0100, 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x07)
+                            {
+                                0x12, 
+                                One, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x07)
+                            {
+                                "PPP_RESOURCE_ID_LDO2_J", 
+                                One, 
+                                0x00132A40, 
+                                One, 
+                                0x07, 
+                                Zero, 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x07)
+                            {
+                                "PPP_RESOURCE_ID_LDO1_D", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero, 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x07)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                0x000D6D80, 
+                                One, 
+                                0x07, 
+                                Zero, 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6_phy_gdsc", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_6a_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_cfg_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PCIE_L1SS_EXCEPTION_EXECUTE_FUNCTION", 
+                            Package (0x01)
+                            {
+                                "ExecutePCIeL1ssExceptions"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_south_sf_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_phy_aux_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_4l_clkref_en", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_pipe_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_pipediv2_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_slv_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_slv_q2a_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_mstr_axi_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_6a_aux_clk", 
+                                0x08, 
+                                0x0124F800, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_pcie_6a_phy_rchng_clk", 
+                                0x08, 
+                                0x05F5E100, 
+                                0x03
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x07)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_6A", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x000F4240, 
+                                0x000F4240, 
+                                "HLOS_DRV", 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x06)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_6A_CFG", 
+                                0x042C1D80, 
+                                Zero, 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x07)
+                            {
+                                0x99, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                0x03, 
+                                Zero, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x18)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x07)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_PCIE_6A", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero, 
+                                "HLOS_DRV", 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x06)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_PCIE_6A_CFG", 
+                                Zero, 
+                                Zero, 
+                                "SUPPRESSIBLE"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_phy_rchng_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_slv_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_slv_q2a_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_mstr_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_phy_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_aux_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_cnoc_pcie_south_sf_axi_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_pipediv2_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_pipe_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "tcsr_pcie_4l_clkref_en", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PCIE_L1SS_EXCEPTION_EXECUTE_FUNCTION", 
+                            Package (0x01)
+                            {
+                                "ExecutePCIeL1ssExceptions"
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_cfg_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x09)
+                            {
+                                "gcc_pcie_6a_pipe_clk", 
+                                0x06, 
+                                Zero, 
+                                Zero, 
+                                0x02, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6_phy_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FOOTSWITCH", 
+                            Package (0x02)
+                            {
+                                "gcc_pcie_6a_gdsc", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO3_J", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO1_D", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "PMICVREGVOTE", 
+                            Package (0x06)
+                            {
+                                "PPP_RESOURCE_ID_LDO2_J", 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x07)
+                            {
+                                0x12, 
+                                Zero, 
+                                Zero, 
+                                One, 
+                                Zero, 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "NPARESOURCE", 
+                            Package (0x04)
+                            {
+                                One, 
+                                "/arc/client/rail_mxa", 
+                                Zero, 
+                                "SUPPRESSIBLE"
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "CRASHDUMP_EXCEPTION", 
+                        Package (0x02)
+                        {
+                            "EXECUTE_FUNCTION", 
+                            Package (0x01)
+                            {
+                                "ExecuteOcdPCIeExceptions"
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "CRASHDUMP_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    "\\_SB.PCI6.RP1", 
+                    Package (0x04)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            One
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "ABANDON_DSTATE", 
+                        Zero
+                    }
+                }, 
+
+                Package (0x08)
+                {
+                    "DEVICE", 
+                    0x84, 
+                    "\\_SB.PCI6.RP1.NVME", 
+                    Package (0x23)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            Zero, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    0x40
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    0x00000001DCD65000, 
+                                    0xEE6B2800, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            One, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x02, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x03, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x04, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x05, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x06, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x07, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x08, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x09, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x0A, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x0B, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x0C, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x0D, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x0E, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x0F, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x10, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x11, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x12, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x13, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x14, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x15, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x16, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x17, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x18, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x19, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x1A, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x1B, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x1C, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x1D, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x1E, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x04)
+                        {
+                            "FSTATE", 
+                            0x1F, 
+                            Package (0x02)
+                            {
+                                "NPARESOURCE", 
+                                Package (0x03)
+                                {
+                                    One, 
+                                    "/arc/client/rail_cx", 
+                                    Zero
+                                }
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "BUSARB", 
+                                Package (0x07)
+                                {
+                                    0x03, 
+                                    "ICBID_MASTER_PCIE_6A", 
+                                    "ICBID_SLAVE_EBI1", 
+                                    Zero, 
+                                    Zero, 
+                                    "HLOS_DRV", 
+                                    "SUPPRESSIBLE"
+                                }
+                            }
+                        }, 
+
+                        Package (0x05)
+                        {
+                            "PSTATE_SET", 
+                            Zero, 
+                            Package (0x02)
+                            {
+                                "PSTATE", 
+                                Zero
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "PSTATE", 
+                                One
+                            }, 
+
+                            Package (0x02)
+                            {
+                                "PSTATE", 
+                                0x02
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        Zero
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x03
+                    }
+                }
+            })
+        }
+
+        Scope (\_SB.PEP0)
+        {
             Method (BSMD, 0, NotSerialized)
             {
                 Return (BSRC) /* \_SB_.PEP0.BSRC */
             }
 
-            Name (BSRC, Package (0x08)
+            Name (BSRC, Package (0x09)
             {
                 Package (0x07)
                 {
@@ -34934,6 +40323,280 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Package (0x07)
                 {
                     "DEVICE", 
+                    "\\_SB.IC10", 
+                    Package (0x03)
+                    {
+                        "COMPONENT", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "FSTATE", 
+                            Zero
+                        }
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        Zero, 
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_QUP_1", 
+                                "ICBID_SLAVE_EBI1", 
+                                0x0927C000, 
+                                0x0682
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_QUP_1", 
+                                0x05F5E100, 
+                                0x02FAF080
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_QUP_CORE_1", 
+                                "ICBID_SLAVE_QUP_CORE_1", 
+                                0x1388, 
+                                0x0BB8
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_2x_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_m_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_s_ahb_clk", 
+                                One
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x04)
+                            {
+                                "gcc_qupv3_wrap1_s1_clk", 
+                                0x08, 
+                                0x0124F800, 
+                                0x04
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x24, 
+                                One, 
+                                One, 
+                                One, 
+                                0x03, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x25, 
+                                One, 
+                                One, 
+                                One, 
+                                0x03, 
+                                Zero
+                            }
+                        }
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        One
+                    }, 
+
+                    Package (0x02)
+                    {
+                        "DSTATE", 
+                        0x02
+                    }, 
+
+                    Package (0x0C)
+                    {
+                        "DSTATE", 
+                        0x03, 
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_s1_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_s_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap_1_m_ahb_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "CLOCK", 
+                            Package (0x02)
+                            {
+                                "gcc_qupv3_wrap1_core_2x_clk", 
+                                0x02
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_APPSS_PROC", 
+                                "ICBID_SLAVE_QUP_1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_QUP_1", 
+                                "ICBID_SLAVE_EBI1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "BUSARB", 
+                            Package (0x05)
+                            {
+                                0x03, 
+                                "ICBID_MASTER_QUP_CORE_1", 
+                                "ICBID_SLAVE_QUP_CORE_1", 
+                                Zero, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x24, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                0x03, 
+                                Zero
+                            }
+                        }, 
+
+                        Package (0x02)
+                        {
+                            "TLMMGPIO", 
+                            Package (0x06)
+                            {
+                                0x25, 
+                                Zero, 
+                                Zero, 
+                                Zero, 
+                                0x03, 
+                                Zero
+                            }
+                        }
+                    }
+                }, 
+
+                Package (0x07)
+                {
+                    "DEVICE", 
                     "\\_SB.IC18", 
                     Package (0x03)
                     {
@@ -35207,12 +40870,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
         }
 
-        Device (WLDS)
-        {
-            Name (_HID, "QCOM06D0")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
-        }
-
         Scope (\_SB.PEP0)
         {
             Method (LPMX, 0, NotSerialized)
@@ -35480,6 +41137,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C1._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (I2C2)
@@ -35509,6 +41213,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C2._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (I2C4)
@@ -35538,6 +41289,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C4._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (I2C5)
@@ -35566,6 +41364,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C5._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (I2C6)
@@ -35594,6 +41439,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C6._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (I2C8)
@@ -35623,6 +41515,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C8._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (I2C9)
@@ -35651,6 +41590,128 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.I2C9._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
+        }
+
+        Device (IC10)
+        {
+            Name (_HID, "QCOM0C10")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Name (_UID, 0x0A)  // _UID: Unique ID
+            Name (_DEP, Package (0x01)  // _DEP: Dependencies
+            {
+                \_SB.PEP0
+            })
+            Name (_CCA, Zero)  // _CCA: Cache Coherency Attribute
+            Name (_STR, Unicode ("QUP_1_SE_1"))  // _STR: Description String
+            Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
+            {
+                Name (RBUF, ResourceTemplate ()
+                {
+                    Memory32Fixed (ReadWrite,
+                        0x00A84000,         // Address Base
+                        0x00004000,         // Address Length
+                        )
+                    Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive, ,, )
+                    {
+                        0x00000341,
+                    }
+                })
+                Return (RBUF) /* \_SB_.IC10._CRS.RBUF */
+            }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (UR15)
@@ -35680,7 +41741,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x003B
+                            0x03C0
                         }
                 })
                 Return (RBUF) /* \_SB_.UR15._CRS.RBUF */
@@ -35718,6 +41779,53 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Return (RBUF) /* \_SB_.IC18._CRS.RBUF */
             }
+
+            Name (CLKD, Package (0x04)
+            {
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x64, 
+                    0x07, 
+                    0x1A, 
+                    0x0A, 
+                    0x0B
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x0190, 
+                    0x02, 
+                    0x18, 
+                    0x05, 
+                    0x0C
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    0x4B00, 
+                    0x03E8, 
+                    One, 
+                    0x12, 
+                    0x03, 
+                    0x09
+                }, 
+
+                Package (0x07)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero, 
+                    Zero
+                }
+            })
         }
 
         Device (UARD)
@@ -35768,32 +41876,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM06E0")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
-            Name (CHRV, Zero)
-            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
-            {
-                If ((DPBM & (One << Zero)))
-                {
-                    CHRV = (CHRV | (One << Zero))
-                }
-
-                If ((DPBM & (One << 0x02)))
-                {
-                    CHRV = (CHRV | (One << One))
-                }
-
-                If ((DPBM & (One << 0x07)))
-                {
-                    CHRV = (CHRV | (One << 0x02))
-                }
-
-                If ((\_SB.SDFE == 0x88))
-                {
-                    CHRV = (CHRV | (One << 0x03))
-                }
-
-                Return (CHRV) /* \_SB_.PILC.CHRV */
-            }
-
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Return (0x0F)
@@ -36010,22 +42092,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.GLNK, 
                 \_SB.IPC0
             })
-            Name (CHRV, Zero)
-            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
-            {
-                If ((DPBM & (One << 0x07)))
-                {
-                    CHRV = (CHRV | (One << 0x02))
-                }
-
-                If ((\_SB.SDFE == 0x88))
-                {
-                    CHRV = (CHRV | (One << 0x03))
-                }
-
-                Return (CHRV) /* \_SB_.PDSR.CHRV */
-            }
-
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Return (0x0F)
@@ -36175,18 +42241,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Name (_HID, "QCOM0D14")  // _HID: Hardware ID
             Alias (\_SB.PSUB, _SUB)
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                If ((\_SB.SDFE == 0x88))
-                {
-                    Return (Zero)
-                }
-                Else
-                {
-                    Return (0x0F)
-                }
-            }
-
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
                 Name (RBUF, ResourceTemplate ()
@@ -36219,6 +42273,81 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         Scope (\_SB.NSP0)
         {
             Name (_CID, "QCOMFFE9")  // _CID: Compatible ID
+        }
+
+        Scope (\_SB.WPSS)
+        {
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (Zero)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+                Else
+                {
+                    Return (0x0F)
+                }
+            }
+        }
+
+        Scope (\_SB.PDSR)
+        {
+            Name (CHRV, Zero)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                If ((DPBM & (One << 0x07)))
+                {
+                    CHRV = (CHRV | (One << 0x02))
+                }
+
+                If ((\_SB.SDFE == 0x88))
+                {
+                    CHRV = (CHRV | (One << 0x03))
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    CHRV = (CHRV | (One << 0x03))
+                }
+
+                Return (CHRV) /* \_SB_.PDSR.CHRV */
+            }
+        }
+
+        Scope (\_SB.PILC)
+        {
+            Name (CHRV, Zero)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                If ((DPBM & (One << Zero)))
+                {
+                    CHRV = (CHRV | (One << Zero))
+                }
+
+                If ((DPBM & (One << 0x02)))
+                {
+                    CHRV = (CHRV | (One << One))
+                }
+
+                If ((DPBM & (One << 0x07)))
+                {
+                    CHRV = (CHRV | (One << 0x02))
+                }
+
+                If ((\_SB.SDFE == 0x88))
+                {
+                    CHRV = (CHRV | (One << 0x03))
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    CHRV = (CHRV | (One << 0x03))
+                }
+
+                Return (CHRV) /* \_SB_.PILC.CHRV */
+            }
         }
 
         Device (LLC)
@@ -39659,6 +45788,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     {
                         0x00000242,
                     }
+                    Interrupt (ResourceConsumer, Edge, ActiveLow, Exclusive, ,, )
+                    {
+                        0x00000252,
+                    }
                 })
                 Return (RBUF) /* \_SB_.GIO0._CRS.RBUF */
             }
@@ -39725,6 +45858,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                         }
 
                         Release (\_SB.ECMX)
+                    }
+                    ElseIf ((_T_0 == 0x0340))
+                    {
+                        USTT = EGTM ()
+                        ECTT (USTT)
                     }
 
                     Break
@@ -44533,7 +50671,39 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.ARPC
             })
             Name (_HID, "QCOM0D0A")  // _HID: Hardware ID
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (RETV, Zero)
+                If ((\_SB.SDFE == 0x88))
+                {
+                    RETV = \_SB.PHRV ()
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    RETV = (\_SB.PHRV () | 0x0100)
+                }
+
+                Debug = "PHRV-"
+                Debug = RETV /* \_SB_.NSPM._HRV.RETV */
+                Return (RETV) /* \_SB_.NSPM._HRV.RETV */
+            }
+        }
+
+        Device (QCSP)
+        {
+            Name (_DEP, Package (0x03)  // _DEP: Dependencies
+            {
+                \_SB.GLNK, 
+                \_SB.SOCP, 
+                \_SB.SPSS
+            })
+            Name (_HID, "QCOM0C87")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Alias (\_SB.STOR, STOR)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                Return (0x0F)
+            }
         }
 
         Scope (\_SB)
@@ -45102,6 +51272,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                     })
                                 }
 
+                                \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, One, Arg3)
                                 STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF03, FANP)
                                 If ((STAT != Zero))
                                 {
@@ -45654,7 +51825,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                             ) * 0x0A)
                                         \_SB.TZ42.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
                                             ) * 0x0A)
-                                        Notify (\_SB.TZ42, 0x81) // Thermal Trip Point Change
+                                        Notify (\_SB.TZ42, 0x81) // Information Change
                                     }
                                     ElseIf ((DerefOf (Arg3 [Zero]) == 0x05))
                                     {
@@ -45665,7 +51836,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                             ) * 0x0A)
                                         \_SB.TZ43.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
                                             ) * 0x0A)
-                                        Notify (\_SB.TZ43, 0x81) // Thermal Trip Point Change
+                                        Notify (\_SB.TZ43, 0x81) // Information Change
                                     }
                                     ElseIf ((DerefOf (Arg3 [Zero]) == 0x06))
                                     {
@@ -45676,7 +51847,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                             ) * 0x0A)
                                         \_SB.TZ44.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
                                             ) * 0x0A)
-                                        Notify (\_SB.TZ44, 0x81) // Thermal Trip Point Change
+                                        Notify (\_SB.TZ44, 0x81) // Information Change
                                     }
                                     ElseIf ((DerefOf (Arg3 [Zero]) == 0x07))
                                     {
@@ -45687,7 +51858,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                             ) * 0x0A)
                                         \_SB.TZ45.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
                                             ) * 0x0A)
-                                        Notify (\_SB.TZ45, 0x81) // Thermal Trip Point Change
+                                        Notify (\_SB.TZ45, 0x81) // Information Change
                                     }
                                 }
 
@@ -45892,7 +52063,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If ((\_SB.PSUB == "IDPS8380"))
+                If (((\_SB.PSUB == "IDPS8380") || ((\_SB.FNTR & 0x02) == 0x02)))
                 {
                     Return (0x0F)
                 }
@@ -47600,6 +53771,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (Zero)
             }
 
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    Return (One)
+                }
+                ElseIf ((\_SB.SDFE == 0x88))
+                {
+                    Return (Zero)
+                }
+            }
+
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
                 Return (ResourceTemplate ()
@@ -47629,23 +53812,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                         0x002D1000,         // Address Length
                         )
                 })
-            }
-        }
-
-        Device (QCSP)
-        {
-            Name (_DEP, Package (0x03)  // _DEP: Dependencies
-            {
-                \_SB.GLNK, 
-                \_SB.SOCP, 
-                \_SB.SPSS
-            })
-            Name (_HID, "QCOM0C87")  // _HID: Hardware ID
-            Alias (\_SB.PSUB, _SUB)
-            Alias (\_SB.STOR, STOR)
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (0x0F)
             }
         }
 
@@ -47836,6 +54002,24 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 Return (Zero)
+            }
+        }
+
+        Device (SOCD)
+        {
+            Name (_HID, "QCOM0D18")  // _HID: Hardware ID
+            Alias (\_SB.PSUB, _SUB)
+            Alias (\_SB.SDFE, SDFE)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (Zero)
+                }
+                Else
+                {
+                    Return (0x0F)
+                }
             }
         }
 
@@ -48111,56 +54295,106 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (0x0F)
             }
 
+            Name (HBUF, ResourceTemplate ()
+            {
+                Memory32Fixed (ReadWrite,
+                    0x0ACE4000,         // Address Base
+                    0x00002000,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACE6000,         // Address Base
+                    0x00002000,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACE8000,         // Address Base
+                    0x00002000,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACEC000,         // Address Base
+                    0x00002000,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACF6000,         // Address Base
+                    0x00000400,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACF7000,         // Address Base
+                    0x00000400,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACF8000,         // Address Base
+                    0x00000400,         // Address Length
+                    )
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001FD,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001FE,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001FF,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000009A,
+                }
+            })
+            Name (PBUF, ResourceTemplate ()
+            {
+                Memory32Fixed (ReadWrite,
+                    0x0ACE4000,         // Address Base
+                    0x00002000,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACEC000,         // Address Base
+                    0x00002000,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACF6000,         // Address Base
+                    0x00000400,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACF7000,         // Address Base
+                    0x00000400,         // Address Length
+                    )
+                Memory32Fixed (ReadWrite,
+                    0x0ACF8000,         // Address Base
+                    0x00000400,         // Address Length
+                    )
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001FD,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000009A,
+                }
+            })
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    Return (One)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
+
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Name (RBUF, ResourceTemplate ()
+                If ((\_SB.SDFE == 0x88))
                 {
-                    Memory32Fixed (ReadWrite,
-                        0x0ACE4000,         // Address Base
-                        0x00002000,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0x0ACE6000,         // Address Base
-                        0x00002000,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0x0ACE8000,         // Address Base
-                        0x00002000,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0x0ACEC000,         // Address Base
-                        0x00002000,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0x0ACF6000,         // Address Base
-                        0x00000400,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0x0ACF7000,         // Address Base
-                        0x00000400,         // Address Length
-                        )
-                    Memory32Fixed (ReadWrite,
-                        0x0ACF8000,         // Address Base
-                        0x00000400,         // Address Length
-                        )
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001FD,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001FE,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001FF,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000009A,
-                    }
-                })
-                Return (RBUF) /* \_SB_.MPCS._CRS.RBUF */
+                    Return (HBUF) /* \_SB_.MPCS.HBUF */
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (PBUF) /* \_SB_.MPCS.PBUF */
+                }
             }
         }
 
@@ -48232,60 +54466,114 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (0x0F)
             }
 
+            Name (HBUF, ResourceTemplate ()
+            {
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001E8,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000013F,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001EF,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F1,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F3,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F5,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F0,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F2,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F4,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000002D1,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000031C,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000031D,
+                }
+            })
+            Name (PBUF, ResourceTemplate ()
+            {
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001E8,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001EF,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F1,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F5,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F0,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x000001F4,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000031C,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
+                {
+                    0x0000031D,
+                }
+            })
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    Return (One)
+                }
+                Else
+                {
+                    Return (Zero)
+                }
+            }
+
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
-                Name (RBUF, ResourceTemplate ()
+                If ((\_SB.SDFE == 0x88))
                 {
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001E8,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000013F,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001EF,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001F1,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001F3,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001F5,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001F0,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001F2,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000001F4,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x000002D1,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000031C,
-                    }
-                    Interrupt (ResourceConsumer, Edge, ActiveHigh, Exclusive, ,, )
-                    {
-                        0x0000031D,
-                    }
-                })
-                Return (RBUF) /* \_SB_.VFE0._CRS.RBUF */
+                    Return (HBUF) /* \_SB_.VFE0.HBUF */
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (PBUF) /* \_SB_.VFE0.PBUF */
+                }
             }
         }
 
@@ -48300,13 +54588,20 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Alias (\_SB.PSUB, _SUB)
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If ((\_SB.SVMJ == 0x02))
+                If ((\_SB.SDFE == 0x88))
+                {
+                    If ((\_SB.SVMJ == 0x02))
+                    {
+                        Return (0x0F)
+                    }
+                    Else
+                    {
+                        Return (Zero)
+                    }
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
                 {
                     Return (0x0F)
-                }
-                Else
-                {
-                    Return (Zero)
                 }
             }
         }
@@ -48932,7 +55227,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Return (OBUF) /* \_SB_.XPTS.OBUF */
         }
 
-        OperationRegion (DSMC, SystemMemory, 0xD5EF2000, 0x0012)
+        OperationRegion (DSMC, SystemMemory, 0xD5EF1000, 0x0012)
         Field (DSMC, AnyAcc, Lock, Preserve)
         {
             DSCH,   32, 
@@ -49340,7 +55635,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
         }
 
-        OperationRegion (DSMF, SystemMemory, 0xD5EF1000, 0x000E)
+        OperationRegion (DSMF, SystemMemory, 0xD5EF0000, 0x000E)
         Field (DSMF, AnyAcc, Lock, Preserve)
         {
             DSFH,   32, 
@@ -49362,7 +55657,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
         }
 
-        OperationRegion (DSNN, SystemMemory, 0xD5EAA000, 0x000F)
+        OperationRegion (DSNN, SystemMemory, 0xD5EA9000, 0x000F)
         Field (DSNN, AnyAcc, Lock, Preserve)
         {
             DSNH,   32, 
@@ -49415,6 +55710,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (Zero)
             }
 
+            Mutex (MGMX, 0x00)
             Method (PMR1, 1, Serialized)
             {
                 Name (SBUF, Buffer (0x44)
@@ -49433,12 +55729,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 {
                      0x00                                             // .
                 })
-                CreateByteField (SBUF, Zero, OPID)
-                CreateByteField (SBUF, One, OSIZ)
+                CreateByteField (OBUF, Zero, OSTA)
+                CreateByteField (OBUF, One, OLEN)
                 CreateByteField (OBUF, 0x02, OCMD)
                 CreateByteField (OBUF, 0x03, OFST)
                 CreateByteField (OBUF, 0x04, ODAT)
                 CreateByteField (OBUF, 0x05, OSTS)
+                Acquire (MGMX, 0xFFFF)
                 Local0 = Zero
                 SPID = 0xFF
                 SSIZ = 0x04
@@ -49448,11 +55745,21 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 SSTS = Zero
                 GBOP (Zero, SDTR)
                 OBUF = GBOP (One, Zero)
+                Local1 = One
+                While ((((Arg0 != OFST) || (OSTS != One)) && (
+                    Local1 < 0x03E8)))
+                {
+                    Concatenate ("Retry reading GOEM through Glink...", Local1, Debug)
+                    OBUF = GBOP (One, Zero)
+                    Local1++
+                }
+
                 If ((OSTS == One))
                 {
                     Local0 = ODAT /* \_SB_.PMGK.PMR1.ODAT */
                 }
 
+                Release (MGMX)
                 Return (Local0)
             }
 
@@ -49467,6 +55774,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
             Method (PMW1, 2, Serialized)
             {
+                Name (SBUF, Buffer (0x44)
+                {
+                     0x00                                             // .
+                })
                 CreateByteField (SBUF, Zero, STAT)
                 CreateByteField (SBUF, 0x02, SPID)
                 CreateByteField (SBUF, 0x03, SSIZ)
@@ -49479,12 +55790,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 {
                      0x00                                             // .
                 })
-                CreateByteField (SBUF, Zero, OPID)
-                CreateByteField (SBUF, One, OSIZ)
+                CreateByteField (OBUF, Zero, OSTA)
+                CreateByteField (OBUF, One, OLEN)
                 CreateByteField (OBUF, 0x02, OCMD)
                 CreateByteField (OBUF, 0x03, OFST)
                 CreateByteField (OBUF, 0x04, ODAT)
                 CreateByteField (OBUF, 0x05, OSTS)
+                Acquire (MGMX, 0xFFFF)
                 Local0 = Zero
                 SPID = 0xFF
                 SSIZ = 0x04
@@ -49494,6 +55806,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 SSTS = Zero
                 GBOP (Zero, SDTR)
                 OBUF = GBOP (One, Zero)
+                Release (MGMX)
                 Return (Local0)
             }
 
@@ -49531,7 +55844,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             CreateByteField (GLMB, 0x20, MB29)
             CreateByteField (GLMB, 0x21, MB30)
             CreateByteField (GLMB, 0x22, MB31)
-            Mutex (MGMX, 0x00)
             Method (MOGW, 0, Serialized)
             {
                 Name (SBUF, Buffer (0x44){})
@@ -50898,6 +57210,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
         Scope (\)
         {
+            Name (ODV1, Zero)
             Method (EGTM, 0, NotSerialized)
             {
                 Return (ECRB (0x80))
@@ -50907,101 +57220,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 If (CondRefOf (\_SB.PEP0.THTZ))
                 {
-                    If ((ToInteger (\_SB.LID0.LIDB) == Zero))
+                    If ((ToInteger (\_SB.GIO0.LIDR) == Zero))
                     {
-                        Debug = "EC_CHANGE_THERMAL_TABLE Lid Close"
-                        If (((\_SB.SJTG == 0x1021E0E1) || (\_SB.SJTG == 0x3021E0E1)))
-                        {
-                            \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x20, 0x0CC6, One, Zero)
-                            \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x21, 0x0D34, One, Zero)
-                            \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x22, 0x0D16, One, Zero)
-                            \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
-                        }
-                        ElseIf (((\_SB.SJTG == 0x1024E0E1) || (\_SB.SJTG == 0x3024E0E1)))
-                        {
-                            \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x20, 0x0CC6, One, Zero)
-                            \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x21, 0x0D34, One, Zero)
-                            \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x22, 0x0D0C, One, Zero)
-                            \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                            \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                            \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                            \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                            \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                            \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                            \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
-                        }
+                        ODV1 = 0x04
                     }
-                    ElseIf (((\_SB.SJTG == 0x1021E0E1) || (\_SB.SJTG == 0x3021E0E1)))
+                    Else
                     {
                         While (One)
                         {
@@ -51009,381 +57232,19 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             _T_0 = ToInteger (Arg0)
                             If ((_T_0 == One))
                             {
-                                Debug = "EC_CHANGE_THERMAL_TABLE Optimize mode"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0CC6, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0D20, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0D16, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
+                                ODV1 = Zero
                             }
                             ElseIf ((_T_0 == 0x02))
                             {
-                                Debug = "EC_CHANGE_THERMAL_TABLE COOL"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0C6C, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0CC6, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0CD0, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
+                                ODV1 = 0x02
                             }
                             ElseIf ((_T_0 == 0x04))
                             {
-                                Debug = "EC_CHANGE_THERMAL_TABLE QUIET"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0C8A, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0D02, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0CC6, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
+                                ODV1 = 0x03
                             }
                             ElseIf ((_T_0 == 0x08))
                             {
-                                Debug = "EC_CHANGE_THERMAL_TABLE PERFORMANCE"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0CDA, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0DA2, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0D48, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
-                            }
-
-                            Break
-                        }
-                    }
-                    ElseIf (((\_SB.SJTG == 0x1024E0E1) || (\_SB.SJTG == 0x3024E0E1)))
-                    {
-                        While (One)
-                        {
-                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                            _T_1 = ToInteger (Arg0)
-                            If ((_T_1 == One))
-                            {
-                                Debug = "EC_CHANGE_THERMAL_TABLE Optimize mode"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0CC6, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0D0C, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0D16, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
-                            }
-                            ElseIf ((_T_1 == 0x02))
-                            {
-                                Debug = "EC_CHANGE_THERMAL_TABLE COOL"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0C6C, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0CB2, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0CD0, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
-                            }
-                            ElseIf ((_T_1 == 0x04))
-                            {
-                                Debug = "EC_CHANGE_THERMAL_TABLE QUIET"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0C8A, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0CEE, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0CC6, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
-                            }
-                            ElseIf ((_T_1 == 0x08))
-                            {
-                                Debug = "EC_CHANGE_THERMAL_TABLE PERFORMANCE"
-                                \_SB.PEP0.THTZ (0x1F, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x1F, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x1F, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x1F, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x1F, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x1F, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x20, 0x0CDA, One, Zero)
-                                \_SB.PEP0.THTZ (0x20, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x20, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x20, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x20, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x20, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x21, 0x0D8E, One, Zero)
-                                \_SB.PEP0.THTZ (0x21, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x21, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x21, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x21, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x21, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x22, 0x0D48, One, Zero)
-                                \_SB.PEP0.THTZ (0x22, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x22, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x22, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x22, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x22, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x23, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x23, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x23, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x23, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x23, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x23, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x24, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x24, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x24, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x24, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x24, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x24, Zero, One, 0x05)
-                                \_SB.PEP0.THTZ (0x25, 0x0E92, One, Zero)
-                                \_SB.PEP0.THTZ (0x25, 0x0F28, One, One)
-                                \_SB.PEP0.THTZ (0x25, 0x0A, One, 0x02)
-                                \_SB.PEP0.THTZ (0x25, 0x02, One, 0x03)
-                                \_SB.PEP0.THTZ (0x25, One, One, 0x04)
-                                \_SB.PEP0.THTZ (0x25, Zero, One, 0x05)
+                                ODV1 = One
                             }
 
                             Break
@@ -51706,7 +57567,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
         }
 
-        OperationRegion (DSMP, SystemMemory, 0xD5EF0000, 0x01A3)
+        OperationRegion (DSMP, SystemMemory, 0xD5EEF000, 0x01A3)
         Field (DSMP, AnyAcc, Lock, Preserve)
         {
             DSPH,   32, 
@@ -51941,6 +57802,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Return (GPP7) /* \_SB_.BTI7.GPP7 */
         }
 
+        Name (PRS0, Buffer (One)
+        {
+             0x6F                                             // o
+        })
+        Name (PRS2, Buffer (One)
+        {
+             0x6C                                             // l
+        })
         Name (PORT, Buffer (One)
         {
              0x03                                             // .
@@ -53332,6 +59201,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 {
                     0x00000233,
                 }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
+                {
+                    0x00000230,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
+                {
+                    0x00000231,
+                }
                 GpioIo (Exclusive, PullUp, 0x0000, 0x0000, IoRestrictionOutputOnly,
                     "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                     RawDataBuffer (0x01)  // Vendor Data
@@ -53350,6 +59227,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     {   // Pin list
                         0x00B8
                     }
+                I2cSerialBusV2 (0x0043, ControllerInitiated, 0x00061A80,
+                    AddressingMode7Bit, "\\_SB.IC10",
+                    0x00, ResourceConsumer, , Exclusive,
+                    )
+                I2cSerialBusV2 (0x004F, ControllerInitiated, 0x00061A80,
+                    AddressingMode7Bit, "\\_SB.IC10",
+                    0x00, ResourceConsumer, , Exclusive,
+                    )
             })
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
@@ -53553,6 +59438,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 {
                     0x00000115,
                 }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
+                {
+                    0x0000022C,
+                }
+                Interrupt (ResourceConsumer, Edge, ActiveHigh, SharedAndWake, ,, )
+                {
+                    0x0000022D,
+                }
                 GpioIo (Exclusive, PullUp, 0x0000, 0x0000, IoRestrictionOutputOnly,
                     "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                     RawDataBuffer (0x01)  // Vendor Data
@@ -53562,6 +59455,10 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     {   // Pin list
                         0x0007
                     }
+                I2cSerialBusV2 (0x0047, ControllerInitiated, 0x00061A80,
+                    AddressingMode7Bit, "\\_SB.I2C6",
+                    0x00, ResourceConsumer, , Exclusive,
+                    )
             })
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
@@ -53738,7 +59635,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Method (PHY0, 0, NotSerialized)
                 {
-                    Return (\_SB.PRS0) /* External reference */
+                    Return (\_SB.PRS0)
                 }
 
                 Method (PHYC, 0, NotSerialized)
@@ -53774,7 +59671,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Method (PHY0, 0, NotSerialized)
                 {
-                    Return (\_SB.PRS0) /* External reference */
+                    Return (\_SB.PRS0)
                 }
 
                 Method (PHYC, 0, NotSerialized)
@@ -53810,7 +59707,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
                 Method (PHY2, 0, NotSerialized)
                 {
-                    Return (\_SB.PRS2) /* External reference */
+                    Return (\_SB.PRS2)
                 }
 
                 Method (PHYC, 0, NotSerialized)
@@ -54184,6 +60081,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     AddressingMode7Bit, "\\_SB.I2C8",
                     0x00, ResourceConsumer, , Exclusive,
                     )
+                I2cSerialBusV2 (0x0009, ControllerInitiated, 0x00061A80,
+                    AddressingMode7Bit, "\\_SB.I2C4",
+                    0x00, ResourceConsumer, , Exclusive,
+                    )
+                I2cSerialBusV2 (0x0009, ControllerInitiated, 0x00061A80,
+                    AddressingMode7Bit, "\\_SB.I2C8",
+                    0x00, ResourceConsumer, , Exclusive,
+                    )
             })
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
@@ -54442,6 +60347,11 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
         }
 
+        Scope (\_SB)
+        {
+            Mutex (TZMX, 0x00)
+        }
+
         Device (AGR0)
         {
             Name (_HID, "ACPI000C" /* Processor Aggregator Device */)  // _HID: Hardware ID
@@ -54594,6 +60504,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM0D01")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x01)
@@ -54613,6 +60535,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM0D01")  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
             {
                 \_SB.PEP0
@@ -54749,7 +60683,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 \_SB.PEP0
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ15._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -54779,7 +60743,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS2.CPU2, 
                 \_SB.SYSM.CLS2.CPU3
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ16._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -54801,7 +60795,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS0.CPU2, 
                 \_SB.SYSM.CLS0.CPU3
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ17._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -54879,6 +60903,12 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                 {   // Pin list
                                     0x01C0
                                 }
+                            GpioInt (Edge, ActiveHigh, Exclusive, PullUp, 0x0000,
+                                "\\_SB.PM01", 0x00, ResourceConsumer, ,
+                                )
+                                {   // Pin list
+                                    0x0208
+                                }
                         })
                     }
                 }
@@ -54911,6 +60941,12 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                             {   // Pin list
                                 0x0192
                             }
+                        GpioInt (Edge, ActiveHigh, Exclusive, PullUp, 0x0000,
+                            "\\_SB.PM01", 0x00, ResourceConsumer, ,
+                            )
+                            {   // Pin list
+                                0x0208
+                            }
                     })
                 }
             }
@@ -54927,7 +60963,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS1.CPU2, 
                 \_SB.SYSM.CLS1.CPU3
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ18._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -54942,6 +61008,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM0CF6")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x04)  // _TZD: Thermal Zone Devices
             {
                 \_SB.SYSM.CLS2.CPU0, 
@@ -54968,7 +61046,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 \_SB.GPU0
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ20._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -54987,7 +61095,64 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 \_SB.CSW0
             })
-            Alias (\_SB.PHRV, _HRV)
+            Name (THRV, Zero)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    If ((\_SB.PSUB == "CRD08380"))
+                    {
+                        If ((\_SB.PLST == 0x0001000000000000))
+                        {
+                            THRV = 0x0100
+                        }
+                        Else
+                        {
+                            THRV = 0x0200
+                        }
+                    }
+                    Else
+                    {
+                        THRV = 0x0200
+                    }
+                }
+                ElseIf ((\_SB.SDFE == 0x88))
+                {
+                    If (((((((\_SB.PHRV () == 0xF4) || (\_SB.PHRV () == 0x53)) || 
+                        (\_SB.PHRV () == 0x72)) || (\_SB.PHRV () == 0x85)) || (\_SB.PHRV () == 0x87)) || (\_SB.PHRV () == 0xA3)))
+                    {
+                        THRV = 0x10
+                    }
+                    Else
+                    {
+                        THRV = One
+                    }
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ21._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -55006,7 +61171,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 \_SB.MBCL
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ22._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -55025,7 +61220,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 \_SB.MSKN
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ23._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -55044,7 +61269,37 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             {
                 \_SB.WLTM
             })
-            Alias (\_SB.PHRV, _HRV)
+            Method (_HRV, 0, NotSerialized)  // _HRV: Hardware Revision
+            {
+                Name (THRV, Zero)
+                If ((\_SB.SDFE == 0x9A))
+                {
+                    THRV = 0x0100
+                }
+                Else
+                {
+                    THRV = \_SB.PHRV ()
+                }
+
+                Return (THRV) /* \_SB_.TZ24._HRV.THRV */
+            }
+
+            Method (_SUB, 0, NotSerialized)  // _SUB: Subsystem ID
+            {
+                If ((\_SB.PSUB == "IDP08380"))
+                {
+                    Return ("IDP08380")
+                }
+                ElseIf ((\_SB.PSUB == "CRD08380"))
+                {
+                    Return ("CRD08380")
+                }
+                ElseIf ((\_SB.PSUB == "IDPS8380"))
+                {
+                    Return ("IDPS8380")
+                }
+            }
+
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -55059,6 +61314,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM0C5A")  // _HID: Hardware ID
             Name (_STR, Unicode ("SoCTj Thermal-zone for Fan Control"))  // _STR: Description String
+            Name (UPVF, One)
             Name (_UID, One)  // _UID: Unique ID
             Name (TAC0, 0x0B72)
             Method (_AC0, 0, NotSerialized)  // _ACx: Active Cooling, x=0-9
@@ -55072,6 +61328,27 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    If ((UPVF == One))
+                    {
+                        If (((\_SB.PSUB == "CRD08380") && ((\_SB.FNTR & 0x02) == 0x02)))
+                        {
+                            TAC0 = 0x0CDA
+                        }
+                        Else
+                        {
+                            TAC0 = 0x0D3E
+                        }
+
+                        UPVF = Zero
+                    }
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    TAC0 = 0x0D3E
+                }
+
                 Return (0x0F)
             }
 
@@ -55150,6 +61427,736 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
         }
 
+        Name (TH31, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (TH32, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CDA, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0C6C, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0C8A, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CDA, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0C6C, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0C8A, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (TH33, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0D0C, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D8E, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CB2, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CEE, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D34, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D20, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0DA2, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D02, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D34, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (TH34, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0D16, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D48, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CD0, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D0C, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D16, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D48, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CD0, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0CC6, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0D16, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (TH35, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (TH36, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (TH37, Package (0x0A)
+        {
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }, 
+
+            Package (0x06)
+            {
+                0x0E92, 
+                0x0F28, 
+                Zero, 
+                0x02, 
+                One, 
+                0x0A
+            }
+        })
+        Name (THTC, Zero)
+        Method (THML, 0, NotSerialized)
+        {
+            If (((\_SB.SJTG == 0x1024E0E1) || (\_SB.SJTG == 0x3024E0E1)))
+            {
+                THTC = Zero
+            }
+            ElseIf (((\_SB.SJTG == 0x1021E0E1) || (\_SB.SJTG == 0x3021E0E1)))
+            {
+                THTC = 0x05
+            }
+
+            THTC += ODV1 /* \ODV1 */
+            Return (THTC) /* \_SB_.THTC */
+        }
+
         ThermalZone (TZ31)
         {
             Name (_HID, "QCOM0C5E")  // _HID: Hardware ID
@@ -55161,6 +62168,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     \_SB.PEP0, 
                     \_SB.ADC1
                 })
+            }
+
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
             }
 
             Name (_TZD, Package (0x0D)  // _TZD: Thermal Zone Devices
@@ -55179,43 +62198,49 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS2.CPU3, 
                 \_SB.GPU0
             })
-            Name (TPSV, 0x0E92)
+            Name (TPSV, 0x0E2E)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH31 [THML ()]) [Zero])
                 Return (\_SB.TZ31.TPSV)
             }
 
-            Name (TCRT, 0x0F28)
+            Name (TCRT, 0x0EF6)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH31 [THML ()]) [One])
                 Return (\_SB.TZ31.TCRT)
             }
 
             Name (TMTL, Zero)
             Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
             {
+                TMTL = DerefOf (DerefOf (TH31 [THML ()]) [0x02])
                 Return (\_SB.TZ31.TMTL)
             }
 
-            Name (TTC1, 0x02)
+            Name (TTC1, Zero)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH31 [THML ()]) [0x03])
                 Return (\_SB.TZ31.TTC1)
             }
 
-            Name (TTC2, One)
+            Name (TTC2, 0x14)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH31 [THML ()]) [0x04])
                 Return (\_SB.TZ31.TTC2)
             }
 
-            Name (TTSP, 0x0A)
-            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
+            Name (TTSP, 0x1E)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH31 [THML ()]) [0x05])
                 Return (\_SB.TZ31.TTSP)
             }
 
+            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
                 While (One)
@@ -55260,66 +62285,6 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                      0x00                                             // .
                                 })
                             }
-                            ElseIf ((_T_1 == 0x03))
-                            {
-                                Return (Buffer (One)
-                                {
-                                     0x00                                             // .
-                                })
-                            }
-                            ElseIf ((_T_1 == 0x04))
-                            {
-                                Name (BYT0, 0xFF)
-                                BYT0 = (DerefOf (Arg3 [Zero]) & 0xFF)
-                                Debug = BYT0 /* \_SB_.TZ31._DSM.BYT0 */
-                                If ((BYT0 == Zero))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0C9E
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                ElseIf ((BYT0 == One))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0CA8
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                ElseIf ((BYT0 == 0x02))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0CB2
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                ElseIf ((BYT0 == 0x03))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0CBC
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                ElseIf ((BYT0 == 0x04))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0CC6
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                ElseIf ((BYT0 == 0x05))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0CD0
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                ElseIf ((BYT0 == 0x06))
-                                {
-                                    \_SB.TZ31.TPSV = 0x0CDA
-                                    Notify (\_SB.TZ31, 0x81) // Thermal Trip Point Change
-                                }
-                                Else
-                                {
-                                    Return (Buffer (One)
-                                    {
-                                         0x00                                             // .
-                                    })
-                                }
-
-                                Return (Buffer (One)
-                                {
-                                     0x00                                             // .
-                                })
-                            }
                             Else
                             {
                                 Return (Buffer (One)
@@ -55348,6 +62313,16 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM0C5F")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
+            Name (UPVF, One)
+            Name (HPCD, Zero)
+            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
+            Name (TPSV, Zero)
+            Name (TTC1, Zero)
+            Name (TTSP, Zero)
+            Name (HMAP, 0x0CDA)
+            Name (HMDP, 0x0CBC)
+            Name (HPAP, 0x0CEE)
+            Name (HPDP, 0x0CD0)
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -55357,44 +62332,77 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
             }
 
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    If ((UPVF == One))
+                    {
+                        If (((\_SB.PSUB == "CRD08380") && ((\_SB.FNTR & 0x02) == 0x02)))
+                        {
+                            HPCD = One
+                            TPSV = 0x0CD0
+                            TTC1 = 0x05
+                            TTSP = 0x32
+                        }
+                        Else
+                        {
+                            TPSV = 0x0CBC
+                            TTC1 = 0x19
+                            TTSP = 0x0A
+                        }
+
+                        UPVF = Zero
+                    }
+
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
             {
                 \_SB.PMBM
             })
-            Name (TPSV, 0x0CC6)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH32 [THML ()]) [Zero])
                 Return (\_SB.TZ32.TPSV)
             }
 
             Name (TCRT, 0x0F28)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH32 [THML ()]) [One])
                 Return (\_SB.TZ32.TCRT)
             }
 
             Name (TMTL, Zero)
             Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
             {
+                TMTL = DerefOf (DerefOf (TH32 [THML ()]) [0x02])
                 Return (\_SB.TZ32.TMTL)
             }
 
-            Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH32 [THML ()]) [0x03])
                 Return (\_SB.TZ32.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH32 [THML ()]) [0x04])
                 Return (\_SB.TZ32.TTC2)
             }
 
-            Name (TTSP, 0x0A)
-            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH32 [THML ()]) [0x05])
                 Return (\_SB.TZ32.TTSP)
             }
 
@@ -55442,6 +62450,78 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                      0x00                                             // .
                                 })
                             }
+                            ElseIf ((_T_1 == 0x03))
+                            {
+                                Return (Buffer (One)
+                                {
+                                     0x01                                             // .
+                                })
+                            }
+                            ElseIf ((_T_1 == 0x04))
+                            {
+                                Name (BYT1, 0xFF)
+                                If ((HPCD == One))
+                                {
+                                    BYT1 = (DerefOf (Arg3 [One]) & 0xFF)
+                                    Debug = BYT1 /* \_SB_.TZ32._DSM.BYT1 */
+                                    If ((BYT1 == Zero))
+                                    {
+                                        Debug = "Power Source is AC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ32.TPSV = HPAP /* \_SB_.TZ32.HPAP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ32, 0x81) // Thermal Trip Point Change
+                                    }
+                                    ElseIf ((BYT1 == One))
+                                    {
+                                        Debug = "Power Source is DC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ32.TPSV = HPDP /* \_SB_.TZ32.HPDP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ32, 0x81) // Thermal Trip Point Change
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+                                }
+                                Else
+                                {
+                                    BYT1 = (DerefOf (Arg3 [One]) & 0xFF)
+                                    Debug = BYT1 /* \_SB_.TZ32._DSM.BYT1 */
+                                    If ((BYT1 == Zero))
+                                    {
+                                        Debug = "Power Source is AC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ32.TPSV = HMAP /* \_SB_.TZ32.HMAP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ32, 0x81) // Thermal Trip Point Change
+                                    }
+                                    ElseIf ((BYT1 == One))
+                                    {
+                                        Debug = "Power Source is DC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ32.TPSV = HMDP /* \_SB_.TZ32.HMDP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ32, 0x81) // Thermal Trip Point Change
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+                                }
+
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
                             Else
                             {
                                 Return (Buffer (One)
@@ -55470,6 +62550,13 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
         {
             Name (_HID, "QCOM0C60")  // _HID: Hardware ID
             Name (_UID, Zero)  // _UID: Unique ID
+            Name (UPVF, One)
+            Name (HPCD, Zero)
+            Name (TPSV, Zero)
+            Name (HMAP, 0x0D48)
+            Name (HMDP, 0x0D2A)
+            Name (HPAP, 0x0E7E)
+            Name (HPDP, 0x0E60)
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
             {
                 Return (Package (0x02)
@@ -55477,6 +62564,33 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     \_SB.PEP0, 
                     \_SB.ADC1
                 })
+            }
+
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    If ((UPVF == One))
+                    {
+                        If (((\_SB.PSUB == "CRD08380") && ((\_SB.FNTR & 0x02) == 0x02)))
+                        {
+                            HPCD = One
+                            TPSV = 0x0E60
+                        }
+                        Else
+                        {
+                            TPSV = 0x0D2A
+                        }
+
+                        UPVF = Zero
+                    }
+
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
             }
 
             Name (_TZD, Package (0x0D)  // _TZD: Thermal Zone Devices
@@ -55495,40 +62609,45 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS2.CPU3, 
                 \_SB.GPU0
             })
-            Name (TPSV, 0x0D20)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH33 [THML ()]) [Zero])
                 Return (\_SB.TZ33.TPSV)
             }
 
-            Name (TCRT, 0x0F28)
+            Name (TCRT, 0x0EF6)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH33 [THML ()]) [One])
                 Return (\_SB.TZ33.TCRT)
             }
 
             Name (TMTL, Zero)
             Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
             {
+                TMTL = DerefOf (DerefOf (TH33 [THML ()]) [0x02])
                 Return (\_SB.TZ33.TMTL)
             }
 
-            Name (TTC1, 0x02)
+            Name (TTC1, 0x03)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH33 [THML ()]) [0x03])
                 Return (\_SB.TZ33.TTC1)
             }
 
-            Name (TTC2, One)
+            Name (TTC2, 0x02)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH33 [THML ()]) [0x04])
                 Return (\_SB.TZ33.TTC2)
             }
 
-            Name (TTSP, 0x0A)
+            Name (TTSP, 0x04)
             Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH33 [THML ()]) [0x05])
                 Return (\_SB.TZ33.TTSP)
             }
 
@@ -55576,6 +62695,78 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                                      0x00                                             // .
                                 })
                             }
+                            ElseIf ((_T_1 == 0x03))
+                            {
+                                Return (Buffer (One)
+                                {
+                                     0x01                                             // .
+                                })
+                            }
+                            ElseIf ((_T_1 == 0x04))
+                            {
+                                Name (BYT1, 0xFF)
+                                If ((HPCD == One))
+                                {
+                                    BYT1 = (DerefOf (Arg3 [One]) & 0xFF)
+                                    Debug = BYT1 /* \_SB_.TZ33._DSM.BYT1 */
+                                    If ((BYT1 == Zero))
+                                    {
+                                        Debug = "Power Source is AC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ33.TPSV = HPAP /* \_SB_.TZ33.HPAP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ33, 0x81) // Thermal Trip Point Change
+                                    }
+                                    ElseIf ((BYT1 == One))
+                                    {
+                                        Debug = "Power Source is DC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ33.TPSV = HPDP /* \_SB_.TZ33.HPDP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ33, 0x81) // Thermal Trip Point Change
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+                                }
+                                Else
+                                {
+                                    BYT1 = (DerefOf (Arg3 [One]) & 0xFF)
+                                    Debug = BYT1 /* \_SB_.TZ33._DSM.BYT1 */
+                                    If ((BYT1 == Zero))
+                                    {
+                                        Debug = "Power Source is AC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ33.TPSV = HMAP /* \_SB_.TZ33.HMAP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ33, 0x81) // Thermal Trip Point Change
+                                    }
+                                    ElseIf ((BYT1 == One))
+                                    {
+                                        Debug = "Power Source is DC "
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ33.TPSV = HMDP /* \_SB_.TZ33.HMDP */
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ33, 0x81) // Thermal Trip Point Change
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+                                }
+
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
                             Else
                             {
                                 Return (Buffer (One)
@@ -55613,43 +62804,61 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
             }
 
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
             {
                 \_SB.PMBM
             })
-            Name (TPSV, 0x0D16)
+            Name (TPSV, 0x0D02)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH34 [THML ()]) [Zero])
                 Return (\_SB.TZ34.TPSV)
             }
 
             Name (TCRT, 0x0F28)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH34 [THML ()]) [One])
                 Return (\_SB.TZ34.TCRT)
             }
 
             Name (TMTL, Zero)
             Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
             {
+                TMTL = DerefOf (DerefOf (TH34 [THML ()]) [0x02])
                 Return (\_SB.TZ34.TMTL)
             }
 
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH34 [THML ()]) [0x03])
                 Return (\_SB.TZ34.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH34 [THML ()]) [0x04])
                 Return (\_SB.TZ34.TTC2)
             }
 
-            Name (TTSP, 0x0A)
+            Name (TTSP, 0x1E)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH34 [THML ()]) [0x05])
                 Return (\_SB.TZ34.TTSP)
             }
 
@@ -55735,6 +62944,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
             }
 
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x0D)  // _TZD: Thermal Zone Devices
             {
                 \_SB.SYSM.CLS0.CPU0, 
@@ -55751,39 +62972,38 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS2.CPU3, 
                 \_SB.GPU0
             })
-            Name (TPSV, 0x0E92)
+            Name (TPSV, 0x0E60)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH35 [THML ()]) [Zero])
                 Return (\_SB.TZ35.TPSV)
             }
 
             Name (TCRT, 0x0F28)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH35 [THML ()]) [One])
                 Return (\_SB.TZ35.TCRT)
             }
 
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ35.TMTL)
-            }
-
-            Name (TTC1, 0x02)
+            Name (TTC1, Zero)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH35 [THML ()]) [0x03])
                 Return (\_SB.TZ35.TTC1)
             }
 
-            Name (TTC2, One)
+            Name (TTC2, 0x14)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH35 [THML ()]) [0x04])
                 Return (\_SB.TZ35.TTC2)
             }
 
-            Name (TTSP, 0x0A)
+            Name (TTSP, 0x28)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH35 [THML ()]) [0x05])
                 Return (\_SB.TZ35.TTSP)
             }
 
@@ -55869,6 +63089,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
             }
 
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x0D)  // _TZD: Thermal Zone Devices
             {
                 \_SB.SYSM.CLS0.CPU0, 
@@ -55885,39 +63117,38 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS2.CPU3, 
                 \_SB.GPU0
             })
-            Name (TPSV, 0x0E92)
+            Name (TPSV, 0x0E60)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH36 [THML ()]) [Zero])
                 Return (\_SB.TZ36.TPSV)
             }
 
             Name (TCRT, 0x0F28)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH36 [THML ()]) [One])
                 Return (\_SB.TZ36.TCRT)
             }
 
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ36.TMTL)
-            }
-
-            Name (TTC1, 0x02)
+            Name (TTC1, Zero)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH36 [THML ()]) [0x03])
                 Return (\_SB.TZ36.TTC1)
             }
 
-            Name (TTC2, One)
+            Name (TTC2, 0x14)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH36 [THML ()]) [0x04])
                 Return (\_SB.TZ36.TTC2)
             }
 
-            Name (TTSP, 0x0A)
+            Name (TTSP, 0x32)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH36 [THML ()]) [0x05])
                 Return (\_SB.TZ36.TTSP)
             }
 
@@ -56003,6 +63234,18 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 })
             }
 
+            Method (_STA, 0, NotSerialized)  // _STA: Status
+            {
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (0x0F)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (Zero)
+                }
+            }
+
             Name (_TZD, Package (0x0D)  // _TZD: Thermal Zone Devices
             {
                 \_SB.SYSM.CLS0.CPU0, 
@@ -56019,39 +63262,38 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 \_SB.SYSM.CLS2.CPU3, 
                 \_SB.GPU0
             })
-            Name (TPSV, 0x0E92)
+            Name (TPSV, 0x0E60)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
+                TPSV = DerefOf (DerefOf (TH37 [THML ()]) [Zero])
                 Return (\_SB.TZ37.TPSV)
             }
 
             Name (TCRT, 0x0F28)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
+                TCRT = DerefOf (DerefOf (TH37 [THML ()]) [One])
                 Return (\_SB.TZ37.TCRT)
             }
 
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ37.TMTL)
-            }
-
-            Name (TTC1, 0x02)
+            Name (TTC1, Zero)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH37 [THML ()]) [0x03])
                 Return (\_SB.TZ37.TTC1)
             }
 
-            Name (TTC2, One)
+            Name (TTC2, 0x14)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH37 [THML ()]) [0x04])
                 Return (\_SB.TZ37.TTC2)
             }
 
-            Name (TTSP, 0x0A)
+            Name (TTSP, 0x28)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH37 [THML ()]) [0x05])
                 Return (\_SB.TZ37.TTSP)
             }
 
@@ -56138,29 +63380,35 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Name (THSF, Zero)
             Name (STAT, One)
+            Name (DSME, ToUUID ("16323561-909f-4a30-a799-ba0abfb9dd84") /* Unknown UUID */)
+            Name (EDID, One)
+            Name (ETID, One)
             Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
             {
                 \_SB.PEP0
             })
-            Name (TPSV, 0x0C8A)
+            Name (TPSV, 0x0E2E)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
-                Return (\_SB.TZ39.TPSV)
+                Acquire (\_SB.TZMX, 0xFFFF)
+                Local0 = \_SB.TZ39.TPSV
+                Release (\_SB.TZMX)
+                Return (Local0)
             }
 
-            Name (TCR3, 0x0CD0)
+            Name (TCR3, 0x14A0)
             Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
             {
                 Return (\_SB.TZ39.TCR3)
             }
 
-            Name (THOT, 0x0D16)
+            Name (THOT, 0x14A0)
             Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
             {
                 Return (\_SB.TZ39.THOT)
             }
 
-            Name (TCRT, 0xFFFF)
+            Name (TCRT, 0x14A0)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
                 Return (\_SB.TZ39.TCRT)
@@ -56191,6 +63439,256 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
 
             Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
+            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            {
+                Name (TTGP, Package (0x03)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero
+                })
+                While (One)
+                {
+                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                    {
+                         0x00                                             // .
+                    })
+                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TZ39._DSM._T_0 */
+                    If ((_T_0 == ToUUID ("16323561-909f-4a30-a799-ba0abfb9dd84") /* Unknown UUID */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                            _T_1 = ToInteger (Arg2)
+                            If ((_T_1 == Zero))
+                            {
+                                While (One)
+                                {
+                                    Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                    _T_2 = ToInteger (Arg1)
+                                    If ((_T_2 == Zero))
+                                    {
+                                        Local0 = 0x06
+                                        Return (Local0)
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+
+                                    Break
+                                }
+                            }
+                            ElseIf ((_T_1 == One))
+                            {
+                                If ((((DerefOf (Arg3 [Zero]) >> 0x08) & 0xFF
+                                    ) == Zero))
+                                {
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ39.ETID */
+                                    Local1 = 0x0E2E
+                                    TTGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
+                                        ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
+                                        0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                        ) + ((Local1 / 0x0A) - 0x0111))
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    If ((Local0 == Zero))
+                                    {
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ39.TPSV = Local1
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                    }
+                                }
+                                ElseIf ((((DerefOf (Arg3 [Zero]) >> 0x08) & 
+                                    0xFF) == One))
+                                {
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ39.ETID */
+                                    Local1 = 0x0E2E
+                                    TTGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
+                                        ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
+                                        0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                        ) + ((Local1 / 0x0A) - 0x0111))
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    If ((Local0 == Zero))
+                                    {
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ39.TPSV = Local1
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                    }
+                                }
+
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
+                            ElseIf ((_T_1 == 0x02))
+                            {
+                                If ((DerefOf (Arg3 [Zero]) == 0x02))
+                                {
+                                    Debug = Arg3
+                                    Debug = "Get EC thresholds for TZ 39"
+                                    TTGP [Zero] = 0x02
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ39.ETID */
+                                    Local1 = Zero
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    While (One)
+                                    {
+                                        Name (_T_3, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                        _T_3 = DerefOf (Arg3 [One])
+                                        If ((_T_3 == Zero))
+                                        {
+                                            Local1 = (((Local0 & 0xFF) + 0x0111) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == One))
+                                        {
+                                            Local1 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x02))
+                                        {
+                                            Local1 = ((((Local0 >> 0x10) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x03))
+                                        {
+                                            Local1 = ((((Local0 >> 0x18) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x04))
+                                        {
+                                            Acquire (\_SB.TZMX, 0xFFFF)
+                                            \_SB.TZ39.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
+                                            Release (\_SB.TZMX)
+                                            \_SB.TZ39.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            \_SB.TZ39.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            \_SB.TZ39.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+
+                                        Break
+                                    }
+                                }
+                                ElseIf ((DerefOf (Arg3 [Zero]) == One))
+                                {
+                                    Debug = Arg3
+                                    Debug = "Set EC thresholds for TZ 39"
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ39.ETID */
+                                    Local1 = DerefOf (Arg3 [0x02])
+                                    While (One)
+                                    {
+                                        Name (_T_4, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                        _T_4 = DerefOf (Arg3 [One])
+                                        If ((_T_4 == Zero))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((Local1 / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                Acquire (\_SB.TZMX, 0xFFFF)
+                                                \_SB.TZ39.TPSV = Local1
+                                                Release (\_SB.TZMX)
+                                                Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == One))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((Local1 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ39.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ39.TCR3 = Local1
+                                                Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x02))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((Local1 / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ39.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ39.THOT = Local1
+                                                Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x03))
+                                        {
+                                            TTGP [0x02] = ((((((Local1 / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ39.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ39.TCRT = Local1
+                                                Notify (\_SB.TZ39, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x04))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ39.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            Return (Local1)
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+
+                                        Break
+                                    }
+                                }
+                            }
+                            Else
+                            {
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
+
+                            Break
+                        }
+                    }
+
+                    Break
+                }
+            }
+
             Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
             {
                 While ((CNTR < CNTM))
@@ -56199,8 +63697,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     Debug = CNTR /* \_SB_.TZ39.CNTR */
                     Debug = CNTM /* \_SB_.TZ39.CNTM */
                     CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, One)
-                    If ((TEMP != 0xFF))
+                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, ETID)
+                    If ((TEMP != 0x0FFF))
                     {
                         Break
                     }
@@ -56210,36 +63708,27 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 }
 
                 CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
+                If (((TEMP & 0x8000) == 0x8000))
+                {
+                    TEMP = (TEMP ^ 0xFFFF)
+                    TEMP = (TEMP + One)
+                    TEMP = (TEMP * 0x0A)
+                    TEMP = (0x0AAA - TEMP)
+                }
+                Else
+                {
+                    TEMP = (TEMP + 0x0AAA)
+                }
+
                 Debug = "Tz 39 _TMP : Temperature = "
                 Debug = TEMP /* \_SB_.TZ39.TEMP */
                 If ((THGF == One))
                 {
                     Debug = "Get Thresholds from TZ 39"
                     THGP [Zero] = 0x02
-                    THGP [One] = One
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
+                    THGP [One] = 0x04
+                    Local0 = \_SB.TZ39._DSM (\_SB.TZ39.DSME, Zero, 0x02, THGP)
                     THGF = Zero
-                    \_SB.TZ39.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ39.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ39.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ39.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 39"
-                    THGP [Zero] = One
-                    THGP [One] = One
-                    THGP [0x02] = ((((((\_SB.TZ39.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ39.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ39.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ39.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
                 }
 
                 Return (TEMP) /* \_SB_.TZ39.TEMP */
@@ -56247,7 +63736,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (Zero)
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (Zero)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (0x0F)
+                }
             }
 
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
@@ -56273,29 +63769,43 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Name (THSF, Zero)
             Name (STAT, One)
-            Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
+            Name (EDID, One)
+            Name (ETID, 0x02)
+            Name (DSME, ToUUID ("16323561-909f-4a30-a799-ba0abfb9dd84") /* Unknown UUID */)
+            Name (_TZD, Package (0x09)  // _TZD: Thermal Zone Devices
             {
-                \_SB.PEP0
+                \_SB.SYSM.CLS0.CPU0, 
+                \_SB.SYSM.CLS0.CPU1, 
+                \_SB.SYSM.CLS0.CPU2, 
+                \_SB.SYSM.CLS0.CPU3, 
+                \_SB.SYSM.CLS1.CPU0, 
+                \_SB.SYSM.CLS1.CPU1, 
+                \_SB.SYSM.CLS1.CPU2, 
+                \_SB.SYSM.CLS1.CPU3, 
+                \_SB.PMBM
             })
-            Name (TPSV, 0x0C8A)
+            Name (TPSV, 0x0CBC)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
-                Return (\_SB.TZ40.TPSV)
+                Acquire (\_SB.TZMX, 0xFFFF)
+                Local0 = \_SB.TZ40.TPSV
+                Release (\_SB.TZMX)
+                Return (Local0)
             }
 
-            Name (TCR3, 0x0CD0)
+            Name (TCR3, 0x14A0)
             Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
             {
                 Return (\_SB.TZ40.TCR3)
             }
 
-            Name (THOT, 0x0D16)
+            Name (THOT, 0x14A0)
             Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
             {
                 Return (\_SB.TZ40.THOT)
             }
 
-            Name (TCRT, 0xFFFF)
+            Name (TCRT, 0x14A0)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
                 Return (\_SB.TZ40.TCRT)
@@ -56307,7 +63817,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (\_SB.TZ40.TMTL)
             }
 
-            Name (TTC1, Zero)
+            Name (TTC1, 0x05)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
                 Return (\_SB.TZ40.TTC1)
@@ -56319,13 +63829,263 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 Return (\_SB.TZ40.TTC2)
             }
 
-            Name (TTSP, 0x14)
+            Name (TTSP, 0x32)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
                 Return (\_SB.TZ40.TTSP)
             }
 
             Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
+            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            {
+                Name (TTGP, Package (0x03)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero
+                })
+                While (One)
+                {
+                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                    {
+                         0x00                                             // .
+                    })
+                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TZ40._DSM._T_0 */
+                    If ((_T_0 == ToUUID ("16323561-909f-4a30-a799-ba0abfb9dd84") /* Unknown UUID */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                            _T_1 = ToInteger (Arg2)
+                            If ((_T_1 == Zero))
+                            {
+                                While (One)
+                                {
+                                    Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                    _T_2 = ToInteger (Arg1)
+                                    If ((_T_2 == Zero))
+                                    {
+                                        Local0 = 0x06
+                                        Return (Local0)
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+
+                                    Break
+                                }
+                            }
+                            ElseIf ((_T_1 == One))
+                            {
+                                If ((((DerefOf (Arg3 [Zero]) >> 0x08) & 0xFF
+                                    ) == Zero))
+                                {
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ40.ETID */
+                                    Local1 = 0x0CE4
+                                    TTGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
+                                        ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
+                                        0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                        ) + ((Local1 / 0x0A) - 0x0111))
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    If ((Local0 == Zero))
+                                    {
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ40.TPSV = Local1
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                    }
+                                }
+                                ElseIf ((((DerefOf (Arg3 [Zero]) >> 0x08) & 
+                                    0xFF) == One))
+                                {
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ40.ETID */
+                                    Local1 = 0x0CBC
+                                    TTGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
+                                        ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
+                                        0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                        ) + ((Local1 / 0x0A) - 0x0111))
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    If ((Local0 == Zero))
+                                    {
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ40.TPSV = Local1
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                    }
+                                }
+
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
+                            ElseIf ((_T_1 == 0x02))
+                            {
+                                If ((DerefOf (Arg3 [Zero]) == 0x02))
+                                {
+                                    Debug = Arg3
+                                    Debug = "Get EC thresholds for 40"
+                                    TTGP [Zero] = 0x02
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ40.ETID */
+                                    Local1 = Zero
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    While (One)
+                                    {
+                                        Name (_T_3, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                        _T_3 = DerefOf (Arg3 [One])
+                                        If ((_T_3 == Zero))
+                                        {
+                                            Local1 = (((Local0 & 0xFF) + 0x0111) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == One))
+                                        {
+                                            Local1 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x02))
+                                        {
+                                            Local1 = ((((Local0 >> 0x10) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x03))
+                                        {
+                                            Local1 = ((((Local0 >> 0x18) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x04))
+                                        {
+                                            Acquire (\_SB.TZMX, 0xFFFF)
+                                            \_SB.TZ40.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
+                                            Release (\_SB.TZMX)
+                                            \_SB.TZ40.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            \_SB.TZ40.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            \_SB.TZ40.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+
+                                        Break
+                                    }
+                                }
+                                ElseIf ((DerefOf (Arg3 [Zero]) == One))
+                                {
+                                    Debug = Arg3
+                                    Debug = "Set EC thresholds for 40"
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ40.ETID */
+                                    Local1 = DerefOf (Arg3 [0x02])
+                                    While (One)
+                                    {
+                                        Name (_T_4, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                        _T_4 = DerefOf (Arg3 [One])
+                                        If ((_T_4 == Zero))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((Local1 / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                Acquire (\_SB.TZMX, 0xFFFF)
+                                                \_SB.TZ40.TPSV = Local1
+                                                Release (\_SB.TZMX)
+                                                Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == One))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((Local1 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ40.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ40.TCR3 = Local1
+                                                Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x02))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((Local1 / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ40.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ40.THOT = Local1
+                                                Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x03))
+                                        {
+                                            TTGP [0x02] = ((((((Local1 / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ40.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ40.TCRT = Local1
+                                                Notify (\_SB.TZ40, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x04))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ40.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            Return (Local1)
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+
+                                        Break
+                                    }
+                                }
+                            }
+                            Else
+                            {
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
+
+                            Break
+                        }
+                    }
+
+                    Break
+                }
+            }
+
             Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
             {
                 While ((CNTR < CNTM))
@@ -56334,8 +64094,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     Debug = CNTR /* \_SB_.TZ40.CNTR */
                     Debug = CNTM /* \_SB_.TZ40.CNTM */
                     CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, 0x02)
-                    If ((TEMP != 0xFF))
+                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, ETID)
+                    If ((TEMP != 0x0FFF))
                     {
                         Break
                     }
@@ -56345,36 +64105,27 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 }
 
                 CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
+                If (((TEMP & 0x8000) == 0x8000))
+                {
+                    TEMP = (TEMP ^ 0xFFFF)
+                    TEMP = (TEMP + One)
+                    TEMP = (TEMP * 0x0A)
+                    TEMP = (0x0AAA - TEMP)
+                }
+                Else
+                {
+                    TEMP = (TEMP + 0x0AAA)
+                }
+
                 Debug = "Tz 40 _TMP"
                 Debug = TEMP /* \_SB_.TZ40.TEMP */
                 If ((THGF == One))
                 {
                     Debug = "Get Thresholds from TZ 40"
                     THGP [Zero] = 0x02
-                    THGP [One] = 0x02
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
+                    THGP [One] = 0x04
+                    Local0 = \_SB.TZ40._DSM (\_SB.TZ40.DSME, Zero, 0x02, THGP)
                     THGF = Zero
-                    \_SB.TZ40.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ40.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ40.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ40.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 40"
-                    THGP [Zero] = One
-                    THGP [One] = 0x02
-                    THGP [0x02] = ((((((\_SB.TZ40.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ40.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ40.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ40.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
                 }
 
                 Return (TEMP) /* \_SB_.TZ40.TEMP */
@@ -56382,7 +64133,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (Zero)
+                If ((\_SB.SDFE == 0x88))
+                {
+                    Return (Zero)
+                }
+                ElseIf ((\_SB.SDFE == 0x9A))
+                {
+                    Return (0x0F)
+                }
             }
 
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
@@ -56408,29 +64166,35 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             })
             Name (THSF, Zero)
             Name (STAT, One)
+            Name (EDID, One)
+            Name (ETID, 0x03)
+            Name (DSME, ToUUID ("16323561-909f-4a30-a799-ba0abfb9dd84") /* Unknown UUID */)
             Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
             {
                 \_SB.PEP0
             })
-            Name (TPSV, 0x0C8A)
+            Name (TPSV, 0x0E2E)
             Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
             {
-                Return (\_SB.TZ41.TPSV)
+                Acquire (\_SB.TZMX, 0xFFFF)
+                Local0 = \_SB.TZ41.TPSV
+                Release (\_SB.TZMX)
+                Return (Local0)
             }
 
-            Name (TCR3, 0x0CD0)
+            Name (TCR3, 0x14A0)
             Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
             {
                 Return (\_SB.TZ41.TCR3)
             }
 
-            Name (THOT, 0x0D16)
+            Name (THOT, 0x14A0)
             Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
             {
                 Return (\_SB.TZ41.THOT)
             }
 
-            Name (TCRT, 0xFFFF)
+            Name (TCRT, 0x14A0)
             Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
             {
                 Return (\_SB.TZ41.TCRT)
@@ -56461,6 +64225,256 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             }
 
             Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
+            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            {
+                Name (TTGP, Package (0x03)
+                {
+                    Zero, 
+                    Zero, 
+                    Zero
+                })
+                While (One)
+                {
+                    Name (_T_0, Buffer (0x01)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                    {
+                         0x00                                             // .
+                    })
+                    CopyObject (ToBuffer (Arg0), _T_0) /* \_SB_.TZ41._DSM._T_0 */
+                    If ((_T_0 == ToUUID ("16323561-909f-4a30-a799-ba0abfb9dd84") /* Unknown UUID */))
+                    {
+                        While (One)
+                        {
+                            Name (_T_1, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                            _T_1 = ToInteger (Arg2)
+                            If ((_T_1 == Zero))
+                            {
+                                While (One)
+                                {
+                                    Name (_T_2, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                    _T_2 = ToInteger (Arg1)
+                                    If ((_T_2 == Zero))
+                                    {
+                                        Local0 = 0x06
+                                        Return (Local0)
+                                    }
+                                    Else
+                                    {
+                                        Return (Buffer (One)
+                                        {
+                                             0x00                                             // .
+                                        })
+                                    }
+
+                                    Break
+                                }
+                            }
+                            ElseIf ((_T_1 == One))
+                            {
+                                If ((((DerefOf (Arg3 [Zero]) >> 0x08) & 0xFF
+                                    ) == Zero))
+                                {
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ41.ETID */
+                                    Local1 = 0x0E2E
+                                    TTGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
+                                        ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
+                                        0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                        ) + ((Local1 / 0x0A) - 0x0111))
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    If ((Local0 == Zero))
+                                    {
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ41.TPSV = Local1
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                    }
+                                }
+                                ElseIf ((((DerefOf (Arg3 [Zero]) >> 0x08) & 
+                                    0xFF) == One))
+                                {
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ41.ETID */
+                                    Local1 = 0x0E2E
+                                    TTGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
+                                        ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
+                                        0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                        ) + ((Local1 / 0x0A) - 0x0111))
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    If ((Local0 == Zero))
+                                    {
+                                        Acquire (\_SB.TZMX, 0xFFFF)
+                                        \_SB.TZ41.TPSV = Local1
+                                        Release (\_SB.TZMX)
+                                        Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                    }
+                                }
+
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
+                            ElseIf ((_T_1 == 0x02))
+                            {
+                                If ((DerefOf (Arg3 [Zero]) == 0x02))
+                                {
+                                    Debug = Arg3
+                                    Debug = "Get EC thresholds for 41"
+                                    TTGP [Zero] = 0x02
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ41.ETID */
+                                    Local1 = Zero
+                                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                    While (One)
+                                    {
+                                        Name (_T_3, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                        _T_3 = DerefOf (Arg3 [One])
+                                        If ((_T_3 == Zero))
+                                        {
+                                            Local1 = (((Local0 & 0xFF) + 0x0111) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == One))
+                                        {
+                                            Local1 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x02))
+                                        {
+                                            Local1 = ((((Local0 >> 0x10) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x03))
+                                        {
+                                            Local1 = ((((Local0 >> 0x18) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        ElseIf ((_T_3 == 0x04))
+                                        {
+                                            Acquire (\_SB.TZMX, 0xFFFF)
+                                            \_SB.TZ41.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
+                                            Release (\_SB.TZMX)
+                                            \_SB.TZ41.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            \_SB.TZ41.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            \_SB.TZ41.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
+                                                ) * 0x0A)
+                                            Return (Local1)
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+
+                                        Break
+                                    }
+                                }
+                                ElseIf ((DerefOf (Arg3 [Zero]) == One))
+                                {
+                                    Debug = Arg3
+                                    Debug = "Set EC thresholds for 41"
+                                    TTGP [Zero] = One
+                                    TTGP [One] = ((EDID << 0x04) + ETID) /* \_SB_.TZ41.ETID */
+                                    Local1 = DerefOf (Arg3 [0x02])
+                                    While (One)
+                                    {
+                                        Name (_T_4, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
+                                        _T_4 = DerefOf (Arg3 [One])
+                                        If ((_T_4 == Zero))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((Local1 / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                Acquire (\_SB.TZMX, 0xFFFF)
+                                                \_SB.TZ41.TPSV = Local1
+                                                Release (\_SB.TZMX)
+                                                Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == One))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((Local1 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ41.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ39.TCR3 = Local1
+                                                Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x02))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((Local1 / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ41.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ41.THOT = Local1
+                                                Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x03))
+                                        {
+                                            TTGP [0x02] = ((((((Local1 / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ41.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            If ((Local0 == Zero))
+                                            {
+                                                \_SB.TZ41.TCRT = Local1
+                                                Notify (\_SB.TZ41, 0x81) // Thermal Trip Point Change
+                                                Return (Local1)
+                                            }
+                                        }
+                                        ElseIf ((_T_4 == 0x04))
+                                        {
+                                            TTGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
+                                                ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
+                                                0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
+                                                ) + ((\_SB.TZ41.TPSV / 0x0A) - 0x0111))
+                                            Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, TTGP)
+                                            Return (Local1)
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+
+                                        Break
+                                    }
+                                }
+                            }
+                            Else
+                            {
+                                Return (Buffer (One)
+                                {
+                                     0x00                                             // .
+                                })
+                            }
+
+                            Break
+                        }
+                    }
+
+                    Break
+                }
+            }
+
             Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
             {
                 While ((CNTR < CNTM))
@@ -56469,8 +64483,8 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                     Debug = CNTR /* \_SB_.TZ41.CNTR */
                     Debug = CNTM /* \_SB_.TZ41.CNTM */
                     CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, 0x03)
-                    If ((TEMP != 0xFF))
+                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, ETID)
+                    If ((TEMP != 0x0FFF))
                     {
                         Break
                     }
@@ -56480,36 +64494,27 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
                 }
 
                 CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
+                If (((TEMP & 0x8000) == 0x8000))
+                {
+                    TEMP = (TEMP ^ 0xFFFF)
+                    TEMP = (TEMP + One)
+                    TEMP = (TEMP * 0x0A)
+                    TEMP = (0x0AAA - TEMP)
+                }
+                Else
+                {
+                    TEMP = (TEMP + 0x0AAA)
+                }
+
                 Debug = "Tz 41 _TMP"
                 Debug = TEMP /* \_SB_.TZ41.TEMP */
                 If ((THGF == One))
                 {
                     Debug = "Get Thresholds from TZ 41"
                     THGP [Zero] = 0x02
-                    THGP [One] = 0x03
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
+                    THGP [One] = 0x04
+                    Local0 = \_SB.TZ41._DSM (\_SB.TZ41.DSME, Zero, 0x02, THGP)
                     THGF = Zero
-                    \_SB.TZ41.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ41.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ41.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ41.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 41"
-                    THGP [Zero] = One
-                    THGP [One] = 0x03
-                    THGP [0x02] = ((((((\_SB.TZ41.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ41.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ41.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ41.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
                 }
 
                 Return (TEMP) /* \_SB_.TZ41.TEMP */
@@ -56517,547 +64522,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                Return (Zero)
-            }
-
-            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
-            {
-                Return (Package (0x01)
+                If ((\_SB.SDFE == 0x88))
                 {
-                    \_SB.I2C6
-                })
-            }
-        }
-
-        ThermalZone (TZ42)
-        {
-            Name (TEMP, Zero)
-            Name (CNTR, Zero)
-            Name (CNTM, 0x05)
-            Name (THGF, One)
-            Name (THGP, Package (0x03)
-            {
-                Zero, 
-                Zero, 
-                Zero
-            })
-            Name (THSF, Zero)
-            Name (STAT, One)
-            Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
-            {
-                \_SB.PEP0
-            })
-            Name (TPSV, 0x0C8A)
-            Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
-            {
-                Return (\_SB.TZ42.TPSV)
-            }
-
-            Name (TCR3, 0x0CD0)
-            Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
-            {
-                Return (\_SB.TZ42.TCR3)
-            }
-
-            Name (THOT, 0x0D16)
-            Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
-            {
-                Return (\_SB.TZ42.THOT)
-            }
-
-            Name (TCRT, 0xFFFF)
-            Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
-            {
-                Return (\_SB.TZ42.TCRT)
-            }
-
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ42.TMTL)
-            }
-
-            Name (TTC1, Zero)
-            Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
-            {
-                Return (\_SB.TZ42.TTC1)
-            }
-
-            Name (TTC2, One)
-            Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
-            {
-                Return (\_SB.TZ42.TTC2)
-            }
-
-            Name (TTSP, 0x14)
-            Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
-            {
-                Return (\_SB.TZ42.TTSP)
-            }
-
-            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
-            Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
-            {
-                While ((CNTR < CNTM))
-                {
-                    Debug = "TZ 42 while loop"
-                    Debug = CNTR /* \_SB_.TZ42.CNTR */
-                    Debug = CNTM /* \_SB_.TZ42.CNTM */
-                    CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, 0x04)
-                    If ((TEMP != 0xFF))
-                    {
-                        Break
-                    }
-
-                    TEMP = Zero
-                    Sleep (0x32)
+                    Return (Zero)
                 }
-
-                CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
-                Debug = "Tz 42 _TMP"
-                Debug = TEMP /* \_SB_.TZ42.TEMP */
-                If ((THGF == One))
+                ElseIf ((\_SB.SDFE == 0x9A))
                 {
-                    Debug = "Get Thresholds from TZ 42"
-                    THGP [Zero] = 0x02
-                    THGP [One] = 0x04
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THGF = Zero
-                    \_SB.TZ42.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ42.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ42.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ42.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
+                    Return (0x0F)
                 }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 42"
-                    THGP [Zero] = One
-                    THGP [One] = 0x04
-                    THGP [0x02] = ((((((\_SB.TZ42.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ42.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ42.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ42.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
-                }
-
-                Return (TEMP) /* \_SB_.TZ42.TEMP */
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (Zero)
-            }
-
-            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
-            {
-                Return (Package (0x01)
-                {
-                    \_SB.I2C6
-                })
-            }
-        }
-
-        ThermalZone (TZ43)
-        {
-            Name (TEMP, Zero)
-            Name (CNTR, Zero)
-            Name (CNTM, 0x05)
-            Name (THGF, One)
-            Name (THGP, Package (0x03)
-            {
-                Zero, 
-                Zero, 
-                Zero
-            })
-            Name (THSF, Zero)
-            Name (STAT, One)
-            Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
-            {
-                \_SB.PEP0
-            })
-            Name (TPSV, 0x0C8A)
-            Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
-            {
-                Return (\_SB.TZ43.TPSV)
-            }
-
-            Name (TCR3, 0x0CD0)
-            Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
-            {
-                Return (\_SB.TZ43.TCR3)
-            }
-
-            Name (THOT, 0x0D16)
-            Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
-            {
-                Return (\_SB.TZ43.THOT)
-            }
-
-            Name (TCRT, 0xFFFF)
-            Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
-            {
-                Return (\_SB.TZ43.TCRT)
-            }
-
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ43.TMTL)
-            }
-
-            Name (TTC1, Zero)
-            Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
-            {
-                Return (\_SB.TZ43.TTC1)
-            }
-
-            Name (TTC2, One)
-            Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
-            {
-                Return (\_SB.TZ43.TTC2)
-            }
-
-            Name (TTSP, 0x14)
-            Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
-            {
-                Return (\_SB.TZ43.TTSP)
-            }
-
-            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
-            Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
-            {
-                While ((CNTR < CNTM))
-                {
-                    Debug = "TZ 43 while loop"
-                    Debug = CNTR /* \_SB_.TZ43.CNTR */
-                    Debug = CNTM /* \_SB_.TZ43.CNTM */
-                    CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, 0x05)
-                    If ((TEMP != 0xFF))
-                    {
-                        Break
-                    }
-
-                    TEMP = Zero
-                    Sleep (0x32)
-                }
-
-                CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
-                Debug = "Tz 43 _TMP"
-                Debug = TEMP /* \_SB_.TZ43.TEMP */
-                If ((THGF == One))
-                {
-                    Debug = "Get Thresholds from TZ 43"
-                    THGP [Zero] = 0x02
-                    THGP [One] = 0x05
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THGF = Zero
-                    \_SB.TZ43.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ43.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ43.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ43.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 43"
-                    THGP [Zero] = One
-                    THGP [One] = 0x05
-                    THGP [0x02] = ((((((\_SB.TZ43.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ43.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ43.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ43.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
-                }
-
-                Return (TEMP) /* \_SB_.TZ43.TEMP */
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (Zero)
-            }
-
-            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
-            {
-                Return (Package (0x01)
-                {
-                    \_SB.I2C6
-                })
-            }
-        }
-
-        ThermalZone (TZ44)
-        {
-            Name (TEMP, Zero)
-            Name (CNTR, Zero)
-            Name (CNTM, 0x05)
-            Name (THGF, One)
-            Name (THGP, Package (0x03)
-            {
-                Zero, 
-                Zero, 
-                Zero
-            })
-            Name (THSF, Zero)
-            Name (STAT, One)
-            Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
-            {
-                \_SB.PEP0
-            })
-            Name (TPSV, 0x0C8A)
-            Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
-            {
-                Return (\_SB.TZ44.TPSV)
-            }
-
-            Name (TCR3, 0x0CD0)
-            Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
-            {
-                Return (\_SB.TZ44.TCR3)
-            }
-
-            Name (THOT, 0x0D16)
-            Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
-            {
-                Return (\_SB.TZ44.THOT)
-            }
-
-            Name (TCRT, 0xFFFF)
-            Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
-            {
-                Return (\_SB.TZ44.TCRT)
-            }
-
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ44.TMTL)
-            }
-
-            Name (TTC1, Zero)
-            Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
-            {
-                Return (\_SB.TZ44.TTC1)
-            }
-
-            Name (TTC2, One)
-            Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
-            {
-                Return (\_SB.TZ44.TTC2)
-            }
-
-            Name (TTSP, 0x14)
-            Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
-            {
-                Return (\_SB.TZ44.TTSP)
-            }
-
-            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
-            Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
-            {
-                While ((CNTR < CNTM))
-                {
-                    Debug = "TZ 44 while loop"
-                    Debug = CNTR /* \_SB_.TZ44.CNTR */
-                    Debug = CNTM /* \_SB_.TZ44.CNTM */
-                    CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, 0x06)
-                    If ((TEMP != 0xFF))
-                    {
-                        Break
-                    }
-
-                    TEMP = Zero
-                    Sleep (0x32)
-                }
-
-                CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
-                Debug = "Tz 44 _TMP"
-                Debug = TEMP /* \_SB_.TZ44.TEMP */
-                If ((THGF == One))
-                {
-                    Debug = "Get Thresholds from TZ 44"
-                    THGP [Zero] = 0x02
-                    THGP [One] = 0x06
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THGF = Zero
-                    \_SB.TZ44.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ44.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ44.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ44.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 44"
-                    THGP [Zero] = One
-                    THGP [One] = 0x06
-                    THGP [0x02] = ((((((\_SB.TZ44.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ44.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ44.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ44.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
-                }
-
-                Return (TEMP) /* \_SB_.TZ44.TEMP */
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (Zero)
-            }
-
-            Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
-            {
-                Return (Package (0x01)
-                {
-                    \_SB.I2C6
-                })
-            }
-        }
-
-        ThermalZone (TZ45)
-        {
-            Name (TEMP, Zero)
-            Name (CNTR, Zero)
-            Name (CNTM, 0x05)
-            Name (THGF, One)
-            Name (THGP, Package (0x03)
-            {
-                Zero, 
-                Zero, 
-                Zero
-            })
-            Name (THSF, Zero)
-            Name (STAT, One)
-            Name (_TZD, Package (0x01)  // _TZD: Thermal Zone Devices
-            {
-                \_SB.PEP0
-            })
-            Name (TPSV, 0x0C8A)
-            Method (_PSV, 0, NotSerialized)  // _PSV: Passive Temperature
-            {
-                Return (\_SB.TZ45.TPSV)
-            }
-
-            Name (TCR3, 0x0CD0)
-            Method (_CR3, 0, NotSerialized)  // _CR3: Warm/Standby Temperature
-            {
-                Return (\_SB.TZ45.TCR3)
-            }
-
-            Name (THOT, 0x0D16)
-            Method (_HOT, 0, NotSerialized)  // _HOT: Hot Temperature
-            {
-                Return (\_SB.TZ45.THOT)
-            }
-
-            Name (TCRT, 0xFFFF)
-            Method (_CRT, 0, NotSerialized)  // _CRT: Critical Temperature
-            {
-                Return (\_SB.TZ45.TCRT)
-            }
-
-            Name (TMTL, Zero)
-            Method (_MTL, 0, NotSerialized)  // _MTL: Minimum Throttle Limit
-            {
-                Return (\_SB.TZ45.TMTL)
-            }
-
-            Name (TTC1, Zero)
-            Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
-            {
-                Return (\_SB.TZ45.TTC1)
-            }
-
-            Name (TTC2, One)
-            Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
-            {
-                Return (\_SB.TZ45.TTC2)
-            }
-
-            Name (TTSP, 0x14)
-            Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
-            {
-                Return (\_SB.TZ45.TTSP)
-            }
-
-            Name (_TZP, Zero)  // _TZP: Thermal Zone Polling
-            Method (_TMP, 0, NotSerialized)  // _TMP: Temperature
-            {
-                While ((CNTR < CNTM))
-                {
-                    Debug = "TZ 45 while loop"
-                    Debug = CNTR /* \_SB_.TZ45.CNTR */
-                    Debug = CNTM /* \_SB_.TZ45.CNTM */
-                    CNTR++
-                    TEMP = \_SB.I2C6._DSM (\_SB.I2C6.DSME, Zero, \_SB.I2C6.EF06, 0x07)
-                    If ((TEMP != 0xFF))
-                    {
-                        Break
-                    }
-
-                    TEMP = Zero
-                    Sleep (0x32)
-                }
-
-                CNTR = Zero
-                TEMP = ((TEMP + 0x0111) * 0x0A)
-                Debug = "Tz 45 _TMP"
-                Debug = TEMP /* \_SB_.TZ45.TEMP */
-                If ((THGF == One))
-                {
-                    Debug = "Get Thresholds from TZ 45"
-                    THGP [Zero] = 0x02
-                    THGP [One] = 0x07
-                    Local0 = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THGF = Zero
-                    \_SB.TZ45.TPSV = (((Local0 & 0xFF) + 0x0111) * 0x0A)
-                    \_SB.TZ45.TCR3 = ((((Local0 >> 0x08) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ45.THOT = ((((Local0 >> 0x10) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                    \_SB.TZ45.TCRT = ((((Local0 >> 0x18) & 0xFF) + 0x0111
-                        ) * 0x0A)
-                }
-
-                If ((THSF == One))
-                {
-                    Debug = "Set Thresholds for TZ 45"
-                    THGP [Zero] = One
-                    THGP [One] = 0x07
-                    THGP [0x02] = ((((((\_SB.TZ45.TCRT / 0x0A
-                        ) - 0x0111) << 0x18) + (((\_SB.TZ45.THOT / 0x0A) - 0x0111) << 
-                        0x10)) + (((\_SB.TZ45.TCR3 / 0x0A) - 0x0111) << 0x08)
-                        ) + ((\_SB.TZ45.TPSV / 0x0A) - 0x0111))
-                    STAT = \_SB.I2C6._DSM (\_SB.I2C6.DSMF, Zero, \_SB.I2C6.FF10, THGP)
-                    THSF = Zero
-                }
-
-                Return (TEMP) /* \_SB_.TZ45.TEMP */
-            }
-
-            Method (_STA, 0, NotSerialized)  // _STA: Status
-            {
-                Return (Zero)
             }
 
             Method (_DEP, 0, NotSerialized)  // _DEP: Dependencies
@@ -57092,6 +64564,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x1E)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH31 [THML ()]) [0x05])
                 Return (\_SB.TZ71.TTSP)
             }
 
@@ -57102,12 +64575,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH31 [THML ()]) [0x03])
                 Return (\_SB.TZ71.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH31 [THML ()]) [0x04])
                 Return (\_SB.TZ71.TTC2)
             }
 
@@ -57232,6 +64707,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x0A)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH32 [THML ()]) [0x05])
                 Return (\_SB.TZ72.TTSP)
             }
 
@@ -57242,12 +64718,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH32 [THML ()]) [0x03])
                 Return (\_SB.TZ72.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH32 [THML ()]) [0x04])
                 Return (\_SB.TZ72.TTC2)
             }
 
@@ -57372,6 +64850,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x0A)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH33 [THML ()]) [0x05])
                 Return (\_SB.TZ73.TTSP)
             }
 
@@ -57382,12 +64861,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH33 [THML ()]) [0x03])
                 Return (\_SB.TZ73.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH33 [THML ()]) [0x04])
                 Return (\_SB.TZ73.TTC2)
             }
 
@@ -57512,6 +64993,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x0A)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH34 [THML ()]) [0x05])
                 Return (\_SB.TZ74.TTSP)
             }
 
@@ -57523,12 +65005,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH34 [THML ()]) [0x03])
                 Return (\_SB.TZ74.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH34 [THML ()]) [0x04])
                 Return (\_SB.TZ74.TTC2)
             }
 
@@ -57653,6 +65137,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x0A)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH35 [THML ()]) [0x05])
                 Return (\_SB.TZ75.TTSP)
             }
 
@@ -57664,12 +65149,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH35 [THML ()]) [0x03])
                 Return (\_SB.TZ75.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH35 [THML ()]) [0x04])
                 Return (\_SB.TZ75.TTC2)
             }
 
@@ -57794,6 +65281,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x0A)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH36 [THML ()]) [0x05])
                 Return (\_SB.TZ76.TTSP)
             }
 
@@ -57804,12 +65292,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH36 [THML ()]) [0x03])
                 Return (\_SB.TZ76.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH36 [THML ()]) [0x04])
                 Return (\_SB.TZ76.TTC2)
             }
 
@@ -57934,6 +65424,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTSP, 0x0A)
             Method (_TSP, 0, NotSerialized)  // _TSP: Thermal Sampling Period
             {
+                TTSP = DerefOf (DerefOf (TH37 [THML ()]) [0x05])
                 Return (\_SB.TZ77.TTSP)
             }
 
@@ -57944,12 +65435,14 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "SDM8380 ", 0x00000003)
             Name (TTC1, 0x02)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {
+                TTC1 = DerefOf (DerefOf (TH37 [THML ()]) [0x03])
                 Return (\_SB.TZ77.TTC1)
             }
 
             Name (TTC2, One)
             Method (_TC2, 0, NotSerialized)  // _TC2: Thermal Constant 2
             {
+                TTC2 = DerefOf (DerefOf (TH37 [THML ()]) [0x04])
                 Return (\_SB.TZ77.TTC2)
             }
 

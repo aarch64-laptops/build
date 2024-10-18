@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20240322 (64-bit version)
+ * AML/ASL+ Disassembler version 20240927 (64-bit version)
  * Copyright (c) 2000 - 2023 Intel Corporation
  * 
- * Disassembly of /mnt/c/Users/alexv/Desktop/iasl-win-20240321/ACPI/SPCR.aml
+ * Disassembly of spcr.dat
  *
  * ACPI Data Table [SPCR]
  *
@@ -47,5 +47,5 @@
 [047h 0071 004h]                   PCI Flags : 00000000
 [04Bh 0075 001h]                 PCI Segment : 00
 [04Ch 0076 004h]             Uart Clock Freq : 00000000
-/**** ACPI table terminates in the middle of a data structure! (dump table) 
+/**** ACPI table terminates in the middle of a data structure! (dump table)
 CurrentOffset: 50, TableLength: 50 ***/
