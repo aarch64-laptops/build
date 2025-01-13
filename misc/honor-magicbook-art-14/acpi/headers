@@ -1,0 +1,113 @@
+
+RSD PTR: Checksum=89, OEMID=HONOR, Revision=2, RsdtAddress=0x00000000
+	Length=36, XsdtAddress=0x00000000d47a1f18, Extended Checksum=87
+
+
+XSDT: Length=180, Revision=1, Checksum=121,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+	Entries={ 0x00000000d47a1b98, 0x00000000d46ad000, 0x00000000d47a1b18, 0x00000000d479e018, 0x00000000d47a1e18, 0x00000000d4792018, 0x00000000d47a1098, 0x00000000d47a1d18, 0x00000000d4747018, 0x00000000d4746018, 0x00000000d4746d18, 0x00000000d47a1718, 0x00000000d47a1998, 0x00000000d47a1a98, 0x00000000d4746f98, 0x00000000d47a1e98, 0x00000000d4746e18, 0x00000000d4746e98 }
+
+
+	DSDT=0xd4749018
+	INT_MODEL=PIC
+	SCI_INT=0
+	SMI_CMD=0x0, ACPI_ENABLE=0x0, ACPI_DISABLE=0x0, S4BIOS_REQ=0x0
+	P_LVL2_LAT=0ms, P_LVL3_LAT=0ms
+	FLUSH_SIZE=0, FLUSH_STRIDE=0
+	DUTY_OFFSET=0, DUTY_WIDTH=0
+	DAY_ALRM=0, MON_ALRM=0, CENTURY=0
+	Flags=}
+
+
+DSDT: Length=296717, Revision=2, Checksum=18,
+	OEMID=HONOR, OEM Table ID=SDM8380, OEM Revision=0x3,
+	Creator ID=MSFT, Creator Revision=0x5000000
+
+
+UEFI: Length=438, Revision=1, Checksum=250,
+	OEMID=HONOR, OEM Table ID=H2O BIOS, OEM Revision=0x1,
+	Creator ID=ACPI, Creator Revision=0x40000
+
+
+FFT_: Length=82, Revision=1, Checksum=94,
+	OEMID=HONOR, OEM Table ID=H2O BIOS, OEM Revision=0x1,
+	Creator ID=ACPI, Creator Revision=0x40000
+
+
+SSDT: Length=6451, Revision=1, Checksum=47,
+	OEMID=HONOR, OEM Table ID=WmiTable, OEM Revision=0x1000,
+	Creator ID=INTL, Creator Revision=0x20230628
+
+
+FPDT: Length=52, Revision=1, Checksum=67,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x1,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+CSRT: Length=47406, Revision=0, Checksum=119,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+DBG2: Length=1518, Revision=1, Checksum=54,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+GTDT: Length=156, Revision=2, Checksum=207,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+IORT: Length=5285, Revision=0, Checksum=125,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+APIC: Length=1049, Revision=5, Checksum=157,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+MCFG: Length=172, Revision=1, Checksum=154,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+PPTT: Length=570, Revision=1, Checksum=14,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+SDEV: Length=110, Revision=1, Checksum=218,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+SPCR: Length=80, Revision=2, Checksum=216,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+TPM2: Length=84, Revision=3, Checksum=27,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x8380,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+MSDM: Length=85, Revision=3, Checksum=248,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x0,
+	Creator ID=QCOM, Creator Revision=0x0
+
+
+FPDT: Length=52, Revision=1, Checksum=67,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x1,
+	Creator ID=QCOM, Creator Revision=0x1
+
+
+BGRT: Length=56, Revision=1, Checksum=140,
+	OEMID=HONOR, OEM Table ID=QCOMEDK2, OEM Revision=0x1,
+	Creator ID=QCOM, Creator Revision=0x1
+
