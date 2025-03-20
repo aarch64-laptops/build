@@ -24,6 +24,8 @@ Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://
 
 ## Device Status
 
+This list should be migrated to https://aarch64-laptops.github.io/
+
 ### ASUS NovaGo TP370QL
 
 - [x] Boots into Grub `Normal Mode`
