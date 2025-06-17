@@ -1,0 +1,2722 @@
+<?xml version="1.0"?>
+<!DOCTYPE HWINFO SYSTEM "HWiNFO32log.dtd">
+<HWINFO>
+
+<COMPUTER>
+	<NodeName>H</NodeName>
+		<IconIndex>19</IconIndex>
+
+		<ScanTime>11.06.2025 17:34</ScanTime>
+		<Property>
+			<Entry>Computer Name</Entry>
+			<Description>H</Description>
+		</Property>
+		<Property>
+			<Entry>Computer Brand Name</Entry>
+			<Description>Microsoft Corporation Surface Pro 12in 1st Ed with Snapdragon</Description>
+		</Property>
+		<Property>
+			<Entry>Operating System</Entry>
+			<Description>Microsoft Windows 11 Home (ARM64) Build 26100.4061 (24H2)</Description>
+		</Property>
+		<Property>
+			<Entry>UEFI Boot</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>Secure Boot</Entry>
+			<Description>Disabled</Description>
+		</Property>
+		<Property>
+			<Entry>Hypervisor-protected Code Integrity (HVCI)</Entry>
+			<Description>Enabled</Description>
+		</Property>
+<SubNodes>
+
+<CPU>
+	<NodeName>Central Processor(s)</NodeName>
+		<IconIndex>20</IconIndex>
+
+		<Property>
+			<Entry>Number Of Processor Packages (Physical)</Entry>
+			<Description>1</Description>
+			<PropertyType>CPU_COUNT</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Number Of Processor Cores</Entry>
+			<Description>8</Description>
+			<PropertyType>CPU_COUNT</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Number Of Logical Processors</Entry>
+			<Description>8</Description>
+		</Property>
+<SubNode>
+	<NodeName>Qualcomm Snapdragon X Plus</NodeName>
+		<Property>
+			<Entry>Processor Name</Entry>
+			<Description>Qualcomm Snapdragon X Plus</Description>
+			<PropertyType>CPU_NAME</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Original Processor Frequency</Entry>
+			<Description>3300.0 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>Original Processor Frequency [MHz]</Entry>
+			<Description>3300</Description>
+			<PropertyType>CPU_SPEED</PropertyType>
+		</Property>
+		<Property>
+			<Entry>CPU Code Name</Entry>
+			<Description>Oryon</Description>
+		</Property>
+		<Property>
+			<Entry>Number of CPU Cores</Entry>
+			<Description>4 x Oryon P2, 4 x Oryon P1</Description>
+		</Property>
+		<Property>
+			<Entry>L1 Cache (Oryon P2 Cores)</Entry>
+			<Description>Instruction: 4 x 192 KBytes, Data: 4 x 96 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>L1 Cache (Oryon P1 Cores)</Entry>
+			<Description>Instruction: 4 x 192 KBytes, Data: 4 x 96 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>L2 Cache (Oryon P2 Cores)</Entry>
+			<Description>Integrated: 4 x 192 KBytes, Data: 4 x 96 KBytes 12 MBytes</Description>
+		</Property>
+		<Property>
+			<Entry>L2 Cache (Oryon P1 Cores)</Entry>
+			<Description>Integrated:12 MBytes 12 MBytes</Description>
+		</Property>
+</SubNode>
+</CPU>
+<MOBO>
+	<NodeName>Motherboard</NodeName>
+		<IconIndex>23</IconIndex>
+
+		<Property>
+			<Entry>Computer Brand Name</Entry>
+			<Description>Microsoft Corporation Surface Pro 12in 1st Ed with Snapdragon</Description>
+		</Property>
+		<Property>
+			<Entry>Motherboard Model</Entry>
+			<Description>Surface</Description>
+			<PropertyType>SYSTEM_MAINBOARD</PropertyType>
+		</Property>
+		<Property>
+			<Entry>BIOS Manufacturer</Entry>
+			<Description>Microsoft Corporation</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Date</Entry>
+			<Description>03/31/2025</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Version</Entry>
+			<Description>7.2025.155</Description>
+		</Property>
+		<Property>
+			<Entry>Trusted Platform Module (TPM) Chip</Entry>
+			<Description>Present, version 2.0</Description>
+		</Property>
+<SubNode>
+	<NodeName>ACPI Devices</NodeName>
+<SubNode>
+	<NodeName>Surface Button</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Surface Button</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>0036 - 0035</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32791</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32793</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32791</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32792</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32793</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Surface Serial Hub Driver</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Surface Serial Hub Driver</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32790</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Surface Display Hardware Driver</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Surface Display Hardware Driver</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>I2C HID Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>I2C HID Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32794</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>PCI Express Root Complex</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>PCI Express Root Complex</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>7C300000 - 7DFFFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>7C300000 - 7DFFFFFF</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) System Manager Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) System Manager Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32768</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>81F1E000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32768</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Inter Processor Communication Interrupt Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Inter Processor Communication Interrupt Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>261</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>261</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>262</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>263</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>900</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bam Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bam Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>01DC4000 - 01DEBFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>01DC4000 - 01DEBFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>304</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bam Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bam Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>06C04000 - 06C23FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>06C04000 - 06C23FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>196</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) SPMI Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) SPMI Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0C400000 - 0C8FFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0C400000 - 0C8FFFFF</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) System Manager GPIO Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) System Manager GPIO Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0F100000 - 0FFFFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>240</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>659</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>642</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>862</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0F100000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>240</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>240</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>240</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>240</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>598</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>760</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>595</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>659</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>602</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>604</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>645</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>642</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>649</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>577</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>576</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>862</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>599</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>655</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>594</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>592</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) I2C Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) I2C Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B80000 - 00B83FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B80000 - 00B83FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>405</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) I2C Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) I2C Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B90000 - 00B93FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B90000 - 00B93FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>618</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) I2C Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) I2C Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A80000 - 00A83FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A80000 - 00A83FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>832</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) I2C Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) I2C Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A84000 - 00A87FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A84000 - 00A87FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>833</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Analog-to-Digital Converter Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Analog-to-Digital Converter Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32778</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32779</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00894000 - 00897FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00894000 - 00897FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>845</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32782</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B88000 - 00B8BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B88000 - 00B8BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>616</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32780</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A98000 - 00A9BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A98000 - 00A9BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>838</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32781</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) System Manager PMIC GPIO Framework Extension Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) System Manager PMIC GPIO Framework Extension Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>513</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>513</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>515</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Spectra(TM) 695 ISP Camera Platform Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Spectra(TM) 695 ISP Camera Platform Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC13000 - 0AC13FFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>492</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC13000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC19000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC15000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC16000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>492</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>303</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>491</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Spectra(TM) 695 ISP Camera JPEG Encoder Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Spectra(TM) 695 ISP Camera JPEG Encoder Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC2A000 - 0AC2AFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC2A000 - 0AC2AFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AC2B000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>506</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>507</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bluetooth UART Transport Driver</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bluetooth UART Transport Driver</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Power Management FGBCL Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Power Management FGBCL Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32770</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32774</Description>
+		</Property>
+		<Property>
+			<Entry>DMA</Entry>
+			<Description>-1</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32770</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32771</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32772</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32773</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32774</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32775</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32776</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32777</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B04000 - 00B5BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00B04000 - 00B5BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>620</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>621</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A04000 - 00A5BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00A04000 - 00A5BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>808</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>809</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Bus Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Bus Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00804000 - 0085BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00804000 - 0085BFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>820</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>821</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Synopsys USB 3.0 Dual-Role Controller</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Synopsys USB 3.0 Dual-Role Controller</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0A600000 - 0A6FFFFE</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0A600000 - 0A6FFFFE</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Synopsys USB 3.0 Dual-Role Controller</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Synopsys USB 3.0 Dual-Role Controller</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0A800000 - 0A8FFFFE</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0A800000 - 0A8FFFFE</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm Secure Processor Subsystem Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm Secure Processor Subsystem Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0188103C - 0188103F</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>384</Description>
+		</Property>
+		<Property>
+			<Entry>DMA</Entry>
+			<Description>0</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>01881028</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>01881024</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0188101C</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0188103C</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0188200C</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>384</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) PCIe Platform Extension Plugin</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) PCIe Platform Extension Plugin</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>0003 - 0002</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>0006 - 0005</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>505</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>790</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>0</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>505</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>638</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>464</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>199</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>790</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>779</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32769</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) USB Type-C Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) USB Type-C Device</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>001B - 001A</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>001D - 001C</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>0020 - 001F</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>001D - 001C</Description>
+		</Property>
+		<Property>
+			<Entry>I/O Port</Entry>
+			<Description>0023 - 0022</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>81F20040 - 81F2006E</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>81F20040 - 81F2006E</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm Compute DSP Subsystem Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm Compute DSP Subsystem Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>610</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>610</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Spectra(TM) 395 SecureISP Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Spectra(TM) 395 SecureISP Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACCA000 - 0ACCDFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACCA000 - 0ACCDFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>392</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>391</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) EVA Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) EVA Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>266</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AB00000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00400000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00110000 - 0014FFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>266</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm CPU DCVS Cluster 0 Policy Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm CPU DCVS Cluster 0 Policy Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32783</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32783</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32784</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32785</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32786</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>32787</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm Universal Flash Storage (UFS) Host Controller</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm Universal Flash Storage (UFS) Host Controller</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>01D84000 - 01D9FFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>01D84000 - 01D9FFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>297</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>UCM-UCSI ACPI Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>UCM-UCSI ACPI Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>81F20000 - 81F2002F</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>81F20000 - 81F2002F</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm System MMU Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm System MMU Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>15000000 - 150FFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>132</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>136</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>140</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>144</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>148</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>214</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>218</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>222</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>348</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>352</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>356</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>15000000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>129</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>130</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>131</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>132</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>133</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>134</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>135</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>136</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>137</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>138</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>139</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>140</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>141</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>142</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>143</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>144</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>145</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>146</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>147</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>148</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>149</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>150</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>213</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>214</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>215</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>216</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>217</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>218</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>219</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>220</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>221</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>222</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>223</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>224</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>347</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>348</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>349</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>350</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>351</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>352</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>353</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>354</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>355</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>356</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>357</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>358</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>359</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>360</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>361</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>362</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>363</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>364</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>365</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>366</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>367</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>368</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>369</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>370</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm System MMU Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm System MMU Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>03DA0000 - 03DDFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>713</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>03DA0000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>710</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>711</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>712</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>713</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>714</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>715</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>716</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm Power Engine Plug-in Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm Power Engine Plug-in Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>538</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>540</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>613</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>538</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>673</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>539</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>674</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>540</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>675</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>37</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>330</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>613</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>113</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>66</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>60</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm Audio DSP Subsystem Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm Audio DSP Subsystem Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>518</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>518</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Spectra(TM) 695 ISP Camera Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Spectra(TM) 695 ISP Camera Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>488</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>496</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>488</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>495</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>497</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>501</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>496</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>500</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>796</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>797</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Generic Surface Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Generic Surface Device</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>302</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>301</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>10000000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>16000000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>12000000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>1C000000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>302</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>301</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm System Cache Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm System Cache Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>26200000 - 263FFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>26200000 - 263FFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>298</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Spectra(TM) 695 ISP Camera MipiCsi Device</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Spectra(TM) 695 ISP Camera MipiCsi Device</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACE4000 - 0ACE5FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACF8000 - 0ACF83FF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACE4000 - 0ACE5FFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACEC000 - 0ACEDFFF</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACF6000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACF7000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0ACF8000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>509</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>154</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Qualcomm(R) Adreno(TM) X1-45 GPU</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>Qualcomm(R) Adreno(TM) X1-45 GPU</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AE00000 - 0AFFFFFF</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>480</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>458</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>333</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AE00000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>00FD0000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>03D00000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0B280000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>0AA00000</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Location</Entry>
+			<Description>15200000</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>115</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>481</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>480</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>635</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>634</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>459</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>458</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>332</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>336</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>333</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>206</Description>
+		</Property>
+		<Property>
+			<Entry>IRQ</Entry>
+			<Description>800</Description>
+		</Property>
+</SubNode>
+</SubNode>
+<SubNode>
+	<NodeName>SMBIOS DMI</NodeName>
+<SubNode>
+	<NodeName>L1 Instruction Cache</NodeName>
+		<Property>
+			<Entry>Socket Designation</Entry>
+			<Description>L1 Instruction Cache</Description>
+		</Property>
+		<Property>
+			<Entry>Cache State</Entry>
+			<Description>Enabled</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Location</Entry>
+			<Description>Internal</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Type</Entry>
+			<Description>L1 Instruction</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Scheme</Entry>
+			<Description>Write-Through and Write-Back</Description>
+		</Property>
+		<Property>
+			<Entry>Supported SRAM Type</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Current SRAM Type</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Cache Speed</Entry>
+			<Description>Unknown</Description>
+		</Property>
+		<Property>
+			<Entry>Error Correction Type</Entry>
+			<Description>Parity</Description>
+		</Property>
+		<Property>
+			<Entry>Maximum Cache Size</Entry>
+			<Description>1536 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Installed Cache Size</Entry>
+			<Description>1536 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Associativity</Entry>
+			<Description>16-way Set-Associative</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>L1 Data Cache</NodeName>
+		<Property>
+			<Entry>Socket Designation</Entry>
+			<Description>L1 Data Cache</Description>
+		</Property>
+		<Property>
+			<Entry>Cache State</Entry>
+			<Description>Enabled</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Location</Entry>
+			<Description>Internal</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Type</Entry>
+			<Description>L1 Data</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Scheme</Entry>
+			<Description>Write-Through and Write-Back</Description>
+		</Property>
+		<Property>
+			<Entry>Supported SRAM Type</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Current SRAM Type</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Cache Speed</Entry>
+			<Description>Unknown</Description>
+		</Property>
+		<Property>
+			<Entry>Error Correction Type</Entry>
+			<Description>Parity</Description>
+		</Property>
+		<Property>
+			<Entry>Maximum Cache Size</Entry>
+			<Description>768 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Installed Cache Size</Entry>
+			<Description>768 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Associativity</Entry>
+			<Description>16-way Set-Associative</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>L2 Cache</NodeName>
+		<Property>
+			<Entry>Socket Designation</Entry>
+			<Description>L2 Cache</Description>
+		</Property>
+		<Property>
+			<Entry>Cache State</Entry>
+			<Description>Enabled</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Location</Entry>
+			<Description>Internal</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Type</Entry>
+			<Description>L2 Unified</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Scheme</Entry>
+			<Description>Write-Through and Write-Back</Description>
+		</Property>
+		<Property>
+			<Entry>Supported SRAM Type</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Current SRAM Type</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Cache Speed</Entry>
+			<Description>Unknown</Description>
+		</Property>
+		<Property>
+			<Entry>Error Correction Type</Entry>
+			<Description>Parity</Description>
+		</Property>
+		<Property>
+			<Entry>Maximum Cache Size</Entry>
+			<Description>24576 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Installed Cache Size</Entry>
+			<Description>24576 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Cache Associativity</Entry>
+			<Description>8-way Set-Associative</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Processor</NodeName>
+		<Property>
+			<Entry>Processor Manufacturer</Entry>
+			<Description>Qualcomm Technologies Inc</Description>
+		</Property>
+		<Property>
+			<Entry>Processor Version</Entry>
+			<Description>Snapdragon X Plus (8-core) @ 3.30 GHz</Description>
+		</Property>
+		<Property>
+			<Entry>External Clock</Entry>
+			<Description>N/A</Description>
+		</Property>
+		<Property>
+			<Entry>Maximum Clock Supported</Entry>
+			<Description>3300 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>Current Clock</Entry>
+			<Description>2977 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>CPU Socket</Entry>
+			<Description>Populated</Description>
+		</Property>
+		<Property>
+			<Entry>CPU Status</Entry>
+			<Description>Enabled</Description>
+		</Property>
+		<Property>
+			<Entry>Processor Type</Entry>
+			<Description>Central Processor</Description>
+		</Property>
+		<Property>
+			<Entry>Processor Voltage</Entry>
+			<Description>1.1 V</Description>
+		</Property>
+		<Property>
+			<Entry>Processor Upgrade</Entry>
+			<Description>None</Description>
+		</Property>
+		<Property>
+			<Entry>Socket Designation</Entry>
+			<Description>Qualcomm</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>BIOS</NodeName>
+		<Property>
+			<Entry>BIOS Vendor</Entry>
+			<Description>Microsoft Corporation</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Version</Entry>
+			<Description>7.2025.155</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Release Date</Entry>
+			<Description>03/31/2025</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Start Segment</Entry>
+			<Description>0</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Size</Entry>
+			<Description>16384 KBytes</Description>
+		</Property>
+		<Property>
+			<Entry>ISA Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>MCA Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>EISA Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>PCI Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>PC Card (PCMCIA) Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Plug-and-Play Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>APM Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Flash BIOS</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Shadow</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>VL-VESA Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>ESCD Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Boot from CD</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Selectable Boot</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS ROM Socketed</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Boot from PC Card</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>EDD Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>NEC PC-98 Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>ACPI Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>USB Legacy Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>AGP Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>I2O Boot Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>LS-120 Boot Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>ATAPI ZIP Drive Boot Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>IEE1394 Boot Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Smart Battery Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>BIOS Boot Specification Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>Function key-initiated Network Service Boot Support</Entry>
+			<Description>Not Present</Description>
+		</Property>
+		<Property>
+			<Entry>Targeted Content Distribution Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>UEFI Specification Support</Entry>
+			<Description>Present</Description>
+		</Property>
+		<Property>
+			<Entry>Virtual Machine</Entry>
+			<Description>Not Present</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>System</NodeName>
+		<Property>
+			<Entry>System Manufacturer</Entry>
+			<Description>Microsoft Corporation</Description>
+		</Property>
+		<Property>
+			<Entry>Product Name</Entry>
+			<Description>Surface Pro 12in 1st Ed with Snapdragon</Description>
+		</Property>
+		<Property>
+			<Entry>Product Version</Entry>
+			<Description>124I:00125T:000M:0000000F:0B:10C:08M:02D:07U:00T:2R:10</Description>
+		</Property>
+		<Property>
+			<Entry>Product Serial Number</Entry>
+			<Description>0F39XRC25113Q6</Description>
+		</Property>
+		<Property>
+			<Entry>UUID</Entry>
+			<Description>{435FE0C8-82D1-B943-C8DF-88B243C4AA08}</Description>
+		</Property>
+		<Property>
+			<Entry>SKU Number</Entry>
+			<Description>Surface_Pro_12in_1st_Ed_with_Snapdragon_2110</Description>
+		</Property>
+		<Property>
+			<Entry>Family</Entry>
+			<Description>Surface</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>System Enclosure</NodeName>
+		<Property>
+			<Entry>Manufacturer</Entry>
+			<Description>Microsoft Corporation</Description>
+		</Property>
+		<Property>
+			<Entry>Case Type</Entry>
+			<Description>LapTop</Description>
+		</Property>
+		<Property>
+			<Entry>Version</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Serial Number</Entry>
+			<Description>0F39XRC25113Q6</Description>
+		</Property>
+		<Property>
+			<Entry>Asset Tag Number</Entry>
+			<Description></Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Mainboard</NodeName>
+		<Property>
+			<Entry>Mainboard Manufacturer</Entry>
+			<Description>Microsoft Corporation</Description>
+		</Property>
+		<Property>
+			<Entry>Mainboard Name</Entry>
+			<Description>Surface Pro 12in 1st Ed with Snapdragon</Description>
+		</Property>
+		<Property>
+			<Entry>Mainboard Version</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Mainboard Serial Number</Entry>
+			<Description>A932931112PU511A</Description>
+		</Property>
+		<Property>
+			<Entry>Asset Tag</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Location in chassis</Entry>
+			<Description></Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Hardware Security</NodeName>
+		<Property>
+			<Entry>Power-on Password</Entry>
+			<Description>Not implemented</Description>
+		</Property>
+		<Property>
+			<Entry>Keyboard Password</Entry>
+			<Description>Not implemented</Description>
+		</Property>
+		<Property>
+			<Entry>Administrator Password</Entry>
+			<Description>Disabled</Description>
+		</Property>
+		<Property>
+			<Entry>Front Panel Reset</Entry>
+			<Description>Not implemented</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Memory Devices</NodeName>
+<SubNode>
+	<NodeName>Physical Memory Array</NodeName>
+		<Property>
+			<Entry>Array Location</Entry>
+			<Description>System board</Description>
+		</Property>
+		<Property>
+			<Entry>Array Use</Entry>
+			<Description>System memory</Description>
+		</Property>
+		<Property>
+			<Entry>Error Detecting Method</Entry>
+			<Description>None</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Capacity</Entry>
+			<Description>16 GBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Devices</Entry>
+			<Description>1</Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Memory Device</NodeName>
+		<Property>
+			<Entry>Total Width</Entry>
+			<Description>16 bits</Description>
+		</Property>
+		<Property>
+			<Entry>Data Width</Entry>
+			<Description>16 bits</Description>
+		</Property>
+		<Property>
+			<Entry>Device Size</Entry>
+			<Description>16384 MBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Device Form Factor</Entry>
+			<Description>TSOP</Description>
+		</Property>
+		<Property>
+			<Entry>Device Locator</Entry>
+			<Description>Top - on board</Description>
+		</Property>
+		<Property>
+			<Entry>Bank Locator</Entry>
+			<Description>Bank 0</Description>
+		</Property>
+		<Property>
+			<Entry>Device Type</Entry>
+			<Description>LPDDR5</Description>
+		</Property>
+		<Property>
+			<Entry>Device Type Detail</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Memory Speed</Entry>
+			<Description>8448 MT/s</Description>
+		</Property>
+		<Property>
+			<Entry>Configured Memory Speed</Entry>
+			<Description>8448 MT/s</Description>
+		</Property>
+		<Property>
+			<Entry>Manufacturer</Entry>
+			<Description>Samsung</Description>
+		</Property>
+		<Property>
+			<Entry>Serial Number</Entry>
+			<Description></Description>
+		</Property>
+		<Property>
+			<Entry>Part Number</Entry>
+			<Description>K3KL8L80DM-MGCU</Description>
+		</Property>
+		<Property>
+			<Entry>Asset Tag</Entry>
+			<Description></Description>
+		</Property>
+</SubNode>
+<SubNode>
+	<NodeName>Memory Array Mapped Address</NodeName>
+		<Property>
+			<Entry>Starting Address</Entry>
+			<Description>2147483648</Description>
+		</Property>
+		<Property>
+			<Entry>Ending Address</Entry>
+			<Description>1741645745750015</Description>
+		</Property>
+		<Property>
+			<Entry>Partition Width</Entry>
+			<Description>1</Description>
+		</Property>
+</SubNode>
+</SubNode>
+</SubNode>
+</MOBO>
+<MEMORY>
+	<NodeName>Memory</NodeName>
+		<IconIndex>22</IconIndex>
+
+		<Property>
+			<Entry>Total Memory Size</Entry>
+			<Description>16 GBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Total Memory Size [MB]</Entry>
+			<Description>16384</Description>
+			<PropertyType>SYSTEM_MEMORY</PropertyType>
+		</Property>
+<SubNode>
+	<NodeName>Row: 0 [Bank 0/Top - on board] - 16 GB LPDDR5 SDRAM Samsung K3KL8L80DM-MGCU</NodeName>
+		<Property>
+			<Entry>Row Number</Entry>
+			<Description>0</Description>
+		</Property>
+		<Property>
+			<Entry>Row Size</Entry>
+			<Description>16 GBytes</Description>
+		</Property>
+		<Property>
+			<Entry>Memory Type</Entry>
+			<Description>LPDDR5 SDRAM</Description>
+		</Property>
+		<Property>
+			<Entry>Module Manufacturer</Entry>
+			<Description>Samsung</Description>
+		</Property>
+		<Property>
+			<Entry>Module Model</Entry>
+			<Description>K3KL8L80DM-MGCU</Description>
+		</Property>
+		<Property>
+			<Entry>Module Type</Entry>
+			<Description>LPDDR5 SDRAM</Description>
+		</Property>
+</SubNode>
+</MEMORY>
+<BUS>
+	<NodeName>Bus</NodeName>
+		<IconIndex>14</IconIndex>
+
+</BUS>
+<VIDEO>
+	<NodeName>Video Adapter</NodeName>
+		<IconIndex>35</IconIndex>
+
+<SubNode>
+	<NodeName>Qualcomm Qualcomm(R) Adreno(TM) Graphics</NodeName>
+		<Property>
+			<Entry>Video Chipset</Entry>
+			<Description>Qualcomm Qualcomm(R) Adreno(TM) Graphics</Description>
+			<PropertyType>GFXCARD_CHIPSET</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Video Memory</Entry>
+			<Description>Unknown</Description>
+		</Property>
+		<Property>
+			<Entry>Video Bus</Entry>
+			<Description>Integrated</Description>
+		</Property>
+		<Property>
+			<Entry>GPU Type</Entry>
+			<Description>Integrated</Description>
+		</Property>
+		<Property>
+			<Entry>Video RAMDAC</Entry>
+			<Description>InternalDAC</Description>
+		</Property>
+		<Property>
+			<Entry>Graphics Processor Clock</Entry>
+			<Description>280.0 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>Graphics Memory Clock</Entry>
+			<Description>800.0 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Manufacturer</Entry>
+			<Description>Qualcomm Incorporated</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Description</Entry>
+			<Description>Qualcomm(R) Adreno(TM) X1-45 GPU</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Provider</Entry>
+			<Description>Qualcomm Incorporated</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Version</Entry>
+			<Description>31.0.98.1</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Date</Entry>
+			<Description>22-Mar-2025</Description>
+		</Property>
+		<Property>
+			<Entry>DeviceInstanceId</Entry>
+			<Description>ACPI\VEN_QCOM&amp;DEV_0D17&amp;SUBSYS_MSHW0577&amp;REV_0001\0</Description>
+			<PropertyType>DeviceInstanceId</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Location Paths</Entry>
+			<Description>ACPI(_SB_)#ACPI(GPU0)</Description>
+		</Property>
+</SubNode>
+</VIDEO>
+<MONITOR>
+	<NodeName>Monitor</NodeName>
+		<IconIndex>24</IconIndex>
+
+<SubNode>
+	<NodeName>BOE [Unknown Model: BOE0CC9]</NodeName>
+		<Property>
+			<Entry>Monitor Name</Entry>
+			<Description>BOE [Unknown Model: BOE0CC9]</Description>
+			<PropertyType>MONITOR</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Monitor Name (Manuf)</Entry>
+			<Description>NE120DRM-N28 </Description>
+			<PropertyType>MONITOR</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Serial Number</Entry>
+			<Description>117442208</Description>
+		</Property>
+		<Property>
+			<Entry>Date Of Manufacture</Entry>
+			<Description>Week: 10, Year: 2024</Description>
+		</Property>
+		<Property>
+			<Entry>Monitor Hardware ID</Entry>
+			<Description>Monitor\BOE0CC9</Description>
+		</Property>
+		<Property>
+			<Entry>Max. Vertical Size</Entry>
+			<Description>17 cm</Description>
+		</Property>
+		<Property>
+			<Entry>Max. Horizontal Size</Entry>
+			<Description>25 cm</Description>
+		</Property>
+		<Property>
+			<Entry>Horizontal Frequency</Entry>
+			<Description>91 - 136 kHz</Description>
+		</Property>
+		<Property>
+			<Entry>Vertical Frequency</Entry>
+			<Description>24 - 90 Hz</Description>
+		</Property>
+		<Property>
+			<Entry>Maximum Pixel Clock</Entry>
+			<Description>320 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>Input Signal</Entry>
+			<Description>Digital</Description>
+		</Property>
+		<Property>
+			<Entry>Color Bit Depth</Entry>
+			<Description>8 Bits per Primary Color</Description>
+		</Property>
+		<Property>
+			<Entry>Digital Video Interface Standard Supported</Entry>
+			<Description>DisplayPort</Description>
+		</Property>
+		<Property>
+			<Entry>Gamma Factor</Entry>
+			<Description>2.20</Description>
+		</Property>
+		<Property>
+			<Entry>Standby</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>Suspend</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>Active Off</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>Standard Colour Space (sRGB) Default</Entry>
+			<Description>Supported</Description>
+		</Property>
+		<Property>
+			<Entry>Preferred Timing Mode</Entry>
+			<Description>Supported</Description>
+		</Property>
+		<Property>
+			<Entry>Default GTF (Continuous Frequency)</Entry>
+			<Description>Supported</Description>
+		</Property>
+		<Property>
+			<Entry>DFP 1.x Compatible</Entry>
+			<Description>Yes</Description>
+		</Property>
+		<Property>
+			<Entry>2196 x 1464</Entry>
+			<Description>254 x 169 mm, Pixel Clock 213.46 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>2196 x 1464</Entry>
+			<Description>254 x 169 mm, Pixel Clock 320.19 MHz</Description>
+		</Property>
+		<Property>
+			<Entry>Red [x,y]</Entry>
+			<Description> 0.6504, 0.3330</Description>
+		</Property>
+		<Property>
+			<Entry>Green [x,y]</Entry>
+			<Description> 0.2998, 0.6084</Description>
+		</Property>
+		<Property>
+			<Entry>Blue [x,y]</Entry>
+			<Description> 0.1445, 0.0557</Description>
+		</Property>
+		<Property>
+			<Entry>White [x,y]</Entry>
+			<Description> 0.3135, 0.3291</Description>
+		</Property>
+		<Property>
+			<Entry>sRGB Coverage</Entry>
+			<Description>105.552 %</Description>
+		</Property>
+		<Property>
+			<Entry>AdobeRGB Coverage</Entry>
+			<Description>78.247 %</Description>
+		</Property>
+		<Property>
+			<Entry>DCI-P3 Coverage</Entry>
+			<Description>77.810 %</Description>
+		</Property>
+		<Property>
+			<Entry>NTSC Coverage</Entry>
+			<Description>74.760 %</Description>
+		</Property>
+		<Property>
+			<Entry>BT.2020 Coverage</Entry>
+			<Description>55.823 %</Description>
+		</Property>
+		<Property>
+			<Entry>HDR Support</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>HDR10+ Support</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>AMD FreeSync Support</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>NVIDIA G-Sync Support</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>HDMI AdaptiveSync Support</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>VESA AdaptiveSync Support</Entry>
+			<Description>Not Supported</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Manufacturer</Entry>
+			<Description>Surface</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Description</Entry>
+			<Description>Surface Panel Driver V2</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Provider</Entry>
+			<Description>Surface</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Version</Entry>
+			<Description>2.614.17.0</Description>
+		</Property>
+		<Property>
+			<Entry>Driver Date</Entry>
+			<Description>20-Feb-2025</Description>
+		</Property>
+		<Property>
+			<Entry>DeviceInstanceId</Entry>
+			<Description>DISPLAY\BOE0CC9\3&amp;18002D91&amp;0&amp;UID0</Description>
+			<PropertyType>DeviceInstanceId</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Location Paths</Entry>
+			<Description>ACPI(_SB_)#ACPI(GPU0)#ACPI(MON0)</Description>
+		</Property>
+</SubNode>
+</MONITOR>
+<DRIVES>
+	<NodeName>Drives</NodeName>
+		<IconIndex>36</IconIndex>
+
+<SubNode>
+	<NodeName>ATA Drives</NodeName>
+<SubNode>
+	<NodeName>KIOXIA THGJFMT2E46BATVB</NodeName>
+</SubNode>
+</SubNode>
+</DRIVES>
+<SOUND>
+	<NodeName>Audio</NodeName>
+		<IconIndex>30</IconIndex>
+
+<SubNode>
+	<NodeName>Unknown or none</NodeName>
+</SubNode>
+</SOUND>
+<NETWORK>
+	<NodeName>Network</NodeName>
+		<IconIndex>13</IconIndex>
+
+<SubNode>
+	<NodeName>Qualcomm(R) FastConnect(TM) 7800 Mobile Connectivity System</NodeName>
+		<Property>
+			<Entry>Network Card</Entry>
+			<Description>Qualcomm(R) FastConnect(TM) 7800 Mobile Connectivity System</Description>
+			<PropertyType>NETCARD</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Vendor Description</Entry>
+			<Description>Microsoft</Description>
+		</Property>
+		<Property>
+			<Entry>MAC Address</Entry>
+			<Description>8C-1D-55-03-FF-36</Description>
+			<PropertyType>NETCARD_MAC</PropertyType>
+		</Property>
+		<Property>
+			<Entry>Maximum Link Speed</Entry>
+			<Description>5764 Mbps</Description>
+		</Property>
+		<Property>
+			<Entry>Current Link Speed</Entry>
+			<Description>866 Mbps</Description>
+		</Property>
+		<Property>
+			<Entry>Transmit Buffer Size</Entry>
+			<Description>6201344 Bytes</Description>
+		</Property>
+		<Property>
+			<Entry>Receive Buffer Size</Entry>
+			<Description>6201344 Bytes</Description>
+		</Property>
+</SubNode>
+</NETWORK>
+<PORTS>
+	<NodeName>Ports</NodeName>
+		<IconIndex>27</IconIndex>
+
+<SubNode>
+	<NodeName>USB</NodeName>
+</SubNode>
+</PORTS>
+<SMB>
+	<NodeName>Smart Battery</NodeName>
+		<IconIndex>28</IconIndex>
+
+<SubNode>
+	<NodeName>Battery #0</NodeName>
+		<Property>
+			<Entry>Device Name</Entry>
+			<Description>SurfaceBattery</Description>
+		</Property>
+		<Property>
+			<Entry>Manufacturer Name</Entry>
+			<Description>DYN</Description>
+		</Property>
+		<Property>
+			<Entry>Serial Number</Entry>
+			<Description>0007284509</Description>
+		</Property>
+		<Property>
+			<Entry>Unique ID</Entry>
+			<Description>SurfaceBattery1</Description>
+		</Property>
+		<Property>
+			<Entry>Chemistry</Entry>
+			<Description>Lithium Ion</Description>
+		</Property>
+		<Property>
+			<Entry>Designed Capacity</Entry>
+			<Description>37450 mWh</Description>
+		</Property>
+		<Property>
+			<Entry>Full Charged Capacity</Entry>
+			<Description>39330 mWh</Description>
+		</Property>
+		<Property>
+			<Entry>Wear Level</Entry>
+			<Description>0.0 %</Description>
+		</Property>
+		<Property>
+			<Entry>Cycle Count</Entry>
+			<Description>1</Description>
+		</Property>
+		<Property>
+			<Entry>Power Status</Entry>
+			<Description>Discharging</Description>
+		</Property>
+		<Property>
+			<Entry>Current Capacity</Entry>
+			<Description>25040 mWh (63.7 %)</Description>
+		</Property>
+		<Property>
+			<Entry>Current Voltage</Entry>
+			<Description>7.751 V</Description>
+		</Property>
+		<Property>
+			<Entry>Discharge Rate</Entry>
+			<Description>-13261 mW</Description>
+		</Property>
+</SubNode>
+</SMB>
+</SubNodes>
+</COMPUTER>
+</HWINFO>
