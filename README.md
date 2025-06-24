@@ -20,7 +20,7 @@ OFTC is linked with Matrix.  Find us here: https://matrix.to/#/#_oftc_#aarch64-l
 
 ### Mailing List
 
-Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://lists.linaro.org/mailman/listinfo/aarch64-laptops)
+Updates and announcements are sent to the Mailing List.  Sign-up [HERE](https://lists.linaro.org/mailman3/lists/aarch64-laptops.lists.linaro.org)
 
 ## Device Status
 
