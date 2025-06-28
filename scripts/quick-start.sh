@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SCRIPTDIR=scripts
 source $SCRIPTDIR/laptops-common.inc
