@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ./dsdt.dat
+ * Disassembly of dsdt.dat
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x00021A64 (137828)
+ *     Length           0x00021A65 (137829)
  *     Revision         0x02
- *     Checksum         0x08
+ *     Checksum         0x27
  *     OEM ID           "HUAWEI"
  *     OEM Table ID     "SDM8280 "
  *     OEM Revision     0x00000003 (3)
@@ -20,11 +20,38 @@
  */
 DefinitionBlock ("", "DSDT", 2, "HUAWEI", "SDM8280 ", 0x00000003)
 {
+    /*
+     * iASL Warning: There were 2 external control methods found during
+     * disassembly, but only 0 were resolved (2 unresolved). Additional
+     * ACPI tables may be required to properly disassemble the code. This
+     * resulting disassembler output file may not compile because the
+     * disassembler did not know how many arguments to assign to the
+     * unresolved methods. Note: SSDTs can be dynamically loaded at
+     * runtime and may or may not be available via the host OS.
+     *
+     * To specify the tables needed to resolve external control method
+     * references, the -e option can be used to specify the filenames.
+     * Example iASL invocations:
+     *     iasl -e ssdt1.aml ssdt2.aml ssdt3.aml -d dsdt.aml
+     *     iasl -e dsdt.aml ssdt2.aml -d ssdt1.aml
+     *     iasl -e ssdt*.aml -d dsdt.aml
+     *
+     * In addition, the -fe option can be used to specify a file containing
+     * control method external declarations with the associated method
+     * argument counts. Each line of the file must be of the form:
+     *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
+     */
     External (_SB_.DMMY, UnknownObj)
     External (_SB_.DPP0, IntObj)
     External (_SB_.DPP1, IntObj)
-    External (_SB_.IC16.ENMS, MethodObj)    // 0 Arguments
-    External (_SB_.IC16.EXMS, MethodObj)    // 0 Arguments
+    External (_SB_.IC16.ENMS, MethodObj)    // Warning: Unknown method, guessing 0 arguments
+    External (_SB_.IC16.EXMS, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.MPP0, IntObj)
     External (_SB_.MPP1, IntObj)
     External (_SB_.TZ13.TPSV, UnknownObj)
@@ -83,7 +110,7 @@ DefinitionBlock ("", "DSDT", 2, "HUAWEI", "SDM8280 ", 0x00000003)
     External (_SB_.UCS0.ESV1, UnknownObj)
     External (_SB_.UCS0.EVI0, UnknownObj)
     External (_SB_.UCS0.EVI1, UnknownObj)
-    External (ATTE, FieldUnitObj)
+    External (ATTE, UnknownObj)
     External (PCF2, IntObj)
     External (PCF3, IntObj)
 
@@ -108,7 +135,7 @@ DefinitionBlock ("", "DSDT", 2, "HUAWEI", "SDM8280 ", 0x00000003)
         Name (PUS3, 0xFFFFFFFF)
         Name (SUS3, 0xFFFFFFFF)
         Name (SIDT, 0x0000000A)
-        Name (SOSN, 0x0000042871E1B967)
+        Name (SOSN, 0x000004288ED5CFF4)
         Name (PLST, 0x00000002)
         Name (EMUL, 0x00000000)
         Name (SJTG, 0x2014A0E1)
@@ -33097,7 +33124,7 @@ DefinitionBlock ("", "DSDT", 2, "HUAWEI", "SDM8280 ", 0x00000003)
                 Return (\_SB.TZ33.TCRT)
             }
 
-            Name (_MTL, One)  // _MTL: Minimum Throttle Limit
+            Name (_MTL, 0x30)  // _MTL: Minimum Throttle Limit
             Name (TTC1, Zero)
             Method (_TC1, 0, NotSerialized)  // _TC1: Thermal Constant 1
             {

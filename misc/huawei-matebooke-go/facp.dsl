@@ -13,14 +13,14 @@
 [000h 0000 004h]                   Signature : "FACP"    [Fixed ACPI Description Table (FADT)]
 [004h 0004 004h]                Table Length : 00000114
 [008h 0008 001h]                    Revision : 05
-[009h 0009 001h]                    Checksum : B9
+[009h 0009 001h]                    Checksum : A9
 [00Ah 0010 006h]                      Oem ID : "QCOM  "
 [010h 0016 008h]                Oem Table ID : "QCOMEDK2"
 [018h 0024 004h]                Oem Revision : 00008280
 [01Ch 0028 004h]             Asl Compiler ID : "QCOM"
 [020h 0032 004h]       Asl Compiler Revision : 00000001
 
-[024h 0036 004h]                FACS Address : FFF1E000
+[024h 0036 004h]                FACS Address : FFF1F000
 [028h 0040 004h]                DSDT Address : FFFC5000
 [02Ch 0044 001h]                       Model : 00
 [02Dh 0045 001h]                  PM Profile : 08 [Tablet]
@@ -179,9 +179,9 @@
 
 Raw Table Data: Length 276 (0x114)
 
-    0000: 46 41 43 50 14 01 00 00 05 B9 51 43 4F 4D 20 20  // FACP......QCOM  
+    0000: 46 41 43 50 14 01 00 00 05 A9 51 43 4F 4D 20 20  // FACP......QCOM  
     0010: 51 43 4F 4D 45 44 4B 32 80 82 00 00 51 43 4F 4D  // QCOMEDK2....QCOM
-    0020: 01 00 00 00 00 E0 F1 FF 00 50 FC FF 00 08 00 00  // .........P......
+    0020: 01 00 00 00 00 F0 F1 FF 00 50 FC FF 00 08 00 00  // .........P......
     0030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0040: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
     0050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  // ................
