@@ -5,13 +5,13 @@
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ./ssdt.dat
+ * Disassembly of ssdt.dat
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00005897 (22679)
+ *     Length           0x000056B7 (22199)
  *     Revision         0x03
- *     Checksum         0x7F
+ *     Checksum         0x5D
  *     OEM ID           "HUAWEI"
  *     OEM Table ID     "SSDT1Tbl"
  *     OEM Revision     0x00000002 (2)
@@ -41,8 +41,6 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
     External (_SB_.TZ34.TPSV, IntObj)
     External (_SB_.TZ70, DeviceObj)
     External (_SB_.TZ70.TPSV, IntObj)
-    External (_SB_.TZ99, DeviceObj)
-    External (_SB_.TZ99.TPSV, IntObj)
     External (_SB_.UCS0, DeviceObj)
     External (_SB_.UCS0.USBR, MethodObj)    // 0 Arguments
     External (_SB_.UCSI, DeviceObj)
@@ -661,12 +659,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0C62
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0CE4
+                        \_SB.TZ33.TPSV = 0x0C94
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0C9E
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If (((D9T8 == One) && (D9TD == Zero)))
@@ -675,12 +671,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0CEE
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0D66
+                        \_SB.TZ33.TPSV = 0x0D34
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0CE4
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If ((D9TD == One))
@@ -689,12 +683,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0C62
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0D02
+                        \_SB.TZ33.TPSV = 0x0CB2
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0CD0
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If (((D9T8 == Zero) && (D9TD == 0x02)))
@@ -703,12 +695,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0C76
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0CE4
+                        \_SB.TZ33.TPSV = 0x0CA8
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0CB2
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If (((D9T8 == One) && (D9TD == 0x02)))
@@ -717,12 +707,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0CEE
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0D66
+                        \_SB.TZ33.TPSV = 0x0D34
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0CE4
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If (((D9T8 == Zero) && (D9TD == 0x03)))
@@ -731,12 +719,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0C62
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0CD0
+                        \_SB.TZ33.TPSV = 0x0C9E
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0CB2
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If (((D9T8 == One) && (D9TD == 0x03)))
@@ -745,28 +731,10 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
                         Notify (\_SB.TZ31, 0x81) // Information Change
                         \_SB.TZ32.TPSV = 0x0CC6
                         Notify (\_SB.TZ32, 0x81) // Information Change
-                        \_SB.TZ33.TPSV = 0x0D66
+                        \_SB.TZ33.TPSV = 0x0D34
                         Notify (\_SB.TZ33, 0x81) // Information Change
                         \_SB.TZ70.TPSV = 0x0CE4
                         Notify (\_SB.TZ70, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
-                    }
-
-                    If (((D9T8 == Zero) && (D9TD == 0x04)))
-                    {
-                        \_SB.TZ33.TPSV = 0x0C62
-                        Notify (\_SB.TZ33, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0C80
-                        Notify (\_SB.TZ99, 0x81) // Information Change
-                    }
-
-                    If (((D9T8 == One) && (D9TD == 0x04)))
-                    {
-                        \_SB.TZ33.TPSV = 0x0D2A
-                        Notify (\_SB.TZ33, 0x81) // Information Change
-                        \_SB.TZ99.TPSV = 0x0EC4
-                        Notify (\_SB.TZ99, 0x81) // Information Change
                     }
 
                     If ((D9TE == Zero))
@@ -868,7 +836,6 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
             Name (CTMP, 0x1E)
             Name (MPPP, 0xFF)
             Name (CMFG, One)
-            Name (BAFG, One)
             Name (IBF1, Buffer (One)
             {
                  0x00                                             // .
@@ -882,10 +849,6 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
             CreateByteField (BUF1, 0x02, MFLN)
             CreateByteField (BUF1, 0x03, MBUF)
             Name (BUFM, Buffer (0x10)
-            {
-                 0x00                                             // .
-            })
-            Name (BTTA, Buffer (0x0100)
             {
                  0x00                                             // .
             })
@@ -1010,13 +973,6 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
 
                         BIXP [0x13] = ToString (BUFM, Ones)
                         CMFG = 0x02
-                    }
-
-                    If ((BAFG == One))
-                    {
-                        BTTA = BATN /* \BATN */
-                        BIXP [0x10] = ToString (BTTA, Ones)
-                        BAFG = 0x02
                     }
 
                     IBF2 = 0xA6
@@ -3788,7 +3744,7 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
         Return (BUFF) /* \THMS.BUFF */
     }
 
-    OperationRegion (GNVS, SystemMemory, 0xFFF20000, 0x1002)
+    OperationRegion (GNVS, SystemMemory, 0xFFF21000, 0x1000)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         TSOP,   64, 
@@ -3807,8 +3763,7 @@ DefinitionBlock ("", "SSDT", 3, "HUAWEI", "SSDT1Tbl", 0x00000002)
         HWSR,   8, 
         ATTE,   8, 
         TPMS,   8, 
-        BATN,   256, 
-        RSVE,   32080
+        RSVE,   32336
     }
 
     Mutex (MMUT, 0x00)
