@@ -1,0 +1,1282 @@
+HWiNFO? ARM64 Version 8.34-5870
+
+DESKTOP-3NGA1JF -----------------------------------------------------------
+
+ [Current Computer]
+  Computer Name:                          DESKTOP-3NGA1JF
+  Computer Brand Name:                    Acer SFA14-11
+ [Operating System]
+  Operating System:                       Microsoft Windows 11 Professional (ARM64) Build 26200.7171 (25H2)
+  UEFI Boot:                              Present
+  Secure Boot:                            Enabled
+  Hypervisor-protected Code Integrity (HVCI): Enabled
+
+Central Processor(s) ------------------------------------------------------
+
+ [CPU Unit Count]
+  Number Of Processor Packages (Physical): 1
+  Number Of Processor Cores:              12
+  Number Of Logical Processors:           12
+
+Qualcomm Snapdragon X Elite X1E-78-100 ------------------------------------
+
+ [General Information]
+  Processor Name:                         Qualcomm Snapdragon X Elite X1E-78-100
+  Original Processor Frequency:           3400.0 MHz
+  Original Processor Frequency [MHz]:     3400
+  CPU Code Name:                          Hamoa (Oryon)
+  Number of CPU Cores:                    4 x Oryon P2, 8 x Oryon P1
+ [Cache and TLB]
+  L1 Cache (Oryon P2 Cores):              Instruction: 4 x 192 KBytes, Data: 4 x 96 KBytes
+  L1 Cache (Oryon P1 Cores):              Instruction: 8 x 192 KBytes, Data: 8 x 96 KBytes
+  L2 Cache (Oryon P2 Cores):              Integrated: 12 MBytes
+  L2 Cache (Oryon P1 Cores):              Integrated: 2 x 12 MBytes
+
+Motherboard ---------------------------------------------------------------
+
+ [Computer]
+  Computer Brand Name:                    Acer SFA14-11
+ [Motherboard]
+  Motherboard Model:                      SFA14-11
+ [BIOS]
+  BIOS Manufacturer:                      Acer
+  BIOS Date:                              11/26/2024
+  BIOS Version:                           1.02
+  Trusted Platform Module (TPM) Chip:     Present, version 2.0
+
+ACPI Devices --------------------------------------------------------------
+
+
+HID Button over Interrupt Driver ------------------------------------------
+
+  Device Name:                            HID Button over Interrupt Driver
+ [Assigned Resources]
+  IRQ:                                    32770
+ [Alternative 1]
+  IRQ:                                    32770
+  IRQ:                                    32771
+  IRQ:                                    32772
+
+PCI Express Root Complex --------------------------------------------------
+
+  Device Name:                            PCI Express Root Complex
+ [Assigned Resources]
+  Memory Location:                        7C300000 - 7DFFFFFF
+ [Alternative 1]
+  Memory Location:                        7C300000 - 7DFFFFFF
+
+PCI Express Root Complex --------------------------------------------------
+
+  Device Name:                            PCI Express Root Complex
+ [Assigned Resources]
+  Memory Location:                        70300000 - 71FFFFFF
+ [Alternative 1]
+  Memory Location:                        70300000 - 71FFFFFF
+
+Qualcomm(R) System Manager Device -----------------------------------------
+
+  Device Name:                            Qualcomm(R) System Manager Device
+ [Assigned Resources]
+  IRQ:                                    32768
+ [Alternative 1]
+  Memory Location:                        81F1E000
+  IRQ:                                    32768
+
+Qualcomm(R) Inter Processor Communication Interrupt Device ----------------
+
+  Device Name:                            Qualcomm(R) Inter Processor Communication Interrupt Device
+ [Assigned Resources]
+  IRQ:                                    261
+ [Alternative 1]
+  IRQ:                                    261
+  IRQ:                                    262
+  IRQ:                                    263
+  IRQ:                                    900
+
+Qualcomm(R) Bam Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bam Bus Device
+ [Assigned Resources]
+  Memory Location:                        01DC4000 - 01DEBFFF
+ [Alternative 1]
+  Memory Location:                        01DC4000 - 01DEBFFF
+  IRQ:                                    304
+
+Qualcomm(R) Bam Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bam Bus Device
+ [Assigned Resources]
+  Memory Location:                        06C04000 - 06C23FFF
+ [Alternative 1]
+  Memory Location:                        06C04000 - 06C23FFF
+  IRQ:                                    196
+
+Qualcomm(R) SPMI Bus Device -----------------------------------------------
+
+  Device Name:                            Qualcomm(R) SPMI Bus Device
+ [Assigned Resources]
+  Memory Location:                        0C400000 - 0C8FFFFF
+ [Alternative 1]
+  Memory Location:                        0C400000 - 0C8FFFFF
+
+Qualcomm(R) System Manager GPIO Device ------------------------------------
+
+  Device Name:                            Qualcomm(R) System Manager GPIO Device
+ [Assigned Resources]
+  Memory Location:                        0F100000 - 0FFFFFFF
+  IRQ:                                    240
+  IRQ:                                    659
+  IRQ:                                    642
+ [Alternative 1]
+  Memory Location:                        0F100000
+  IRQ:                                    240
+  IRQ:                                    240
+  IRQ:                                    240
+  IRQ:                                    240
+  IRQ:                                    598
+  IRQ:                                    760
+  IRQ:                                    595
+  IRQ:                                    659
+  IRQ:                                    602
+  IRQ:                                    604
+  IRQ:                                    645
+  IRQ:                                    642
+  IRQ:                                    649
+  IRQ:                                    756
+  IRQ:                                    578
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B80000 - 00B83FFF
+ [Alternative 1]
+  Memory Location:                        00B80000 - 00B83FFF
+  IRQ:                                    405
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B84000 - 00B87FFF
+ [Alternative 1]
+  Memory Location:                        00B84000 - 00B87FFF
+  IRQ:                                    615
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B8C000 - 00B8FFFF
+ [Alternative 1]
+  Memory Location:                        00B8C000 - 00B8FFFF
+  IRQ:                                    617
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B90000 - 00B93FFF
+ [Alternative 1]
+  Memory Location:                        00B90000 - 00B93FFF
+  IRQ:                                    618
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B94000 - 00B97FFF
+ [Alternative 1]
+  Memory Location:                        00B94000 - 00B97FFF
+  IRQ:                                    619
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B9C000 - 00B9FFFF
+ [Alternative 1]
+  Memory Location:                        00B9C000 - 00B9FFFF
+  IRQ:                                    494
+
+Qualcomm(R) I2C Bus Device ------------------------------------------------
+
+  Device Name:                            Qualcomm(R) I2C Bus Device
+ [Assigned Resources]
+  Memory Location:                        00A80000 - 00A83FFF
+ [Alternative 1]
+  Memory Location:                        00A80000 - 00A83FFF
+  IRQ:                                    832
+
+Qualcomm(R) Analog-to-Digital Converter Device ----------------------------
+
+  Device Name:                            Qualcomm(R) Analog-to-Digital Converter Device
+ [Assigned Resources]
+ [Alternative 1]
+  IRQ:                                    32781
+  IRQ:                                    32782
+
+Qualcomm(R) Bus Device ----------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bus Device
+ [Assigned Resources]
+  Memory Location:                        00894000 - 00897FFF
+ [Alternative 1]
+  Memory Location:                        00894000 - 00897FFF
+  IRQ:                                    845
+  IRQ:                                    32784
+
+Qualcomm(R) Bus Device ----------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bus Device
+ [Assigned Resources]
+  Memory Location:                        00A98000 - 00A9BFFF
+ [Alternative 1]
+  Memory Location:                        00A98000 - 00A9BFFF
+  IRQ:                                    838
+  IRQ:                                    32783
+
+Qualcomm Audio DSP Subsystem Device ---------------------------------------
+
+  Device Name:                            Qualcomm Audio DSP Subsystem Device
+ [Assigned Resources]
+  IRQ:                                    518
+ [Alternative 1]
+  IRQ:                                    518
+
+Qualcomm(R) System Manager PMIC GPIO Framework Extension Device -----------
+
+  Device Name:                            Qualcomm(R) System Manager PMIC GPIO Framework Extension Device
+ [Assigned Resources]
+  IRQ:                                    513
+ [Alternative 1]
+  IRQ:                                    513
+  IRQ:                                    515
+
+Qualcomm(R) Bluetooth UART Transport Driver -------------------------------
+
+  Device Name:                            Qualcomm(R) Bluetooth UART Transport Driver
+ [Assigned Resources]
+ [Alternative 1]
+
+Qualcomm(R) Power Management FGBCL Device ---------------------------------
+
+  Device Name:                            Qualcomm(R) Power Management FGBCL Device
+ [Assigned Resources]
+  IRQ:                                    32773
+  IRQ:                                    32777
+ [Alternative 1]
+  IRQ:                                    32773
+  IRQ:                                    32774
+  IRQ:                                    32775
+  IRQ:                                    32776
+  IRQ:                                    32777
+  IRQ:                                    32778
+  IRQ:                                    32779
+  IRQ:                                    32780
+
+Qualcomm(R) System Manager Device -----------------------------------------
+
+  Device Name:                            Qualcomm(R) System Manager Device
+ [Assigned Resources]
+  Memory Location:                        010C3000 - 010C3FFF
+ [Alternative 1]
+  Memory Location:                        010C3000 - 010C3FFF
+
+Qualcomm(R) Bus Device ----------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bus Device
+ [Assigned Resources]
+  Memory Location:                        00B04000 - 00B5BFFF
+ [Alternative 1]
+  Memory Location:                        00B04000 - 00B5BFFF
+  IRQ:                                    620
+  IRQ:                                    621
+
+Qualcomm(R) Bus Device ----------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bus Device
+ [Assigned Resources]
+  Memory Location:                        00A04000 - 00A5BFFF
+ [Alternative 1]
+  Memory Location:                        00A04000 - 00A5BFFF
+  IRQ:                                    808
+  IRQ:                                    809
+
+Qualcomm(R) Bus Device ----------------------------------------------------
+
+  Device Name:                            Qualcomm(R) Bus Device
+ [Assigned Resources]
+  Memory Location:                        00804000 - 0085BFFF
+ [Alternative 1]
+  Memory Location:                        00804000 - 0085BFFF
+  IRQ:                                    820
+  IRQ:                                    821
+
+Synopsys USB 3.0 Dual-Role Controller -------------------------------------
+
+  Device Name:                            Synopsys USB 3.0 Dual-Role Controller
+ [Assigned Resources]
+  Memory Location:                        0A600000 - 0A6FFFFE
+ [Alternative 1]
+  Memory Location:                        0A600000 - 0A6FFFFE
+
+Synopsys USB 3.0 Dual-Role Controller -------------------------------------
+
+  Device Name:                            Synopsys USB 3.0 Dual-Role Controller
+ [Assigned Resources]
+  Memory Location:                        0A800000 - 0A8FFFFE
+ [Alternative 1]
+  Memory Location:                        0A800000 - 0A8FFFFE
+
+Qualcomm Secure Processor Subsystem Device --------------------------------
+
+  Device Name:                            Qualcomm Secure Processor Subsystem Device
+ [Assigned Resources]
+  Memory Location:                        0188103C - 0188103F
+  IRQ:                                    384
+  DMA:                                    0
+ [Alternative 1]
+  Memory Location:                        01881028
+  Memory Location:                        01881024
+  Memory Location:                        0188101C
+  Memory Location:                        0188103C
+  Memory Location:                        0188200C
+  IRQ:                                    384
+
+Qualcomm(R) PCIe Platform Extension Plugin --------------------------------
+
+  Device Name:                            Qualcomm(R) PCIe Platform Extension Plugin
+ [Assigned Resources]
+  I/O Port:                               0003 - 0002
+  I/O Port:                               0006 - 0005
+  IRQ:                                    505
+  IRQ:                                    790
+  IRQ:                                    0
+ [Alternative 1]
+  IRQ:                                    505
+  IRQ:                                    638
+  IRQ:                                    464
+  IRQ:                                    199
+  IRQ:                                    790
+  IRQ:                                    779
+  IRQ:                                    32769
+
+Qualcomm(R) USB Type-C Device ---------------------------------------------
+
+  Device Name:                            Qualcomm(R) USB Type-C Device
+ [Assigned Resources]
+  I/O Port:                               0020 - 001F
+  I/O Port:                               0024 - 0023
+  I/O Port:                               0028 - 0027
+  I/O Port:                               002A - 0029
+  I/O Port:                               002D - 002C
+  Memory Location:                        81F20040 - 81F2006E
+ [Alternative 1]
+  Memory Location:                        81F20040 - 81F2006E
+
+Qualcomm Compute DSP Subsystem Device -------------------------------------
+
+  Device Name:                            Qualcomm Compute DSP Subsystem Device
+ [Assigned Resources]
+  IRQ:                                    610
+ [Alternative 1]
+  IRQ:                                    610
+
+Qualcomm(R) EVA Device ----------------------------------------------------
+
+  Device Name:                            Qualcomm(R) EVA Device
+ [Assigned Resources]
+  IRQ:                                    266
+ [Alternative 1]
+  Memory Location:                        0AB00000
+  Memory Location:                        00400000 - 004FFFFF
+  Memory Location:                        00110000 - 0014FFFF
+  IRQ:                                    266
+
+Qualcomm CPU DCVS Cluster 0 Policy Device ---------------------------------
+
+  Device Name:                            Qualcomm CPU DCVS Cluster 0 Policy Device
+ [Assigned Resources]
+  IRQ:                                    32785
+ [Alternative 1]
+  IRQ:                                    32785
+  IRQ:                                    32786
+  IRQ:                                    32787
+  IRQ:                                    32788
+  IRQ:                                    32789
+
+Synopsys USB 3.0 Dual-Role Controller -------------------------------------
+
+  Device Name:                            Synopsys USB 3.0 Dual-Role Controller
+ [Assigned Resources]
+  Memory Location:                        0A000000 - 0A0FFFFE
+ [Alternative 1]
+  Memory Location:                        0A000000 - 0A0FFFFE
+
+USB xHCI Compliant Host Controller ----------------------------------------
+
+  Device Name:                            USB xHCI Compliant Host Controller
+ [Assigned Resources]
+  Memory Location:                        0A400000 - 0A4FFFFE
+  IRQ:                                    346
+  IRQ:                                    560
+ [Alternative 1]
+  Memory Location:                        0A400000
+  IRQ:                                    339
+  IRQ:                                    345
+  IRQ:                                    562
+  IRQ:                                    346
+  IRQ:                                    563
+  IRQ:                                    558
+  IRQ:                                    559
+  IRQ:                                    560
+  IRQ:                                    561
+
+USB xHCI Compliant Host Controller ----------------------------------------
+
+  Device Name:                            USB xHCI Compliant Host Controller
+ [Assigned Resources]
+  Memory Location:                        0A200000 - 0A2FFFFE
+ [Alternative 1]
+  Memory Location:                        0A200000 - 0A2FFFFE
+  IRQ:                                    272
+  IRQ:                                    277
+
+Qualcomm SoC Secure Digital host controller -------------------------------
+
+  Device Name:                            Qualcomm SoC Secure Digital host controller
+ [Assigned Resources]
+  Memory Location:                        08804000 - 08804FFF
+ [Alternative 1]
+  Memory Location:                        08804000 - 08804FFF
+  IRQ:                                    239
+  IRQ:                                    32793
+
+I2C HID Device ------------------------------------------------------------
+
+  Device Name:                            I2C HID Device
+ [Assigned Resources]
+ [Alternative 1]
+  IRQ:                                    32796
+
+I2C HID Device ------------------------------------------------------------
+
+  Device Name:                            I2C HID Device
+ [Assigned Resources]
+ [Alternative 1]
+  IRQ:                                    32797
+
+UCM-UCSI ACPI Device ------------------------------------------------------
+
+  Device Name:                            UCM-UCSI ACPI Device
+ [Assigned Resources]
+  Memory Location:                        81F20000 - 81F2002F
+ [Alternative 1]
+  Memory Location:                        81F20000 - 81F2002F
+
+Qualcomm System MMU Device ------------------------------------------------
+
+  Device Name:                            Qualcomm System MMU Device
+ [Assigned Resources]
+  Memory Location:                        15000000 - 150FFFFF
+  IRQ:                                    132
+  IRQ:                                    136
+  IRQ:                                    140
+  IRQ:                                    144
+  IRQ:                                    148
+  IRQ:                                    214
+  IRQ:                                    218
+  IRQ:                                    222
+  IRQ:                                    348
+  IRQ:                                    352
+  IRQ:                                    356
+ [Alternative 1]
+  Memory Location:                        15000000
+  IRQ:                                    129
+  IRQ:                                    130
+  IRQ:                                    131
+  IRQ:                                    132
+  IRQ:                                    133
+  IRQ:                                    134
+  IRQ:                                    135
+  IRQ:                                    136
+  IRQ:                                    137
+  IRQ:                                    138
+  IRQ:                                    139
+  IRQ:                                    140
+  IRQ:                                    141
+  IRQ:                                    142
+  IRQ:                                    143
+  IRQ:                                    144
+  IRQ:                                    145
+  IRQ:                                    146
+  IRQ:                                    147
+  IRQ:                                    148
+  IRQ:                                    149
+  IRQ:                                    150
+  IRQ:                                    213
+  IRQ:                                    214
+  IRQ:                                    215
+  IRQ:                                    216
+  IRQ:                                    217
+  IRQ:                                    218
+  IRQ:                                    219
+  IRQ:                                    220
+  IRQ:                                    221
+  IRQ:                                    222
+  IRQ:                                    223
+  IRQ:                                    224
+  IRQ:                                    347
+  IRQ:                                    348
+  IRQ:                                    349
+  IRQ:                                    350
+  IRQ:                                    351
+  IRQ:                                    352
+  IRQ:                                    353
+  IRQ:                                    354
+  IRQ:                                    355
+  IRQ:                                    356
+  IRQ:                                    357
+  IRQ:                                    358
+  IRQ:                                    359
+  IRQ:                                    360
+  IRQ:                                    361
+  IRQ:                                    362
+  IRQ:                                    363
+  IRQ:                                    364
+  IRQ:                                    365
+  IRQ:                                    366
+  IRQ:                                    367
+  IRQ:                                    368
+  IRQ:                                    369
+  IRQ:                                    370
+
+Qualcomm System MMU Device ------------------------------------------------
+
+  Device Name:                            Qualcomm System MMU Device
+ [Assigned Resources]
+  Memory Location:                        03DA0000 - 03DDFFFF
+  IRQ:                                    713
+ [Alternative 1]
+  Memory Location:                        03DA0000
+  IRQ:                                    710
+  IRQ:                                    711
+  IRQ:                                    712
+  IRQ:                                    713
+  IRQ:                                    714
+  IRQ:                                    715
+  IRQ:                                    716
+
+Qualcomm Power Engine Plug-in Device --------------------------------------
+
+  Device Name:                            Qualcomm Power Engine Plug-in Device
+ [Assigned Resources]
+  IRQ:                                    538
+  IRQ:                                    540
+  IRQ:                                    37
+ [Alternative 1]
+  IRQ:                                    538
+  IRQ:                                    673
+  IRQ:                                    539
+  IRQ:                                    674
+  IRQ:                                    540
+  IRQ:                                    675
+  IRQ:                                    541
+  IRQ:                                    802
+  IRQ:                                    37
+  IRQ:                                    330
+  IRQ:                                    613
+  IRQ:                                    113
+  IRQ:                                    66
+  IRQ:                                    60
+
+Snapdragon(R) X Elite - X1E78100 - Qualcomm(R) Adreno(TM) GPU -------------
+
+  Device Name:                            Snapdragon(R) X Elite - X1E78100 - Qualcomm(R) Adreno(TM) GPU
+ [Assigned Resources]
+  Memory Location:                        0AE00000 - 0AFFFFFF
+  IRQ:                                    480
+  IRQ:                                    458
+  IRQ:                                    333
+ [Alternative 1]
+  Memory Location:                        0AE00000
+  Memory Location:                        00FD0000
+  Memory Location:                        03D00000
+  Memory Location:                        0B280000
+  Memory Location:                        0AA00000
+  Memory Location:                        15200000
+  IRQ:                                    115
+  IRQ:                                    481
+  IRQ:                                    480
+  IRQ:                                    635
+  IRQ:                                    634
+  IRQ:                                    459
+  IRQ:                                    458
+  IRQ:                                    332
+  IRQ:                                    336
+  IRQ:                                    333
+  IRQ:                                    206
+  IRQ:                                    800
+
+Qualcomm System Cache Device ----------------------------------------------
+
+  Device Name:                            Qualcomm System Cache Device
+ [Assigned Resources]
+  Memory Location:                        26200000 - 263FFFFF
+ [Alternative 1]
+  Memory Location:                        26200000 - 263FFFFF
+  IRQ:                                    298
+
+SMBIOS DMI ----------------------------------------------------------------
+
+
+BIOS ----------------------------------------------------------------------
+
+  BIOS Vendor:                            Acer
+  BIOS Version:                           1.02
+  BIOS Release Date:                      11/26/2024
+  BIOS Start Segment:                     0
+  BIOS Size:                              16384 KBytes
+  System BIOS Version:                    1.2
+  Embedded Controller Firmware Version:   0.1
+  ISA Support:                            Not Present
+  MCA Support:                            Not Present
+  EISA Support:                           Not Present
+  PCI Support:                            Not Present
+  PC Card (PCMCIA) Support:               Not Present
+  Plug-and-Play Support:                  Not Present
+  APM Support:                            Not Present
+  Flash BIOS:                             Not Present
+  BIOS Shadow:                            Not Present
+  VL-VESA Support:                        Not Present
+  ESCD Support:                           Not Present
+  Boot from CD:                           Not Present
+  Selectable Boot:                        Not Present
+  BIOS ROM Socketed:                      Not Present
+  Boot from PC Card:                      Not Present
+  EDD Support:                            Not Present
+  NEC PC-98 Support:                      Not Present
+  ACPI Support:                           Present
+  USB Legacy Support:                     Not Present
+  AGP Support:                            Not Present
+  I2O Boot Support:                       Not Present
+  LS-120 Boot Support:                    Not Present
+  ATAPI ZIP Drive Boot Support:           Not Present
+  IEE1394 Boot Support:                   Not Present
+  Smart Battery Support:                  Not Present
+  BIOS Boot Specification Support:        Not Present
+  Function key-initiated Network Service Boot Support: Present
+  Targeted Content Distribution Support:  Present
+  UEFI Specification Support:             Not Present
+  Virtual Machine:                        Not Present
+
+System --------------------------------------------------------------------
+
+  System Manufacturer:                    Acer
+  Product Name:                           SFA14-11
+  Product Version:                        2.0
+  Product Serial Number:                  UNJ0DCQ00252001D0A1W01
+  UUID:                                   {00D6CB98-0586-2025-0523-095435000000}
+  SKU Number:                             6
+  Family:                                 SFA14-11
+
+Mainboard -----------------------------------------------------------------
+
+  Mainboard Manufacturer:                 Acer
+  Mainboard Name:                         QX326 gen4
+  Mainboard Version:                      V1.3
+  Mainboard Serial Number:                04679S000363
+  Asset Tag:                              Type2 - Board Asset Tag
+  Location in chassis:                    Type2 - Board Chassis Location
+
+System Enclosure ----------------------------------------------------------
+
+  Manufacturer:                           Acer
+  Case Type:                              Notebook
+  Version:                                Chassis Version
+  Serial Number:                          ZCC01CQ0GT421002431W01
+  Asset Tag Number:                       Chassis Asset Tag
+
+Processor -----------------------------------------------------------------
+
+  Processor Manufacturer:                 Qualcomm Technologies Inc
+  Processor Version:                      Snapdragon(R) X Elite - X1E78100 - Qualcomm(R) Oryon(TM) CPU
+  External Clock:                         N/A
+  Maximum Clock Supported:                3400 MHz
+  Current Clock:                          2977 MHz
+  CPU Socket:                             Populated
+  CPU Status:                             Enabled
+  Processor Type:                         Central Processor
+  Processor Voltage:                      1.1 V
+  Processor Upgrade:                      None
+  Socket Designation:                     Qualcomm
+
+L1 Instruction Cache ------------------------------------------------------
+
+  Socket Designation:                     L1 Instruction Cache
+  Cache State:                            Enabled
+  Cache Location:                         Internal
+  Cache Type:                             L1 Instruction
+  Cache Scheme:                           Write-Through and Write-Back
+  Supported SRAM Type:                    
+  Current SRAM Type:                      
+  Cache Speed:                            Unknown
+  Error Correction Type:                  Parity
+  Maximum Cache Size:                     2304 KBytes
+  Installed Cache Size:                   2304 KBytes
+  Cache Associativity:                    16-way Set-Associative
+
+L1 Data Cache -------------------------------------------------------------
+
+  Socket Designation:                     L1 Data Cache
+  Cache State:                            Enabled
+  Cache Location:                         Internal
+  Cache Type:                             L1 Data
+  Cache Scheme:                           Write-Through and Write-Back
+  Supported SRAM Type:                    
+  Current SRAM Type:                      
+  Cache Speed:                            Unknown
+  Error Correction Type:                  Parity
+  Maximum Cache Size:                     1152 KBytes
+  Installed Cache Size:                   1152 KBytes
+  Cache Associativity:                    16-way Set-Associative
+
+L2 Cache ------------------------------------------------------------------
+
+  Socket Designation:                     L2 Cache
+  Cache State:                            Enabled
+  Cache Location:                         Internal
+  Cache Type:                             L2 Unified
+  Cache Scheme:                           Write-Through and Write-Back
+  Supported SRAM Type:                    
+  Current SRAM Type:                      
+  Cache Speed:                            Unknown
+  Error Correction Type:                  Parity
+  Maximum Cache Size:                     36864 KBytes
+  Installed Cache Size:                   36864 KBytes
+  Cache Associativity:                    8-way Set-Associative
+
+On Board Device -----------------------------------------------------------
+
+  Device Description:                     ssttw
+  Device Type:                            Audio Device
+  Device Status:                          Disabled
+
+OEM Strings ---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+System Configuration Options ----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Portable Battery ----------------------------------------------------------
+
+  Battery Location:                       1234
+  Battery Manufacturer:                   2345
+  Manufacture Date:                       3456
+  Serial Number:                          4567
+  Device Name:                            5678
+  Device Chemistry:                       Zinc Air
+  Design Capacity:                        231 mWh
+  Design Voltage:                         6 mV
+  SBDS Verison Number:                    6789
+  Max. Error in Battery Data:             8
+  SBDS Serial Number:                     9
+  SBDS Manufacture Date:                  0/18/0
+  SBDS Device Chemistry:                  7890
+
+System Boot Information ---------------------------------------------------
+
+  Boot Status:                            No error occurred
+
+TPM -----------------------------------------------------------------------
+
+  TPM Specification Version:              0.0
+  TPM Vendor:                             
+  TPM Description:                        TPM Device
+
+Memory Devices ------------------------------------------------------------
+
+
+Physical Memory Array -----------------------------------------------------
+
+  Array Location:                         System board
+  Array Use:                              System memory
+  Error Detecting Method:                 None
+  Memory Capacity:                        32 GBytes
+  Memory Devices:                         1
+
+Memory Device -------------------------------------------------------------
+
+  Total Width:                            16 bits
+  Data Width:                             16 bits
+  Device Size:                            32768 MBytes
+  Device Form Factor:                     TSOP
+  Device Locator:                         Top - on board
+  Bank Locator:                           Bank 0
+  Device Type:                            LPDDR5
+  Device Type Detail:                     
+  Memory Speed:                           7372 MT/s
+  Configured Memory Speed:                7372 MT/s
+  Manufacturer:                           
+  Serial Number:                          
+  Part Number:                            
+  Asset Tag:                              
+
+Memory Array Mapped Address -----------------------------------------------
+
+  Starting Address:                       2147483648
+  Ending Address:                         4542170581172223
+  Partition Width:                        1
+
+Memory Device Mapped Address ----------------------------------------------
+
+  Starting Address:                       00000000
+  Ending Address:                         01FFFBFF
+  Partition Row Position:                 Unknown
+  Interleave Position:                    1
+  Interleave Data Depth:                  1
+
+Port Connectors -----------------------------------------------------------
+
+
+Parallel Port PS/2 --------------------------------------------------------
+
+  Port Type:                              Parallel Port PS/2
+  Internal Reference:                     1234
+  Internal Connector Type:                DB25 pin male
+  External Reference:                     3456
+  External Connector Type:                DB-15  pin male
+
+System Slots --------------------------------------------------------------
+
+
+1234 ----------------------------------------------------------------------
+
+  Slot Designation:                       1234
+  Slot Type:                              MCA
+  Slot Usage:                             Unknown
+  Slot Data Bus Width:                    64-bit
+  Slot Length:                            Unknown
+  Base Segment:Bus:Device:Function Number: 0:4:0:6
+
+Memory --------------------------------------------------------------------
+
+ [General Information]
+  Total Memory Size:                      32 GBytes
+  Total Memory Size [MB]:                 32768
+ [Current Performance Settings]
+
+Row: 0 [Bank 0/Top - on board] - 32 GB LPDDR5 SDRAM  ----------------------
+
+ [General Row Information]
+  Row Number:                             0
+  Row Size:                               32 GBytes
+  Memory Type:                            LPDDR5 SDRAM
+  Module Type:                            LPDDR5 SDRAM
+  Error Check/Correction:                 None
+
+Bus -----------------------------------------------------------------------
+
+
+Video Adapter -------------------------------------------------------------
+
+
+Qualcomm Adreno 741 -------------------------------------------------------
+
+ [Video Chipset]
+  Video Chipset:                          Qualcomm Adreno 741
+  Video Memory:                           Unknown
+ [Video Card]
+  Video Card:                             Qualcomm Adreno X1
+  Video Bus:                              Integrated
+  GPU Type:                               Integrated
+  Video RAMDAC:                           InternalDAC
+ [Performance]
+  Graphics Processor Clock:               300.0 MHz
+  Graphics Memory Clock:                  800.0 MHz
+ [Driver Information]
+  Driver Manufacturer:                    Qualcomm Incorporated
+  Driver Description:                     Snapdragon(R) X Elite - X1E78100 - Qualcomm(R) Adreno(TM) GPU
+  Driver Provider:                        Qualcomm Incorporated
+  Driver Version:                         31.0.57.0
+  Driver Date:                            20-May-2024
+  DeviceInstanceId                        ACPI\VEN_QCOM&DEV_0C36&SUBSYS_180B1025&REV_0086\0
+  Location Paths                          ACPI(_SB_)#ACPI(GPU0)
+
+Monitor -------------------------------------------------------------------
+
+
+BOE [Unknown Model: BOE0A92] ----------------------------------------------
+
+ [General Information]
+  Monitor Name:                           BOE [Unknown Model: BOE0A92]
+  Monitor Name (Manuf):                   NE140QDM-NX2 
+  Serial Number:                          Unknown
+  Date Of Manufacture:                    Week: 19, Year: 2022
+  Monitor Hardware ID:                    Monitor\BOE0A92
+  Max. Vertical Size:                     19 cm
+  Max. Horizontal Size:                   30 cm
+  Horizontal Frequency:                   198 - 198 kHz
+  Vertical Frequency:                     48 - 120 Hz
+  Maximum Pixel Clock:                    540 MHz
+ [Advanced parameters]
+  Input Signal:                           Digital
+  Color Bit Depth:                        8 Bits per Primary Color
+  Digital Video Interface Standard Supported: DisplayPort
+  Gamma Factor:                           2.20
+ [DPMS Modes]
+  Standby:                                Not Supported
+  Suspend:                                Not Supported
+  Active Off:                             Not Supported
+  Standard Colour Space (sRGB) Default:   Not Supported
+  Preferred Timing Mode:                  Supported
+  Default GTF (Continuous Frequency):     Supported
+  DFP 1.x Compatible:                     Yes
+ [Supported Video Modes]
+  2560 x 1600                             302 x 189 mm, Pixel Clock 538.56 MHz
+  2560 x 1600                             302 x 189 mm, Pixel Clock 403.92 MHz
+ [Chromaticity Coordinates]
+  Red [x,y]:                               0.6396, 0.3301
+  Green [x,y]:                             0.2998, 0.5996
+  Blue [x,y]:                              0.1504, 0.0596
+  White [x,y]:                             0.3057, 0.3184
+ [Color Gamut]
+  sRGB Coverage:                          99.866 %
+  AdobeRGB Coverage:                      74.033 %
+  DCI-P3 Coverage:                        73.619 %
+  NTSC Coverage:                          70.733 %
+  BT.2020 Coverage:                       52.816 %
+  HDR Support:                            Not Supported
+  HDR10+ Support:                         Not Supported
+  AMD FreeSync Support:                   Not Supported
+  NVIDIA G-Sync Support:                  Not Supported
+  HDMI AdaptiveSync Support:              Not Supported
+  VESA AdaptiveSync Support:              Not Supported
+ [Driver Information]
+  Driver Manufacturer:                    Microsoft
+  Driver Description:                     Generic PnP Monitor
+  Driver Provider:                        Microsoft
+  Driver Version:                         10.0.26100.7171
+  Driver Date:                            21-Jun-2006
+  DeviceInstanceId                        DISPLAY\BOE0A92\3&2CAE6FBA&0&UID0
+  Location Paths                          ACPI(_SB_)#ACPI(GPU0)#ACPI(MON0)
+
+Drives --------------------------------------------------------------------
+
+
+(S)ATA/ATAPI Drives -------------------------------------------------------
+
+
+NVMe Drives ---------------------------------------------------------------
+
+
+KINGSTON OM8PGP41024Q-A0 --------------------------------------------------
+
+ [General Information]
+  Host Controller:                        Kingston Technology, Device ID: 501B
+  Drive Model:                            KINGSTON OM8PGP41024Q-A0
+  Drive Serial Number:                    50026B7382FAA4E2
+  Drive Firmware Revision:                ELFK0S.6
+  NVMe Version Supported:                 v1.4
+  Drive Capacity:                         976,762 MBytes (1024 GB)
+  Drive Capacity [MB]:                    976762
+  SCSI Address:                           0:0:0:0
+  Drive Letter(s):                        C:, D:
+ [Capabilities]
+  Volatile Write Cache:                   Present
+  Compare Command:                        Supported
+  Write Uncorrectable Command:            Supported
+  Dataset Management:                     Supported
+  Write Zeroes:                           Not Supported
+  Save field set to a non-zero value:     Supported
+  Reservations:                           Not Supported
+  Timestamp:                              Supported
+  Autonomous Power State Transitions:     Supported
+  Host Memory Buffer (HMB) Capability:    Supported
+  Host Memory Buffer (HMB) Minimum Size:  64 MBytes
+  Host Memory Buffer (HMB) Preferred Size: 64 MBytes
+  Host Memory Buffer (HMB) Status:        Enabled
+  Host Memory Buffer (HMB) Enabled Size:  64 MBytes
+ [I/O Command Sets]
+  NVM Command Set:                        Not Supported
+  Key Value (KV) Command Set:             Not Supported
+  Zoned Namespace (ZNS) Command Set:      Not Supported
+  Subsystem Local Memory Command Set:     Not Supported
+  Computational Programs Namespace Command Set: Not Supported
+ [Self-Monitoring, Analysis and Reporting Technology (S.M.A.R.T.)]
+  Available Space Below Threshold:        OK
+  Temperature Exceeded Critical Threshold: OK
+  Device Reliablity Degraded:             OK
+  Media In Read Only Mode:                OK
+  Volatile Memory Backup Device Failed:   OK
+  Drive Temperature:                      14 °C
+  Warning Temperature Threshold:          77 °C
+  Critical Temperature Threshold:         79 °C
+  Time Above Warning Temperature Threshold: 0 minutes
+  Time Above Critical Temperature Threshold: 0 minutes
+  Spare Capacity Available:               100%
+  Device Health:                          100%
+  Power Cycles:                           510
+  Power On Hours:                         51 hours
+  Unsafe Shutdowns:                       72
+  Media Errors:                           0
+  Total Host Reads:                       3.94 TBytes
+  Total Host Writes:                      5.65 TBytes
+
+Audio ---------------------------------------------------------------------
+
+
+Unknown or none -----------------------------------------------------------
+
+
+Network -------------------------------------------------------------------
+
+
+Qualcomm FastConnect 7800 Wi-Fi 7 High Band Simultaneous (HBS) Network Adapter
+
+ [General Information]
+  Network Card:                           Qualcomm FastConnect 7800 Wi-Fi 7 High Band Simultaneous (HBS) Network Adapter
+  Vendor Description:                     Microsoft
+  MAC Address:                            22-D6-CB-98-05-86
+ [Capabilities]
+  Maximum Link Speed:                     5764 Mbps
+  Current Link Speed:                     5764 Mbps
+  Transmit Buffer Size:                   6201344 Bytes
+  Receive Buffer Size:                    6201344 Bytes
+
+Ports ---------------------------------------------------------------------
+
+
+USB -----------------------------------------------------------------------
+
+
+Qualcomm(R) USB3(TM) eXtensible Host Controller ---------------------------
+
+
+Root Hub ------------------------------------------------------------------
+
+
+[Port1] : Genesys Logic USB 4-Port Hub ------------------------------------
+
+ [Device Information]
+  Device Manufacturer:                    Genesys Logic
+  Product Name:                           Genesys Logic USB 4-Port Hub
+  Serial Number:                          -
+  USB Version Supported:                  3.00
+  USB Speed Capable:                      USB 3.0 Gen1 (SuperSpeed)
+  USB Speed Connected:                    USB 2.0 High-speed
+  Maximum Current:                        100 mA
+  Driver Description:                     通用 USB 集线器
+  Hardware ID:                            USB\VID_05E3&PID_0610
+ [Driver Information]
+  Driver Manufacturer:                    Microsoft
+  Driver Description:                     Generic USB Hub
+  Driver Provider:                        Microsoft
+  Driver Version:                         10.0.26100.7171
+  Driver Date:                            07-Nov-2025
+  DeviceInstanceId                        USB\VID_05E3&PID_0610\4&24CB1D32&0&1
+  Location Paths                          ACPI(_SB_)#ACPI(USB3)#ACPI(RHUB)#ACPI(MP0_)
+
+[Port1] : No Device Connected ---------------------------------------------
+
+
+[Port2] : Realtek Moc Fingerprint -----------------------------------------
+
+ [Device Information]
+  Device Manufacturer:                    -
+  Product Name:                           -
+  Serial Number:                          -
+  USB Version Supported:                  2.01
+  USB Speed Capable:                      USB 2.0 High-speed
+  USB Speed Connected:                    USB 2.0 High-speed
+  Maximum Current:                        500 mA
+  Driver Description:                     Realtek Moc Fingerprint
+  Hardware ID:                            USB\VID_3274&PID_9003
+ [Driver Information]
+  Driver Manufacturer:                    Realtek Semiconductor
+  Driver Description:                     Realtek Moc Fingerprint
+  Driver Provider:                        Realtek Semiconductor
+  Driver Version:                         10.0.22621.130
+  Driver Date:                            06-Jun-2024
+  DeviceInstanceId                        USB\VID_3274&PID_9003\201801010001
+  Location Paths                          ACPI(_SB_)#ACPI(USB3)#ACPI(RHUB)#ACPI(MP0_)#USB(2)
+
+[Port3] : No Device Connected ---------------------------------------------
+
+
+[Port4] : No Device Connected ---------------------------------------------
+
+
+[Port2] : No Device Connected ---------------------------------------------
+
+
+[Port3] : Genesys Logic, PID=0626 -----------------------------------------
+
+ [Device Information]
+  Device Manufacturer:                    Genesys Logic
+  Product Name:                           Genesys Logic, PID=0626
+  Serial Number:                          -
+  USB Version Supported:                  3.20
+  USB Speed Capable:                      USB 3.2 Gen1 (SuperSpeed)
+  USB Speed Connected:                    USB 3.2 Gen1 (SuperSpeed)
+  Driver Description:                     通用 SuperSpeed USB 集线器
+  Hardware ID:                            USB\VID_05E3&PID_0626
+ [Driver Information]
+  Driver Manufacturer:                    Microsoft
+  Driver Description:                     Generic SuperSpeed USB Hub
+  Driver Provider:                        Microsoft
+  Driver Version:                         10.0.26100.7171
+  Driver Date:                            07-Nov-2025
+  DeviceInstanceId                        USB\VID_05E3&PID_0626\4&24CB1D32&0&3
+  Location Paths                          ACPI(_SB_)#ACPI(USB3)#ACPI(RHUB)#ACPI(MP2_)
+
+[Port1] : No Device Connected ---------------------------------------------
+
+
+[Port2] : No Device Connected ---------------------------------------------
+
+
+[Port3] : No Device Connected ---------------------------------------------
+
+
+[Port4] : No Device Connected ---------------------------------------------
+
+
+[Port4] : No Device Connected ---------------------------------------------
+
+
+Qualcomm(R) USB3(TM) eXtensible Host Controller ---------------------------
+
+
+Root Hub ------------------------------------------------------------------
+
+
+[Port1] : Sunplus Innovation Technology, PID=28C4 -------------------------
+
+ [Device Information]
+  Device Manufacturer:                    Sunplus Innovation Technology
+  Product Name:                           Sunplus Innovation Technology, PID=28C4
+  Serial Number:                          -
+  USB Version Supported:                  2.00
+  USB Speed Capable:                      USB 2.0 High-speed
+  USB Speed Connected:                    USB 2.0 High-speed
+  Maximum Current:                        500 mA
+  Driver Description:                     USB Composite Device
+  Hardware ID:                            USB\VID_1BCF&PID_28C4
+ [Driver Information]
+  Driver Manufacturer:                    Microsoft
+  Driver Description:                     USB Composite Device
+  Driver Provider:                        Microsoft
+  Driver Version:                         10.0.26100.7019
+  Driver Date:                            21-Jun-2006
+  DeviceInstanceId                        USB\VID_1BCF&PID_28C4\JV
+  Location Paths                          ACPI(_SB_)#ACPI(USB4)#ACPI(RHUB)#ACPI(PRT0)
+
+Smart Battery -------------------------------------------------------------
+
+
+Battery #0 ----------------------------------------------------------------
+
+ [General Properties]
+  Device Name:                            418577PV-3Skkkkkkkkk
+  Manufacturer Name:                      UTL
+  Manufacture Date:                       5-5-2024
+  Serial Number:                          1216
+  Unique ID:                              UTL1216
+  Chemistry:                              
+  Designed Capacity:                      50010 mWh
+  Full Charged Capacity:                  46690 mWh
+  Wear Level:                             6.6 %
+  Cycle Count:                            13
+ [Current Power Status]
+  Power Status:                           Discharging
+  Current Capacity:                       25680 mWh (55.0 %)
+  Current Voltage:                        11.282 V
+  Discharge Rate:                         -6628 mW
+  Temperature:                            18.7 C
