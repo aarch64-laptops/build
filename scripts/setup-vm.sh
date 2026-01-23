@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WORKDIR=/tmp/aarch64-laptops
 EFIBOOTDIR=/boot/efi/EFI/BOOT
