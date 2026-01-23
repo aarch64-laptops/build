@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20250404 (32-bit version)
- * Copyright (c) 2000 - 2025 Intel Corporation
+ * AML/ASL+ Disassembler version 20240322 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
  * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of ./dsdt.dat
+ * Disassembly of dsdt.dat
  *
  * Original Table Header:
  *     Signature        "DSDT"
